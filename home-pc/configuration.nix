@@ -180,6 +180,7 @@ in
       maven
       gradle
       arduino-cli
+      gh # GitHub CLI tool
       bluez
       playerctl
       glow # Render markdown on the CLI
