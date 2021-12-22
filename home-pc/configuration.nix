@@ -235,8 +235,9 @@ in
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
+      # enableSSHSupport = true;
     };
+    ssh.startAgent = true; # Start ssh-agent as a systemd user service
     slock.enable = true;
     autojump.enable = true;
     git.enable = true;
