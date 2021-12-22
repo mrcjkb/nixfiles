@@ -87,7 +87,10 @@ in
     };
     # Enable CUPS to print documents.
     printing.enable = true;
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+    };
     onedrive.enable = true;
     upower.enable = true;
   };
@@ -214,7 +217,11 @@ in
       starship
       jq
     ];
-    variables.EDITOR = "nvim";
+    variables = {
+      EDITOR = "nvim";
+      XDG_RUNTIME_DIR = "/run/user/${builtins.toString config.users.users.mrcjk.uid}";
+      XDG_RUNTIIME_DIR = "/run/user/${builtins.toString config.users.users.mrcjk.uid}";
+    };
   };
 
   nixpkgs.overlays = [
@@ -236,9 +243,9 @@ in
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
-      # enableSSHSupport = true;
+      enableSSHSupport = true;
     };
-    ssh.startAgent = true; # Start ssh-agent as a systemd user service
+    # ssh.startAgent = true; # Start ssh-agent as a systemd user service
     slock.enable = true;
     autojump.enable = true;
     git.enable = true;
