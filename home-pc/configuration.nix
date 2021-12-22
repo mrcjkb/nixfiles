@@ -219,8 +219,6 @@ in
     ];
     variables = {
       EDITOR = "nvim";
-      XDG_RUNTIME_DIR = "/run/user/${builtins.toString config.users.users.mrcjk.uid}";
-      XDG_RUNTIIME_DIR = "/run/user/${builtins.toString config.users.users.mrcjk.uid}";
     };
   };
 
