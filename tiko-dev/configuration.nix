@@ -200,6 +200,7 @@ in
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
       haskellPackages.hoogle
+      haskellPackages.implicit-hie
       haskell-language-server
       #
       rnix-lsp # Nix language server
