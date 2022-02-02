@@ -200,7 +200,7 @@ in
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
       haskellPackages.hoogle
-      haskellPackages.implicit-hie
+      haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       haskell-language-server
       #
       rnix-lsp # Nix language server
