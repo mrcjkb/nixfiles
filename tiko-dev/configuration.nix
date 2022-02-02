@@ -34,7 +34,7 @@ in
   };
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -94,9 +94,9 @@ in
     };
     onedrive.enable = true;
     upower.enable = true;
-    #openvpn.servers = {
-    #  officeVPN = { config = '' config /root/nixos/openvpn/officeVPN.conf ''; };
-    #};
+    openvpn.servers = {
+     officeVPN = { config = '' config /home/mrcjk/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; };
+    };
     gvfs.enable = true; # MTP support for PCManFM
   };
 
@@ -148,7 +148,7 @@ in
     systemPackages = with pkgs; [
       unstable.neovim
       unstable.neovim-remote
-      vimPlugins.packer-nvim
+      unstable.vimPlugins.packer-nvim
       alacritty
       xterm # xmonad default terminal
       xmobar
@@ -162,15 +162,17 @@ in
       simplescreenrecorder
       zoom-us
       slack
+      teams
       jetbrains.idea-ultimate
       inkscape-with-extensions
       gimp
       libreoffice
+      qemu
       virt-manager
-      nextcloud-client
       teamviewer
       vscodium
       blueman
+      bluez
       libsForQt5.filelight
       gparted
       gpick
@@ -184,6 +186,7 @@ in
       docker
       texlive.combined.scheme-full
       biber
+      # Haskell
       stack
       ghc
       cabal-install
@@ -193,29 +196,29 @@ in
       # haskellPackages.summoner-tui
       haskellPackages.hoogle
       haskell-language-server
-      rnix-lsp
+      #
+      rnix-lsp # Nix language server
+      nodePackages.pyright
       python-language-server
       sumneko-lua-language-server
       nodePackages.vim-language-server
       nodePackages.yaml-language-server
       nodePackages.dockerfile-language-server-nodejs
-      nodePackages.pyright
       rust-analyzer
       pandoc
       onedrive
       redshift
-      rofi
       ant
       maven
       gradle
       arduino-cli
       gh # GitHub CLI tool
-      bluez
       playerctl
       glow # Render markdown on the CLI
       imagemagick
       home-manager
       wget
+      curl
       bat
       whois
       youtube-dl
@@ -224,19 +227,16 @@ in
       silver-searcher
       neofetch
       neomutt
-      ueberzug
+      ueberzug # Display images in terminal
+      feh # Fast and light image viewer
       zip
       unzip
       exa
-      qemu
-      feh
-      curl
-      nitrogen
-      autorandr
-      picom
+      nitrogen # Wallpaper browser/setter for X11
+      autorandr # Automatic xrandr configurations
+      picom # Compositor
       brightnessctl
-      autorandr
-      upower
+      upower # D-Bus service for power management
       dmenu # Expected by xmonad
       fzf
       killall
@@ -244,9 +244,12 @@ in
       libnotify
       autojump
       z-lua
-      starship
-      jq
+      starship # Fish theme
+      jq # JSON processor
       jmtpfs # MTP (Android phone) support
+      dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
+      patchelf # Determine/modify dynamic linker and RPATH of ELF executables
+      binutils # Tools for manipulating binaries
     ];
     variables = {
       EDITOR = "nvim";
