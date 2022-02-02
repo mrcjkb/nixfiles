@@ -95,7 +95,10 @@ in
     onedrive.enable = true;
     upower.enable = true;
     openvpn.servers = {
-     officeVPN = { config = '' config /home/mrcjk/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; };
+      officeVPN = { 
+        config = '' config /home/mrcjk/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; 
+        updateResolvConf = true;
+      };
     };
     gvfs.enable = true; # MTP support for PCManFM
   };
@@ -118,24 +121,26 @@ in
     };
   };
 
-  home-manager.users.mrcjk = {
-    programs = {
-      git = {
-        enable = true;
-        userName = "Marc Jakobi";
-        userEmail = "marc.jakobi@tiko.energy";
-        signing = {
-          key = "F31C0D0D5BBB0289";
-        };
-        aliases = {
-          config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
-        };
-        extraConfig = {
-          merge = {
-            tool = "vscodium";
+  home-manager = {
+    users.mrcjk = {
+      programs = {
+        git = {
+          enable = true;
+          userName = "Marc Jakobi";
+          userEmail = "marc.jakobi@tiko.energy";
+          signing = {
+            key = "F31C0D0D5BBB0289";
           };
-          pull = {
-            rebase = true;
+          aliases = {
+            config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+          };
+          extraConfig = {
+            merge = {
+              tool = "vscodium";
+            };
+            pull = {
+              rebase = true;
+            };
           };
         };
       };
@@ -250,6 +255,10 @@ in
       dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
       patchelf # Determine/modify dynamic linker and RPATH of ELF executables
       binutils # Tools for manipulating binaries
+      dig
+      nmap
+      update-systemd-resolved
+      # end of package list
     ];
     variables = {
       EDITOR = "nvim";
