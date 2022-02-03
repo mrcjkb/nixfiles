@@ -202,6 +202,9 @@ in
       haskellPackages.hoogle
       haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       haskell-language-server
+      # Java
+      jdk8
+      jdk11
       #
       rnix-lsp # Nix language server
       nodePackages.pyright
@@ -259,6 +262,12 @@ in
       dig
       nmap
       update-systemd-resolved
+      pscircle # Generate process tree visualizations
+      xclip # Required so that neovim compiles with clipboard support
+      haskellPackages.greenclip # Screenshots
+      prometheus
+      prometheus-node-exporter
+      grafana
       # end of package list
     ];
     variables = {
@@ -302,11 +311,24 @@ in
     roboto
   ];
 
+  # Systemd services
+  systemd.user.services."pscircle-feh" = {
+    enable = true;
+    description = "Generate a process tree wallpaper";
+    wantedBy = [ "graphical.target" ];
+    serviceConfig = {
+      environment = "DISPLAY=:0";
+      ExecStart = ''
+        bash -c "while true; do pscircle --output=$HOME/pscircle.png && feh --bg-scale $HOME/pscircle.png; sleep 60; done"
+      '';
+    };
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networking.firewall.epnable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
