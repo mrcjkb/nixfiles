@@ -146,6 +146,17 @@ in
           };
         };
       };
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Materia-dark";
+          package = pkgs.materia-theme;
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+      };
     };
   };
 
@@ -269,6 +280,7 @@ in
       update-systemd-resolved
       pscircle # Generate process tree visualizations
       xclip # Required so that neovim compiles with clipboard support
+      dconf # Required to set GTK theme in home-manager
       nodePackages.yarn # Required by markdown-preview vim plugin
       haskellPackages.greenclip # Screenshots
       prometheus
