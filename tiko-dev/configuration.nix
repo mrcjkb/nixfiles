@@ -98,6 +98,7 @@ in
       officeVPN = { 
         config = '' config /home/mrcjk/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; 
         updateResolvConf = true;
+        autoStart = false;
       };
     };
     gvfs.enable = true; # MTP support for PCManFM
