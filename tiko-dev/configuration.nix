@@ -86,6 +86,8 @@ in
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
     };
+    # Enable blueman if the DE does not provide a bluetooth management GUI.
+    blueman.enable = true;
     # Enable CUPS to print documents.
     printing.enable = true;
     openssh = {
@@ -106,7 +108,10 @@ in
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    pulseaudio.enable = true;
+    bluetooth.enable = true;
+  };
 
   users = {
     defaultUserShell = pkgs.fish;
@@ -191,8 +196,6 @@ in
       teamviewer
       vscodium
       pavucontrol
-      blueman
-      bluez
       libsForQt5.filelight
       gparted
       gpick
