@@ -141,6 +141,8 @@ in
             pull = {
               rebase = true;
             };
+            # Force SSH instead of HTTPS:
+            # url."ssh://git@github.com/".insteadOf = "https://github.com/";
           };
         };
       };
@@ -176,6 +178,7 @@ in
       virt-manager
       teamviewer
       vscodium
+      pavucontrol
       blueman
       bluez
       libsForQt5.filelight
@@ -187,7 +190,8 @@ in
       calibre # ebook reader
       chrysalis # Kaleidoscope keyboard graphical frontend
       python310
-      lua
+      unstable.lua
+      ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       docker
       texlive.combined.scheme-full
       biber
@@ -203,7 +207,7 @@ in
       haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       haskell-language-server
       # Java
-      jdk8
+      # jdk8
       jdk11
       #
       rnix-lsp # Nix language server
@@ -247,6 +251,7 @@ in
       brightnessctl
       upower # D-Bus service for power management
       dmenu # Expected by xmonad
+      gxmessage # Used by xmonad to show help
       fzf
       killall
       xorg.xkill
@@ -264,14 +269,32 @@ in
       update-systemd-resolved
       pscircle # Generate process tree visualizations
       xclip # Required so that neovim compiles with clipboard support
+      nodePackages.yarn # Required by markdown-preview vim plugin
       haskellPackages.greenclip # Screenshots
       prometheus
       prometheus-node-exporter
       grafana
+      vault
+      sops
+      git-crypt
       # end of package list
     ];
-    variables = {
+    sessionVariables = rec {
+      XDG_CACHE_HOME = "\${HOME}/.cache";
+      XDG_CONFIG_HOME = "\${HOME}/.config";
+      XDG_BIN_HOME = "\${HOME}/.local/bin";
+      XDG_DATA_HOME = "\${HOME}/.local/share";
+      XDG_RUNTIME_DIR = "/run/user/1000";
       EDITOR = "nvim";
+      BROWSER = "brave";
+      TZ = "Europe/Berlin";
+      VAULT_ADDR = "https://vault.internal.tiko.ch";
+      # RANGER_ZLUA = "${z-lua}/bin/z.lua"; # FIXME
+      BAT_THEME = "Material-darker";
+      GRADLE_HOME = "\${HOME}/.gradle";
+      OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
+      SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
+      WORKSPACE = "\${HOME}/.workspace";
     };
   };
 
