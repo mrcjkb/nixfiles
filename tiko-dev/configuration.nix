@@ -68,10 +68,10 @@ in
       # xkbOptions = "eurosign:e";
       # Enable the GNOME Desktop Environment.
       # desktopManager.gnome.enable = true;
-      displayManager = {
-        lightdm.enable = true;
-        defaultSession = "none+xmonad";
-      };
+      # displayManager = {
+      #   lightdm.enable = true;
+      #   defaultSession = "none+xmonad";
+      # };
       windowManager = {
         xmonad = {
           enable = true;
@@ -170,6 +170,7 @@ in
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      cachix # Nix package caching
       unstable.neovim
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
