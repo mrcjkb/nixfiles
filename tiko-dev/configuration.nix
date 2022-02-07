@@ -185,6 +185,8 @@ in
       unstable.neovim
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
+      tree-sitter # Required by Neovim
+      gcc
       alacritty
       xterm # xmonad default terminal
       xmobar
@@ -217,6 +219,9 @@ in
       calibre # ebook reader
       chrysalis # Kaleidoscope keyboard graphical frontend
       python310
+      python310Packages.pynvim # Python neovim client
+      python310Packages.ueberzug # Used by rnvvimr ranger plugin
+      python310Packages.json-rpc # Used by rnvvimr ranger plugin
       unstable.lua
       ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       docker
@@ -266,7 +271,8 @@ in
       whois
       youtube-dl
       plantuml
-      ripgrep
+      ripgrep # Fast (Rust) re-implementation of grep
+      fd # Fast alternative to find
       silver-searcher
       neofetch
       neomutt
@@ -300,6 +306,7 @@ in
       pscircle # Generate process tree visualizations
       xclip # Required so that neovim compiles with clipboard support
       dconf # Required to set GTK theme in home-manager
+      nodejs
       nodePackages.yarn # Required by markdown-preview vim plugin
       haskellPackages.greenclip # Screenshots
       prometheus
