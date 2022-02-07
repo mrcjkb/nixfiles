@@ -19,6 +19,17 @@ in
     # Allow unfree/proprietary packages
     allowUnfree = true;
     # allowBroken = true;
+    packageOverrides = pkgs: {
+      # Nix User Repository
+      nur = import (builtins.fetchTarball {
+        # Choose the revision from https://github.com/nix-community/NUR/commits/master
+        url = "https://github.com/nix-community/NUR/archive/94985a0cb2480bcae34203e6b855b2f068843246.tar.gz";
+        # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
+        sha256 = "0mb06d275y1jx1rys9m58xp7zi6r201i6m5haj322v5i3lda4zs4";
+      }) {
+        inherit pkgs;
+      };
+    };
   };
 
   # Boot loader
@@ -225,6 +236,9 @@ in
       # Java
       # jdk8
       jdk11
+      # Eclipse Java language server
+      # (from mrcpkgs NUR package, managed by Marc Jakobi)
+      nur.repos.mrcpkgs.eclipse-jdt-language-server
       #
       rnix-lsp # Nix language server
       nodePackages.pyright
