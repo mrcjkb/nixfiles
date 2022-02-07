@@ -180,6 +180,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
+
     systemPackages = with pkgs; [
       cachix # Nix package caching
       unstable.neovim
@@ -217,11 +218,12 @@ in
       xsane
       yed
       calibre # ebook reader
+      (python310.withPackages (pythonPackages: with pythonPackages; [
+        pynvim # Python NeoVim integration
+        ueberzug # Image previews (used by rnvimr ranger plugin)
+        json-rpc # Used by rnvimr ranger plugin
+      ]))
       chrysalis # Kaleidoscope keyboard graphical frontend
-      python310
-      python310Packages.pynvim # Python neovim client
-      python310Packages.ueberzug # Used by rnvvimr ranger plugin
-      python310Packages.json-rpc # Used by rnvvimr ranger plugin
       unstable.lua
       ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       docker
