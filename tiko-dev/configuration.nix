@@ -7,6 +7,7 @@
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; }; # TODO: Fetch tarball
+  defaultUser = "mrcjk"; # Default user account
 in
 {
   imports =
@@ -79,10 +80,16 @@ in
       # xkbOptions = "eurosign:e";
       # Enable the GNOME Desktop Environment.
       # desktopManager.gnome.enable = true;
-      # displayManager = {
-      #   lightdm.enable = true;
-      #   defaultSession = "none+xmonad";
-      # };
+      displayManager = {
+        lightdm = {
+          enable = true;
+          greeters.mini = {
+            enable = true;
+            user = defaultUser;
+          };
+        };
+        defaultSession = "none+xmonad";
+      };
       windowManager = {
         xmonad = {
           enable = true;
@@ -109,7 +116,7 @@ in
     upower.enable = true;
     openvpn.servers = {
       officeVPN = { 
-        config = '' config /home/mrcjk/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; 
+        config = '' config /home/${defaultUser}/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; 
         updateResolvConf = true;
         autoStart = false;
       };
@@ -127,7 +134,7 @@ in
   users = {
     defaultUserShell = pkgs.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.mrcjk = {
+    users."${defaultUser}" = {
       isNormalUser = true;
       extraGroups = [ 
         "wheel" # Enable ‘sudo’ for the user. 
@@ -139,7 +146,7 @@ in
   };
 
   home-manager = {
-    users.mrcjk = {
+    users."${defaultUser}" = {
       programs = {
         git = {
           enable = true;
