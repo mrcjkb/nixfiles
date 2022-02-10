@@ -252,6 +252,9 @@ in
       haskellPackages.hoogle
       haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       unstable.haskell-language-server
+      # Rust
+      unstable.rust-analyzer
+      unstable.crate2nix
       # Java
       # jdk8
       jdk11
@@ -266,7 +269,6 @@ in
       nodePackages.vim-language-server
       nodePackages.yaml-language-server
       nodePackages.dockerfile-language-server-nodejs
-      rust-analyzer
       pandoc
       onedrive
       redshift
@@ -322,7 +324,8 @@ in
       dconf # Required to set GTK theme in home-manager
       nodejs
       nodePackages.yarn # Required by markdown-preview vim plugin
-      haskellPackages.greenclip # Screenshots
+      haskellPackages.greenclip # Clipboard manager for use with rofi
+      scrot # A command-line screen capture utility
       # tiko-related
       vault
       sops
