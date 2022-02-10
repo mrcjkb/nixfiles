@@ -201,8 +201,8 @@ in
       simplescreenrecorder
       zoom-us
       slack
-      teams
-      jetbrains.idea-ultimate
+      teams # The Linux version of Teams seems to have some issues
+      # jetbrains.idea-ultimate
       inkscape-with-extensions
       gimp
       libreoffice
@@ -221,7 +221,6 @@ in
       (python310.withPackages (pythonPackages: with pythonPackages; [
         pynvim # Python NeoVim integration
         ueberzug # Image previews (used by rnvimr ranger plugin)
-        json-rpc # Used by rnvimr ranger plugin
       ]))
       chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.lua
@@ -239,7 +238,7 @@ in
       # haskellPackages.summoner-tui
       haskellPackages.hoogle
       haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
-      haskell-language-server
+      unstable.haskell-language-server
       # Java
       # jdk8
       jdk11
@@ -277,12 +276,12 @@ in
       fd # Fast alternative to find
       silver-searcher
       neofetch
-      neomutt
+      # neomutt # E-mail 
       ueberzug # Display images in terminal
       feh # Fast and light image viewer
       zip
       unzip
-      exa
+      exa # Replacement for ls
       nitrogen # Wallpaper browser/setter for X11
       autorandr # Automatic xrandr configurations
       picom # Compositor
@@ -302,7 +301,7 @@ in
       dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
       patchelf # Determine/modify dynamic linker and RPATH of ELF executables
       binutils # Tools for manipulating binaries
-      dig
+      dig # Domain information groper
       nmap
       update-systemd-resolved
       pscircle # Generate process tree visualizations
@@ -311,12 +310,14 @@ in
       nodejs
       nodePackages.yarn # Required by markdown-preview vim plugin
       haskellPackages.greenclip # Screenshots
-      prometheus
-      prometheus-node-exporter
-      grafana
+      # tiko-related
       vault
       sops
       git-crypt
+      # Useful for development - experimentation
+      prometheus
+      prometheus-node-exporter
+      grafana
       # end of package list
     ];
     sessionVariables = rec {
@@ -372,6 +373,7 @@ in
     nerdfonts
     jetbrains-mono
     roboto
+    lato # Font used in tiko presentations, etc.
   ];
 
   # Systemd services
