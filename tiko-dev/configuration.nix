@@ -86,6 +86,12 @@ in
           greeters.mini = {
             enable = true;
             user = defaultUser;
+            extraConfig = ''
+              [greeter]
+              show-password-label = false
+              [greeter-theme]
+              background-image = ""
+            '';
           };
         };
         defaultSession = "none+xmonad";
