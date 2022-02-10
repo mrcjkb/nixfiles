@@ -195,6 +195,10 @@ in
   environment = {
 
     systemPackages = with pkgs; [
+      # Create flakes-enabled alias for nix
+      (pkgs.writeShellScriptBin "nixFlakes" ''
+        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
+      '')
       cachix # Nix package caching
       unstable.neovim
       unstable.neovim-remote
