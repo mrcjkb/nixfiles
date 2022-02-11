@@ -205,6 +205,7 @@ in
       unstable.vimPlugins.packer-nvim
       tree-sitter # Required by Neovim
       gcc
+      gnumake
       alacritty
       xterm # xmonad default terminal
       xmobar
