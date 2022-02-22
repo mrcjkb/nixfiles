@@ -400,6 +400,16 @@ in
     lato # Font used in tiko presentations, etc.
   ];
 
+  # Binary Cache for Haskell.nix
+  nix = {
+    binaryCachePublicKeys = [
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+    ];
+    binaryCaches = [
+      "https://hydra.iohk.io"
+    ];
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
