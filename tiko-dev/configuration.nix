@@ -400,19 +400,6 @@ in
     lato # Font used in tiko presentations, etc.
   ];
 
-  # Systemd services
-  systemd.user.services."pscircle-feh" = {
-    enable = true;
-    description = "Generate a process tree wallpaper";
-    wantedBy = [ "graphical.target" ];
-    serviceConfig = {
-      environment = "DISPLAY=:0";
-      ExecStart = ''
-        bash -c "while true; do pscircle --output=$HOME/pscircle.png && feh --bg-scale $HOME/pscircle.png; sleep 60; done"
-      '';
-    };
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
