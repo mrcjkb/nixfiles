@@ -257,6 +257,7 @@ in
       haskellPackages.hoogle
       haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       unstable.haskell-language-server
+      niv # Easy dependency management for Nix projects
       # Rust
       unstable.rust-analyzer
       unstable.crate2nix
