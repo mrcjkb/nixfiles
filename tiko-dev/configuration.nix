@@ -303,7 +303,8 @@ in
       unzip
       exa # Replacement for ls
       nitrogen # Wallpaper browser/setter for X11
-      autorandr # Automatic xrandr configurations
+      autorandr # Automatic XRandR configurations
+      arandr # A simple visual front end for XRandR
       picom # Compositor
       brightnessctl
       upower # D-Bus service for power management
@@ -331,6 +332,7 @@ in
       nodePackages.yarn # Required by markdown-preview vim plugin
       haskellPackages.greenclip # Clipboard manager for use with rofi
       scrot # A command-line screen capture utility
+      mpv-unwrapped # Media player
       # tiko-related
       vault
       sops
