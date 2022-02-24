@@ -6,7 +6,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; }; # TODO: Fetch tarball
+  unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
   defaultUser = "mrcjk"; # Default user account
 in
 {
@@ -18,7 +18,7 @@ in
 
   nixpkgs.config = {
     # Allow unfree/proprietary packages
-    allowUnfree = true;
+    # allowUnfree = true;
     # allowBroken = true;
     packageOverrides = pkgs: {
       # Nix User Repository
@@ -166,7 +166,7 @@ in
           };
           extraConfig = {
             merge = {
-              tool = "vscodium";
+              tool = "codium";
             };
             pull = {
               rebase = true;
@@ -217,16 +217,12 @@ in
       firefox
       shutter # Screenshots
       simplescreenrecorder
-      zoom-us
-      slack
-      teams # The Linux version of Teams seems to have some issues
-      # jetbrains.idea-ultimate
       inkscape-with-extensions
       gimp
       libreoffice
       qemu
       virt-manager
-      teamviewer
+      # teamviewer
       vscodium
       pavucontrol
       libsForQt5.filelight
@@ -234,7 +230,6 @@ in
       gpick
       skanlite
       xsane
-      yed
       calibre # ebook reader
       (python310.withPackages (pythonPackages: with pythonPackages; [
         pynvim # Python NeoVim integration
@@ -342,6 +337,12 @@ in
       prometheus
       prometheus-node-exporter
       grafana
+      # Unfree software
+      # yed 
+      # zoom-us
+      # slack
+      # teams # The Linux version of Teams seems to have some issues. Better to use the browser version.
+      # jetbrains.idea-ultimate
       # end of package list
     ];
     sessionVariables = rec {
