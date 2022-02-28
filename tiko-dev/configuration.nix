@@ -329,6 +329,7 @@ in
       haskellPackages.greenclip # Clipboard manager for use with rofi
       scrot # A command-line screen capture utility
       mpv-unwrapped # Media player
+      pdftk # Command-line tool for working with PDFs
       # tiko-related
       vault
       sops
@@ -403,11 +404,19 @@ in
 
   # Binary Cache for Haskell.nix
   nix = {
+    binaryCaches = [ 
+      "https://cache.nixos.org"
+      "s3://tiko-nix-cache?region=eu-central-1"
+      "http://hydra.tiko.ch/"
+      "https://iohk.cachix.org"
+      "https://hydra.iohk.io"
+    ];
     binaryCachePublicKeys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-    ];
-    binaryCaches = [
-      "https://hydra.iohk.io"
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "hydra.tiko.ch:q8EX+cmvjysdFOPttZEl30cMv5tnB2dddkwrC61qdA4="
+      "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
     ];
   };
 
