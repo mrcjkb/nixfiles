@@ -30,6 +30,8 @@ in
       }) {
         inherit pkgs;
       };
+      xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
+      # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
     };
   };
 
@@ -128,6 +130,10 @@ in
       };
     };
     gvfs.enable = true; # MTP support for PCManFM
+    avahi = { # To find network scanners
+      enable = true;
+      nssmdns = true;
+    };
   };
 
   # Enable sound.
@@ -135,6 +141,13 @@ in
   hardware = {
     pulseaudio.enable = true;
     bluetooth.enable = true;
+    sane = {
+      enable = true; # Scanner support
+      extraBackends = [ 
+        pkgs.sane-airscan # Driverless scanning support
+        # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
+      ]; 
+    };
   };
 
   users = {
@@ -147,6 +160,8 @@ in
         "networkmanager"
         "video"
         "docker"
+        "scanner"
+        "lp"
       ]; 
     };
   };
@@ -229,7 +244,6 @@ in
       gparted
       gpick
       skanlite
-      xsane
       calibre # ebook reader
       (python310.withPackages (pythonPackages: with pythonPackages; [
         pynvim # Python NeoVim integration
@@ -310,7 +324,7 @@ in
       killall
       xorg.xkill
       libnotify
-      autojump
+      # autojump # replaced with z-lua
       z-lua
       starship # Fish theme
       jq # JSON processor
