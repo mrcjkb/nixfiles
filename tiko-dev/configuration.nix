@@ -225,8 +225,8 @@ in
       xterm # xmonad default terminal
       xmobar
       rofi
-      ranger
-      pcmanfm
+      ranger # TUI file browser
+      pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       keepassxc
       brave
       firefox
@@ -237,13 +237,13 @@ in
       libreoffice
       qemu
       virt-manager
-      # teamviewer
       vscodium
-      pavucontrol
+      pavucontrol # PulseAudio volume control
       libsForQt5.filelight
       gparted
-      gpick
-      skanlite
+      xcolor # Color picker
+      skanlite # Lightweight sane frontend
+      xsane # Sane frontend (advanced)
       calibre # ebook reader
       (python310.withPackages (pythonPackages: with pythonPackages; [
         pynvim # Python NeoVim integration
@@ -286,10 +286,10 @@ in
       nodePackages.dockerfile-language-server-nodejs
       pandoc
       onedrive
-      redshift
-      ant
-      maven
-      gradle
+      redshift # Blue light filter
+      # ant
+      # maven
+      # gradle
       arduino-cli
       gh # GitHub CLI tool
       playerctl
@@ -298,14 +298,14 @@ in
       home-manager
       wget
       curl
-      bat
+      bat # cat with syntax highlighting
       whois
       youtube-dl
       plantuml
       ripgrep # Fast (Rust) re-implementation of grep
       fd # Fast alternative to find
-      silver-searcher
-      neofetch
+      silver-searcher # Fast search
+      neofetch # System information CLI
       # neomutt # E-mail 
       ueberzug # Display images in terminal
       feh # Fast and light image viewer
@@ -316,16 +316,16 @@ in
       autorandr # Automatic XRandR configurations
       arandr # A simple visual front end for XRandR
       picom # Compositor
-      brightnessctl
+      brightnessctl # Brightness control CLI
       upower # D-Bus service for power management
       dmenu # Expected by xmonad
       gxmessage # Used by xmonad to show help
-      fzf
+      fzf # Fuzzy search
       killall
-      xorg.xkill
-      libnotify
+      xorg.xkill # Kill X windows with the cursor
+      libnotify # Desktop notifications
       # autojump # replaced with z-lua
-      z-lua
+      z-lua # Fast alternative to autojump
       starship # Fish theme
       jq # JSON processor
       jmtpfs # MTP (Android phone) support
@@ -358,6 +358,7 @@ in
       # slack
       # teams # The Linux version of Teams seems to have some issues. Better to use the browser version.
       # jetbrains.idea-ultimate
+      # teamviewer
       # end of package list
     ];
     sessionVariables = rec {
