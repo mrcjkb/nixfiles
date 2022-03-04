@@ -293,7 +293,7 @@ in
       arduino-cli
       gh # GitHub CLI tool
       playerctl
-      glow # Render markdown on the CLI
+      glow # Render markdown on the command-line
       imagemagick
       home-manager
       wget
