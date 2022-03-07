@@ -344,6 +344,7 @@ in
       scrot # A command-line screen capture utility
       mpv-unwrapped # Media player
       pdftk # Command-line tool for working with PDFs
+      cloc # Count lines of code
       # tiko-related
       vault
       sops
