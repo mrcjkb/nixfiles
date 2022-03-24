@@ -345,6 +345,9 @@ in
       mpv-unwrapped # Media player
       pdftk # Command-line tool for working with PDFs
       cloc # Count lines of code
+      mdp # A command-line based markdown presentation tool
+      android-tools
+      android-udev-rules
       # tiko-related
       vault
       sops
@@ -419,12 +422,13 @@ in
   ];
 
   # Binary Cache for Haskell.nix
+  # Note: To nixos-rebuild, pass `--opton substitue false` when not connected to Tiko VPN
   nix = {
     binaryCaches = [ 
       "https://cache.nixos.org"
+      "https://iohk.cachix.org"
       "s3://tiko-nix-cache?region=eu-central-1"
       "http://hydra.tiko.ch/"
-      "https://iohk.cachix.org"
       "https://hydra.iohk.io"
     ];
     binaryCachePublicKeys = [
