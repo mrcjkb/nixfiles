@@ -286,6 +286,7 @@ in
       nodePackages.dockerfile-language-server-nodejs
       pandoc
       onedrive
+      unstable.nextcloud-client
       redshift # Blue light filter
       # ant
       # maven
