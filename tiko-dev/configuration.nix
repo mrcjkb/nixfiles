@@ -347,8 +347,6 @@ in
       pdftk # Command-line tool for working with PDFs
       cloc # Count lines of code
       mdp # A command-line based markdown presentation tool
-      android-tools
-      android-udev-rules
       # tiko-related
       vault
       sops
