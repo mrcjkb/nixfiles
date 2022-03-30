@@ -230,6 +230,7 @@ in
       keepassxc
       brave
       firefox
+      joplin # Joblin (notes) CLI client
       shutter # Screenshots
       simplescreenrecorder
       inkscape-with-extensions
