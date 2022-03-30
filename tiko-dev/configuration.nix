@@ -230,7 +230,8 @@ in
       keepassxc
       brave
       firefox
-      joplin # Joblin (notes) CLI client
+      unstable.joplin # Joblin (notes) CLI client
+      unstable.joplin-desktop # Joblin (notes, desktop app)
       shutter # Screenshots
       simplescreenrecorder
       inkscape-with-extensions
