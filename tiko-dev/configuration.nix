@@ -134,6 +134,8 @@ in
       enable = true;
       nssmdns = true;
     };
+    # Yubikey
+    udev.packages = [ pkgs.yubikey-personalization ];
   };
 
   # Enable sound.
@@ -218,28 +220,29 @@ in
       unstable.neovim
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
-      tree-sitter # Required by Neovim
+      unstable.tree-sitter # Required by Neovim
       gcc
       gnumake
-      alacritty
+      unstable.alacritty
       xterm # xmonad default terminal
-      xmobar
-      rofi
-      ranger # TUI file browser
-      pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-      keepassxc
-      brave
-      firefox
+      unstable.xmobar
+      unstable.rofi
+      unstable.ranger # TUI file browser
+      unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
+      unstable.keepassxc
+      unstable.brave
+      unstable.firefox
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
-      shutter # Screenshots
-      simplescreenrecorder
-      inkscape-with-extensions
-      gimp
-      libreoffice
-      qemu
-      virt-manager
-      vscodium
+      unstable.yubioath-desktop # Yubico Authenticator
+      unstable.shutter # Screenshots
+      unstable.simplescreenrecorder
+      unstable.inkscape-with-extensions
+      unstable.gimp
+      # unstable.libreoffice
+      # qemu
+      # virt-manager
+      # unstable.vscodium
       pavucontrol # PulseAudio volume control
       libsForQt5.filelight
       gparted
@@ -253,20 +256,20 @@ in
       ]))
       chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.lua
-      ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
+      unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       docker
       texlive.combined.scheme-full
       biber
       # Haskell
-      stack
-      ghc
-      cabal-install
-      cabal2nix
+      unstable.stack
+      unstable.ghc
+      unstable.cabal-install
+      unstable.cabal2nix
       # stack2nix # Broken
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
-      haskellPackages.hoogle
-      haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
+      unstable.haskellPackages.hoogle
+      unstable.haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       unstable.haskell-language-server
       niv # Easy dependency management for Nix projects
       # Rust
@@ -280,13 +283,13 @@ in
       nur.repos.mrcpkgs.eclipse-jdt-language-server
       #
       rnix-lsp # Nix language server
-      nodePackages.pyright
-      python-language-server
-      sumneko-lua-language-server
-      nodePackages.vim-language-server
-      nodePackages.yaml-language-server
-      nodePackages.dockerfile-language-server-nodejs
-      pandoc
+      unstable.nodePackages.pyright
+      unstable.python-language-server
+      unstable.sumneko-lua-language-server
+      unstable.nodePackages.vim-language-server
+      unstable.nodePackages.yaml-language-server
+      unstable.nodePackages.dockerfile-language-server-nodejs
+      unstable.pandoc
       onedrive
       unstable.nextcloud-client
       redshift # Blue light filter
@@ -294,9 +297,9 @@ in
       # maven
       # gradle
       arduino-cli
-      gh # GitHub CLI tool
+      unstable.gh # GitHub CLI tool
       playerctl
-      glow # Render markdown on the command-line
+      unstable.glow # Render markdown on the command-line
       imagemagick
       home-manager
       wget
@@ -305,16 +308,16 @@ in
       whois
       youtube-dl
       plantuml
-      ripgrep # Fast (Rust) re-implementation of grep
-      fd # Fast alternative to find
+      unstable.ripgrep # Fast (Rust) re-implementation of grep
+      unstable.fd # Fast alternative to find
       silver-searcher # Fast search
       neofetch # System information CLI
       # neomutt # E-mail 
-      ueberzug # Display images in terminal
-      feh # Fast and light image viewer
+      unstable.ueberzug # Display images in terminal
+      unstable.feh # Fast and light image viewer
       zip
       unzip
-      exa # Replacement for ls
+      unstable.exa # Replacement for ls
       nitrogen # Wallpaper browser/setter for X11
       autorandr # Automatic XRandR configurations
       arandr # A simple visual front end for XRandR
@@ -322,18 +325,18 @@ in
       brightnessctl # Brightness control CLI
       upower # D-Bus service for power management
       dmenu # Expected by xmonad
-      gxmessage # Used by xmonad to show help
-      fzf # Fuzzy search
+      unstable.gxmessage # Used by xmonad to show help
+      unstable.fzf # Fuzzy search
       killall
       xorg.xkill # Kill X windows with the cursor
       libnotify # Desktop notifications
       # autojump # replaced with z-lua
-      z-lua # Fast alternative to autojump
-      starship # Fish theme
+      unstable.z-lua # Fast alternative to autojump
+      unstable.starship # Fish theme
       jq # JSON processor
       jmtpfs # MTP (Android phone) support
-      dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
-      patchelf # Determine/modify dynamic linker and RPATH of ELF executables
+      # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
+      # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
       binutils # Tools for manipulating binaries
       dig # Domain information groper
       nmap
@@ -341,14 +344,16 @@ in
       pscircle # Generate process tree visualizations
       xclip # Required so that neovim compiles with clipboard support
       dconf # Required to set GTK theme in home-manager
-      nodejs
-      nodePackages.yarn # Required by markdown-preview vim plugin
-      haskellPackages.greenclip # Clipboard manager for use with rofi
-      scrot # A command-line screen capture utility
+      # nodejs
+      unstable.nodePackages.yarn # Required by markdown-preview vim plugin
+      unstable.haskellPackages.greenclip # Clipboard manager for use with rofi
+      unstable.scrot # A command-line screen capture utility
       mpv-unwrapped # Media player
       pdftk # Command-line tool for working with PDFs
       cloc # Count lines of code
       mdp # A command-line based markdown presentation tool
+      kcat # A generic non-JVM producer and consumer for Apache Kafka
+      libsForQt5.qtkeychain
       # tiko-related
       vault
       sops
@@ -383,6 +388,11 @@ in
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
     };
+
+    shellInit = ''
+      export GPG_TTY="$(tty)"
+      gpg-connect-agent /bye
+    '';
   };
 
   nixpkgs.overlays = [
@@ -406,7 +416,7 @@ in
       enable = true;
       enableSSHSupport = true;
     };
-    # ssh.startAgent = true; # Start ssh-agent as a systemd user service
+    ssh.startAgent = false; # Start ssh-agent as a systemd user service
     slock.enable = true;
     autojump.enable = true;
     git.enable = true;
