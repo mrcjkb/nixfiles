@@ -344,7 +344,7 @@ in
       pscircle # Generate process tree visualizations
       xclip # Required so that neovim compiles with clipboard support
       dconf # Required to set GTK theme in home-manager
-      # nodejs
+      unstable.nodejs
       unstable.nodePackages.yarn # Required by markdown-preview vim plugin
       unstable.haskellPackages.greenclip # Clipboard manager for use with rofi
       unstable.scrot # A command-line screen capture utility
