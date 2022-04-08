@@ -234,7 +234,7 @@ in
       unstable.firefox
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
-      unstable.yubioath-desktop # Yubico Authenticator
+      yubioath-desktop # Yubico Authenticator
       unstable.shutter # Screenshots
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
@@ -353,7 +353,11 @@ in
       cloc # Count lines of code
       mdp # A command-line based markdown presentation tool
       kcat # A generic non-JVM producer and consumer for Apache Kafka
-      libsForQt5.qtkeychain
+      # A library for storing and retrieving passwords and other secrets
+      # (secret-tool can be used to look up secrets from the keyring)
+      libsecret 
+      openssl
+      usbutils
       # tiko-related
       vault
       sops
