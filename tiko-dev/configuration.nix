@@ -135,6 +135,7 @@ in
       nssmdns = true;
     };
     # Yubikey
+    pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
   };
 
@@ -212,6 +213,7 @@ in
   environment = {
 
     systemPackages = with pkgs; [
+      (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
       # Create flakes-enabled alias for nix
       (pkgs.writeShellScriptBin "nixFlakes" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
@@ -239,6 +241,8 @@ in
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
       unstable.gimp
+      unstable.signal-desktop
+      unstable.signal-cli
       # unstable.libreoffice
       # qemu
       # virt-manager
@@ -358,6 +362,10 @@ in
       libsecret 
       openssl
       usbutils
+      gnupg
+      pinentry-curses
+      pinentry-qt
+      paperkey
       # tiko-related
       vault
       sops
@@ -428,6 +436,12 @@ in
     tmux.enable = true;
     traceroute.enable = true;
   };
+
+  security.pam.yubico = {
+   enable = true;
+   debug = true;
+   mode = "challenge-response";
+ };
 
   fonts.fonts = with pkgs; [
     nerdfonts
