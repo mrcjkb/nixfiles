@@ -137,6 +137,70 @@ in
     # Yubikey
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
+    searx = {
+      enable = true;
+      settings = {
+        use_default_settings = true;
+        general = {
+          instance_name = "Marc's searx";
+        };
+        search = {
+          safe_search = 1; # 0 = None, 1 = Moderate, 2 = Strict
+          autocomplete = "google"; # Existing autocomplete backends: "dbpedia", "duckduckgo", "google", "startpage", "swisscows", "qwant", "wikipedia" - leave blank to turn it off by default
+          default_lang = "en";
+        };
+        server = {
+          secret_key = "U-ON-SJ[crJCwUb!#&bQ)00aI3|7\'L9hpQUoLtk$vr9\"xME|NS7Ptm@J\>sj=0W";
+        };
+        ui = {
+          default_theme = "oscar";
+          default_locale = "en";
+        };
+        outgoing = {
+          request_timeout = 10.0;
+        };
+        engines = [
+          {
+            name = "archwiki";
+            engine = "archlinux";
+            shortcut = "aw";
+          }
+          {
+            name = "wikipedia";
+            engine = "wikipedia";
+            shortcut = "w";
+            base_url = "https://wikipedia.org/";
+          }
+          {
+            name = "duckduckgo";
+            engine = "duckduckgo";
+            shortcut = "ddg";
+          }
+          {
+            name = "github";
+            engine = "github";
+            shortcut = "gh";
+          }
+          {
+            name = "google";
+            engine = "google";
+            shortcut = "g";
+            use_mobile_ui = false;
+          }
+          {
+            name = "hoogle";
+            engine = "xpath";
+            search_url = "https://hoogle.haskell.org/?hoogle={query}&start={pageno}";
+            results_xpath = "//div[@class=\"result\"]";
+            title_xpath = "./div[@class=\"ans\"]";
+            url_xpath = "./div[@class=\"ans\"]//a/@href";
+            content_xpath = "./div[contains(@class, \"doc\")]";
+            categories = "it";
+            shortcut = "h";
+          }
+        ];
+      };
+    };
   };
 
   # Enable sound.
@@ -243,6 +307,7 @@ in
       unstable.gimp
       unstable.signal-desktop
       unstable.signal-cli
+      unstable.searx
       # unstable.libreoffice
       # qemu
       # virt-manager
@@ -254,7 +319,7 @@ in
       skanlite # Lightweight sane frontend
       xsane # Sane frontend (advanced)
       calibre # ebook reader
-      (python310.withPackages (pythonPackages: with pythonPackages; [
+      (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
         pynvim # Python NeoVim integration
         ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
@@ -437,10 +502,17 @@ in
     traceroute.enable = true;
   };
 
-  security.pam.yubico = {
-   enable = true;
-   debug = true;
-   mode = "challenge-response";
+  security.pam = {
+    u2f.enable = true;
+    yubico = {
+     enable = true;
+     debug = true;
+     mode = "challenge-response";
+   };
+   services = {
+     login.u2fAuth = true;
+     slock.u2fAuth = true;
+   };
  };
 
   fonts.fonts = with pkgs; [
