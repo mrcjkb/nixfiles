@@ -289,7 +289,7 @@ in
       unstable.tree-sitter # Required by Neovim
       gcc
       gnumake
-      unstable.alacritty
+      alacritty
       xterm # xmonad default terminal
       unstable.xmobar
       unstable.rofi
