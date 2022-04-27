@@ -24,9 +24,9 @@ in
       # Nix User Repository
       nur = import (builtins.fetchTarball {
         # Choose the revision from https://github.com/nix-community/NUR/commits/master
-        url = "https://github.com/nix-community/NUR/archive/94985a0cb2480bcae34203e6b855b2f068843246.tar.gz";
+        url = "https://github.com/nix-community/NUR/archive/49a1c265007ea4d3388de8ee0065808758b33244.tar.gz";
         # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-        sha256 = "0mb06d275y1jx1rys9m58xp7zi6r201i6m5haj322v5i3lda4zs4";
+        sha256 = "1csv7yv5qgq5bw6iybbxlnwl9rws5wyahlk17r5z4rraia7gfqjg";
       }) {
         inherit pkgs;
       };
@@ -293,14 +293,17 @@ in
       xterm # xmonad default terminal
       unstable.xmobar
       unstable.rofi
-      unstable.ranger # TUI file browser
+      # ranger # TUI file browser -- Currently replaced with NUR package ranger-fm
+      librsvg # Small SVG rendering library
+      odt2txt
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       unstable.keepassxc
       unstable.brave
       unstable.firefox
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
-      yubioath-desktop # Yubico Authenticator
+      yubioath-desktop # Yubico Authenticator Desktop app
+      yubikey-manager # Yubico Authenticator CLI
       unstable.shutter # Screenshots
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
@@ -320,8 +323,7 @@ in
       xsane # Sane frontend (advanced)
       calibre # ebook reader
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
-        pynvim # Python NeoVim integration
-        ueberzug # Image previews (used by rnvimr ranger plugin)
+        # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
       chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.lua
@@ -350,6 +352,7 @@ in
       # Eclipse Java language server
       # (from mrcpkgs NUR package, managed by Marc Jakobi)
       nur.repos.mrcpkgs.eclipse-jdt-language-server
+      nur.repos.mrcpkgs.ranger-fm
       #
       rnix-lsp # Nix language server
       unstable.nodePackages.pyright
@@ -380,6 +383,8 @@ in
       unstable.ripgrep # Fast (Rust) re-implementation of grep
       unstable.fd # Fast alternative to find
       silver-searcher # Fast search
+      file
+      moreutils
       neofetch # System information CLI
       # neomutt # E-mail 
       unstable.ueberzug # Display images in terminal
