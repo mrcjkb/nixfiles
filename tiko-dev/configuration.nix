@@ -24,9 +24,9 @@ in
       # Nix User Repository
       nur = import (builtins.fetchTarball {
         # Choose the revision from https://github.com/nix-community/NUR/commits/master
-        url = "https://github.com/nix-community/NUR/archive/49a1c265007ea4d3388de8ee0065808758b33244.tar.gz";
+        url = "https://github.com/nix-community/NUR/archive/e167db205c81b1f737f8f545278bfb05a0b4fc67.tar.gz";
         # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-        sha256 = "1csv7yv5qgq5bw6iybbxlnwl9rws5wyahlk17r5z4rraia7gfqjg";
+        sha256 = "02lwqs2i06zhhzq5nswd7gl6xka45c737km5ixs55say2pmyzfvk";
       }) {
         inherit pkgs;
       };
@@ -293,7 +293,7 @@ in
       xterm # xmonad default terminal
       unstable.xmobar
       unstable.rofi
-      # ranger # TUI file browser -- Currently replaced with NUR package ranger-fm
+      unstable.ranger # TUI file browser
       librsvg # Small SVG rendering library
       odt2txt
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
@@ -349,10 +349,6 @@ in
       # Java
       # jdk8
       jdk11
-      # Eclipse Java language server
-      # (from mrcpkgs NUR package, managed by Marc Jakobi)
-      nur.repos.mrcpkgs.eclipse-jdt-language-server
-      nur.repos.mrcpkgs.ranger-fm
       #
       rnix-lsp # Nix language server
       unstable.nodePackages.pyright
@@ -363,7 +359,6 @@ in
       unstable.nodePackages.dockerfile-language-server-nodejs
       unstable.pandoc
       onedrive
-      unstable.nextcloud-client
       redshift # Blue light filter
       # ant
       # maven
@@ -429,13 +424,19 @@ in
       kcat # A generic non-JVM producer and consumer for Apache Kafka
       # A library for storing and retrieving passwords and other secrets
       # (secret-tool can be used to look up secrets from the keyring)
-      libsecret 
       openssl
       usbutils
       gnupg
       pinentry-curses
       pinentry-qt
       paperkey
+      #### NUR packages ###
+      # Eclipse Java language server
+      # (from mrcpkgs NUR package, managed by Marc Jakobi)
+      # XXX Note: It may be necessary to update the nur tarball if a package is not found.
+      nur.repos.mrcpkgs.eclipse-jdt-language-server
+      nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
+      nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
       # tiko-related
       vault
       sops
