@@ -24,9 +24,9 @@ in
       # Nix User Repository
       nur = import (builtins.fetchTarball {
         # Choose the revision from https://github.com/nix-community/NUR/commits/master
-        url = "https://github.com/nix-community/NUR/archive/e167db205c81b1f737f8f545278bfb05a0b4fc67.tar.gz";
+        url = "https://github.com/nix-community/NUR/archive/656fcff0df4dcfe6b2a1222853d3939e0689660f.tar.gz";
         # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-        sha256 = "02lwqs2i06zhhzq5nswd7gl6xka45c737km5ixs55say2pmyzfvk";
+        sha256 = "17awz985jh51v8v83gpa746c5ph50c3aqlvi6vs858p4q25inc1i";
       }) {
         inherit pkgs;
       };
