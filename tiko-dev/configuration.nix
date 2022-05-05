@@ -330,6 +330,7 @@ in
       (unstable.lua.withPackages (luapkgs: with luapkgs; [
         luacheck
         plenary-nvim
+        luacov
       ]))
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       docker
