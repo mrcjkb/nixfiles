@@ -1,4 +1,5 @@
 # Edit this configuration file to define what should be installed on
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -326,10 +327,11 @@ in
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
       chrysalis # Kaleidoscope keyboard graphical frontend
-      unstable.lua
+      (unstable.lua.withPackages (luapkgs: with luapkgs; [
+        luacheck
+        plenary-nvim
+      ]))
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
-      unstable.luajitPackages.luacheck
-      unstable.luajitPackages.plenary-nvim
       docker
       texlive.combined.scheme-full
       biber
