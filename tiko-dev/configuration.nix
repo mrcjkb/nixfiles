@@ -328,6 +328,8 @@ in
       chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.lua
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
+      unstable.luajitPackages.luacheck
+      unstable.luajitPackages.plenary-nvim
       docker
       texlive.combined.scheme-full
       biber
