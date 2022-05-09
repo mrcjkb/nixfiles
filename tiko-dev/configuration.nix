@@ -312,6 +312,7 @@ in
       unstable.signal-desktop
       unstable.signal-cli
       unstable.searx
+      unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
       # unstable.libreoffice
       # qemu
       # virt-manager
