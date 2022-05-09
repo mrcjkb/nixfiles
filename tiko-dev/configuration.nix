@@ -7,6 +7,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  nur-revision = "da216d5e95ce674d36f6ad6bb759c5afb77eb757";
   unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
   defaultUser = "mrcjk"; # Default user account
 in
@@ -25,9 +26,9 @@ in
       # Nix User Repository
       nur = import (builtins.fetchTarball {
         # Choose the revision from https://github.com/nix-community/NUR/commits/master
-        url = "https://github.com/nix-community/NUR/archive/656fcff0df4dcfe6b2a1222853d3939e0689660f.tar.gz";
+        url = "https://github.com/nix-community/NUR/archive/${nur-revision}.tar.gz";
         # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-        sha256 = "17awz985jh51v8v83gpa746c5ph50c3aqlvi6vs858p4q25inc1i";
+        sha256 = "1ca8zsn1l88cls3k97xn4fddwsn8yfqkkywl7xp588giwvk3xcv9";
       }) {
         inherit pkgs;
       };
