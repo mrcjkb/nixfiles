@@ -289,6 +289,7 @@ in
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
       unstable.tree-sitter # Required by Neovim
+      sqlite # Required by neovim sqlite plugin
       gcc
       gnumake
       alacritty
