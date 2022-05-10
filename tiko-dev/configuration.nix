@@ -479,6 +479,7 @@ in
       OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
+      LIBSQLITE_CLIB_PATH = "${pkgs.sqlite.out}/lib/libsqlite3.so";
     };
 
     shellInit = ''
