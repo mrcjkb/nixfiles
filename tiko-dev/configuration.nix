@@ -326,6 +326,7 @@ in
       skanlite # Lightweight sane frontend
       xsane # Sane frontend (advanced)
       calibre # ebook reader
+      unstable.haskellPackages.network-manager-tui
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
@@ -361,7 +362,7 @@ in
       #
       rnix-lsp # Nix language server
       unstable.nodePackages.pyright
-      unstable.python-language-server
+      python-language-server
       unstable.sumneko-lua-language-server
       unstable.nodePackages.vim-language-server
       unstable.nodePackages.yaml-language-server
