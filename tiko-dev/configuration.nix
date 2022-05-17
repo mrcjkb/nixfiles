@@ -39,7 +39,14 @@ in
 
   # Boot loader
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot = {
+      enable = true;
+      # Disallow editing the kernel command-line befor boot
+      # Enabling this allows gaining root access by passing init=/bin/sh as a kernel parameter
+      editor = false; 
+      # Maximum number of latest generations in the boot menu.
+      configurationLimit = 50;
+    };
     #grub.enable = true;
     #grub.version = 2;
     # grub.efiSupport = true;
@@ -118,8 +125,13 @@ in
     blueman.enable = true;
     # Enable CUPS to print documents.
     printing.enable = true;
+    avahi = { # To find network scanners
+      enable = true;
+      nssmdns = true;
+    };
     openssh = {
       enable = true;
+      # Authenticate using file specified in ses-admin.ovpn
       passwordAuthentication = false;
     };
     onedrive.enable = true;
@@ -132,19 +144,17 @@ in
       };
     };
     gvfs.enable = true; # MTP support for PCManFM
-    avahi = { # To find network scanners
-      enable = true;
-      nssmdns = true;
-    };
     # Yubikey
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
-    searx = {
+    searx = { # Meta search-engine
       enable = true;
+      package = unstable.searx;
       settings = {
         use_default_settings = true;
         general = {
           instance_name = "Marc's searx";
+          debug = false;
         };
         search = {
           safe_search = 1; # 0 = None, 1 = Moderate, 2 = Strict
@@ -160,6 +170,7 @@ in
         };
         outgoing = {
           request_timeout = 10.0;
+          useragent_suffix = "sx";
         };
         engines = [
           {
@@ -246,11 +257,17 @@ in
             key = "F31C0D0D5BBB0289";
           };
           aliases = {
+            # For managing dotfiles, see: https://www.atlassian.com/git/tutorials/dotfiles
             config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
           };
           extraConfig = {
             merge = {
-              tool = "codium";
+              tool = "fugitive";
+            };
+            mergetool = {
+              fugitive = {
+                cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+              };
             };
             pull = {
               rebase = true;
@@ -264,11 +281,11 @@ in
         enable = true;
         theme = {
           name = "Materia-dark";
-          package = pkgs.materia-theme;
+          package = unstable.materia-theme;
         };
         iconTheme = {
           name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
+          package = unstable.papirus-icon-theme;
         };
       };
     };
@@ -289,7 +306,7 @@ in
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
       unstable.tree-sitter # Required by Neovim
-      sqlite # Required by neovim sqlite plugin
+      sqlite # Required by neovim sqlite plugin - FIXME
       gcc
       gnumake
       alacritty
@@ -313,12 +330,10 @@ in
       unstable.gimp
       unstable.signal-desktop
       unstable.signal-cli
-      unstable.searx
       unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
       # unstable.libreoffice
       # qemu
       # virt-manager
-      # unstable.vscodium
       pavucontrol # PulseAudio volume control
       libsForQt5.filelight
       gparted
@@ -326,7 +341,6 @@ in
       skanlite # Lightweight sane frontend
       xsane # Sane frontend (advanced)
       calibre # ebook reader
-      unstable.haskellPackages.network-manager-tui
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
@@ -368,7 +382,6 @@ in
       unstable.nodePackages.yaml-language-server
       unstable.nodePackages.dockerfile-language-server-nodejs
       unstable.pandoc
-      onedrive
       redshift # Blue light filter
       # ant
       # maven
@@ -523,7 +536,7 @@ in
     u2f.enable = true;
     yubico = {
      enable = true;
-     debug = true;
+     debug = false;
      mode = "challenge-response";
    };
    services = {
