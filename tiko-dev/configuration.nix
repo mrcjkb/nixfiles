@@ -536,7 +536,7 @@ in
     u2f.enable = true;
     yubico = {
      enable = true;
-     debug = false;
+     debug = true;
      mode = "challenge-response";
    };
    services = {
