@@ -374,6 +374,7 @@ in
       # jdk8
       jdk11
       #
+      ruby
       rnix-lsp # Nix language server
       unstable.nodePackages.pyright
       python-language-server
