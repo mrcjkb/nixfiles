@@ -364,6 +364,7 @@ in
       # haskellPackages.summoner-tui
       unstable.haskellPackages.hoogle
       unstable.haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
+      unstable.haskellPackages.hlint
       unstable.haskell-language-server
       unstable.stylish-haskell
       niv # Easy dependency management for Nix projects
