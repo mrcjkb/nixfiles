@@ -463,6 +463,7 @@ in
       nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
       nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
       # tiko-related
+      unstable.lens # Kubernetes IDE
       vault
       sops
       git-crypt
