@@ -314,16 +314,16 @@ in
       unstable.xmobar
       unstable.rofi
       unstable.ranger # TUI file browser
-      librsvg # Small SVG rendering library
-      odt2txt
+      unstable.librsvg # Small SVG rendering library
+      unstable.odt2txt
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       unstable.keepassxc
       unstable.brave
       unstable.firefox
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
-      yubioath-desktop # Yubico Authenticator Desktop app
-      yubikey-manager # Yubico Authenticator CLI
+      unstable.yubioath-desktop # Yubico Authenticator Desktop app
+      unstable.yubikey-manager # Yubico Authenticator CLI
       unstable.shutter # Screenshots
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
@@ -334,24 +334,24 @@ in
       # unstable.libreoffice
       # qemu
       # virt-manager
-      pavucontrol # PulseAudio volume control
-      libsForQt5.filelight
-      gparted
-      xcolor # Color picker
-      skanlite # Lightweight sane frontend
-      xsane # Sane frontend (advanced)
-      calibre # ebook reader
+      unstable.pavucontrol # PulseAudio volume control
+      unstable.libsForQt5.filelight
+      unstable.gparted
+      unstable.xcolor # Color picker
+      unstable.skanlite # Lightweight sane frontend
+      unstable.xsane # Sane frontend (advanced)
+      unstable.calibre # ebook reader
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
-      chrysalis # Kaleidoscope keyboard graphical frontend
+      unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       (unstable.lua.withPackages (luapkgs: with luapkgs; [
         luacheck
         plenary-nvim
         luacov
       ]))
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
-      docker
+      unstable.docker
       texlive.combined.scheme-full
       biber
       # Haskell
@@ -367,7 +367,7 @@ in
       unstable.haskellPackages.hlint
       unstable.haskell-language-server
       unstable.stylish-haskell
-      niv # Easy dependency management for Nix projects
+      unstable.niv # Easy dependency management for Nix projects
       # Rust
       unstable.rust-analyzer
       unstable.crate2nix
@@ -375,50 +375,50 @@ in
       # jdk8
       jdk11
       #
-      ruby
-      rnix-lsp # Nix language server
+      unstable.ruby
+      unstable.rnix-lsp # Nix language server
       unstable.nodePackages.pyright
-      python-language-server
+      unstable.python-language-server
       unstable.sumneko-lua-language-server
       unstable.nodePackages.vim-language-server
       unstable.nodePackages.yaml-language-server
       unstable.nodePackages.dockerfile-language-server-nodejs
       unstable.pandoc
-      redshift # Blue light filter
+      unstable.redshift # Blue light filter
       # ant
       # maven
       # gradle
-      arduino-cli
+      unstable.arduino-cli
       unstable.gh # GitHub CLI tool
-      playerctl
+      unstable.playerctl
       unstable.glow # Render markdown on the command-line
-      imagemagick
+      unstable.imagemagick
       home-manager
       wget
       curl
-      bat # cat with syntax highlighting
-      whois
-      youtube-dl
-      plantuml
+      unstable.bat # cat with syntax highlighting
+      unstable.whois
+      unstable.youtube-dl
+      unstable.plantuml
       unstable.ripgrep # Fast (Rust) re-implementation of grep
       unstable.fd # Fast alternative to find
-      silver-searcher # Fast search
+      unstable.silver-searcher # Fast search
       file
-      moreutils
-      neofetch # System information CLI
+      unstable.moreutils
+      unstable.neofetch # System information CLI
       # neomutt # E-mail 
       unstable.ueberzug # Display images in terminal
       unstable.feh # Fast and light image viewer
       zip
       unzip
       unstable.exa # Replacement for ls
-      nitrogen # Wallpaper browser/setter for X11
-      autorandr # Automatic XRandR configurations
-      arandr # A simple visual front end for XRandR
-      picom # Compositor
+      unstable.nitrogen # Wallpaper browser/setter for X11
+      unstable.autorandr # Automatic XRandR configurations
+      unstable.arandr # A simple visual front end for XRandR
+      unstable.picom # Compositor
       brightnessctl # Brightness control CLI
       upower # D-Bus service for power management
-      dmenu # Expected by xmonad
+      unstable.dmenu # Expected by xmonad
       unstable.gxmessage # Used by xmonad to show help
       unstable.fzf # Fuzzy search
       killall
@@ -427,31 +427,31 @@ in
       # autojump # replaced with z-lua
       unstable.z-lua # Fast alternative to autojump
       unstable.starship # Fish theme
-      jq # JSON processor
-      jmtpfs # MTP (Android phone) support
+      unstable.jq # JSON processor
+      unstable.jmtpfs # MTP (Android phone) support
       # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
       # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
-      binutils # Tools for manipulating binaries
-      dig # Domain information groper
+      unstable.binutils # Tools for manipulating binaries
+      unstable.dig # Domain information groper
       nmap
       update-systemd-resolved
-      pscircle # Generate process tree visualizations
-      xclip # Required so that neovim compiles with clipboard support
-      dconf # Required to set GTK theme in home-manager
+      unstable.pscircle # Generate process tree visualizations
+      unstable.xclip # Required so that neovim compiles with clipboard support
+      unstable.dconf # Required to set GTK theme in home-manager
       unstable.nodejs
       unstable.nodePackages.yarn # Required by markdown-preview vim plugin
       unstable.haskellPackages.greenclip # Clipboard manager for use with rofi
       unstable.scrot # A command-line screen capture utility
-      mpv-unwrapped # Media player
-      pdftk # Command-line tool for working with PDFs
-      cloc # Count lines of code
-      mdp # A command-line based markdown presentation tool
-      kcat # A generic non-JVM producer and consumer for Apache Kafka
+      unstable.mpv-unwrapped # Media player
+      unstable.pdftk # Command-line tool for working with PDFs
+      unstable.cloc # Count lines of code
+      unstable.mdp # A command-line based markdown presentation tool
+      unstable.kcat # A generic non-JVM producer and consumer for Apache Kafka
       # A library for storing and retrieving passwords and other secrets
       # (secret-tool can be used to look up secrets from the keyring)
       openssl
-      usbutils
-      gnupg
+      unstable.usbutils
+      unstable.gnupg
       pinentry-curses
       pinentry-qt
       paperkey
