@@ -6,7 +6,10 @@
 { config, pkgs, lib, vimUtils, ... }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/620ed197f3624dafa5f42e61d5c043f39b8df366.tar.gz";
+    sha256 = "sha256-BoBvGT71yOfrNDTZQs7+FX0zb4yjMBETgIjtTsdJw+o=";
+  };
   nur-revision = "da216d5e95ce674d36f6ad6bb759c5afb77eb757";
   unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
   defaultUser = "mrcjk"; # Default user account
