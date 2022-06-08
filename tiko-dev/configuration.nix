@@ -466,7 +466,8 @@ in
       nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
       nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
       # tiko-related
-      unstable.lens # Kubernetes IDE
+      # unstable.lens # Kubernetes IDE
+      unstable.kubernetes-helm
       vault
       sops
       git-crypt
@@ -521,9 +522,9 @@ in
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs = {
-    fish = {
-      enable = true;
-    };
+    # fish = {
+    #   enable = true;
+    # };
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
