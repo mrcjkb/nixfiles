@@ -41,22 +41,26 @@ in
   };
 
   # Boot loader
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      # Disallow editing the kernel command-line befor boot
-      # Enabling this allows gaining root access by passing init=/bin/sh as a kernel parameter
-      editor = false; 
-      # Maximum number of latest generations in the boot menu.
-      configurationLimit = 50;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        # Disallow editing the kernel command-line befor boot
+        # Enabling this allows gaining root access by passing init=/bin/sh as a kernel parameter
+        editor = false; 
+        # Maximum number of latest generations in the boot menu.
+        configurationLimit = 50;
+      };
+      #grub.enable = true;
+      #grub.version = 2;
+      # grub.efiSupport = true;
+      # grub.efiInstallAsRemovable = true;
+      # efi.efiSysMountPoint = "/boot/efi";
+      # Define on which hard drive you want to install Grub.
+      #grub.device = "/dev/sda"; # or "nodev" for efi only
     };
-    #grub.enable = true;
-    #grub.version = 2;
-    # grub.efiSupport = true;
-    # grub.efiInstallAsRemovable = true;
-    # efi.efiSysMountPoint = "/boot/efi";
-    # Define on which hard drive you want to install Grub.
-    #grub.device = "/dev/sda"; # or "nodev" for efi only
+    cleanTmpDir = true;
+    tmpOnTmpfs = true;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
