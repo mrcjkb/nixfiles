@@ -348,6 +348,7 @@ in
       unstable.skanlite # Lightweight sane frontend
       unstable.xsane # Sane frontend (advanced)
       unstable.calibre # ebook reader
+      unstable.xournalpp # notetaking software with PDF annotation support
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
@@ -543,17 +544,31 @@ in
     traceroute.enable = true;
   };
 
-  security.pam = {
-    u2f.enable = true;
-    yubico = {
-     enable = true;
-     debug = true;
-     mode = "challenge-response";
-   };
-   services = {
-     login.u2fAuth = true;
-     slock.u2fAuth = true;
-   };
+  virtualisation.docker.enable = true;
+
+  security = {
+    pam = {
+      u2f.enable = true;
+      yubico = {
+        enable = true;
+        debug = true;
+        mode = "challenge-response";
+      };
+      services = {
+        login.u2fAuth = true;
+        slock.u2fAuth = true;
+      };
+    };
+    sudo.extraRules = [
+      { 
+        users = [defaultUser];
+        commands = [ 
+          # Rules so that officeVPN service can be started and stopped without entering a password
+          { command = "/run/current-system/sw/bin/systemctl stop openvpn-officeVPN"; options = [ "SETENV" "NOPASSWD" ]; }
+          { command = "/run/current-system/sw/bin/systemctl start openvpn-officeVPN"; options = [ "SETENV" "NOPASSWD" ]; } 
+        ];
+      }
+    ];
  };
 
   fonts.fonts = with pkgs; [
