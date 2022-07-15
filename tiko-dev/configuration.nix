@@ -128,6 +128,16 @@ in
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
     };
+    picom = {
+      enable = true;
+      activeOpacity = 1.0;
+      inactiveOpacity = 0.8;
+      backend = "glx";
+      fade = true;
+      fadeDelta = 5;
+      shadow = true;
+      shadowOpacity = 0.75;
+    };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
     # Enable CUPS to print documents.
@@ -423,7 +433,6 @@ in
       unstable.nitrogen # Wallpaper browser/setter for X11
       unstable.autorandr # Automatic XRandR configurations
       unstable.arandr # A simple visual front end for XRandR
-      unstable.picom # Compositor
       brightnessctl # Brightness control CLI
       upower # D-Bus service for power management
       unstable.dmenu # Expected by xmonad
