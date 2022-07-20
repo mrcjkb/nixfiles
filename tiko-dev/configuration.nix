@@ -316,12 +316,41 @@ in
       (pkgs.writeShellScriptBin "nixFlakes" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
       '')
-      cachix # Nix package caching
-      unstable.neovim
+
+      ### NeovVim dependencies
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
-      unstable.tree-sitter # Required by Neovim
-      sqlite # Required by neovim sqlite plugin - FIXME
+      unstable.tree-sitter 
+      unstable.sqlite # Required by neovim sqlite plugin - FIXME
+      (unstable.lua.withPackages (luapkgs: with luapkgs; [
+                                  luacheck
+                                  plenary-nvim
+                                  luacov
+      ]))
+      unstable.haskellPackages.hoogle
+      unstable.haskellPackages.hlint
+      unstable.haskell-language-server
+      unstable.haskellPackages.haskell-debug-adapter
+      unstable.stylish-haskell
+      unstable.rust-analyzer
+      unstable.rnix-lsp # Nix language server
+      unstable.nodePackages.pyright
+      unstable.python-language-server
+      unstable.sumneko-lua-language-server
+      unstable.nodePackages.vim-language-server
+      unstable.nodePackages.yaml-language-server
+      unstable.nodePackages.dockerfile-language-server-nodejs
+      unstable.glow # Render markdown on the command-line
+      unstable.bat # cat with syntax highlighting
+      unstable.ueberzug # Display images in terminal
+      unstable.feh # Fast and light image viewer
+      unstable.fzf # Fuzzy search
+      unstable.xclip # Required so that neovim compiles with clipboard support
+      unstable.jdt-language-server
+      ### End ov NeoVim dependencies
+
+      cachix # Nix package caching
+      unstable.neovim
       gcc
       gnumake
       alacritty
@@ -343,6 +372,7 @@ in
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
       unstable.gimp
+      unstable.wireshark
       unstable.signal-desktop
       unstable.signal-cli
       unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
@@ -361,11 +391,6 @@ in
         # ueberzug # Image previews (used by rnvimr ranger plugin)
       ]))
       unstable.chrysalis # Kaleidoscope keyboard graphical frontend
-      (unstable.lua.withPackages (luapkgs: with luapkgs; [
-        luacheck
-        plenary-nvim
-        luacov
-      ]))
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       unstable.docker
       texlive.combined.scheme-full
@@ -378,27 +403,15 @@ in
       # stack2nix # Broken
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
-      unstable.haskellPackages.hoogle
       unstable.haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
-      unstable.haskellPackages.hlint
-      unstable.haskell-language-server
-      unstable.stylish-haskell
       unstable.niv # Easy dependency management for Nix projects
       # Rust
-      unstable.rust-analyzer
       unstable.crate2nix
       # Java
       # jdk8
       jdk11
       #
       unstable.ruby
-      unstable.rnix-lsp # Nix language server
-      unstable.nodePackages.pyright
-      unstable.python-language-server
-      unstable.sumneko-lua-language-server
-      unstable.nodePackages.vim-language-server
-      unstable.nodePackages.yaml-language-server
-      unstable.nodePackages.dockerfile-language-server-nodejs
       unstable.pandoc
       unstable.redshift # Blue light filter
       # ant
@@ -407,12 +420,10 @@ in
       unstable.arduino-cli
       unstable.gh # GitHub CLI tool
       unstable.playerctl
-      unstable.glow # Render markdown on the command-line
       unstable.imagemagick
       home-manager
       wget
       curl
-      unstable.bat # cat with syntax highlighting
       unstable.whois
       unstable.youtube-dl
       unstable.plantuml
@@ -423,8 +434,6 @@ in
       unstable.moreutils
       unstable.neofetch # System information CLI
       # neomutt # E-mail 
-      unstable.ueberzug # Display images in terminal
-      unstable.feh # Fast and light image viewer
       zip
       unzip
       unstable.exa # Replacement for ls
@@ -435,7 +444,6 @@ in
       upower # D-Bus service for power management
       unstable.dmenu # Expected by xmonad
       unstable.gxmessage # Used by xmonad to show help
-      unstable.fzf # Fuzzy search
       killall
       xorg.xkill # Kill X windows with the cursor
       libnotify # Desktop notifications
@@ -451,7 +459,6 @@ in
       nmap
       update-systemd-resolved
       unstable.pscircle # Generate process tree visualizations
-      unstable.xclip # Required so that neovim compiles with clipboard support
       unstable.dconf # Required to set GTK theme in home-manager
       unstable.nodejs
       unstable.nodePackages.yarn # Required by markdown-preview vim plugin
@@ -474,7 +481,6 @@ in
       # Eclipse Java language server
       # (from mrcpkgs NUR package, managed by Marc Jakobi)
       # XXX Note: It may be necessary to update the nur tarball if a package is not found.
-      nur.repos.mrcpkgs.eclipse-jdt-language-server
       nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
       nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
       # tiko-related
@@ -526,8 +532,14 @@ in
      neovim = super.neovim.override {
        viAlias = true;
        vimAlias = true;
+       defaultEditor = true;
      };
    })
+   # (self: super: {
+   #   cacert = super.cacert.override {
+   #     extraCertificateFiles = ["/home/mrcjk/git/tiko-backend/backend/halford-m2k_cert/sys/tiko-m2k/data/ca.pem"];
+   #   };
+   # })
  ];
 
 
@@ -551,7 +563,7 @@ in
     traceroute.enable = true;
   };
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   security = {
     pam = {
