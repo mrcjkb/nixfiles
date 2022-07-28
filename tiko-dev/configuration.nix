@@ -20,6 +20,8 @@ in
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
       (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
+      (import ./networking.nix)
+      (import ../xmonad-session { user = defaultUser; })
     ];
 
   nixpkgs.config = {
@@ -52,13 +54,6 @@ in
         # Maximum number of latest generations in the boot menu.
         configurationLimit = 50;
       };
-      #grub.enable = true;
-      #grub.version = 2;
-      # grub.efiSupport = true;
-      # grub.efiInstallAsRemovable = true;
-      # efi.efiSysMountPoint = "/boot/efi";
-      # Define on which hard drive you want to install Grub.
-      #grub.device = "/dev/sda"; # or "nodev" for efi only
     };
     cleanTmpDir = true;
     tmpOnTmpfs = true;
@@ -71,16 +66,6 @@ in
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
   console = { font = "Lat2-Terminus16";
@@ -88,55 +73,7 @@ in
   };
 
 
-
   services = {
-    xserver = { 
-      # Enable the X11 windowing system.
-      enable = true;
-      # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "altgr-intl";
-      # xkbOptions = "eurosign:e";
-      # Enable the GNOME Desktop Environment.
-      # desktopManager.gnome.enable = true;
-      displayManager = {
-        lightdm = {
-          enable = true;
-          greeters.mini = {
-            enable = true;
-            user = defaultUser;
-            extraConfig = ''
-              [greeter]
-              show-password-label = false
-              [greeter-theme]
-              background-image = ""
-            '';
-          };
-        };
-        defaultSession = "none+xmonad";
-      };
-      windowManager = {
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-          extraPackages = hpkgs: [
-            hpkgs.xmonad
-            hpkgs.xmonad-contrib
-            hpkgs.xmonad-extras
-          ];
-        };
-      };
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
-    };
-    picom = {
-      enable = true;
-      activeOpacity = 1.0;
-      inactiveOpacity = 1.0;
-      backend = "glx";
-      fade = false;
-      shadow = false;
-    };
     # Enable blueman if the DE does not provide a bluetooth management GUI.
     blueman.enable = true;
     # Enable CUPS to print documents.
