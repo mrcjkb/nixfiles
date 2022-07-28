@@ -6,24 +6,16 @@
 { config, pkgs, lib, vimUtils, ... }:
 
 let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/620ed197f3624dafa5f42e61d5c043f39b8df366.tar.gz";
-    sha256 = "sha256-BoBvGT71yOfrNDTZQs7+FX0zb4yjMBETgIjtTsdJw+o=";
-  };
-  unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
+  unstable = import <nixos-unstable> { } ;
   defaultUser = "mrcjk"; # Default user account
-  basePackages = (import ../base-packages.nix { inherit pkgs unstable; }).systemPackages;
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import ../base.nix { inherit pkgs defaultUser; })
-      (import "${home-manager}/nixos")
-      (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
       (import ./networking.nix)
-      (import ../xmonad-session { user = defaultUser; })
-      (import ../searx.nix { package = unstable.searx; })
+      (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
       (import ../home-manager { user = defaultUser; userEmail = "marc.jakobi@tiko.energy"; neovim = unstable.neovim; inherit unstable; })
     ];
 
@@ -32,14 +24,14 @@ in
   # $ nix search wget
   environment = {
 
-    systemPackages = with pkgs; basePackages ++ [
+    systemPackages = with pkgs; [
       #### NUR packages ###
       # (from mrcpkgs NUR package, managed by Marc Jakobi)
       # XXX Note: It may be necessary to update the nur tarball if a package is not found.
       nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
       # tiko-related
-      # unstable.lens # Kubernetes IDE
-      unstable.kubernetes-helm
+      # lens # Kubernetes IDE
+      kubernetes-helm
       vault
       sops
       git-crypt

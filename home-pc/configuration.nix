@@ -11,25 +11,19 @@ let
   };
   unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
   defaultUser = "mrcjk"; # Default user account
-  basePackages = (import ../base-packages.nix { inherit pkgs unstable; }).systemPackages;
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../base.nix { inherit pkgs defaultUser; })
+      (import ../base.nix { inherit pkgs unstable defaultUser; })
       (import "${home-manager}/nixos")
       (import ./networking.nix)
-      (import ../xmonad-session { user = defaultUser; })
+      (import ../xmonad-session { inherit pkgs; user = defaultUser; })
       (import ../searx.nix { package = unstable.searx; })
       (import ../home-manager { user = defaultUser; userEmail = "mrcjkb89@outlook.com"; neovim = unstable.neovim; inherit unstable; })
     ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment = {
-    systemPackages = basePackages;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
