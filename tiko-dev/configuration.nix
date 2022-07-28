@@ -12,6 +12,7 @@ let
   };
   unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
   defaultUser = "mrcjk"; # Default user account
+  basePackages = (import ../base-packages.nix { inherit pkgs unstable; }).systemPackages;
 in
 {
   imports =
@@ -31,179 +32,11 @@ in
   # $ nix search wget
   environment = {
 
-    systemPackages = with pkgs; [
-      (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
-      # Create flakes-enabled alias for nix
-      (pkgs.writeShellScriptBin "nixFlakes" ''
-        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
-      '')
-
-      ### NeovVim dependencies
-      unstable.neovim-remote
-      unstable.vimPlugins.packer-nvim
-      unstable.tree-sitter 
-      unstable.sqlite # Required by neovim sqlite plugin - FIXME
-      (unstable.lua.withPackages (luapkgs: with luapkgs; [
-                                  luacheck
-                                  plenary-nvim
-                                  luacov
-      ]))
-      unstable.haskellPackages.hoogle
-      unstable.haskellPackages.hlint
-      unstable.haskell-language-server
-      unstable.haskellPackages.haskell-debug-adapter
-      unstable.stylish-haskell
-      unstable.rust-analyzer
-      unstable.rnix-lsp # Nix language server
-      unstable.nodePackages.pyright
-      unstable.python-language-server
-      unstable.sumneko-lua-language-server
-      unstable.nodePackages.vim-language-server
-      unstable.nodePackages.yaml-language-server
-      unstable.nodePackages.dockerfile-language-server-nodejs
-      unstable.glow # Render markdown on the command-line
-      unstable.bat # cat with syntax highlighting
-      unstable.ueberzug # Display images in terminal
-      unstable.feh # Fast and light image viewer
-      unstable.fzf # Fuzzy search
-      unstable.xclip # Required so that neovim compiles with clipboard support
-      unstable.jdt-language-server
-      ### End ov NeoVim dependencies
-
-      cachix # Nix package caching
-      unstable.neovim
-      gcc
-      gnumake
-      alacritty
-      xterm # xmonad default terminal
-      unstable.xmobar
-      unstable.rofi
-      unstable.ranger # TUI file browser
-      unstable.librsvg # Small SVG rendering library
-      unstable.odt2txt
-      unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-      unstable.keepassxc
-      unstable.brave
-      unstable.firefox
-      unstable.joplin # Joblin (notes) CLI client
-      unstable.joplin-desktop # Joblin (notes, desktop app)
-      unstable.yubioath-desktop # Yubico Authenticator Desktop app
-      unstable.yubikey-manager # Yubico Authenticator CLI
-      unstable.shutter # Screenshots
-      unstable.simplescreenrecorder
-      unstable.inkscape-with-extensions
-      unstable.gimp
-      unstable.wireshark
-      unstable.signal-desktop
-      unstable.signal-cli
-      unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-      # unstable.libreoffice
-      # qemu
-      # virt-manager
-      unstable.pavucontrol # PulseAudio volume control
-      unstable.libsForQt5.filelight
-      unstable.gparted
-      unstable.xcolor # Color picker
-      unstable.skanlite # Lightweight sane frontend
-      unstable.xsane # Sane frontend (advanced)
-      unstable.calibre # ebook reader
-      unstable.xournalpp # notetaking software with PDF annotation support
-      (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
-        # ueberzug # Image previews (used by rnvimr ranger plugin)
-      ]))
-      unstable.chrysalis # Kaleidoscope keyboard graphical frontend
-      unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
-      unstable.docker
-      texlive.combined.scheme-full
-      biber
-      # Haskell
-      unstable.stack
-      unstable.ghc
-      unstable.cabal-install
-      unstable.cabal2nix
-      # stack2nix # Broken
-      # haskellPackages.summoner
-      # haskellPackages.summoner-tui
-      unstable.haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
-      unstable.niv # Easy dependency management for Nix projects
-      # Rust
-      unstable.crate2nix
-      # Java
-      # jdk8
-      jdk11
-      #
-      unstable.ruby
-      unstable.pandoc
-      unstable.redshift # Blue light filter
-      # ant
-      # maven
-      # gradle
-      unstable.arduino-cli
-      unstable.gh # GitHub CLI tool
-      unstable.playerctl
-      unstable.imagemagick
-      home-manager
-      wget
-      curl
-      unstable.whois
-      unstable.youtube-dl
-      unstable.plantuml
-      unstable.ripgrep # Fast (Rust) re-implementation of grep
-      unstable.fd # Fast alternative to find
-      unstable.silver-searcher # Fast search
-      file
-      unstable.moreutils
-      unstable.neofetch # System information CLI
-      # neomutt # E-mail 
-      zip
-      unzip
-      unstable.exa # Replacement for ls
-      unstable.nitrogen # Wallpaper browser/setter for X11
-      unstable.autorandr # Automatic XRandR configurations
-      unstable.arandr # A simple visual front end for XRandR
-      brightnessctl # Brightness control CLI
-      upower # D-Bus service for power management
-      unstable.dmenu # Expected by xmonad
-      unstable.gxmessage # Used by xmonad to show help
-      killall
-      xorg.xkill # Kill X windows with the cursor
-      libnotify # Desktop notifications
-      # autojump # replaced with z-lua
-      unstable.z-lua # Fast alternative to autojump
-      unstable.starship # Fish theme
-      unstable.jq # JSON processor
-      unstable.jmtpfs # MTP (Android phone) support
-      # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
-      # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
-      unstable.binutils # Tools for manipulating binaries
-      unstable.dig # Domain information groper
-      nmap
-      update-systemd-resolved
-      unstable.pscircle # Generate process tree visualizations
-      unstable.dconf # Required to set GTK theme in home-manager
-      unstable.nodejs
-      unstable.nodePackages.yarn # Required by markdown-preview vim plugin
-      unstable.haskellPackages.greenclip # Clipboard manager for use with rofi
-      unstable.scrot # A command-line screen capture utility
-      unstable.mpv-unwrapped # Media player
-      unstable.pdftk # Command-line tool for working with PDFs
-      unstable.cloc # Count lines of code
-      unstable.mdp # A command-line based markdown presentation tool
-      unstable.kcat # A generic non-JVM producer and consumer for Apache Kafka
-      # A library for storing and retrieving passwords and other secrets
-      # (secret-tool can be used to look up secrets from the keyring)
-      openssl
-      unstable.usbutils
-      unstable.gnupg
-      pinentry-curses
-      pinentry-qt
-      paperkey
+    systemPackages = with pkgs; basePackages ++ [
       #### NUR packages ###
-      # Eclipse Java language server
       # (from mrcpkgs NUR package, managed by Marc Jakobi)
       # XXX Note: It may be necessary to update the nur tarball if a package is not found.
       nur.repos.mrcpkgs.yubikee-smartvpn # Automate SmartVPN login with YubiKey OAuth
-      nur.repos.mrcpkgs.nextcloud-no-de # nextcloud-client wrapper that waits for KeePass Secret Service Integration
       # tiko-related
       # unstable.lens # Kubernetes IDE
       unstable.kubernetes-helm
@@ -214,91 +47,17 @@ in
       prometheus
       prometheus-node-exporter
       grafana
-      # Unfree software
-      # yed 
-      # zoom-us
-      # slack
-      # teams # The Linux version of Teams seems to have some issues. Better to use the browser version.
-      # jetbrains.idea-ultimate
-      # teamviewer
-      # end of package list
     ];
+
     sessionVariables = rec {
-      XDG_CACHE_HOME = "\${HOME}/.cache";
-      XDG_CONFIG_HOME = "\${HOME}/.config";
-      XDG_BIN_HOME = "\${HOME}/.local/bin";
-      XDG_DATA_HOME = "\${HOME}/.local/share";
-      XDG_RUNTIME_DIR = "/run/user/1000";
-      EDITOR = "nvim";
-      BROWSER = "brave";
-      TZ = "Europe/Berlin";
       VAULT_ADDR = "https://vault.internal.tiko.ch";
-      # RANGER_ZLUA = "${z-lua}/bin/z.lua"; # FIXME
-      BAT_THEME = "Material-darker";
-      GRADLE_HOME = "\${HOME}/.gradle";
-      OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
-      SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
-      WORKSPACE = "\${HOME}/.workspace";
-      LIBSQLITE_CLIB_PATH = "${pkgs.sqlite.out}/lib/libsqlite3.so";
     };
 
-    shellInit = ''
-      export GPG_TTY="$(tty)"
-      gpg-connect-agent /bye
-    '';
-  };
-
-  nixpkgs.overlays = [
-   (self: super: {
-     neovim = super.neovim.override {
-       viAlias = true;
-       vimAlias = true;
-       defaultEditor = true;
-     };
-   })
-   # (self: super: {
-   #   cacert = super.cacert.override {
-   #     extraCertificateFiles = ["/home/mrcjk/git/tiko-backend/backend/halford-m2k_cert/sys/tiko-m2k/data/ca.pem"];
-   #   };
-   # })
- ];
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs = {
-    # fish = {
-    #   enable = true;
-    # };
-    mtr.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    ssh.startAgent = false; # Start ssh-agent as a systemd user service
-    slock.enable = true;
-    autojump.enable = true;
-    git.enable = true;
-    htop.enable = true;
-    tmux.enable = true;
-    traceroute.enable = true;
   };
 
   virtualisation.docker.enable = true;
 
   security = {
-    pam = {
-      u2f.enable = true;
-      yubico = {
-        enable = true;
-        debug = true;
-        mode = "challenge-response";
-      };
-      services = {
-        login.u2fAuth = true;
-        slock.u2fAuth = true;
-      };
-    };
     sudo.extraRules = [
       { 
         users = [defaultUser];
@@ -309,14 +68,7 @@ in
         ];
       }
     ];
- };
-
-  fonts.fonts = with pkgs; [
-    nerdfonts
-    jetbrains-mono
-    roboto
-    lato # Font used in tiko presentations, etc.
-  ];
+  };
 
   # Binary Cache for Haskell.nix
   # Note: To nixos-rebuild, pass `--opton substitue false` when not connected to Tiko VPN
@@ -324,24 +76,16 @@ in
     binaryCaches = [ 
       "https://cache.nixos.org"
       "https://iohk.cachix.org"
-      "s3://tiko-nix-cache?region=eu-central-1"
       "http://hydra.tiko.ch/"
       "https://hydra.iohk.io"
     ];
     binaryCachePublicKeys = [
-      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "hydra.tiko.ch:q8EX+cmvjysdFOPttZEl30cMv5tnB2dddkwrC61qdA4="
-      "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
     ];
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.epnable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

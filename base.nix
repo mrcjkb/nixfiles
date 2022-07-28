@@ -9,16 +9,27 @@ let
   };
 in {
 
-  nixpkgs.config = {
-    # Allow unfree/proprietary packages
-    # allowUnfree = true;
-    # allowBroken = true;
-    packageOverrides = pkgs: {
-      # Nix User Repository
-      nur = import nur { inherit pkgs; };
-      xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
-      # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
+  nixpkgs = {
+    config = {
+      # Allow unfree/proprietary packages
+      # allowUnfree = true;
+      # allowBroken = true;
+      packageOverrides = pkgs: {
+        # Nix User Repository
+        nur = import nur { inherit pkgs; };
+        xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
+        # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
+      };
     };
+    overlays = [
+     (self: super: {
+       neovim = super.neovim.override {
+         viAlias = true;
+         vimAlias = true;
+         defaultEditor = true;
+       };
+     })
+    ];
   };
 
   # Boot loader
@@ -96,4 +107,74 @@ in {
       ]; 
     };
   };
+
+  environment = {
+    sessionVariables = rec {
+      XDG_CACHE_HOME = "\${HOME}/.cache";
+      XDG_CONFIG_HOME = "\${HOME}/.config";
+      XDG_BIN_HOME = "\${HOME}/.local/bin";
+      XDG_DATA_HOME = "\${HOME}/.local/share";
+      XDG_RUNTIME_DIR = "/run/user/1000";
+      EDITOR = "nvim";
+      BROWSER = "brave";
+      TZ = "Europe/Berlin";
+      # RANGER_ZLUA = "${z-lua}/bin/z.lua"; # FIXME
+      BAT_THEME = "Material-darker";
+      OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
+      SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
+      WORKSPACE = "\${HOME}/.workspace";
+      LIBSQLITE_CLIB_PATH = "${pkgs.sqlite.out}/lib/libsqlite3.so";
+    };
+
+    shellInit = ''
+      export GPG_TTY="$(tty)"
+      gpg-connect-agent /bye
+    '';
+
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs = {
+    fish = {
+      enable = true;
+    };
+    mtr.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    ssh.startAgent = false; # Start ssh-agent as a systemd user service
+    slock.enable = true;
+    autojump.enable = true;
+    git.enable = true;
+    htop.enable = true;
+    tmux.enable = true;
+    traceroute.enable = true;
+  };
+
+  virtualisation.docker.enable = true;
+
+  security = {
+    pam = {
+      u2f.enable = true;
+      yubico = {
+        enable = true;
+        debug = true;
+        mode = "challenge-response";
+      };
+      services = {
+        login.u2fAuth = true;
+        slock.u2fAuth = true;
+      };
+    };
+  };
+
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    jetbrains-mono
+    roboto
+    lato # Font used in tiko presentations, etc.
+  ];
+
 }
