@@ -13,10 +13,9 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../base.nix { inherit pkgs defaultUser; })
+      (import ../base.nix { inherit pkgs defaultUser; userEmail = "marc.jakobi@tiko.energy"; })
       (import ./networking.nix)
       (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
-      (import ../home-manager { user = defaultUser; userEmail = "marc.jakobi@tiko.energy"; neovim = unstable.neovim; inherit unstable; })
     ];
 
 

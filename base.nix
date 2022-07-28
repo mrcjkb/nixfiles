@@ -1,4 +1,4 @@
-{ pkgs, defaultUser }:
+{ pkgs, defaultUser ? "mrcjk", userEmail }:
 let 
 
   nur-revision = "da216d5e95ce674d36f6ad6bb759c5afb77eb757";
@@ -29,6 +29,7 @@ in {
     (import ./xmonad-session { pkgs = unstable; user = defaultUser; })
     (import ./searx.nix { package = unstable.searx; })
     (import "${home-manager}/nixos")
+    (import ./home-manager { user = defaultUser; neovim = unstable.neovim; inherit unstable userEmail; })
   ];
 
   nixpkgs = {

@@ -5,25 +5,15 @@
 { config, pkgs, lib, vimUtils, ... }:
 
 let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/620ed197f3624dafa5f42e61d5c043f39b8df366.tar.gz";
-    sha256 = "sha256-BoBvGT71yOfrNDTZQs7+FX0zb4yjMBETgIjtTsdJw+o=";
-  };
-  unstable = import <nixos-unstable> {/*  config = { allowUnfree = true; };  */}; # TODO: Fetch tarball
-  defaultUser = "mrcjk"; # Default user account
+  unstable = import <nixos-unstable> { }; 
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../base.nix { inherit pkgs unstable defaultUser; })
-      (import "${home-manager}/nixos")
+      (import ../base.nix { inherit pkgs; userEmail = "mrcjkb89@outlook.com"; })
       (import ./networking.nix)
-      (import ../xmonad-session { inherit pkgs; user = defaultUser; })
-      (import ../searx.nix { package = unstable.searx; })
-      (import ../home-manager { user = defaultUser; userEmail = "mrcjkb89@outlook.com"; neovim = unstable.neovim; inherit unstable; })
     ];
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
