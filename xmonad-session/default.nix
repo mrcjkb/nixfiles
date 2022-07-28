@@ -9,6 +9,9 @@
 #   stripRoot = false;
 # };
 # in {
+
+# TODO: Write shell script bin wrappers for keybindings OR fetch rofi configs and add them to the specified locations
+
 {
   services = {
     xserver = { 
