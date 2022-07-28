@@ -19,6 +19,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
+      (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
     ];
 
   nixpkgs.config = {
@@ -144,20 +145,9 @@ in
       enable = true;
       nssmdns = true;
     };
-    openssh = {
-      enable = true;
-      # Authenticate using file specified in ses-admin.ovpn
-      passwordAuthentication = false;
-    };
+    openssh.enable = true;
     onedrive.enable = true;
     upower.enable = true;
-    openvpn.servers = {
-      officeVPN = { 
-        config = '' config /home/${defaultUser}/.sec/openvpn/marc.jakobi/ses-admin.ovpn ''; 
-        updateResolvConf = true;
-        autoStart = false;
-      };
-    };
     gvfs.enable = true; # MTP support for PCManFM
     # Yubikey
     pcscd.enable = true;
