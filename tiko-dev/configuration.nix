@@ -17,8 +17,8 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      (import ../base.nix { inherit pkgs defaultUser; })
       ./hardware-configuration.nix
+      (import ../base.nix { inherit pkgs defaultUser; })
       (import "${home-manager}/nixos")
       (import ./openvpn { nixUser = defaultUser; openvpnUser = "marc.jakobi"; })
       (import ./networking.nix)
