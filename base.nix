@@ -9,6 +9,8 @@ in {
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 
+  nix.extraOptions = ''experimental-features = nix-command flakes'';
+
   nixpkgs = {
     config = {
       packageOverrides = pkgs: {
