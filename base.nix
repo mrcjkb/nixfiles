@@ -1,42 +1,28 @@
-{ pkgs, defaultUser ? "mrcjk", userEmail }:
+{ pkgs, home-manager, pkgs-unstable, nurpkgs, defaultUser ? "mrcjk", userEmail}:
 let 
 
-  nur-revision = "da216d5e95ce674d36f6ad6bb759c5afb77eb757";
-  nur = builtins.fetchTarball {
-    # Choose the revision from https://github.com/nix-community/NUR/commits/master
-    url = "https://github.com/nix-community/NUR/archive/${nur-revision}.tar.gz";
-    # Get the hash by running `nix-prefetch-url --unpack <url>` on the above url
-    sha256 = "1ca8zsn1l88cls3k97xn4fddwsn8yfqkkywl7xp588giwvk3xcv9";
-  };
-
-  unstable = import <nixos-unstable> {
+  unstable = pkgs-unstable {
     config = { 
       packageOverrides = pkgs: {
         # Nix User Repository
-        nur = import nur { inherit pkgs; };
+        nur = import nurpkgs { inherit pkgs; };
       };
     };  
   }; 
-
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/620ed197f3624dafa5f42e61d5c043f39b8df366.tar.gz";
-    sha256 = "sha256-BoBvGT71yOfrNDTZQs7+FX0zb4yjMBETgIjtTsdJw+o=";
-  };
 
 in {
 
   imports = [ 
     (import ./xmonad-session { pkgs = unstable; user = defaultUser; })
     (import ./searx.nix { package = unstable.searx; })
-    (import "${home-manager}/nixos")
+    nurpkgs.nixosModule
+    home-manager.nixosModule
     (import ./home-manager { user = defaultUser; neovim = unstable.neovim; inherit unstable userEmail; })
   ];
 
   nixpkgs = {
     config = {
       packageOverrides = pkgs: {
-        # Nix User Repository
-        nur = import nur { inherit pkgs; };
         xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
       };
@@ -68,7 +54,6 @@ in {
     tmpOnTmpfs = true;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
