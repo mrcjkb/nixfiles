@@ -5,8 +5,10 @@
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-22.05;
   inputs.nur.url = github:nix-community/NUR;
   inputs.home-manager.url = github:nix-community/home-manager/release-22.05;
+  inputs.nvim-config.url = github:MrcJkb/nvim-config;
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager, ... }@attrs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager, 
+              nvim-config, ... }@attrs: 
   let
   overlay-unstable = final: prev: {
     unstable = nixpkgs-unstable.legacyPackages.${prev.system};
@@ -23,6 +25,7 @@
           ];
         })
         ./base.nix 
+        nvim-config.nixosModule
       ] ++ extraModules;
     };
   };
