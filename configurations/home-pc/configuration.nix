@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, vimUtils, ... }:
+{ config, pkgs, lib, userEmail, ... }:
 
 let
   unstable = import <nixos-unstable> { }; 
@@ -11,9 +11,16 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../base.nix { inherit pkgs; userEmail = "mrcjkb89@outlook.com"; })
-      (import ./networking.nix)
     ];
+
+  # NOTE: The interface names have to be determined per device.
+  # They can be extracted from the generated configuration.nix
+  networking = {
+    hostName = "nixos-home-pc";
+    interfaces = {
+      enp3s0.useDHCP = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
