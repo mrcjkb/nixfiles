@@ -14,7 +14,7 @@
   in {
     nixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs // {};
+      specialArgs = attrs // { inherit defaultUser userEmail; };
       modules = [
         # Overlays-module makes "pkgs.unstable" available in configuration.nix
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ 
