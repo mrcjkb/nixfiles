@@ -20,7 +20,7 @@ in {
     };
     overlays = [
      (self: super: {
-       neovim = super.neovim.override {
+       neovim = super.unstable.neovim.override {
          viAlias = true;
          vimAlias = true;
          defaultEditor = true;
