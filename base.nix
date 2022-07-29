@@ -1,23 +1,12 @@
-{ pkgs, home-manager, pkgs-unstable, nurpkgs, defaultUser ? "mrcjk", userEmail}:
-let 
-
-  unstable = pkgs-unstable {
-    config = { 
-      packageOverrides = pkgs: {
-        # Nix User Repository
-        nur = import nurpkgs { inherit pkgs; };
-      };
-    };  
-  }; 
-
+{ pkgs, home-manager, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }: 
+let
 in {
 
   imports = [ 
-    (import ./xmonad-session { pkgs = unstable; user = defaultUser; })
-    (import ./searx.nix { package = unstable.searx; })
-    nurpkgs.nixosModule
+    (import ./xmonad-session { inherit pkgs; user = defaultUser; })
+    (import ./searx.nix { package = pkgs.unstable.searx; })
     home-manager.nixosModule
-    (import ./home-manager { user = defaultUser; neovim = unstable.neovim; inherit unstable userEmail; })
+    (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 
   nixpkgs = {
