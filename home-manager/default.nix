@@ -1,4 +1,4 @@
-{ user, userEmail, neovim, unstable }:
+{ pkgs, user, userEmail, ... }:
 {
   home-manager = {
     users."${user}" = {
@@ -20,7 +20,7 @@
             };
             mergetool = {
               fugitive = {
-                cmd = "${neovim}/bin/nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+                cmd = "${pkgs.neovim}/bin/nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
               };
             };
             pull = {
@@ -35,11 +35,11 @@
         enable = true;
         theme = {
           name = "Materia-dark";
-          package = unstable.materia-theme;
+          package = pkgs.materia-theme;
         };
         iconTheme = {
           name = "Papirus-Dark";
-          package = unstable.papirus-icon-theme;
+          package = pkgs.papirus-icon-theme;
         };
       };
     };
