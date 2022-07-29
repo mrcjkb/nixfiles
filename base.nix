@@ -152,6 +152,7 @@ in {
       unstable.nodePackages.yaml-language-server
       unstable.nodePackages.dockerfile-language-server-nodejs
       unstable.glow # Render markdown on the command-line
+      unstable.git-filter-repo
       unstable.bat # cat with syntax highlighting
       unstable.ueberzug # Display images in terminal
       unstable.feh # Fast and light image viewer
