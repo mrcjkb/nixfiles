@@ -10,7 +10,7 @@ in {
   ];
 
   nix = {
-    package = pgks.nixFlakes;
+    package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -132,6 +132,10 @@ in {
 
     systemPackages = with pkgs; [
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
+      # Create flakes-enabled alias for nix
+      (pkgs.writeShellScriptBin "nixFlakes" ''
+        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
+      '')
       ### NeovVim dependencies
       unstable.neovim-remote
       unstable.vimPlugins.packer-nvim
