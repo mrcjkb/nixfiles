@@ -191,7 +191,7 @@ in {
       unstable.xournalpp # notetaking software with PDF annotation support
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
       ]))
-      unstable.python-language-server
+      python-language-server
       unstable.nodePackages.pyright
       unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.arduino-cli
