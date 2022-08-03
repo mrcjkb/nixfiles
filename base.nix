@@ -1,11 +1,10 @@
-{ pkgs, home-manager, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }: 
+{ pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }: 
 let
 in {
 
   imports = [ 
     (import ./xmonad-session { inherit pkgs; user = defaultUser; })
     (import ./searx.nix { package = pkgs.unstable.searx; })
-    home-manager.nixosModule
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 
@@ -25,7 +24,7 @@ in {
     };
     overlays = [
      (self: super: {
-       neovim = super.unstable.neovim.override {
+       neovim = pkgs.unstable.neovim.override {
          viAlias = true;
          vimAlias = true;
          defaultEditor = true;

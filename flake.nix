@@ -27,6 +27,7 @@
           ];
         })
         ./base.nix 
+    	home-manager.nixosModule
         nvim-config.nixosModule
       ] ++ extraModules;
     };
