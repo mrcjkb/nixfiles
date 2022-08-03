@@ -3,7 +3,6 @@ let
 in {
 
   imports = [ 
-    (import ./xmonad-session { inherit pkgs; user = defaultUser; })
     (import ./searx.nix { package = pkgs.unstable.searx; })
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];

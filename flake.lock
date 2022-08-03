@@ -82,11 +82,11 @@
     },
     "nvim-config": {
       "locked": {
-        "lastModified": 1659523183,
-        "narHash": "sha256-OxmeswnayBKb8HOQqrNa9YQK0UhaBArtjdsoAtHagGk=",
+        "lastModified": 1659527485,
+        "narHash": "sha256-AjkQ7W+CkA6nbuIF9FVflt12P/UzfcSYtldcClFJtic=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "6cbb07219dbe0763c3e23b586997a074ad04a270",
+        "rev": "9c0dd4d5386700f1640daae5c147f57f68f5be37",
         "type": "github"
       },
       "original": {
@@ -101,7 +101,23 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
-        "nvim-config": "nvim-config"
+        "nvim-config": "nvim-config",
+        "xmonad-session": "xmonad-session"
+      }
+    },
+    "xmonad-session": {
+      "locked": {
+        "lastModified": 1659530459,
+        "narHash": "sha256-j3qTpJPCV/qGKcm23IEoipQh/3+Ls5/79bzw5WWVF3w=",
+        "owner": "MrcJkb",
+        "repo": ".xmonad",
+        "rev": "5c317838b82d7da4a35301355a51ae5d482a85c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MrcJkb",
+        "repo": ".xmonad",
+        "type": "github"
       }
     }
   },

@@ -7,10 +7,11 @@
     nur.url = github:nix-community/NUR;
     home-manager.url = github:nix-community/home-manager/release-22.05;
     nvim-config.url = github:MrcJkb/nvim-config;
+    xmonad-session.url = github:MrcJkb/.xmonad;
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager, 
-              nvim-config, ... }@attrs: 
+              nvim-config, xmonad-session, ... }@attrs: 
   let
   overlay-unstable = final: prev: {
     unstable = nixpkgs-unstable.legacyPackages.${prev.system};
@@ -27,8 +28,9 @@
           ];
         })
         ./base.nix 
-    	home-manager.nixosModule
+    	  home-manager.nixosModule
         nvim-config.nixosModule
+        xmonad-session.nixosModule
       ] ++ extraModules;
     };
   };
