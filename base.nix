@@ -23,6 +23,15 @@ in {
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
       };
     };
+    overlays = [
+      (self: super: {
+        neovim = super.unstable.neovim.override {
+  	  viAlias = true;
+	  vimAlias = true;
+	  defaultEditor = true;
+        };
+      })
+    ];
   };
 
   # Boot loader
