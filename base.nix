@@ -24,13 +24,13 @@ in {
       };
     };
     overlays = [
-      (self: super: {
-        neovim = super.unstable.neovim.override {
-  	  viAlias = true;
-	  vimAlias = true;
-	  defaultEditor = true;
-        };
-      })
+     (self: super: {
+       neovim = super.unstable.neovim.override {
+         viAlias = true;
+         vimAlias = true;
+         defaultEditor = true;
+       };
+     })
     ];
   };
 
