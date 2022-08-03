@@ -184,8 +184,6 @@ in {
       unstable.whois
       unstable.youtube-dl
       unstable.plantuml
-      unstable.ripgrep # Fast (Rust) re-implementation of grep
-      unstable.fd # Fast alternative to find
       unstable.silver-searcher # Fast search
       file
       unstable.moreutils
