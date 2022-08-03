@@ -23,15 +23,6 @@ in {
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
       };
     };
-    overlays = [
-     (self: super: {
-       neovim = super.unstable.neovim.override {
-         viAlias = true;
-         vimAlias = true;
-         defaultEditor = true;
-       };
-     })
-    ];
   };
 
   # Boot loader
@@ -136,33 +127,8 @@ in {
       (pkgs.writeShellScriptBin "nixFlakes" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
       '')
-      ### NeovVim dependencies
-      unstable.neovim-remote
-      unstable.vimPlugins.packer-nvim
-      unstable.tree-sitter 
-      unstable.sqlite # Required by neovim sqlite plugin - FIXME
-      (unstable.lua.withPackages (luapkgs: with luapkgs; [
-                                  luacheck
-                                  plenary-nvim
-                                  luacov
-      ]))
-      unstable.rnix-lsp # Nix language server
-      unstable.sumneko-lua-language-server
-      unstable.nodePackages.vim-language-server
-      unstable.nodePackages.yaml-language-server
-      unstable.nodePackages.dockerfile-language-server-nodejs
-      unstable.glow # Render markdown on the command-line
       unstable.git-filter-repo
-      unstable.bat # cat with syntax highlighting
-      unstable.ueberzug # Display images in terminal
-      unstable.feh # Fast and light image viewer
-      unstable.fzf # Fuzzy search
-      unstable.xclip # Required so that neovim compiles with clipboard support
-      unstable.jdt-language-server
-      ### End ov NeoVim dependencies
-
       cachix # Nix package caching
-      unstable.neovim
       gcc
       gnumake
       unstable.librsvg # Small SVG rendering library
@@ -192,8 +158,6 @@ in {
       unstable.xournalpp # notetaking software with PDF annotation support
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
       ]))
-      python-language-server
-      unstable.nodePackages.pyright
       unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.arduino-cli
       unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
@@ -204,18 +168,11 @@ in {
       unstable.ghc
       unstable.cabal-install
       unstable.cabal2nix
-      unstable.haskellPackages.hoogle
-      unstable.haskellPackages.hlint
-      unstable.haskell-language-server
-      unstable.haskellPackages.haskell-debug-adapter
-      unstable.stylish-haskell
       # stack2nix # Broken
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
-      unstable.haskellPackages.implicit-hie ## Generate hie.yaml files with hie-gen
       # Rust
       unstable.crate2nix
-      unstable.rust-analyzer
       unstable.ruby
       unstable.pandoc
       unstable.redshift # Blue light filter
@@ -255,8 +212,6 @@ in {
       nmap
       update-systemd-resolved
       unstable.dconf # Required to set GTK theme in home-manager
-      unstable.nodejs
-      unstable.nodePackages.yarn # Required by markdown-preview vim plugin
       unstable.mpv-unwrapped # Media player
       unstable.pdftk # Command-line tool for working with PDFs
       unstable.cloc # Count lines of code
