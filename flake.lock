@@ -107,11 +107,11 @@
     },
     "xmonad-session": {
       "locked": {
-        "lastModified": 1659530459,
-        "narHash": "sha256-j3qTpJPCV/qGKcm23IEoipQh/3+Ls5/79bzw5WWVF3w=",
+        "lastModified": 1659531345,
+        "narHash": "sha256-d0osPZ52JQ0BeTs8SitfLfF5353YDk5AAnCvXP+AdgQ=",
         "owner": "MrcJkb",
         "repo": ".xmonad",
-        "rev": "5c317838b82d7da4a35301355a51ae5d482a85c6",
+        "rev": "6cc4995d739dddf6717f05e15f31ee2ed4352daf",
         "type": "github"
       },
       "original": {
