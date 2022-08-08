@@ -130,10 +130,6 @@ in {
 
     systemPackages = with pkgs; [
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
-      # Create flakes-enabled alias for nix
-      (pkgs.writeShellScriptBin "nixFlakes" ''
-        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
-      '')
       unstable.git-filter-repo
       cachix # Nix package caching
       gcc
@@ -205,8 +201,7 @@ in {
       upower # D-Bus service for power management
       killall
       libnotify # Desktop notifications
-      # autojump # replaced with z-lua
-      unstable.z-lua # Fast alternative to autojump
+      unstable.zoxide # Fast alternative to autojump and z-lua
       unstable.starship # Fish theme
       unstable.jq # JSON processor
       unstable.jmtpfs # MTP (Android phone) support
