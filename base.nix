@@ -93,7 +93,7 @@ in {
   };
 
   users = {
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.unstable.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
