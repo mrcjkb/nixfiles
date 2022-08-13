@@ -67,7 +67,10 @@ in {
       nssmdns = true;
     };
     openssh.enable = true;
-    onedrive.enable = true;
+    onedrive = {
+      enable = true;
+      package = pkgs.unstable.onedrive;
+    };
     upower.enable = true;
     gvfs.enable = true; # MTP support for PCManFM
     # Yubikey
