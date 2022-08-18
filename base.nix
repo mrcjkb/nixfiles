@@ -176,6 +176,7 @@ in {
       # stack2nix # Broken
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
+      unstable.hpack
       # Rust
       unstable.crate2nix
       unstable.ruby
