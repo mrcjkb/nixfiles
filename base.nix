@@ -118,7 +118,6 @@ in {
       EDITOR = "nvim";
       BROWSER = "brave";
       TZ = "Europe/Berlin";
-      # RANGER_ZLUA = "${z-lua}/bin/z.lua"; # FIXME
       BAT_THEME = "Material-darker";
       OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
@@ -165,7 +164,6 @@ in {
       ]))
       unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.arduino-cli
-      unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
       texlive.combined.scheme-full
       biber
       # Haskell
