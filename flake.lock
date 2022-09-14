@@ -456,11 +456,11 @@
     },
     "nvim-config": {
       "locked": {
-        "lastModified": 1663152475,
-        "narHash": "sha256-QJet2Acb0vJw3iLj8t9cEWf2Mv67wYwBBiyhXndZ6hk=",
+        "lastModified": 1663152595,
+        "narHash": "sha256-jGWrAOQCjdw1xRNU985gRjJUFkN7v62I5qz/QLQ27fs=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "6af84b2ce02a3ebc10cdb8b572ae5ae818caa83f",
+        "rev": "8af34ee781163baab02cc0abf6c31c581c44154b",
         "type": "github"
       },
       "original": {
