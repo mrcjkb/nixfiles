@@ -1,8 +1,8 @@
-{ pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }: 
+{ pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 let
 in {
 
-  imports = [ 
+  imports = [
     (import ./searx.nix { package = pkgs.unstable.searx; })
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
@@ -56,7 +56,7 @@ in {
         enable = true;
         # Disallow editing the kernel command-line befor boot
         # Enabling this allows gaining root access by passing init=/bin/sh as a kernel parameter
-        editor = false; 
+        editor = false;
         # Maximum number of latest generations in the boot menu.
         configurationLimit = 50;
       };
@@ -111,28 +111,28 @@ in {
     bluetooth.enable = true;
     sane = {
       enable = true; # Scanner support
-      extraBackends = [ 
+      extraBackends = [
         pkgs.sane-airscan # Driverless scanning support
         # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
-      ]; 
+      ];
     };
   };
 
-  users = let 
+  users = let
     defaultShell = pkgs.unstable.fish;
   in {
     defaultUserShell = defaultShell;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
-      extraGroups = [ 
-        "wheel" # Enable ‘sudo’ for the user. 
+      extraGroups = [
+        "wheel" # Enable ‘sudo’ for the user.
         "networkmanager"
         "video"
         "docker"
         "scanner"
         "lp"
-      ]; 
+      ];
       shell = defaultShell;
     };
   };
@@ -221,7 +221,7 @@ in {
       file
       unstable.moreutils
       unstable.neofetch # System information CLI
-      # neomutt # E-mail 
+      # neomutt # E-mail
       zip
       unzip
       unstable.exa # Replacement for ls
@@ -273,7 +273,7 @@ in {
     ssh = {
       startAgent = false; # Start ssh-agent as a systemd user service
       knownHosts = {
-        "github.com".publicKey = "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+        "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
       };
     };
     autojump.enable = true;
