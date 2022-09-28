@@ -10,8 +10,10 @@ in {
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
-      experimental-features = nix-command flakes
+      allowed-uris = https://github.com
+      auto-optimise-store = true
     '';
+    useSandbox = true;
     # Binary Cache for Haskell.nix
     settings = {
       trusted-public-keys = [
@@ -19,6 +21,21 @@ in {
       ];
       substituters = [
         "https://cache.iog.io"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [defaultUser];
+      trusted-substituters = [
+        "https://cache.nixos.org"
+        "https://iohk.cachix.org"
+        "https://hydra.iohk.io"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
+        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       ];
     };
   };
@@ -66,7 +83,10 @@ in {
       enable = true;
       nssmdns = true;
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = true;
+    };
     onedrive = {
       enable = true;
       package = pkgs.unstable.onedrive;
@@ -76,12 +96,18 @@ in {
     # Yubikey
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
+    localtime.enable = true;
+    pipewire = {
+      enable = true;
+      alse.enable = true;
+      pulse.enable = true;
+    };
   };
 
-  # Enable sound.
-  sound.enable = true;
+  # Disable sound (replaced with pipewire)
+  sound.enable = false;
   hardware = {
-    pulseaudio.enable = true;
+    pulseaudio.enable = false;
     bluetooth.enable = true;
     sane = {
       enable = true; # Scanner support
@@ -92,8 +118,10 @@ in {
     };
   };
 
-  users = {
-    defaultUserShell = pkgs.unstable.fish;
+  users = let 
+    defaultShell = pkgs.unstable.fish;
+  in {
+    defaultUserShell = defaultShell;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
@@ -105,6 +133,7 @@ in {
         "scanner"
         "lp"
       ]; 
+      shell = defaultShell;
     };
   };
 
@@ -222,7 +251,6 @@ in {
       # (secret-tool can be used to look up secrets from the keyring)
       openssl
       unstable.usbutils
-      unstable.gnupg
       pinentry-curses
       pinentry-qt
       paperkey
@@ -240,8 +268,14 @@ in {
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+      package = pkgs.unstable.gnupg;
     };
-    ssh.startAgent = false; # Start ssh-agent as a systemd user service
+    ssh = {
+      startAgent = false; # Start ssh-agent as a systemd user service
+      knownHosts = {
+        "github.com".publicKey = "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+      };
+    };
     autojump.enable = true;
     git.enable = true;
     htop.enable = true;
