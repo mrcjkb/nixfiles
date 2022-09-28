@@ -226,6 +226,7 @@ in {
       pinentry-curses
       pinentry-qt
       paperkey
+      unstable.nix-output-monitor
     ];
   };
 
