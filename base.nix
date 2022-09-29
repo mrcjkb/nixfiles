@@ -96,7 +96,7 @@ in {
     localtime.enable = true;
     pipewire = {
       enable = true;
-      alse.enable = true;
+      alsa.enable = true;
       pulse.enable = true;
     };
   };
