@@ -82,7 +82,6 @@ in {
     };
     openssh = {
       enable = true;
-      passwordAuthentication = true;
     };
     onedrive = {
       enable = true;
