@@ -197,8 +197,9 @@ in {
       unstable.cabal-install
       unstable.cabal2nix
       # stack2nix # Broken
-      # haskellPackages.summoner
-      # haskellPackages.summoner-tui
+      # unstable.haskellPackages.summoner
+      # unstable.haskellPackages.summoner-tui
+      unstable.haskellPackages.cabal-hoogle
       unstable.hpack
       # Rust
       unstable.crate2nix
