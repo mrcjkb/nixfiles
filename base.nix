@@ -281,7 +281,10 @@ in {
     traceroute.enable = true;
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    libvirtd.enable = true;
+  };
 
   security = {
     pam = {
