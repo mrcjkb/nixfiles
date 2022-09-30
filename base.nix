@@ -199,7 +199,6 @@ in {
       # stack2nix # Broken
       # unstable.haskellPackages.summoner
       # unstable.haskellPackages.summoner-tui
-      unstable.haskellPackages.cabal-hoogle
       unstable.hpack
       # Rust
       unstable.crate2nix
