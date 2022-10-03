@@ -2,6 +2,7 @@
 {
   home-manager = {
     users."${user}" = {
+      xdg.enable = true;
       programs = {
         git = {
           enable = true;
