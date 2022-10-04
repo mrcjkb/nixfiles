@@ -135,6 +135,11 @@ in {
 
   environment = {
     sessionVariables = rec {
+      XDG_CACHE_HOME = "\${HOME}/.cache";
+      XDG_CONFIG_HOME = "\${HOME}/.config";
+      XDG_BIN_HOME = "\${HOME}/.local/bin";
+      XDG_DATA_HOME = "\${HOME}/.local/share";
+      XDG_RUNTIME_DIR = "/run/user/1000";
       EDITOR = "nvim";
       BROWSER = "brave";
       TZ = "Europe/Berlin";
