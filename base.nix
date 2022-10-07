@@ -158,6 +158,7 @@ in {
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
       unstable.git-filter-repo
       cachix # Nix package caching
+      unstable.manix
       gcc
       gnumake
       unstable.librsvg # Small SVG rendering library
