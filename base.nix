@@ -154,11 +154,21 @@ in {
       gpg-connect-agent /bye
     '';
 
-    systemPackages = with pkgs; [
+
+    systemPackages = with pkgs; let
+
+      manix-fzf = pkgs.writeShellApplication ({
+        name = "nixf";
+        runtimeInputs = [unstable.manix unstable.ripgrep unstable.fzf];
+        text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
+      });
+
+    in [
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
       unstable.git-filter-repo
       cachix # Nix package caching
       unstable.manix
+      manix-fzf
       gcc
       gnumake
       unstable.librsvg # Small SVG rendering library
