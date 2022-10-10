@@ -178,6 +178,7 @@ in {
       unstable.yubioath-desktop # Yubico Authenticator Desktop app
       unstable.brave
       unstable.firefox
+      unstable.firefox-devedition-bin
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
       unstable.yubikey-manager # Yubico Authenticator CLI
