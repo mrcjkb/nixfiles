@@ -263,6 +263,7 @@ in {
       pinentry-qt
       paperkey
       unstable.nix-output-monitor
+      zlib # Lossles data compression library
     ];
   };
 
