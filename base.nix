@@ -170,7 +170,7 @@ in {
             >&2 echo "error: BASENIXFILESREPO not set."
             exit 1
           fi
-          if [ ! test -d "$BASENIXFILESREPO" ]; then
+          if [[ ! -d "$BASENIXFILESREPO" ]]; then
             >&2 echo "error: $BASENIXFILESREPO not found."
             exit 1
           fi
@@ -178,7 +178,7 @@ in {
             >&2 echo "error: NIXOSREPO not set."
             exit 1
           fi
-          if [ ! test -d "$NIXOSREPO" ]; then
+          if [[ ! -d "$NIXOSREPO" ]]; then
             >&2 echo "error: $NIXOSREPO not found."
             exit 1
           fi
