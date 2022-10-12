@@ -185,7 +185,7 @@ in {
           git pull
           nix flake update && git commit -am "Update flake.lock" && git push
           popd
-          sudo nixos-rebuild switch --flake "$NXOSREPO" --impure "$@"
+          sudo nixos-rebuild switch --flake "$NIXOSREPO" --impure "$@"
         '';
       };
 
