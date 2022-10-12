@@ -195,6 +195,7 @@ in {
       };
 
     in [
+      system-update-wrapper
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
       unstable.git-filter-repo
       cachix # Nix package caching
