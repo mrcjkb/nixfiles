@@ -93,11 +93,6 @@ in {
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
     localtime.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-    };
   };
 
   # Disable sound (replaced with pipewire)
