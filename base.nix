@@ -163,6 +163,37 @@ in {
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       });
 
+      system-update-wrapper = writeShellApplication {
+        name = "nixos-update";
+        text = ''
+          if [ "$BASENIXFILESREPO" == "" ]; then
+            >&2 echo "error: BASENIXFILESREPO not set."
+            exit 1
+          fi
+          if [ ! test -d "$BASENIXFILESREPO" ]; then
+            >&2 echo "error: $BASENIXFILESREPO not found."
+            exit 1
+          fi
+          if [ "$NIXOSREPO" == "" ]; then
+            >&2 echo "error: NIXOSREPO not set."
+            exit 1
+          fi
+          if [ ! test -d "$NIXOSREPO" ]; then
+            >&2 echo "error: $NIXOSREPO not found."
+            exit 1
+          fi
+          pushd "$BASENIXFILESREPO"
+          git pull
+          nix flake update && git commit -am "Update flake.lock" && git push
+          popd
+          pushd "$NIXOSREPO"
+          git pull
+          nix flake update && git commit -am "Update flake.lock" && git push
+          popd
+          sudo nixos-rebuild switch --flake "$NXOSREPO" --impure "$@"
+        '';
+      };
+
     in [
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
       unstable.git-filter-repo
