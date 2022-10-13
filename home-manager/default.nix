@@ -37,7 +37,7 @@
         };
         zoxide = {
           enable = true;
-          enableFishIntegraiton = true;
+          enableFishIntegration = true;
         };
         starship = {
           enableBashIntegration = true;
