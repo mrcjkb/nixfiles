@@ -35,21 +35,21 @@
             ".hlint.yaml"
           ];
         };
-      };
-      zoxide = {
-        enable = true;
-        enableFishIntegraiton = true;
-      };
-      starship = {
-        enableBashIntegration = true;
-        enableFishIntegration = true;
-        settings = {
-          character = {
-            success_symbol = " ✔(green)";
-            error_symbol = " ✘(red)";
-            use_symbol_for_status = true;
+        zoxide = {
+          enable = true;
+          enableFishIntegraiton = true;
+        };
+        starship = {
+          enableBashIntegration = true;
+          enableFishIntegration = true;
+          settings = {
+            character = {
+              success_symbol = " ✔(green)";
+              error_symbol = " ✘(red)";
+              use_symbol_for_status = true;
+            };
+            memory_usage = { disabled = true; };
           };
-          memory_usage = { disabled = true; };
         };
       };
       gtk = {
