@@ -177,13 +177,14 @@ in {
             >&2 echo "error: $NIXOSREPO not found."
             exit 1
           fi
+
           pushd "$BASENIXFILESREPO"
           git pull
-          nix flake update && git commit -am "Update flake.lock" && git push
+          nix flake update --commit-lock-file && git push
           popd
           pushd "$NIXOSREPO"
           git pull
-          nix flake update && git commit -am "Update flake.lock" && git push
+          nix flake update --commit-lock-file && git push
           popd
           sudo nixos-rebuild switch --flake "$NIXOSREPO" --impure "$@"
         '';
