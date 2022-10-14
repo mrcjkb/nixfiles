@@ -217,7 +217,6 @@ in {
       unstable.signal-desktop
       unstable.signal-cli
       unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-      unstable.libsForQt5.filelight
       unstable.gparted
       unstable.xcolor # Color picker
       unstable.skanlite # Lightweight sane frontend
@@ -286,8 +285,6 @@ in {
       # (secret-tool can be used to look up secrets from the keyring)
       openssl
       unstable.usbutils
-      pinentry-curses
-      pinentry-qt
       paperkey
       unstable.nix-output-monitor
       zlib # Lossles data compression library
