@@ -11,10 +11,6 @@
           signing = {
             key = "F31C0D0D5BBB0289";
           };
-          aliases = {
-            # For managing dotfiles, see: https://www.atlassian.com/git/tutorials/dotfiles
-            config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
-          };
           extraConfig = {
             merge = {
               tool = "fugitive";
