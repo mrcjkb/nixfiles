@@ -204,7 +204,7 @@ in {
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       unstable.keepassxc
       unstable.yubioath-desktop # Yubico Authenticator Desktop app
-      unstable.brave
+      brave
       unstable.firefox-bin
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
