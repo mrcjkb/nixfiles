@@ -221,7 +221,7 @@ in {
       unstable.xcolor # Color picker
       unstable.skanlite # Lightweight sane frontend
       unstable.xsane # Sane frontend (advanced)
-      unstable.calibre # ebook reader
+      unstable.koreader # ebook reader
       unstable.xournalpp # notetaking software with PDF annotation support
       (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
       ]))
