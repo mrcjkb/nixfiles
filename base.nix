@@ -205,7 +205,7 @@ in {
       unstable.keepassxc
       unstable.yubioath-desktop # Yubico Authenticator Desktop app
       unstable.brave
-      unstable.firefox
+      unstable.firefox-bin
       unstable.firefox-devedition-bin
       unstable.joplin # Joblin (notes) CLI client
       unstable.joplin-desktop # Joblin (notes, desktop app)
