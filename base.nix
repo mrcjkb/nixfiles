@@ -288,6 +288,7 @@ in {
       paperkey
       unstable.nix-output-monitor
       zlib # Lossles data compression library
+      unstable.asciinema # Terminal session recoreder
     ];
   };
 
