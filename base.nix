@@ -239,7 +239,7 @@ in {
       # stack2nix # Broken
       # unstable.haskellPackages.summoner
       # unstable.haskellPackages.summoner-tui
-      unstable.haskellPackages.feedback # Declarative feedback loop manager
+      # unstable.haskellPackages.feedback # Declarative feedback loop manager
       unstable.hpack
       # Rust
       unstable.crate2nix
