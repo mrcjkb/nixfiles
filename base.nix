@@ -39,6 +39,7 @@ in {
 
   nixpkgs = {
     config = {
+      allowBroken = true;
       packageOverrides = pkgs: {
         xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
