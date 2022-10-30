@@ -242,6 +242,7 @@ in {
       # unstable.haskellPackages.feedback # Declarative feedback loop manager
       unstable.hpack
       # Rust
+      unstable.cargo
       unstable.crate2nix
       unstable.ruby
       unstable.pandoc
