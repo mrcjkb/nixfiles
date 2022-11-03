@@ -225,7 +225,7 @@ in {
       unstable.xsane # Sane frontend (advanced)
       unstable.koreader # ebook reader
       unstable.xournalpp # notetaking software with PDF annotation support
-      (unstable.python310.withPackages (pythonPackages: with pythonPackages; [
+      (unstable.python311.withPackages (pythonPackages: with pythonPackages; [
       ]))
       unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.arduino-cli
