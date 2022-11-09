@@ -205,17 +205,16 @@ in {
       unstable.odt2txt
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       unstable.keepassxc
-      unstable.yubioath-desktop # Yubico Authenticator Desktop app
+      yubioath-desktop # Yubico Authenticator Desktop app
       brave
       unstable.firefox-bin
-      unstable.joplin # Joblin (notes) CLI client
-      unstable.joplin-desktop # Joblin (notes, desktop app)
+      unstable.joplin # Joplin (notes) CLI client
+      unstable.joplin-desktop # Joplin (notes, desktop app)
       unstable.yubikey-manager # Yubico Authenticator CLI
       unstable.shutter # Screenshots
       unstable.simplescreenrecorder
       unstable.inkscape-with-extensions
       unstable.gimp
-      unstable.wireshark
       unstable.signal-desktop
       unstable.signal-cli
       unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
@@ -227,9 +226,8 @@ in {
       unstable.xournalpp # notetaking software with PDF annotation support
       (unstable.python311.withPackages (pythonPackages: with pythonPackages; [
       ]))
-      unstable.chrysalis # Kaleidoscope keyboard graphical frontend
       unstable.arduino-cli
-      texlive.combined.scheme-full
+      texlive.combined.scheme-medium
       biber
       # Haskell
       unstable.stack
@@ -242,9 +240,8 @@ in {
       # unstable.haskellPackages.feedback # Declarative feedback loop manager
       unstable.hpack
       # Rust
-      unstable.cargo
-      unstable.crate2nix
-      unstable.ruby
+      cargo
+      crate2nix
       unstable.pandoc
       unstable.redshift # Blue light filter
       unstable.gh # GitHub CLI tool
@@ -253,8 +250,6 @@ in {
       wget
       curl
       unstable.whois
-      unstable.youtube-dl
-      unstable.plantuml
       unstable.silver-searcher # Fast search
       file
       unstable.moreutils
