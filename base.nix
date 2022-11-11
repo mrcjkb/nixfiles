@@ -1,6 +1,5 @@
 { pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
-let
-in {
+{
 
   imports = [
     (import ./searx.nix { package = pkgs.unstable.searx; })
