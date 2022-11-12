@@ -284,7 +284,9 @@
       unstable.nix-output-monitor
       zlib # Lossles data compression library
       unstable.asciinema # Terminal session recoreder
-    ];
+    ]
+    ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)
+    ;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
