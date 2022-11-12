@@ -319,4 +319,6 @@
     lato # Font used in tiko presentations, etc.
   ];
 
+  xdg = import ./xdg;
+
 }
