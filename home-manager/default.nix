@@ -23,6 +23,10 @@
         source = ./configs/bat/.;
         recursive = true;
       };
+      xdg.configFile."keepassxc" = {
+        source = ./configs/keepassxc/.;
+        recursive = true;
+      };
     };
   };
 }
