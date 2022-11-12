@@ -15,6 +15,7 @@
           package = pkgs.papirus-icon-theme;
         };
       };
+      xdg.configFile."Yubico/Yubico Authenticator.conf" = import ./configs/Yubico/Yubico_Authenticator.conf;
     };
   };
 }
