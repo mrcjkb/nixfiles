@@ -1,5 +1,5 @@
 { pkgs, user, userEmail, ... }:
 {
   git = import ./git.nix { inherit pkgs userEmail; };
-  zoxide = import ./zoxide.nix pkgs.unstable.zoxide;
+  zoxide = import ./zoxide.nix pkgs.zoxide;
 }
