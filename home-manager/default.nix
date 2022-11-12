@@ -19,6 +19,10 @@
         source = ./configs/Yubico/.;
         recursive = true;
       };
+      xdg.configFile."bat" = {
+        source = ./configs/bat/.;
+        recursive = true;
+      };
     };
   };
 }
