@@ -31,6 +31,10 @@
         source = ./configs/rofi/.;
         recursive = true;
       };
+      xdg.configFile."ranger" = {
+        source = ./configs/ranger/.;
+        recursive = true;
+      };
     };
   };
 }
