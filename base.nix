@@ -62,7 +62,7 @@
   };
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Amsterdam";
 
