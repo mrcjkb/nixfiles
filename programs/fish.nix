@@ -1,5 +1,13 @@
 {
   enable = true;
+  useBabelfish = true;
+  shellInit = ''
+    fish-nix-shell --info-right | source
+    zoxide init fiesh | source
+  '';
+  promptInit = ''
+    starship init fish | source
+  '';
   shellAliases = {
     cd = "z";
     bd = "prevd";
