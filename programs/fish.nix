@@ -26,5 +26,8 @@
     mkdir = "mkdir -p";
     # For managing dotfiles, see: https://www.atlassian.com/git/tutorials/dotfiles
     config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+    vi = "nvim";
+    vim = "nvim";
+    nv = "neovide";
   };
 }

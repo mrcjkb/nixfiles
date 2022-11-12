@@ -136,10 +136,9 @@
       XDG_DATA_HOME = "\${HOME}/.local/share";
       XDG_RUNTIME_DIR = "/run/user/1000";
       EDITOR = "nvim";
-      BROWSER = "brave";
+      BROWSER = "firefox";
       TZ = "Europe/Berlin";
       BAT_THEME = "Material-darker";
-      OMF_CONFIG  = "\${XDG_CONFIG_HOME}/omf";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
     };
