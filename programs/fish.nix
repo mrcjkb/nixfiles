@@ -3,7 +3,7 @@
   useBabelfish = true;
   shellInit = ''
     fish-nix-shell --info-right | source
-    zoxide init fiesh | source
+    zoxide init fish | source
   '';
   promptInit = ''
     starship init fish | source
