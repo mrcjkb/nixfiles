@@ -1,6 +1,4 @@
 {
-  zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  enable = true;
+  enableFishIntegration = true;
 }
