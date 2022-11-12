@@ -1,6 +1,5 @@
 { pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 {
-
   imports = [
     (import ./searx.nix { package = pkgs.unstable.searx; })
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
@@ -222,7 +221,7 @@
       unstable.xsane # Sane frontend (advanced)
       unstable.koreader # ebook reader
       unstable.xournalpp # notetaking software with PDF annotation support
-      (unstable.python311.withPackages (pythonPackages: with pythonPackages; [
+      (unstable.python311.withPackages (_: [
       ]))
       unstable.arduino-cli
       texlive.combined.scheme-medium
