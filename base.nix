@@ -291,49 +291,7 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs = {
-    fish = {
-      enable = true;
-      shellAliases = {
-        cd = "z";
-        bd = "prevd";
-        nd = "nextd";
-        exa = "exa --icons --git";
-        ls = "exa --icons --git";
-        la = "exa --icons --git -a";
-        ll = "ls --icons --git -l";
-        lt = "ls --icons --tree";
-        ltg = "lt --git";
-        lta = "lt -a";
-        ltl = "lt -l";
-        lla = "ls --icons --git -al";
-        grep = "rg";
-        cat = "bat --style=plain";
-        mkdir = "mkdir -p";
-        # For managing dotfiles, see: https://www.atlassian.com/git/tutorials/dotfiles
-        config = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
-      };
-    };
-    mtr.enable = true;
-    gnupg = {
-      package = pkgs.unstable.gnupg;
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
-    ssh = {
-      startAgent = false; # Start ssh-agent as a systemd user service
-      knownHosts = {
-        "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
-      };
-    };
-    autojump.enable = true;
-    git.enable = true;
-    htop.enable = true;
-    tmux.enable = true;
-    traceroute.enable = true;
-  };
+  programs = import ./programs { inherit pkgs userEmail; user = defaultUser; };
 
   virtualisation = {
     docker.enable = true;
