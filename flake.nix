@@ -16,22 +16,24 @@
   overlay-unstable = final: prev: {
     unstable = nixpkgs-unstable.legacyPackages.${prev.system};
   };
+  baseSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: {
+    system = "x86_64-linux";
+    specialArgs = attrs // { inherit defaultUser userEmail; };
+    modules = [
+      # Overlays-module makes "pkgs.unstable" available in configuration.nix
+      ({ config, pkgs, ... }: { nixpkgs.overlays = [
+          overlay-unstable
+          nur.overlay
+        ];
+      })
+      ./base.nix
+      home-manager.nixosModule
+      nvim-config.nixosModule
+      xmonad-session.nixosModule
+    ] ++ extraModules;
+  };
   in {
-    nixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs // { inherit defaultUser userEmail; };
-      modules = [
-        # Overlays-module makes "pkgs.unstable" available in configuration.nix
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [
-            overlay-unstable
-            nur.overlay
-          ];
-        })
-        ./base.nix
-    	  home-manager.nixosModule
-        nvim-config.nixosModule
-        xmonad-session.nixosModule
-      ] ++ extraModules;
-    };
+    nixosSystem = args: nixpkgs.lib.nixosSystem (baseSystem args);
+    baseIso = baseSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
   };
 }
