@@ -5,6 +5,7 @@
   inherit userEmail;
   signing = {
     key = "F31C0D0D5BBB0289";
+    signByDefault = true;
   };
   extraConfig = {
     merge = {
