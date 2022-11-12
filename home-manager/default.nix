@@ -16,7 +16,7 @@
         };
       };
       xdg.configFile."Yubico" = {
-        src = ./configs/Yubico;
+        src = ./configs/Yubico/.;
         recursive = true;
       };
     };
