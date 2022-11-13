@@ -10,6 +10,14 @@
       ./hardware-configuration.nix
     ];
 
+  services = {
+    xserver = {
+      # Configure keymap in X11
+      layout = "us";
+      xkbVariant = "altgr-intl";
+    };
+  };
+
   # NOTE: The interface names have to be determined per device.
   # They can be extracted from the generated configuration.nix
   networking = {

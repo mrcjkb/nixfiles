@@ -10,6 +10,17 @@
       ./hardware-configuration.nix
     ];
 
+  services = {
+    xserver = {
+      # Configure keymap in X11
+      layout = "us,de";
+      xkbVariant = "altgr-intl,";
+      xkbOptions = "grp:alt_shift_toggle";
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+    };
+  };
+
   networking = {
     hostName = "nixos-p40";
   };
