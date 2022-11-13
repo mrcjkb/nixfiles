@@ -64,7 +64,7 @@
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
   networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
 
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/Zurich";
 
   # Internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
