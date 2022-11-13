@@ -39,6 +39,11 @@
           ./configurations/home-pc/configuration.nix
         ];
       };
+      p40yoga = mkNixosSystem {
+        extraModules = [
+          ./configurations/p40yoga/configuration.nix
+        ];
+      };
     };
     baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
     inherit mkNixosSystem;
