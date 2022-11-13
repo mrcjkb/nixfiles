@@ -58,6 +58,7 @@
     };
     cleanTmpDir = true;
     tmpOnTmpfs = true;
+    supportedFilesystems = [ "ntfs" ];
   };
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
