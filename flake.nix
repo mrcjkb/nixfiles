@@ -16,7 +16,7 @@
   overlay-unstable = final: prev: {
     unstable = nixpkgs-unstable.legacyPackages.${prev.system};
   };
-  baseSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
+  mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = attrs // { inherit defaultUser userEmail; };
     modules = [
@@ -33,7 +33,14 @@
     ] ++ extraModules;
   };
   in {
-    nixosSystem = args: baseSystem args;
-    baseIso = baseSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+    nixosConfigurations = {
+      home-pc = mkNixosSystem {
+        extraModules = [
+          ./configurations/home-pc/configuration.nix
+        ];
+      };
+    };
+    baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+    inherit mkNixosSystem;
   };
 }

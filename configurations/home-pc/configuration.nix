@@ -4,9 +4,6 @@
 
 { config, pkgs, lib, userEmail, ... }:
 
-let
-  unstable = import <nixos-unstable> { }; 
-in
 {
   imports =
     [ # Include the results of the hardware scan.
