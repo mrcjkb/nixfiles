@@ -72,26 +72,14 @@
   };
 
   services = {
-    # Enable CUPS to print documents.
-    printing.enable = true;
-    avahi = { # To find network scanners
-      enable = true;
-      nssmdns = true;
-    };
     openssh = {
       enable = true;
     };
-    onedrive = {
-      enable = true;
-      package = pkgs.unstable.onedrive;
-    };
     upower.enable = true;
-    gvfs.enable = true; # MTP support for PCManFM
     # Yubikey
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
     localtime.enable = true;
-    logind.lidSwitch = "ignore";
   };
 
   # Disable sound (replaced with pipewire)
@@ -99,13 +87,6 @@
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
-    sane = {
-      enable = true; # Scanner support
-      extraBackends = [
-        pkgs.sane-airscan # Driverless scanning support
-        # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
-      ];
-    };
   };
 
   users = let
@@ -165,54 +146,14 @@
       gnumake
       unstable.librsvg # Small SVG rendering library
       unstable.odt2txt
-      unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-      unstable.keepassxc
-      yubioath-desktop # Yubico Authenticator Desktop app
-      brave
-      unstable.firefox-bin
       unstable.joplin # Joplin (notes) CLI client
-      unstable.joplin-desktop # Joplin (notes, desktop app)
       unstable.yubikey-manager # Yubico Authenticator CLI
-      unstable.shutter # Screenshots
-      unstable.simplescreenrecorder
-      unstable.inkscape-with-extensions
-      unstable.gimp
-      unstable.signal-desktop
       unstable.signal-cli
       unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-      unstable.gparted
-      unstable.xcolor # Color picker
-      unstable.skanlite # Lightweight sane frontend
-      unstable.xsane # Sane frontend (advanced)
-      unstable.koreader # ebook reader
-      unstable.xournalpp # notetaking software with PDF annotation support
-      (unstable.python311.withPackages (_: [
-      ]))
-      unstable.arduino-cli
-      texlive.combined.scheme-medium
-      biber
-      # Haskell
-      unstable.stack
-      unstable.ghc
-      unstable.cabal-install
-      unstable.cabal2nix
-      # stack2nix # Broken
-      # unstable.haskellPackages.summoner
-      # unstable.haskellPackages.summoner-tui
-      # unstable.haskellPackages.feedback # Declarative feedback loop manager
-      unstable.hpack
-      # Rust
-      cargo
-      crate2nix
-      unstable.pandoc
-      unstable.redshift # Blue light filter
-      unstable.gh # GitHub CLI tool
-      unstable.playerctl
-      unstable.imagemagick
       wget
       curl
       unstable.whois
-      unstable.silver-searcher # Fast search
+      # unstable.silver-searcher # Fast search
       file
       unstable.moreutils
       unstable.neofetch # System information CLI
@@ -220,16 +161,14 @@
       zip
       unzip
       unstable.exa # Replacement for ls
-      unstable.nitrogen # Wallpaper browser/setter for X11
       unstable.autorandr # Automatic XRandR configurations
       unstable.arandr # A simple visual front end for XRandR
       upower # D-Bus service for power management
       killall
-      libnotify # Desktop notifications
+      libnotify
       unstable.zoxide # Fast alternative to autojump and z-lua
-      unstable.starship # Fish theme
+      unstable.starship # Shell theme (fish, zsh, ...)
       unstable.jq # JSON processor
-      unstable.jmtpfs # MTP (Android phone) support
       # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
       # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
       unstable.binutils # Tools for manipulating binaries
@@ -237,19 +176,12 @@
       nmap
       update-systemd-resolved
       unstable.dconf # Required to set GTK theme in home-manager
-      unstable.mpv-unwrapped # Media player
       unstable.pdftk # Command-line tool for working with PDFs
       unstable.cloc # Count lines of code
-      unstable.mdp # A command-line based markdown presentation tool
-      unstable.kcat # A generic non-JVM producer and consumer for Apache Kafka
-      # A library for storing and retrieving passwords and other secrets
-      # (secret-tool can be used to look up secrets from the keyring)
       openssl
       unstable.usbutils
-      paperkey
       unstable.nix-output-monitor
       zlib # Lossles data compression library
-      unstable.asciinema # Terminal session recoreder
     ]
     ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)
     ;
@@ -284,7 +216,5 @@
     roboto
     lato # Font used in tiko presentations, etc.
   ];
-
-  xdg = import ./xdg;
 
 }

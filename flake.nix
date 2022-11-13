@@ -30,24 +30,30 @@
         ./base.nix
         home-manager.nixosModule
         nvim-config.nixosModule
-        xmonad-session.nixosModule
       ] ++ extraModules;
+    };
+    mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: mkNixosSystem {
+      extraModules = extraModules ++ [
+        ./desktop.nix
+        xmonad-session.nixosModule
+      ];
     };
   in {
     nixosConfigurations = {
-      home-pc = mkNixosSystem {
+      home-pc = mkDesktopSystem {
         extraModules = [
           ./configurations/home-pc/configuration.nix
           searx
         ];
       };
-      p40yoga = mkNixosSystem {
+      p40yoga = mkDesktopSystem {
         extraModules = [
           ./configurations/p40yoga/configuration.nix
+          searx
         ];
       };
     };
     baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-    inherit mkNixosSystem searx;
+    inherit mkNixosSystem mkDesktopSystem searx;
   };
 }
