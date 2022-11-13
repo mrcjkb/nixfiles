@@ -1,7 +1,6 @@
 { pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 {
   imports = [
-    (import ./searx.nix { package = pkgs.unstable.searx; })
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 

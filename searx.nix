@@ -1,8 +1,8 @@
-{ package }:
+{ pkgs, ... }:
 {
   services.searx = { # Meta search-engine
     enable = true;
-    inherit package;
+    package = pkgs.unstable.searx;
     settings = {
       use_default_settings = true;
       general = {

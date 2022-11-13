@@ -16,6 +16,7 @@
     overlay-unstable = final: prev: {
       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
     };
+    searx = ./searx.nix;
     mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs // { inherit defaultUser userEmail; };
@@ -37,6 +38,7 @@
       home-pc = mkNixosSystem {
         extraModules = [
           ./configurations/home-pc/configuration.nix
+          searx
         ];
       };
       p40yoga = mkNixosSystem {
@@ -46,6 +48,6 @@
       };
     };
     baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-    inherit mkNixosSystem;
+    inherit mkNixosSystem searx;
   };
 }
