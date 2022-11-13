@@ -13,25 +13,25 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
               nvim-config, xmonad-session, ... }@attrs:
   let
-  overlay-unstable = final: prev: {
-    unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-  };
-  mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
-    specialArgs = attrs // { inherit defaultUser userEmail; };
-    modules = [
-      # Overlays-module makes "pkgs.unstable" available in configuration.nix
-      ({ config, pkgs, ... }: { nixpkgs.overlays = [
-          overlay-unstable
-          nur.overlay
-        ];
-      })
-      ./base.nix
-      home-manager.nixosModule
-      nvim-config.nixosModule
-      xmonad-session.nixosModule
-    ] ++ extraModules;
-  };
+    overlay-unstable = final: prev: {
+      unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+    };
+    mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs // { inherit defaultUser userEmail; };
+      modules = [
+        # Overlays-module makes "pkgs.unstable" available in configuration.nix
+        ({ config, pkgs, ... }: { nixpkgs.overlays = [
+            overlay-unstable
+            nur.overlay
+          ];
+        })
+        ./base.nix
+        home-manager.nixosModule
+        nvim-config.nixosModule
+        xmonad-session.nixosModule
+      ] ++ extraModules;
+    };
   in {
     nixosConfigurations = {
       home-pc = mkNixosSystem {
