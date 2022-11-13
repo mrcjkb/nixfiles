@@ -226,9 +226,9 @@
       texlive.combined.scheme-medium
       biber
       # Haskell
-      # unstable.stack
-      # unstable.ghc
-      # unstable.cabal-install
+      unstable.stack
+      unstable.ghc
+      unstable.cabal-install
       unstable.cabal2nix
       # stack2nix # Broken
       # unstable.haskellPackages.summoner
