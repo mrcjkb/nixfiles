@@ -61,7 +61,7 @@
   };
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
-  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = false;  # Disable wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Zurich";
 
@@ -155,41 +155,8 @@
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       });
 
-      system-update-wrapper = writeShellApplication {
-        name = "nixos-update";
-        text = ''
-          if [ "$BASENIXFILESREPO" == "" ]; then
-            >&2 echo "error: BASENIXFILESREPO not set."
-            exit 1
-          fi
-          if [[ ! -d "$BASENIXFILESREPO" ]]; then
-            >&2 echo "error: $BASENIXFILESREPO not found."
-            exit 1
-          fi
-          if [ "$NIXOSREPO" == "" ]; then
-            >&2 echo "error: NIXOSREPO not set."
-            exit 1
-          fi
-          if [[ ! -d "$NIXOSREPO" ]]; then
-            >&2 echo "error: $NIXOSREPO not found."
-            exit 1
-          fi
-
-          pushd "$BASENIXFILESREPO"
-          git pull
-          nix flake update --commit-lock-file && git push
-          popd
-          pushd "$NIXOSREPO"
-          git pull
-          nix flake update --commit-lock-file && git push
-          popd
-          sudo nixos-rebuild switch --flake "$NIXOSREPO" --impure "$@"
-        '';
-      };
-
     in [
-      system-update-wrapper
-      (import (fetchGit "https://github.com/haslersn/fish-nix-shell"))
+      (import (fetchGit "https://github.com/haslersn/fish-nix-shell")) # TODO: Add flake.nix to fork
       unstable.git-filter-repo
       cachix # Nix package caching
       unstable.manix
