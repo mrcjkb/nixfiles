@@ -226,19 +226,19 @@
       texlive.combined.scheme-medium
       biber
       # Haskell
-      unstable.stack
-      unstable.ghc
-      unstable.cabal-install
-      unstable.cabal2nix
+      stack
+      # unstable.ghc
+      cabal-install
+      cabal2nix
       # stack2nix # Broken
       # unstable.haskellPackages.summoner
       # unstable.haskellPackages.summoner-tui
       # unstable.haskellPackages.feedback # Declarative feedback loop manager
-      unstable.hpack
+      hpack
       # Rust
       cargo
       crate2nix
-      unstable.pandoc
+      pandoc
       unstable.redshift # Blue light filter
       unstable.gh # GitHub CLI tool
       unstable.playerctl
