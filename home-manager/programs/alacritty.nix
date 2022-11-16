@@ -49,7 +49,7 @@ package: {
         # Style can be specified to pick a specific face.
         style = "Italic";
       };
-      size = 13.0;
+      size = 16.0;
     };
     env = {
       WINIT_X11_SCALE_FACTOR = "1.0";
