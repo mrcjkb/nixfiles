@@ -27,10 +27,6 @@
         source = ./configs/keepassxc/.;
         recursive = true;
       };
-      xdg.configFile."rofi" = {
-        source = ./configs/rofi/.;
-        recursive = true;
-      };
       xdg.configFile."ranger" = {
         source = ./configs/ranger/.;
         recursive = true;
