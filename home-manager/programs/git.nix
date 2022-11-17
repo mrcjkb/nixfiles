@@ -25,5 +25,6 @@
   ignores = [
     "Session.vim"
     ".hlint.yaml"
+    "tags"
   ];
 }
