@@ -214,8 +214,8 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [
       "JetBrainsMono"
-      "Roboto"
       ]; })
+    roboto
     lato # Font used in tiko presentations, etc.
   ];
 
