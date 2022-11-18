@@ -212,10 +212,11 @@
   };
 
   fonts.fonts = with pkgs; [
-    nerdfonts
-    jetbrains-mono
-    roboto
-    lato # Font used in tiko presentations, etc.
+    (nerdfonts.override { fonts = [
+      "JetBrains Mono"
+      "Roboto"
+      "Lato" # Font used in tiko presentations, etc.
+      ]; })
   ];
 
 }
