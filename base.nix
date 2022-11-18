@@ -213,10 +213,10 @@
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [
-      "JetBrains Mono"
+      "JetBrainsMono"
       "Roboto"
-      "Lato" # Font used in tiko presentations, etc.
       ]; })
+    lato # Font used in tiko presentations, etc.
   ];
 
 }
