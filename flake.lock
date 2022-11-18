@@ -797,11 +797,11 @@
     },
     "nvim-config": {
       "locked": {
-        "lastModified": 1668716533,
-        "narHash": "sha256-yOXQKDTfa7evtcDmpriOCt4DNO/HxWrne5U6awpQpXs=",
+        "lastModified": 1668760283,
+        "narHash": "sha256-4ytxyjK+Hv2JwZkg2g63rocVyAQPDlVYC99LOdjI7+M=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "a41a0ae5809e65cc6fea945da0f36e54657e94db",
+        "rev": "91dfc6a3195d0f947226560fe62e05126fda9438",
         "type": "github"
       },
       "original": {
@@ -943,11 +943,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1668674967,
-        "narHash": "sha256-A9eoQoBLXqdCn/wd18MFb6GhcK/yktTfuvVAu5raAoc=",
+        "lastModified": 1668760233,
+        "narHash": "sha256-gpbLk9pe9gwuGK0TSJ9CzuYyaDHLejiVhyY7Ado4rOI=",
         "owner": "MrcJkb",
         "repo": ".xmonad",
-        "rev": "e8c11afc232599dc8c2991d932ee6d0013f8b47f",
+        "rev": "fd8b0d3714a9998c8d9a0ef41da801745d782ad6",
         "type": "github"
       },
       "original": {
