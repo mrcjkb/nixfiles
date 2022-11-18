@@ -33,19 +33,19 @@ package: {
     font = {
       # The normal (roman) font face to use.
       normal = {
-        family = "Jetbrains Mono";
+        family = "JetBrains Mono Nerd Font Mono";
         # Style can be specified to pick a specific face.
         style = "Regular";
       };
       # The bold font face
       bold = {
-        family = "JetBrains Mono";
+        family = "JetBrains Mono Nerd Font Mono";
         # Style can be specified to pick a specific face.
         style = "Bold";
       };
       # The italic font face
       italic = {
-        family = "JetBrains Mono";
+        family = "JetBrains Mono Nerd Font Mono";
         # Style can be specified to pick a specific face.
         style = "Italic";
       };
