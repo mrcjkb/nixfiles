@@ -8,5 +8,5 @@ package: {
   keybindings = {
     # TODO
   };
-  theme = "Material Darker";
+  theme = "Material Dark";
 }
