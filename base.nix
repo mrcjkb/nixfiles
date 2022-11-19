@@ -179,7 +179,7 @@
       unstable.dconf # Required to set GTK theme in home-manager
       unstable.pdftk # Command-line tool for working with PDFs
       unstable.tokei # Count lines of code
-      unstable.ytop # Alternative to htop
+      unstable.bottom # Alternative to htop
       unstable.du-dust # Alternative to du
       unstable.proc # Alternative to ps
       unstable.sd # Alternative to sed

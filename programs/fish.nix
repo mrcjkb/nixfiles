@@ -29,8 +29,8 @@
     du = "dust";
     ps = "procs";
     cloc = "tokei";
-    top = "ytop";
-    htop = "ytop";
+    top = "btm";
+    htop = "btm";
     time = "hyperfine";
     mkdir = "mkdir -p";
     vi = "nvim";
