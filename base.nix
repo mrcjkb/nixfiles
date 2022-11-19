@@ -181,7 +181,7 @@
       unstable.tokei # Count lines of code
       unstable.bottom # Alternative to htop
       unstable.du-dust # Alternative to du
-      unstable.proc # Alternative to ps
+      unstable.procs # Alternative to ps
       unstable.sd # Alternative to sed
       unstable.hyperfine # Alternative to time
       unstable.tealdeer # tldr implementation for simplified example based man pages
