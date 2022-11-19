@@ -26,6 +26,12 @@
     lla = "ls --icons --git -al";
     grep = "rg";
     cat = "bat --style=plain";
+    du = "dust";
+    ps = "procs";
+    cloc = "tokei";
+    top = "ytop";
+    htop = "ytop";
+    time = "hyperfine";
     mkdir = "mkdir -p";
     vi = "nvim";
     vim = "nvim";

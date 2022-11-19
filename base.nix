@@ -178,7 +178,14 @@
       update-systemd-resolved
       unstable.dconf # Required to set GTK theme in home-manager
       unstable.pdftk # Command-line tool for working with PDFs
-      unstable.cloc # Count lines of code
+      unstable.tokei # Count lines of code
+      unstable.ytop # Alternative to htop
+      unstable.du-dust # Alternative to du
+      unstable.proc # Alternative to ps
+      unstable.sd # Alternative to sed
+      unstable.hyperfine # Alternative to time
+      unstable.tealdeer # tldr implementation for simplified example based man pages
+      unstable.grex # Generate regular expressions from user-provided test cases
       openssl
       unstable.usbutils
       unstable.nix-output-monitor
