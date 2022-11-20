@@ -3,7 +3,7 @@ package: {
   enable = true;
 
   envFile.text = ''
-    mkdir ~/.cache/starship
+    mkdir -p ~/.cache/starship
     starship init nu | save ~/.cache/starship/init.nu
   '';
 
