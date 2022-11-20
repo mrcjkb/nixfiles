@@ -9,6 +9,8 @@
     extraOptions = ''
       allowed-uris = https://github.com
       auto-optimise-store = true
+      keep-outputs = true
+      keep-derivations = true
     '';
     useSandbox = true;
     # Binary Cache for Haskell.nix
@@ -129,6 +131,10 @@
       gpg-connect-agent /bye
     '';
 
+    pathsToLink = [
+      "/share/nix-direnv"
+    ];
+
     systemPackages = with pkgs; let
 
       manix-fzf = pkgs.writeShellApplication ({
@@ -189,6 +195,8 @@
       openssl
       unstable.usbutils
       unstable.nix-output-monitor
+      unstable.direnv
+      unstable.nix-direnv
       zlib # Lossles data compression library
     ]
     ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)

@@ -16,6 +16,9 @@
     overlay-unstable = final: prev: {
       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
     };
+    direnv-overlay = final: prev: {
+      nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
+    };
     searx = ./searx.nix;
     mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -25,6 +28,7 @@
         ({ config, pkgs, ... }: { nixpkgs.overlays = [
             overlay-unstable
             nur.overlay
+            direnv-overlay
           ];
         })
         ./base.nix
