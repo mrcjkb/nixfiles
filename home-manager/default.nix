@@ -15,21 +15,29 @@
           package = pkgs.papirus-icon-theme;
         };
       };
-      xdg.configFile."Yubico" = {
-        source = ./configs/Yubico/.;
-        recursive = true;
+      xdg.configFile = {
+        Yubico = {
+          source = ./configs/Yubico/.;
+          recursive = true;
+        };
+        bat = {
+          source = ./configs/bat/.;
+          recursive = true;
+        };
+        keepassxc = {
+          source = ./configs/keepassxc/.;
+          recursive = true;
+        };
+        ranger = {
+          source = ./configs/ranger/.;
+          recursive = true;
+        };
       };
-      xdg.configFile."bat" = {
-        source = ./configs/bat/.;
-        recursive = true;
-      };
-      xdg.configFile."keepassxc" = {
-        source = ./configs/keepassxc/.;
-        recursive = true;
-      };
-      xdg.configFile."ranger" = {
-        source = ./configs/ranger/.;
-        recursive = true;
+      home.file = {
+        ".yubico" = {
+          source = ./configs/.yubico/.;
+          recursive = true;
+        };
       };
     };
   };
