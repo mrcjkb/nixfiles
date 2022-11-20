@@ -31,7 +31,6 @@
     cloc = "tokei";
     top = "btm";
     htop = "btm";
-    time = "hyperfine";
     mkdir = "mkdir -p";
     vi = "nvim";
     vim = "nvim";
