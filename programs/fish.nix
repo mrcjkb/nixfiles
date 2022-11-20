@@ -6,6 +6,7 @@
     fish_vi_cursor
     fish-nix-shell --info-right | source
     zoxide init fish | source
+    direnv hook fish | source
     set fish_greeting
   '';
   promptInit = ''
