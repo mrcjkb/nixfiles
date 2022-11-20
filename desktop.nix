@@ -1,5 +1,5 @@
 # Base module to be added to desktop systems
-{ pkgs, userEmail ? "mrcjkb89@outlook.com", ... }:
+{ pkgs, user, userEmail, ... }:
 {
 
   services = {
@@ -79,5 +79,17 @@
   ];
 
   xdg = import ./xdg;
+
+  home-manager = {
+    users."${user}" = {
+      xdg.enable = true;
+      xdg.configFile = {
+        joplin-desktop = {
+          source = ./home-manager/configs/joplin-desktop/.;
+          recursive = true;
+        };
+      };
+    };
+  };
 
 }

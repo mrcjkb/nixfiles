@@ -1,0 +1,42 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_GB",
+	"api.token": "dce1f5ed5294071937d8858042934c57d1eb8a49ea1776d8016573f14193fffc8de81af11f66184d957acf861bead8bd683953732056690cacc978a1a85fc05e",
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"spellChecker.language": "en-US",
+	"ui.layout": {
+		"key": "root",
+		"children": [
+			{
+				"key": "sideBar",
+				"width": 250,
+				"visible": true
+			},
+			{
+				"key": "noteList",
+				"width": 250,
+				"visible": true
+			},
+			{
+				"key": "editor",
+				"visible": true
+			}
+		],
+		"visible": true
+	},
+	"noteVisiblePanes": [
+		"editor",
+		"viewer"
+	],
+	"sync.target": 5,
+	"sync.5.path": "https://use03.thegood.cloud/remote.php/webdav/Joplin",
+	"sync.5.username": "mrcjk@tuta.io",
+	"dateFormat": "YYYY/MM/DD",
+	"editor.keyboardMode": "vim",
+	"net.ignoreTlsErrors": false,
+	"theme": 2,
+	"style.editor.fontSize": 16,
+	"clipperServer.autoStart": true,
+	"windowContentZoomFactor": 110
+}

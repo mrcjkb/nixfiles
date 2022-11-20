@@ -1,0 +1,9 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_GB",
+	"api.token": "7055cbb486ce2d1243733a466d2f8f3366d6dc6a628159762a6cacd4013af48f6511e69900a0e0bc2e46a04d13f5fe5797cfc7eac37f0b26824d9ff3fc86f654",
+	"sync.target": 5,
+	"sync.5.path": "https://use03.thegood.cloud/remote.php/webdav/Joplin",
+	"sync.5.username": "mrcjk@tuta.io",
+	"sync.wipeOutFailSafe": true
+}
