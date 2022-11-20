@@ -1,5 +1,5 @@
 # Base module to be added to desktop systems
-{ pkgs, user, userEmail, ... }:
+{ pkgs, defaultUser, userEmail, ... }:
 {
 
   services = {
@@ -81,7 +81,7 @@
   xdg = import ./xdg;
 
   home-manager = {
-    users."${user}" = {
+    users."${defaultUser}" = {
       xdg.enable = true;
       xdg.configFile = {
         joplin-desktop = {
