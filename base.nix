@@ -149,9 +149,16 @@
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       });
 
+      fish-nix-shell = (import (fetchGit "https://github.com/haslersn/fish-nix-shell")); # TODO: Add flake.nix to fork
+
+      haskell-tags-nix = ((import (fetchGit {
+        url = "https://github.com/shajra/haskell-tags-nix";
+        ref = "main";
+      }) + "/default.nix").haskell-tags-nix-exe);
+
     in [
-      (import (fetchGit "https://github.com/haslersn/fish-nix-shell")) # TODO: Add flake.nix to fork
-      ((import (fetchGit "https://github.com/shajra/haskell-tags-nix") + "/default.nix").haskell-tags-nix-exe)
+      fish-nix-shell
+      haskell-tags-nix
       unstable.git-filter-repo
       cachix # Nix package caching
       unstable.manix
