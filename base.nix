@@ -4,7 +4,17 @@
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 
-  nix = {
+  nix = let
+    substituters = [
+      "https://cache.iog.io"
+      "https://cache.nixos.org"
+      "https://iohk.cachix.org"
+      "https://hydra.iohk.io"
+      "https://mrcjkb.cachix.org"
+      "https://shajra.cachix.org"
+    ];
+  in
+  {
     package = pkgs.nixFlakes;
     extraOptions = ''
       allowed-uris = https://github.com
@@ -15,23 +25,19 @@
     useSandbox = true;
     # Binary Cache for Haskell.nix
     settings = {
-      substituters = [
-        "https://cache.iog.io"
-      ];
+      inherit substituters;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
       trusted-users = [defaultUser];
-      trusted-substituters = [
-        "https://cache.nixos.org"
-        "https://iohk.cachix.org"
-        "https://hydra.iohk.io"
-      ];
+      trusted-substituters = substituters;
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+        "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4="
+        "shajra.cachix.org-1:V0x7Wjgd/mHGk2KQwzXv8iydfIgLupbnZKLSQt5hh9o="
       ];
     };
   };
