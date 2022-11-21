@@ -151,10 +151,10 @@
 
       fish-nix-shell = (import (fetchGit "https://github.com/haslersn/fish-nix-shell")); # TODO: Add flake.nix to fork
 
-      haskell-tags-nix = import (fetchGit {
+      haskell-tags-nix = (import (fetchGit {
         url = "https://github.com/shajra/haskell-tags-nix";
         ref = "main";
-      } + "/default.nix").haskell-tags-nix-exe;
+      } + "/default.nix")).haskell-tags-nix-exe;
 
     in [
       fish-nix-shell
