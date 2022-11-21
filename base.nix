@@ -151,6 +151,7 @@
 
     in [
       (import (fetchGit "https://github.com/haslersn/fish-nix-shell")) # TODO: Add flake.nix to fork
+      ((import (fetchGit "https://github.com/shajra/haskell-tags-nix") + "/default.nix").haskell-tags-nix-exe)
       unstable.git-filter-repo
       cachix # Nix package caching
       unstable.manix
