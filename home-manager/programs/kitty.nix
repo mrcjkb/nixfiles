@@ -8,7 +8,7 @@ package: {
   keybindings = {
     # TODO
   };
-  theme = "Homebrew";
+  theme = "Material Darker";
   settings = {
     confirm_os_window_close = 0;
   };
