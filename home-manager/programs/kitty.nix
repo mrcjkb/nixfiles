@@ -14,7 +14,7 @@ package: {
     bold_italic_font = "auto";
     confirm_os_window_close = 0;
     background = "#212121";
-    foreground = "#80CBC4"; #"#DDDDDD";
+    foreground = "#ABCF76"; #"#DDDDDD";
     cursor = "#EEFFFF";
     selection_background = "#404040";
     selection_foreground = "#EEFFFF";
@@ -29,7 +29,7 @@ package: {
     color8 = "#424242";
     color9 = "#F07178";
     color10 = "#C3E88D";
-    color11 = "#C3E88D";
+    color11 = "#80CBC4";
     color12 = "#B0C9FF";
     color13 = "#C792EA";
     color14 = "#89DDFF";
