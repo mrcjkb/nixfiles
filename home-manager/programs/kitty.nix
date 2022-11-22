@@ -14,7 +14,7 @@ package: {
     bold_italic_font = "auto";
     confirm_os_window_close = 0;
     background = "#212121";
-    foreground = "#ABCF76"; #"#DDDDDD";
+    foreground = "#DDDDDD";
     cursor = "#EEFFFF";
     selection_background = "#404040";
     selection_foreground = "#EEFFFF";
