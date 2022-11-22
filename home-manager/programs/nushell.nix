@@ -5,6 +5,7 @@ package: {
   # envFile = {
   #   text = ''
   #     mkdir -p ~/.cache/starship
+  #     zoxide init nushell | save ~/.zoxide.nu
   #     starship init nu | save ~/.cache/starship/init.nu
   #   '';
   # };
@@ -16,6 +17,7 @@ package: {
   #       table_mode: rounded
   #       use_ls_colors: true
   #     }
+  #     source ~/.zoxide.nu
   #     source ~/.cache/starship/init.nu
   #   '';
   # };
