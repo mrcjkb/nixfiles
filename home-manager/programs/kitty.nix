@@ -8,5 +8,5 @@ package: {
   keybindings = {
     # TODO
   };
-  theme = "Material Dark";
+  theme = "Homebrew";
 }
