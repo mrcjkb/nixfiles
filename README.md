@@ -1,2 +1,2 @@
 # nixfiles
-My NixOS system configs.
+My NixOS system configs and dotfiles.
