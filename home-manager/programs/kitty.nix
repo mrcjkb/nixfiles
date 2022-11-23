@@ -15,6 +15,7 @@ package: {
     confirm_os_window_close = 0;
     background = "#212121";
     foreground = "#DDDDDD";
+    cursor = "none";
     selection_background = "#404040";
     selection_foreground = "#EEFFFF";
     color0 = "#212121";
