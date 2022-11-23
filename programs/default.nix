@@ -1,6 +1,7 @@
 { pkgs, user, userEmail, ... }:
 {
   fish = import ./fish.nix;
+  bash = import ./bash.nix;
   mtr.enable = true;
   gnupg = import ./gnupg.nix pkgs.unstable.gnupg;
   ssh = import ./ssh.nix;
