@@ -1,10 +1,10 @@
 {
   enableCompletion = true;
   shellInit = ''
-    zoxide init bash | source
+    eval "$(zoxide init bash)"
   '';
   promptInit = ''
-    starship init bash | source
+    eval "$(starship init bash)"
   '';
   shellAliases = import ./shellAliases.nix;
 }
