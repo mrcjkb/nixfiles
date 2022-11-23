@@ -1,6 +1,6 @@
 {
   enableCompletion = true;
-  shellInit = ''
+  interactiveShellInit = ''
     eval "$(zoxide init bash)"
   '';
   promptInit = ''
