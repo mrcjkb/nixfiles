@@ -1,5 +1,4 @@
 {
-  enable = true;
   enableCompletion = true;
   shellInit = ''
     zoxide init bash | source
