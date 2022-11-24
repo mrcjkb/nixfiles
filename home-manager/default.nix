@@ -16,10 +16,6 @@
         };
       };
       xdg.configFile = {
-        Yubico = {
-          source = ./configs/Yubico/.;
-          recursive = true;
-        };
         bat = {
           source = ./configs/bat/.;
           recursive = true;

@@ -84,6 +84,10 @@
     users."${defaultUser}" = {
       xdg.enable = true;
       xdg.configFile = {
+        Yubico = {
+          source = ./home-manager/configs/Yubico/.;
+          recursive = true;
+        };
         joplin-desktop = {
           source = ./home-manager/configs/joplin-desktop/.;
           recursive = true;
