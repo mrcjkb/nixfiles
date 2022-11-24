@@ -6,6 +6,7 @@ package: {
     size = 16;
   };
   keybindings = {
+    "ctrl+shift+6" = "no_op";
     # TODO
   };
   settings = {
