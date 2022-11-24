@@ -7,6 +7,7 @@ package: {
   };
   keybindings = {
     # TODO
+    "ctrl+^" = "no-op";
   };
   settings = {
     bold_font = "auto";
