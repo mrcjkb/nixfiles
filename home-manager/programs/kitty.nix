@@ -21,8 +21,8 @@ package: {
     selection_foreground = "#EEFFFF";
     color0 = "#212121";
     color1 = "#E6B455";
-    color2 = "#FF5370";
-    color3 = "#ABCF76";
+    color2 = "#ABCF76";
+    color3 = "#FF5370";
     color4 = "#E6B455";
     color5 = "#6E98EB";
     color6 = "#B480D6"; # pwd
