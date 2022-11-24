@@ -882,11 +882,11 @@
     },
     "nvim-config": {
       "locked": {
-        "lastModified": 1669238427,
-        "narHash": "sha256-Yov84p4kSehwc2WvADsDxGODFU9z3/Jx5fDeqKG1tGM=",
+        "lastModified": 1669308194,
+        "narHash": "sha256-oC5wBYaYL5fvNO/pQ2blpPZvrB2XQdxTxY9AhjXne7U=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "542b21c86de0c08c5a758f1a506dbc91c7afc775",
+        "rev": "23975f9d078693095e1b1b85a769836713d1ef38",
         "type": "github"
       },
       "original": {
