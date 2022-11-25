@@ -55,20 +55,17 @@
   # Boot loader
   boot = {
     loader = {
-      systemd-boot = {
+      grub = {
         enable = true;
-        # Disallow editing the kernel command-line befor boot
-        # Enabling this allows gaining root access by passing init=/bin/sh as a kernel parameter
-        editor = false;
-        # Maximum number of latest generations in the boot menu.
-        configurationLimit = 50;
+        version = 2;
+        efiSupport = true;
       };
     };
     cleanTmpDir = true;
     tmpOnTmpfs = true;
     supportedFilesystems = [ "ntfs" ];
   };
-  
+
   fileSystems."/" = { options = [ "noatime" "nodiratime" ]; };
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager

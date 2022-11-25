@@ -26,8 +26,14 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.efi = {
-      canTouchEfiVariables = true;
+    loader = {
+      grub = {
+        enableCryptodisk = true;
+        device = "nodev";
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
     };
     initrd.luks.devices = {
       crypt = {
@@ -36,8 +42,8 @@
       };
     };
   };
-  
-  
+
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
