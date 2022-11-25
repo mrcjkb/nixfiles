@@ -41,7 +41,7 @@
   autoUpgrade = {
       enable = true;
       allowReboot = true;
-      flake = "github:MrcJkb/nixfiles.#tux";
+      flake = "github:MrcJkb/nixfiles#tux";
       flags = [
         "--recreate-lock-file"
         "--no-write-lock-file"
