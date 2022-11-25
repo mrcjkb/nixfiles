@@ -36,7 +36,7 @@
       };
     };
     initrd.luks.devices = {
-      root = {
+      crypted = {
         device = "/dev/disk/by-uuid/be31fac3-c477-4a0b-a1cf-0b9e838d7686";
         preLVM = true;
       };
