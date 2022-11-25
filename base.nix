@@ -68,6 +68,8 @@
     tmpOnTmpfs = true;
     supportedFilesystems = [ "ntfs" ];
   };
+  
+  fileSystems."/" = { options = [ "noatime" "nodiratime" ]; };
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
   networking.wireless.enable = false;  # Disable wireless support via wpa_supplicant.
