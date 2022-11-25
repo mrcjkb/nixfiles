@@ -37,6 +37,18 @@
       };
     };
   };
+  
+  autoUpgrade = {
+      enable = true;
+      allowReboot = true;
+      flake = "github:MrcJkb/nixfiles.#tux";
+      flags = [
+        "--recreate-lock-file"
+        "--no-write-lock-file"
+        "-L" # print build logs
+       ];
+      dates = "daily";
+    };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
