@@ -225,7 +225,11 @@
   programs = import ./programs { inherit pkgs userEmail; user = defaultUser; };
 
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      autoPrune.enable = true;
+      enableOnBoot = true;
+    };
     libvirtd.enable = true;
   };
 
