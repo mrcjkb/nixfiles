@@ -29,16 +29,14 @@
     loader = {
       grub = {
         enableCryptodisk = true;
-        device = "nodev";
       };
       efi = {
         canTouchEfiVariables = true;
       };
     };
     initrd.luks.devices = {
-      root = {
-        device = "/dev/disk/by-uuid/be31fac3-c477-4a0b-a1cf-0b9e838d7686";
-        preLVM = true;
+      crypted = {
+        device = "/dev/disk/by-uuid/139f5cac-14c7-4f3e-adaf-57b55114201c";
       };
     };
   };
