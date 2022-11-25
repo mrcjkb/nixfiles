@@ -7,7 +7,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "sd_mod" "usb_storage" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ "essiv" "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
