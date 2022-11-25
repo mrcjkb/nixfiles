@@ -24,9 +24,18 @@
     hostName = "nixos-tux";
   };
 
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot/efi";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader.efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    initrd.luks.devices = {
+      crypt = {
+        device = "/dev/vda2";
+        preLVM = true;
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default
