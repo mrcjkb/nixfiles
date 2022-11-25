@@ -243,12 +243,16 @@
     };
   };
 
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "JetBrainsMono"
-      ]; })
-    roboto
-    lato # Font used in tiko presentations, etc.
-  ];
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [
+        "JetBrainsMono"
+        ]; })
+      roboto
+      lato # Font used in tiko presentations, etc.
+    ];
+  };
 
 }
