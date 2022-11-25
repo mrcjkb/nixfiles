@@ -28,7 +28,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader.efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
     };
     initrd.luks.devices = {
       crypt = {
@@ -48,17 +47,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system = {
     stateVersion = "22.05"; # Did you read the comment?
-    autoUpgrade = {
-      enable = true;
-      allowReboot = true;
-      flake = "github:MrcJkb/nixfiles#tux";
-      flags = [
-        "--recreate-lock-file"
-        "--no-write-lock-file"
-        "-L" # print build logs
-       ];
-      dates = "daily";
-    };
   };
 }
 
