@@ -61,11 +61,6 @@
           searx
         ];
       };
-      tux = mkDesktopSystem {
-        extraModules = [
-          ./configurations/tux/configuration.nix
-        ];
-      };
     };
     baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
     inherit mkNixosSystem mkDesktopSystem searx;
