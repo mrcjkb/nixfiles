@@ -37,7 +37,7 @@
     };
     initrd.luks.devices = {
       crypt = {
-        device = "/dev/nvme0n1p2";
+        device = "/dev/nvme0n1";
         preLVM = true;
       };
     };
