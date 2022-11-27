@@ -22,9 +22,9 @@
       keep-outputs = true
       keep-derivations = true
     '';
-    useSandbox = true;
     # Binary Cache for Haskell.nix
     settings = {
+      sandbox = true;
       inherit substituters;
       experimental-features = [
         "nix-command"
@@ -88,7 +88,7 @@
     # Yubikey
     pcscd.enable = true;
     udev.packages = [ pkgs.yubikey-personalization ];
-    localtime.enable = true;
+    localtimed.enable = true;
   };
 
   # Disable sound (replaced with pipewire)
