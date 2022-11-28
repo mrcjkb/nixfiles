@@ -213,6 +213,7 @@
       unstable.direnv
       unstable.nix-direnv
       zlib # Lossles data compression library
+      pciutils # Inspection/manipulation of PCI devices
     ]
     ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)
     ;
