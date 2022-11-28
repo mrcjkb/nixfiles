@@ -15,6 +15,7 @@
     };
     gvfs.enable = true; # MTP support for PCManFM
     logind.lidSwitch = "ignore";
+    blueman.enable = true;
   };
 
   hardware = {
