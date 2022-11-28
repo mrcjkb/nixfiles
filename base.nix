@@ -217,6 +217,7 @@
       unstable.nix-direnv
       zlib # Lossles data compression library
       pciutils # Inspection/manipulation of PCI devices
+      bluetuith # Bluetooth TUI
     ]
     ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)
     ;
