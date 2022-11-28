@@ -95,7 +95,10 @@
   sound.enable = false;
   hardware = {
     pulseaudio.enable = false;
-    bluetooth.enable = true;
+    bluetooth = {
+      package = pkgs.unstable.bluez;
+      enable = true;
+    };
   };
 
   users = let
