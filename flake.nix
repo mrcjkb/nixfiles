@@ -38,7 +38,10 @@
         ./base.nix
         home-manager.nixosModule
         nvim-config.nixosModule
-        { environment.systemPackages = [ feedback.packages.${system}.default ]; }
+        { environment.systemPackages = [
+          feedback.packages.${system}.default
+          xmonad-session.xmobar-app
+        ]; }
       ] ++ extraModules;
     };
     mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: mkNixosSystem {
