@@ -40,7 +40,7 @@
         nvim-config.nixosModule
         { environment.systemPackages = [
           feedback.packages.${system}.default
-          xmonad-session.xmobar-app
+          xmonad-session.xmobar-package
         ]; }
       ] ++ extraModules;
     };
