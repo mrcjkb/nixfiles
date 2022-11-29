@@ -1,4 +1,4 @@
-{ pkgs, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
+{ pkgs, lib, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 {
   imports = [
     (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
@@ -24,7 +24,7 @@
     '';
     # Binary Cache for Haskell.nix
     settings = {
-      sandbox = true;
+      sandbox = lib.mkDefault true;
       inherit substituters;
       experimental-features = [
         "nix-command"
@@ -44,7 +44,7 @@
 
   nixpkgs = {
     config = {
-      allowBroken = true;
+      allowBroken = lib.mkDefault true;
       packageOverrides = pkgs: {
         xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
@@ -56,21 +56,21 @@
   boot = {
     loader = {
       grub = {
-        enable = true;
+        enable = lib.mkDefault true;
         version = 2;
-        efiSupport = true;
+        efiSupport = lib.mkDefault true;
         device = "nodev";
       };
     };
-    cleanTmpDir = true;
-    tmpOnTmpfs = true;
+    cleanTmpDir = lib.mkDefault true;
+    tmpOnTmpfs = lib.mkDefault true;
     supportedFilesystems = [ "ntfs" ];
   };
 
   fileSystems."/" = { options = [ "noatime" "nodiratime" ]; };
 
-  networking.networkmanager.enable = true; # Enables wireless support via NetworkManager
-  networking.wireless.enable = false;  # Disable wireless support via wpa_supplicant.
+  networking.networkmanager.enable = lib.mkDefault true; # Enables wireless support via NetworkManager
+  networking.wireless.enable = lib.mkDefault false;  # Disable wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Zurich";
 
@@ -82,23 +82,22 @@
 
   services = {
     openssh = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
-    upower.enable = true;
+    upower.enable = lib.mkDefault true;
     # Yubikey
-    pcscd.enable = true;
+    pcscd.enable = lib.mkDefault true;
     udev.packages = [ pkgs.yubikey-personalization ];
     # localtimed.enable = true;
-    localtime.enable = true;
+    localtime.enable = lib.mkDefault true;
   };
 
   # Disable sound (replaced with pipewire)
-  sound.enable = false;
+  sound.enable = lib.mkDefault false;
   hardware = {
-    pulseaudio.enable = false;
+    pulseaudio.enable = lib.mkDefault false;
     bluetooth = {
-      package = pkgs.unstable.bluez;
-      enable = true;
+      enable = lib.mkDefault true;
     };
   };
 
@@ -230,30 +229,30 @@
 
   virtualisation = {
     docker = {
-      enable = true;
-      autoPrune.enable = true;
-      enableOnBoot = true;
+      enable = lib.mkDefault true;
+      autoPrune.enable = lib.mkDefault true;
+      enableOnBoot = lib.mkDefault true;
     };
-    libvirtd.enable = true;
+    libvirtd.enable = lib.mkDefault true;
   };
 
   security = {
     pam = {
-      u2f.enable = true;
+      u2f.enable = lib.mkDefault true;
       yubico = {
-        enable = true;
-        debug = true;
+        enable = lib.mkDefault true;
+        debug = lib.mkDefault true;
         mode = "challenge-response";
       };
       services = {
-        login.u2fAuth = true;
+        login.u2fAuth = lib.mkDefault true;
       };
     };
   };
 
   fonts = {
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
+    fontDir.enable = lib.mkDefault true;
+    enableGhostscriptFonts = lib.mkDefault true;
     fonts = with pkgs; [
       (nerdfonts.override { fonts = [
         "JetBrainsMono"
