@@ -4,7 +4,7 @@
   gh = import ./gh.nix;
   zoxide = import ./zoxide.nix pkgs.zoxide;
   alacritty = import ./alacritty.nix pkgs.alacritty;
-  kitty = import ./kitty.nix pkgs.kitty;
+  wezterm = import ./wezterm.nix pkgs.wezterm;
   nushell = import ./nushell.nix pkgs.nushell;
   direnv = import ./direnv.nix;
 }
