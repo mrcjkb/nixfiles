@@ -1,11 +1,13 @@
 {
   description = "Wrapper for creating a NixOS system configuration.";
 
-  inputs = {
+  inputs = let
+    stable-version = "22.11";
+  in {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-${stable-version}";
     nur.url = "github:nix-community/NUR";
-    home-manager.url = "github:nix-community/home-manager/release-22.11";
+    home-manager.url = "github:nix-community/home-manager/release-${stable-version}";
     nvim-config.url = "github:MrcJkb/nvim-config";
     xmonad-session.url = "github:MrcJkb/.xmonad";
     feedback.url = "github:NorfairKing/feedback";
