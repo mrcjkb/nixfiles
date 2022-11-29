@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, userEmail, ... }:
+{ config, pkgs, lib, defaultUser, userEmail, ... }:
 
 {
   imports =
@@ -24,6 +24,12 @@
     hostName = "nixos-home-pc";
     interfaces = {
       enp3s0.useDHCP = true;
+    };
+  };
+
+  home-manager = {
+    users."${defaultUser}" = {
+      home.stateVersion = "21.11";
     };
   };
 
