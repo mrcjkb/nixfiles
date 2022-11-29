@@ -6,7 +6,8 @@ package: {
     size = 16;
   };
   keybindings = {
-    "ctrl+shift+6" = "no_op";
+    "ctrl+shift+6" = "no_op"; # Breaks Neovim's <C-^>
+    "ctrl+shift+]" = "no_op"; # Breaks Neovim's <C-}>
     # TODO
   };
   settings = {
