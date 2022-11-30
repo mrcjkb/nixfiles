@@ -12,7 +12,7 @@ package: {
          "#6E98EB"
          "#B480D6"
          "#71C6E7"
-         "#ffffff"
+         "#FFFFFF"
       ];
       brights = [
          "#424242"
@@ -22,7 +22,7 @@ package: {
          "#B0C9FF"
          "#C792EA"
          "#89DDFF"
-         "#ffffff"
+         "#FFFFFF"
       ];
       foreground = "#DDDDDD";
       background = "#212121";
