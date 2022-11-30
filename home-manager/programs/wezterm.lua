@@ -1,3 +1,5 @@
+local wezterm = require("wezterm")
+
 return {
 	font_size = 16.0,
 	window_decorations = "RESIZE",
@@ -5,4 +7,11 @@ return {
 	color_scheme = "mrcjk",
 	hide_tab_bar_if_only_one_tab = true,
 	force_reverse_video_cursor = true,
+	keys = {
+		{
+			key = "Enter",
+			mods = "ALT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+	},
 }
