@@ -1,5 +1,12 @@
 local wezterm = require("wezterm")
-local disableDefaultAssignment = wezterm.action.DisableDefaultAssignment
+
+local function disableDefaultAssignment(keymap)
+	return {
+		key = keymap.key,
+		mods = keymap.mods,
+		action = wezterm.action.DisableDefaultAssignment,
+	}
+end
 
 return {
 	font_size = 16.0,
@@ -10,15 +17,17 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	force_reverse_video_cursor = true,
 	keys = {
-		{
+		disableDefaultAssignment({
 			key = "Enter",
 			mods = "ALT",
-			action = disableDefaultAssignment,
-		},
-		{
+		}),
+		disableDefaultAssignment({
+			key = "n",
+			mods = "CTRL",
+		}),
+		disableDefaultAssignment({
 			key = "phys:6",
 			mods = "CTRL|SHIFT",
-			action = disableDefaultAssignment,
-		},
+		}),
 	},
 }
