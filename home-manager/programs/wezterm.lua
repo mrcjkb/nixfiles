@@ -16,7 +16,7 @@ return {
 			action = disableDefaultAssignment,
 		},
 		{
-			key = "6",
+			key = "phys:6",
 			mods = "CTRL|SHIFT",
 			action = disableDefaultAssignment,
 		},
