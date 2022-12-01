@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local disableDefaultAssignment = wezterm.action.DisableDefaultAssignment
 
 return {
 	font_size = 16.0,
@@ -11,7 +12,12 @@ return {
 		{
 			key = "Enter",
 			mods = "ALT",
-			action = wezterm.action.DisableDefaultAssignment,
+			action = disableDefaultAssignment,
+		},
+		{
+			key = "6",
+			mods = "CTRL|SHIFT",
+			action = disableDefaultAssignment,
 		},
 	},
 }
