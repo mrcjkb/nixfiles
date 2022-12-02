@@ -6,7 +6,7 @@ package: {
     text = ''
       mkdir ~/.cache/starship
       zoxide init nushell | save ~/.zoxide.nu
-      starship init nu | save ~/.cache/starship/init.nu
+      starship init nu | str replace 'term size -c' 'term size' | save ~/.cache/starship/init.nu
     '';
   };
 
