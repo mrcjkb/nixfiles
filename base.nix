@@ -99,7 +99,7 @@
   };
 
   users = let
-    defaultShell = pkgs.unstable.fish;
+    defaultShell = pkgs.unstable.nushell;
   in {
     defaultUserShell = defaultShell;
     # Define a user account. Don't forget to set a password with ‘passwd’.
