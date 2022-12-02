@@ -12,7 +12,8 @@ package: {
 
   configFile = {
     text = ''
-      let $config = {
+      let-env config = {
+        show_bqnner: false
         filesize_metric: false
         table_mode: rounded
         use_ls_colors: true
