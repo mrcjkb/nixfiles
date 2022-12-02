@@ -14,6 +14,8 @@ package: {
     text = ''
       let-env config = {
         show_banner: false
+        edit_mode: vi
+        max_history_size: 100000
         filesize_metric: false
         table_mode: rounded
         use_ls_colors: true
