@@ -4,7 +4,7 @@ package: {
 
   envFile = {
     text = ''
-      mkdir -p ~/.cache/starship
+      mkdir ~/.cache/starship
       zoxide init nushell | save ~/.zoxide.nu
       starship init nu | save ~/.cache/starship/init.nu
     '';
