@@ -29,6 +29,19 @@ package: {
       }
       source ~/.zoxide.nu
       source ~/.cache/starship/init.nu
+      alias cd = z
+      alias exa = exa --icons --git
+      alias la = exa --icons --git -a
+      alias ll = exa --icons --git -l
+      alias lt = exa --icons --tree
+      alias grep = rg
+      alias cat = bat --style=plain
+      alias cloc = tokei
+      alias top = btm
+      alias htop = btm
+      alias vi = nvim
+      alias vim = nvim
+      alias nv = neovide
     '';
   };
 }
