@@ -132,6 +132,11 @@
       WORKSPACE = "\${HOME}/.workspace";
     };
 
+    shells = with pkgs.unstable; [
+      fish
+      nushell
+    ];
+
     shellInit = ''
       export GPG_TTY="$(tty)"
       gpg-connect-agent /bye
