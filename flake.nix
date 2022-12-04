@@ -21,10 +21,12 @@
       nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
     };
     searx = ./searx.nix;
-    mkNixosSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }:
-    let
-      system = "x86_64-linux";
-    in nixpkgs.lib.nixosSystem {
+    mkNixosSystem = {
+      extraModules ? [],
+      defaultUser ? "mrcjk",
+      userEmail ? "mrcjkb89@outlook.com",
+      system ? "x86_64-linux",
+      }: nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = attrs // { inherit defaultUser userEmail; };
       modules = [
@@ -50,6 +52,19 @@
         xmonad-session.nixosModule
       ];
     };
+    rpi4 = let
+      system = "aarch64-linux";
+    in mkNixosSystem {
+      inherit system;
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+        {
+          nixpkgs.config.allowUnsupportedSystem = true;
+          nixpkgs.crossSystem.system = system;
+        }
+        ./configurations/rpi4/configuration.nix
+      ];
+    };
   in {
     nixosConfigurations = {
       home-pc = mkDesktopSystem {
@@ -64,8 +79,12 @@
           searx
         ];
       };
+      inherit rpi4;
     };
-    baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+    images = {
+      baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+      rpi4 = rpi4.config.system.build.sdImage;
+    };
     inherit mkNixosSystem mkDesktopSystem searx;
   };
 }
