@@ -16,11 +16,11 @@
       };
       xdg.configFile = {
         Yubico = {
-          source = ./home-manager/configs/Yubico/.;
+          source = ./configs/Yubico/.;
           recursive = true;
         };
         joplin-desktop = {
-          source = ./home-manager/configs/joplin-desktop/.;
+          source = ./configs/joplin-desktop/.;
           recursive = true;
         };
       };
