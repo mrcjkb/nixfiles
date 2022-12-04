@@ -1,5 +1,5 @@
 # Base module to be added to desktop systems
-{ pkgs, defaultUser, userEmail, ... }:
+{ pkgs, lib, defaultUser, userEmail, ... }:
 {
 
   imports = [
