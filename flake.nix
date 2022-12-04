@@ -85,6 +85,11 @@
       baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
       rpi4 = rpi4.config.system.build.sdImage;
     };
-    inherit mkNixosSystem mkDesktopSystem searx;
+    helpers = {
+      inherit mkNixosSystem mkDesktopSystem;
+    };
+    modules = {
+      inherit searx;
+    };
   };
 }
