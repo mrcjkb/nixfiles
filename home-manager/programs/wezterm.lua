@@ -26,20 +26,8 @@ return {
 			mods = "CTRL",
 		}),
 		disableDefaultAssignment({
-			key = "phys:6",
-			mods = "CTRL|SHIFT",
-		}),
-		disableDefaultAssignment({
 			key = "6",
-			mods = "CTRL|SHIFT",
-		}),
-		disableDefaultAssignment({
-			key = "^",
-			mods = "CTRL",
-		}),
-		disableDefaultAssignment({
-			key = "mapped:^",
-			mods = "CTRL",
+			mods = "SHIFT|CTRL",
 		}),
 	},
 }
