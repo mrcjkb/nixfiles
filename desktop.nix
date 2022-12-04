@@ -2,6 +2,10 @@
 { pkgs, defaultUser, userEmail, ... }:
 {
 
+  imports = [
+    (import ./home-manager-desktop { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
+  ];
+
   # For building Raspberry Pi images
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 

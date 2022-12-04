@@ -1,7 +1,7 @@
 { pkgs, lib, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 {
   imports = [
-    (import ./home-manager { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
+    (import ./home-manager-base { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
   ];
 
   nix = let

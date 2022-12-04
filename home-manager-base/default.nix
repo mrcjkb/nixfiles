@@ -4,17 +4,6 @@
     users."${user}" = {
       xdg.enable = true;
       programs = import ./programs { inherit pkgs user userEmail; };
-      gtk = {
-        enable = true;
-        theme = {
-          name = "Materia-dark";
-          package = pkgs.materia-theme;
-        };
-        iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
-        };
-      };
       xdg.configFile = {
         bat = {
           source = ./configs/bat/.;
