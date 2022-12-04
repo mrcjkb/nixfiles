@@ -2,6 +2,9 @@
 { pkgs, defaultUser, userEmail, ... }:
 {
 
+  # For building Raspberry Pi images
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   services = {
     # Enable CUPS to print documents.
     printing.enable = true;
