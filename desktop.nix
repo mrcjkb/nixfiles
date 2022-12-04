@@ -11,23 +11,23 @@
 
   services = {
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing.enable = lib.mkDefault true;
     avahi = { # To find network scanners
-      enable = true;
-      nssmdns = true;
+      enable = lib.mkDefault true;
+      nssmdns = lib.mkDefault true;
     };
     onedrive = {
-      enable = true;
+      enable = lib.mkDefault true;
       package = pkgs.unstable.onedrive;
     };
-    gvfs.enable = true; # MTP support for PCManFM
+    gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
     logind.lidSwitch = "ignore";
-    blueman.enable = true;
+    blueman.enable = lib.mkDefault true;
   };
 
   hardware = {
     sane = {
-      enable = true; # Scanner support
+      enable = lib.mkDefault true; # Scanner support
       extraBackends = [
         pkgs.sane-airscan # Driverless scanning support
         # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
@@ -87,21 +87,5 @@
   ];
 
   xdg = import ./xdg;
-
-  home-manager = {
-    users."${defaultUser}" = {
-      xdg.enable = true;
-      xdg.configFile = {
-        Yubico = {
-          source = ./home-manager/configs/Yubico/.;
-          recursive = true;
-        };
-        joplin-desktop = {
-          source = ./home-manager/configs/joplin-desktop/.;
-          recursive = true;
-        };
-      };
-    };
-  };
 
 }

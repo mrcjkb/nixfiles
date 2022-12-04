@@ -1,4 +1,4 @@
-{ pkgs, lib, user, userEmail, ... }:
+{ pkgs, user, userEmail, ... }:
 {
   home-manager = {
     users."${user}" = {
@@ -12,6 +12,16 @@
         iconTheme = {
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
+        };
+      };
+      xdg.configFile = {
+        Yubico = {
+          source = ./home-manager/configs/Yubico/.;
+          recursive = true;
+        };
+        joplin-desktop = {
+          source = ./home-manager/configs/joplin-desktop/.;
+          recursive = true;
         };
       };
     };
