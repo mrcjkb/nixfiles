@@ -56,7 +56,7 @@
       system = "aarch64-linux";
     in mkNixosSystem {
       inherit system;
-      modules = [
+      extraModules = [
         "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
         {
           nixpkgs.config.allowUnsupportedSystem = true;
