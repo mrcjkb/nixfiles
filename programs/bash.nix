@@ -6,5 +6,4 @@
   promptInit = ''
     eval "$(starship init bash)"
   '';
-  shellAliases = import ./shellAliases.nix;
 }
