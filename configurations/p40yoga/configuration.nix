@@ -25,9 +25,15 @@
     hostName = "nixos-p40";
   };
 
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot/efi";
+  boot.loader = {
+    grub.enable = false;
+    systemd-boot = {
+      enable = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
   };
 
   home-manager = {
