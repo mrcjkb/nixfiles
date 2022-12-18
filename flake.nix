@@ -9,10 +9,12 @@
     nvim-config.url = "github:MrcJkb/nvim-config";
     xmonad-session.url = "github:MrcJkb/.xmonad";
     feedback.url = "github:NorfairKing/feedback";
+    gh2rockspec.url = "github:teto/gh2rockspec";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
-              nvim-config, xmonad-session, feedback, ... }@attrs:
+              nvim-config, xmonad-session, feedback, gh2rockspec,
+              ... }@attrs:
   let
     overlay-unstable = final: prev: {
       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
@@ -40,16 +42,17 @@
         ./base.nix
         home-manager.nixosModule
         nvim-config.nixosModule
-        { environment.systemPackages = [
-          feedback.packages.${system}.default
-          xmonad-session.xmobar-package
-        ]; }
       ] ++ extraModules;
     };
-    mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com" }: mkNixosSystem {
+    mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", system ? "x86_64-linux" }: mkNixosSystem {
       extraModules = extraModules ++ [
         ./desktop.nix
         xmonad-session.nixosModule
+        { environment.systemPackages = [
+          xmonad-session.xmobar-package
+          feedback.packages.${system}.default
+          gh2rockspec.packages.${system}.default
+        ]; }
       ];
     };
     rpi4 = let
