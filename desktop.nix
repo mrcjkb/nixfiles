@@ -37,7 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-    unstable.yubioath-desktop # Yubico Authenticator Desktop app
+    unstable.yubioath-flutter # Yubico Authenticator Desktop app
     unstable.brave
     unstable.firefox
     unstable.joplin-desktop # Joplin (notes, desktop app)
