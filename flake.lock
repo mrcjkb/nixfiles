@@ -980,11 +980,11 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay"
       },
       "locked": {
-        "lastModified": 1671552480,
-        "narHash": "sha256-jzKDzMEoJIJC0OR9k2ZdSHbxi6nwVFvAwY8mNChqeZc=",
+        "lastModified": 1671553279,
+        "narHash": "sha256-ASdrayCgWH+fUMLgCEaeRxi8urKL2Ri8V3Il+BqUZZE=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "c32e5c2021ffaf096b335aa06281d5e15f940389",
+        "rev": "6bb0601bc85723c5653a8a8d0fca1ae53789239e",
         "type": "github"
       },
       "original": {
