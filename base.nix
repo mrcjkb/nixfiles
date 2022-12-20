@@ -10,6 +10,7 @@
       "https://cache.nixos.org"
       "https://mrcjkb.cachix.org"
       "https://shajra.cachix.org"
+      "https://nix-community.cachix.org"
     ];
   in
   {
@@ -35,6 +36,7 @@
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
         "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4="
         "shajra.cachix.org-1:V0x7Wjgd/mHGk2KQwzXv8iydfIgLupbnZKLSQt5hh9o="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };
