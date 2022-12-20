@@ -7,7 +7,6 @@
   nix = let
     substituters = [
       "https://cache.iog.io"
-      "https://cache.nixos.org"
       "https://mrcjkb.cachix.org"
       "https://shajra.cachix.org"
       "https://nix-community.cachix.org"
@@ -32,7 +31,6 @@
       trusted-users = [defaultUser];
       trusted-substituters = substituters;
       trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
         "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4="
         "shajra.cachix.org-1:V0x7Wjgd/mHGk2KQwzXv8iydfIgLupbnZKLSQt5hh9o="
