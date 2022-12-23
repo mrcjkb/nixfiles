@@ -13,6 +13,10 @@
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
         };
+        cursorTheme = {
+          name = "Nordzy";
+          package = pkgs.nordzy-cursor-theme;
+        };
       };
       xdg.configFile = {
         Yubico = {
