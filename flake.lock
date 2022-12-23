@@ -1263,11 +1263,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1671755078,
-        "narHash": "sha256-8qpNpfnuPI2Iq9xYSDXKnCNsSEYEDlW7ES/C9t0NPKU=",
+        "lastModified": 1671757582,
+        "narHash": "sha256-YVElZ/VqZlxfqgRDL7ZYSmM/nZH083ldgzdcVV5TFYA=",
         "owner": "MrcJkb",
         "repo": ".xmonad",
-        "rev": "4b9d6e7dca0609900a53315ce8ce8257a55658de",
+        "rev": "cf02a6344ae1ca48d0ba1f9d89624b78c3528fd8",
         "type": "github"
       },
       "original": {
