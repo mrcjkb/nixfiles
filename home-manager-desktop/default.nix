@@ -2,16 +2,16 @@
 {
   home-manager = {
     users."${user}" = {
-      programs = import ./programs { inherit pkgs user userEmail; };
+      programs = import ./programs { pkgs = pkgs.unstable; inherit user userEmail; };
       gtk = {
         enable = true;
         theme = {
           name = "Materia-dark";
-          package = pkgs.materia-theme;
+          package = pkgs.unstable.materia-theme;
         };
         iconTheme = {
           name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
+          package = pkgs.unstable.papirus-icon-theme;
         };
         cursorTheme = {
           name = "Volantes Material Cursors";

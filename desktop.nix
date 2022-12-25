@@ -3,7 +3,7 @@
 {
 
   imports = [
-    (import ./home-manager-desktop { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
+    (import ./home-manager-desktop { user = defaultUser; inherit pkgs userEmail; })
   ];
 
   # For building Raspberry Pi images
