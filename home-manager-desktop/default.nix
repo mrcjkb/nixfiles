@@ -13,9 +13,13 @@
           name = "Papirus-Dark";
           package = pkgs.unstable.papirus-icon-theme;
         };
+        # cursorTheme = {
+        #   name = "Volantes Material Cursors";
+        #   package = pkgs.volantes-cursors-material;
+        # };
         cursorTheme = {
-          name = "Volantes Material Cursors";
-          package = pkgs.volantes-cursors-material;
+          name = "Catpuccin Mocha Dark Cursors";
+          package = pkgs.catppuccin-cursors;
         };
       };
       xdg.configFile = {
