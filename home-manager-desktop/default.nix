@@ -19,7 +19,7 @@
         # };
         cursorTheme = {
           name = "Catpuccin-Mocha-Dark-Cursors";
-          package = pkgs.catppuccin-cursors;
+          package = pkgs.unstable.catppuccin-cursors;
         };
       };
       xdg.configFile = {
