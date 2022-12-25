@@ -14,13 +14,9 @@
           package = pkgs.unstable.papirus-icon-theme;
         };
         cursorTheme = {
-          name = "volantes-material-cursors";
+          name = "Volantes Material Dark";
           package = pkgs.volantes-cursors-material;
         };
-        # cursorTheme = {
-        #   name = "Catpuccin-Mocha-Dark-Cursors";
-        #   package = pkgs.unstable.catppuccin-cursors;
-        # };
       };
       xdg.configFile = {
         Yubico = {
