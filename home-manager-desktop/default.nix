@@ -28,7 +28,7 @@
           recursive = true;
         };
       };
+      home.file.".icons/default".source = "$pkgs.{volantes-cursors-material}/share/icons/volantes_cursors";
     };
-    home.file.".icons/default".source = "$pkgs.{volantes-cursors-material}/share/icons/volantes_cursors";
   };
 }
