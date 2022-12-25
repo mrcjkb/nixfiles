@@ -49,7 +49,7 @@
     mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", system ? "x86_64-linux" }: mkNixosSystem {
       extraModules = extraModules ++ [
         ({ config, pkgs, ... }: { nixpkgs.overlays = [
-            cursor-theme.overlays.default
+            cursor-theme.overlay
           ];
         })
         ./desktop.nix
