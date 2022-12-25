@@ -8,12 +8,14 @@
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     nvim-config.url = "github:MrcJkb/nvim-config";
     xmonad-session.url = "github:MrcJkb/.xmonad";
+    cursor-theme.url = "github:MrcJkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
-              nvim-config, xmonad-session, feedback, gh2rockspec,
+              nvim-config, xmonad-session, cursor-theme,
+              feedback, gh2rockspec,
               ... }@attrs:
   let
     overlay-unstable = final: prev: {
@@ -46,6 +48,10 @@
     };
     mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", system ? "x86_64-linux" }: mkNixosSystem {
       extraModules = extraModules ++ [
+        ({ config, pkgs, ... }: { nixpkgs.overlays = [
+            cursor-theme.overlay
+          ];
+        })
         ./desktop.nix
         xmonad-session.nixosModule
         { environment.systemPackages = [

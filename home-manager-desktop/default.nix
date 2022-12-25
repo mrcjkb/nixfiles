@@ -14,8 +14,8 @@
           package = pkgs.papirus-icon-theme;
         };
         cursorTheme = {
-          name = "Nordzy";
-          package = pkgs.nordzy-cursor-theme;
+          name = "Volantes Material Cursors";
+          package = pkgs.volantes-cursors-material;
         };
       };
       xdg.configFile = {
