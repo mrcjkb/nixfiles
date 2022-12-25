@@ -122,11 +122,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1671902573,
-        "narHash": "sha256-G5gJLzXhDe0tUFIt9YK9RA2L37cUgO8LCGXMbXLrVsQ=",
+        "lastModified": 1671990829,
+        "narHash": "sha256-p43z8YYw2p/s44B0J1TTusELEyYUvNvPpN39ptjGjZA=",
         "owner": "MrcJkb",
         "repo": "volantes-cursors-material",
-        "rev": "54e1ccd468cee97fb36cf2617e041903a2f6ed4f",
+        "rev": "8d2f6e5549f466ed27ab999cf129cb492a1f9a37",
         "type": "github"
       },
       "original": {
