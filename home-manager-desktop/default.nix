@@ -18,7 +18,7 @@
         #   package = pkgs.volantes-cursors-material;
         # };
         cursorTheme = {
-          name = "Catpuccin Mocha Dark Cursors";
+          name = "Catpuccin-Mocha-Dark-Cursors";
           package = pkgs.catppuccin-cursors;
         };
       };
