@@ -6,6 +6,7 @@ package: {
     text = ''
       zoxide init nushell
         | str replace '&&' 'and'
+        | str replace '||' 'or'
         | save -f ~/.zoxide.nu
 
       mkdir ~/.cache/starship
