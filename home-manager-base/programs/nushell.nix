@@ -5,8 +5,8 @@ package: {
   envFile = {
     text = ''
       mkdir ~/.cache/starship
-      zoxide init nushell | save ~/.zoxide.nu
-      starship init nu | str replace 'term size -c' 'term size' | save ~/.cache/starship/init.nu
+      zoxide init nushell | save -f ~/.zoxide.nu
+      starship init nu | str replace 'term size -c' 'term size' | save -f ~/.cache/starship/init.nu
     '';
   };
 
