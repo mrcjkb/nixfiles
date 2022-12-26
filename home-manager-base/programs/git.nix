@@ -3,17 +3,17 @@
   enable = true;
   userName = "Marc Jakobi";
   inherit userEmail;
-  signing = {
-    key = "F31C0D0D5BBB0289";
-    signByDefault = false;
-  };
+  # signing = {
+  #   key = "F31C0D0D5BBB0289";
+  #   signByDefault = false;
+  # };
   extraConfig = {
     merge = {
-      tool = "fugitive";
+      tool = "nvim";
     };
     mergetool = {
-      fugitive = {
-        cmd = "${pkgs.neovim}/bin/nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"";
+      nvim = {
+        cmd = "${pkgs.neovim}/bin/nvim -f -c \"DiffViewOpen\"";
       };
     };
     pull = {
