@@ -85,8 +85,8 @@
     # Yubikey
     pcscd.enable = lib.mkDefault true;
     udev.packages = [ pkgs.yubikey-personalization ];
-    localtimed.enable = lib.mkDefault true;
-    # localtime.enable = lib.mkDefault true;
+    automatic-timezoned.enable = lib.mkDefault true;
+    geoclue2.enable = lib.mkDefault true;
   };
 
   # Disable sound (replaced with pipewire)
