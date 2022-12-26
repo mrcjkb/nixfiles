@@ -4,11 +4,13 @@ package: {
 
   envFile = {
     text = ''
+      zoxide init nushell
+        | str replace '&&' 'and'
+        | save -f ~/.zoxide.nu
+
       mkdir ~/.cache/starship
-      zoxide init nushell | save -f ~/.zoxide.nu
       starship init nu
         | str replace 'term size -c' 'term size'
-        | str replace '&&' 'and'
         | save -f ~/.cache/starship/init.nu
     '';
   };
