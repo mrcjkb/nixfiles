@@ -11,11 +11,12 @@
     cursor-theme.url = "github:MrcJkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
+    nurl.url = "github:nix-community/nurl";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
               nvim-config, xmonad-session, cursor-theme,
-              feedback, gh2rockspec,
+              feedback, gh2rockspec, nurl,
               ... }@attrs:
   let
     overlay-unstable = final: prev: {
@@ -58,6 +59,7 @@
           xmonad-session.xmobar-package
           feedback.packages.${system}.default
           gh2rockspec.packages.${system}.default
+          nurl.packages.${system}.default
         ]; }
       ];
     };
