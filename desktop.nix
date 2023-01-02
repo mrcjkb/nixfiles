@@ -86,6 +86,7 @@
       unstable.asciinema # Terminal session recoreder
       unstable.playerctl
       unstable.gh # GitHub CLI tool
+      unstable.act # Run GitHub workflows locally
       unstable.arduino-cli
     ];
     sessionVariables = {
