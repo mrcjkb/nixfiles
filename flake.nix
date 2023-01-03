@@ -12,13 +12,43 @@
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
+              pre-commit-hooks,
               nvim-config, xmonad-session, cursor-theme,
               feedback, gh2rockspec, nurl,
               ... }@attrs:
   let
+    supportedSystems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    perSystem = nixpkgs.lib.genAttrs supportedSystems;
+    pkgsFor = system: import nixpkgs {inherit system;};
+    pre-commit-check-for = system:
+      pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+    shellFor = system: let
+      pkgs = pkgsFor system;
+      pre-commit-check = pre-commit-check-for system;
+    in
+      pkgs.mkShell {
+        name = "nixfiles-devShell";
+        inherit (pre-commit-check) shellHook;
+        buildInputs = with pkgs; [
+          alejandra
+        ];
+      };
+
     overlay-unstable = final: prev: {
       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
     };
@@ -102,5 +132,13 @@
     modules = {
       inherit searx;
     };
+
+    devShells = perSystem (system: {
+      default = shellFor system;
+    });
+
+    checks = perSystem (system: {
+      formatting = pre-commit-check-for system;
+    });
   };
 }
