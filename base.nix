@@ -74,8 +74,19 @@
 
   fileSystems."/" = {options = ["noatime" "nodiratime"];};
 
-  networking.networkmanager.enable = lib.mkDefault true; # Enables wireless support via NetworkManager
-  networking.wireless.enable = lib.mkDefault false; # Disable wireless support via wpa_supplicant.
+  networking = {
+    networkmanager.enable = lib.mkDefault true; # Enables wireless support via NetworkManager
+    wireless.enable = lib.mkDefault false; # Disable wireless support via wpa_supplicant.
+    firewall = {
+      enable = lib.mkDefault true;
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
+    };
+  };
+
+  # disable coredump that could be exploited later
+  # and also slow down the system when something crash
+  systemd.coredump.enable = lib.mkDefault false;
 
   time.timeZone = "Europe/Zurich";
 

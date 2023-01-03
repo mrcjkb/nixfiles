@@ -9,6 +9,7 @@
   mtr.enable = true;
   gnupg = import ./gnupg.nix pkgs.unstable.gnupg;
   ssh = import ./ssh.nix;
+  firejail = import ./firejail.nix pkgs.unstable;
   git.enable = true;
   htop.enable = true;
   tmux.enable = true;
