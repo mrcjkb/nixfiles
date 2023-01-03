@@ -1,6 +1,10 @@
-{ config, pkgs, lib, defaultUser, ... }:
 {
-
+  config,
+  pkgs,
+  lib,
+  defaultUser,
+  ...
+}: {
   boot = {
     loader.grub.enable = false;
   };

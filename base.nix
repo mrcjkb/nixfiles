@@ -1,7 +1,16 @@
-{ pkgs, lib, defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", ... }:
 {
+  pkgs,
+  lib,
+  defaultUser ? "mrcjk",
+  userEmail ? "mrcjkb89@outlook.com",
+  ...
+}: {
   imports = [
-    (import ./home-manager-base { pkgs = pkgs.unstable; user = defaultUser; inherit userEmail; })
+    (import ./home-manager-base {
+      pkgs = pkgs.unstable;
+      user = defaultUser;
+      inherit userEmail;
+    })
   ];
 
   nix = let
@@ -11,8 +20,7 @@
       "https://shajra.cachix.org"
       "https://nix-community.cachix.org"
     ];
-  in
-  {
+  in {
     package = pkgs.nixFlakes;
     extraOptions = ''
       allowed-uris = https://github.com
@@ -43,7 +51,7 @@
     config = {
       allowBroken = lib.mkDefault true;
       packageOverrides = pkgs: {
-        xsaneGimp = pkgs.xsane.override { gimpSupport = true; }; # Support for scanning in GIMP
+        xsaneGimp = pkgs.xsane.override {gimpSupport = true;}; # Support for scanning in GIMP
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
       };
     };
@@ -61,19 +69,20 @@
     };
     cleanTmpDir = lib.mkDefault true;
     tmpOnTmpfs = lib.mkDefault true;
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
   };
 
-  fileSystems."/" = { options = [ "noatime" "nodiratime" ]; };
+  fileSystems."/" = {options = ["noatime" "nodiratime"];};
 
   networking.networkmanager.enable = lib.mkDefault true; # Enables wireless support via NetworkManager
-  networking.wireless.enable = lib.mkDefault false;  # Disable wireless support via wpa_supplicant.
+  networking.wireless.enable = lib.mkDefault false; # Disable wireless support via wpa_supplicant.
 
   time.timeZone = "Europe/Zurich";
 
   # Internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  console = { font = "Lat2-Terminus16";
+  console = {
+    font = "Lat2-Terminus16";
     keyMap = "us";
   };
 
@@ -84,7 +93,7 @@
     upower.enable = lib.mkDefault true;
     # Yubikey
     pcscd.enable = lib.mkDefault true;
-    udev.packages = [ pkgs.yubikey-personalization ];
+    udev.packages = [pkgs.yubikey-personalization];
     automatic-timezoned.enable = lib.mkDefault true;
     geoclue2.enable = lib.mkDefault true;
   };
@@ -147,87 +156,91 @@
     ];
 
     systemPackages = with pkgs; let
-
-      manix-fzf = pkgs.writeShellApplication ({
+      manix-fzf = pkgs.writeShellApplication {
         name = "nixf";
         runtimeInputs = [unstable.manix unstable.ripgrep unstable.fzf];
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
-      });
+      };
 
-      fish-nix-shell = (import (fetchGit "https://github.com/haslersn/fish-nix-shell")); # TODO: Add flake.nix to fork
+      fish-nix-shell = import (fetchGit "https://github.com/haslersn/fish-nix-shell"); # TODO: Add flake.nix to fork
 
-      haskell-tags-nix = (import (fetchGit {
-        url = "https://github.com/shajra/haskell-tags-nix";
-        ref = "main";
-      } + "/default.nix")).haskell-tags-nix-exe;
-
-    in [
-      fish-nix-shell
-      haskell-tags-nix
-      unstable.git-filter-repo
-      cachix # Nix package caching
-      unstable.manix
-      manix-fzf
-      gcc
-      gnumake
-      unstable.librsvg # Small SVG rendering library
-      unstable.odt2txt
-      unstable.joplin # Joplin (notes) CLI client
-      unstable.yubikey-manager # Yubico Authenticator CLI
-      unstable.signal-cli
-      unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-      wget
-      curl
-      unstable.whois
-      # unstable.silver-searcher # Fast search
-      file
-      unstable.moreutils
-      unstable.neofetch # System information CLI
-      # neomutt # E-mail
-      zip
-      unzip
-      unstable.exa # Replacement for ls
-      unstable.autorandr # Automatic XRandR configurations
-      unstable.arandr # A simple visual front end for XRandR
-      upower # D-Bus service for power management
-      killall
-      libnotify
-      unstable.zoxide # Fast alternative to autojump and z-lua
-      unstable.starship # Shell theme (fish, zsh, ...)
-      unstable.jq # JSON processor
-      # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
-      # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
-      unstable.binutils # Tools for manipulating binaries
-      unstable.dig # Domain information groper
-      nmap
-      update-systemd-resolved
-      unstable.dconf # Required to set GTK theme in home-manager
-      unstable.pdftk # Command-line tool for working with PDFs
-      unstable.tokei # Count lines of code
-      unstable.bottom # Alternative to htop
-      unstable.du-dust # Alternative to du
-      unstable.procs # Alternative to ps
-      unstable.sd # Alternative to sed
-      unstable.hyperfine # Alternative to time
-      unstable.tealdeer # tldr implementation for simplified example based man pages
-      unstable.grex # Generate regular expressions from user-provided test cases
-      openssl
-      unstable.usbutils
-      unstable.nix-output-monitor
-      unstable.nix-index # A files database for nix
-      unstable.direnv
-      unstable.nix-direnv
-      zlib # Lossles data compression library
-      pciutils # Inspection/manipulation of PCI devices
-      unstable.bluetuith # Bluetooth TUI
-    ]
-    ++ (import ./packages/fishPlugins.nix unstable.fishPlugins)
-    ;
+      haskell-tags-nix =
+        (import (fetchGit {
+            url = "https://github.com/shajra/haskell-tags-nix";
+            ref = "main";
+          }
+          + "/default.nix"))
+        .haskell-tags-nix-exe;
+    in
+      [
+        fish-nix-shell
+        haskell-tags-nix
+        unstable.git-filter-repo
+        cachix # Nix package caching
+        unstable.manix
+        manix-fzf
+        gcc
+        gnumake
+        unstable.librsvg # Small SVG rendering library
+        unstable.odt2txt
+        unstable.joplin # Joplin (notes) CLI client
+        unstable.yubikey-manager # Yubico Authenticator CLI
+        unstable.signal-cli
+        unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
+        wget
+        curl
+        unstable.whois
+        # unstable.silver-searcher # Fast search
+        file
+        unstable.moreutils
+        unstable.neofetch # System information CLI
+        # neomutt # E-mail
+        zip
+        unzip
+        unstable.exa # Replacement for ls
+        unstable.autorandr # Automatic XRandR configurations
+        unstable.arandr # A simple visual front end for XRandR
+        upower # D-Bus service for power management
+        killall
+        libnotify
+        unstable.zoxide # Fast alternative to autojump and z-lua
+        unstable.starship # Shell theme (fish, zsh, ...)
+        unstable.jq # JSON processor
+        # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
+        # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
+        unstable.binutils # Tools for manipulating binaries
+        unstable.dig # Domain information groper
+        nmap
+        update-systemd-resolved
+        unstable.dconf # Required to set GTK theme in home-manager
+        unstable.pdftk # Command-line tool for working with PDFs
+        unstable.tokei # Count lines of code
+        unstable.bottom # Alternative to htop
+        unstable.du-dust # Alternative to du
+        unstable.procs # Alternative to ps
+        unstable.sd # Alternative to sed
+        unstable.hyperfine # Alternative to time
+        unstable.tealdeer # tldr implementation for simplified example based man pages
+        unstable.grex # Generate regular expressions from user-provided test cases
+        openssl
+        unstable.usbutils
+        unstable.nix-output-monitor
+        unstable.nix-index # A files database for nix
+        unstable.direnv
+        unstable.nix-direnv
+        zlib # Lossles data compression library
+        pciutils # Inspection/manipulation of PCI devices
+        unstable.bluetuith # Bluetooth TUI
+      ]
+      ++ (import ./packages/fishPlugins.nix unstable.fishPlugins);
   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs = import ./programs { inherit pkgs userEmail; user = defaultUser; };
+  programs = import ./programs {
+    inherit pkgs userEmail;
+    user = defaultUser;
+  };
 
   virtualisation = {
     docker = {
@@ -256,12 +269,13 @@
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [
-        "JetBrainsMono"
-        ]; })
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+        ];
+      })
       roboto
       lato # Font used in tiko presentations, etc.
     ];
   };
-
 }

@@ -1,5 +1,8 @@
-{ pkgs, userEmail, ... }:
 {
+  pkgs,
+  userEmail,
+  ...
+}: {
   enable = true;
   userName = "Marc Jakobi";
   inherit userEmail;

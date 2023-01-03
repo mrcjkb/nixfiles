@@ -1,9 +1,13 @@
-{ pkgs, user, userEmail, ... }:
 {
+  pkgs,
+  user,
+  userEmail,
+  ...
+}: {
   home-manager = {
     users."${user}" = {
       xdg.enable = true;
-      programs = import ./programs { inherit pkgs user userEmail; };
+      programs = import ./programs {inherit pkgs user userEmail;};
       xdg.configFile = {
         bat = {
           source = ./configs/bat/.;

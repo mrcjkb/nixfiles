@@ -1,18 +1,27 @@
 # Base module to be added to desktop systems
-{ pkgs, lib, config, defaultUser, userEmail, ... }:
 {
-
+  pkgs,
+  lib,
+  config,
+  defaultUser,
+  userEmail,
+  ...
+}: {
   imports = [
-    (import ./home-manager-desktop { user = defaultUser; inherit pkgs userEmail; })
+    (import ./home-manager-desktop {
+      user = defaultUser;
+      inherit pkgs userEmail;
+    })
   ];
 
   # For building Raspberry Pi images
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   services = {
     # Enable CUPS to print documents.
     printing.enable = lib.mkDefault true;
-    avahi = { # To find network scanners
+    avahi = {
+      # To find network scanners
       enable = lib.mkDefault true;
       nssmdns = lib.mkDefault true;
     };
@@ -57,7 +66,7 @@
       biber
       unstable.keepassxc
       (unstable.python311.withPackages (_: [
-      ]))
+        ]))
       # Nix
       unstable.alejandra # The uncompromising nix code formatter
       # Haskell
@@ -103,5 +112,4 @@
   };
 
   xdg = import ./xdg;
-
 }

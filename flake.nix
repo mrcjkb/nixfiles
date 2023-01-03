@@ -18,12 +18,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager,
-              pre-commit-hooks,
-              nvim-config, xmonad-session, cursor-theme,
-              feedback, gh2rockspec, nurl,
-              ... }@attrs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    nur,
+    home-manager,
+    pre-commit-hooks,
+    nvim-config,
+    xmonad-session,
+    cursor-theme,
+    feedback,
+    gh2rockspec,
+    nurl,
+    ...
+  } @ attrs: let
     supportedSystems = [
       "aarch64-linux"
       "x86_64-linux"
@@ -53,7 +62,7 @@
       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
     };
     direnv-overlay = final: prev: {
-      nix-direnv = prev.nix-direnv.override { enableFlakes = true; };
+      nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
     };
     searx = ./searx.nix;
     mkNixosSystem = {
@@ -61,51 +70,75 @@
       defaultUser ? "mrcjk",
       userEmail ? "mrcjkb89@outlook.com",
       system ? "x86_64-linux",
-      }: nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = attrs // { inherit defaultUser userEmail; };
-      modules = [
-        # Overlays-module makes "pkgs.unstable" available in configuration.nix
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [
-            overlay-unstable
-            nur.overlay
-            direnv-overlay
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = attrs // {inherit defaultUser userEmail;};
+        modules =
+          [
+            # Overlays-module makes "pkgs.unstable" available in configuration.nix
+            ({
+              config,
+              pkgs,
+              ...
+            }: {
+              nixpkgs.overlays = [
+                overlay-unstable
+                nur.overlay
+                direnv-overlay
+              ];
+            })
+            ./base.nix
+            home-manager.nixosModule
+            nvim-config.nixosModule
+          ]
+          ++ extraModules;
+      };
+    mkDesktopSystem = {
+      extraModules ? [],
+      defaultUser ? "mrcjk",
+      userEmail ? "mrcjkb89@outlook.com",
+      system ? "x86_64-linux",
+    }:
+      mkNixosSystem {
+        extraModules =
+          extraModules
+          ++ [
+            ({
+              config,
+              pkgs,
+              ...
+            }: {
+              nixpkgs.overlays = [
+                cursor-theme.overlay
+              ];
+            })
+            ./desktop.nix
+            xmonad-session.nixosModule
+            {
+              environment.systemPackages = [
+                xmonad-session.xmobar-package
+                feedback.packages.${system}.default
+                gh2rockspec.packages.${system}.default
+                nurl.packages.${system}.default
+              ];
+            }
           ];
-        })
-        ./base.nix
-        home-manager.nixosModule
-        nvim-config.nixosModule
-      ] ++ extraModules;
-    };
-    mkDesktopSystem = { extraModules ? [], defaultUser ? "mrcjk", userEmail ? "mrcjkb89@outlook.com", system ? "x86_64-linux" }: mkNixosSystem {
-      extraModules = extraModules ++ [
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [
-            cursor-theme.overlay
-          ];
-        })
-        ./desktop.nix
-        xmonad-session.nixosModule
-        { environment.systemPackages = [
-          xmonad-session.xmobar-package
-          feedback.packages.${system}.default
-          gh2rockspec.packages.${system}.default
-          nurl.packages.${system}.default
-        ]; }
-      ];
-    };
+      };
     rpi4 = let
       system = "aarch64-linux";
-    in mkNixosSystem {
-      inherit system;
-      extraModules = [
-        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-        {
-          nixpkgs.config.allowUnsupportedSystem = true;
-          nixpkgs.crossSystem.system = system;
-        }
-        ./configurations/rpi4/configuration.nix
-      ];
-    };
+    in
+      mkNixosSystem {
+        inherit system;
+        extraModules = [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          {
+            nixpkgs.config.allowUnsupportedSystem = true;
+            nixpkgs.crossSystem.system = system;
+          }
+          ./configurations/rpi4/configuration.nix
+        ];
+      };
   in {
     nixosConfigurations = {
       home-pc = mkDesktopSystem {
@@ -123,7 +156,7 @@
       inherit rpi4;
     };
     images = {
-      baseIso = mkNixosSystem { extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+      baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
       rpi4 = rpi4.config.system.build.sdImage;
     };
     helpers = {

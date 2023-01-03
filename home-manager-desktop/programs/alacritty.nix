@@ -28,7 +28,7 @@ package: {
         magenta = "#FFEE99";
         cyan = "#95E6CB";
         white = "#FFFFFF";
-     };
+      };
     };
     font = {
       # The normal (roman) font face to use.
@@ -55,8 +55,16 @@ package: {
       WINIT_X11_SCALE_FACTOR = "1.0";
     };
     key_bindings = [
-      { key = "Equals"; mods = "Control"; action = "IncreaseFontSize"; }
-      { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
+      {
+        key = "Equals";
+        mods = "Control";
+        action = "IncreaseFontSize";
+      }
+      {
+        key = "Minus";
+        mods = "Control";
+        action = "DecreaseFontSize";
+      }
     ];
   };
 }

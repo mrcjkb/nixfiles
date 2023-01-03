@@ -1,5 +1,9 @@
-{ pkgs, user, userEmail, ... }:
 {
+  pkgs,
+  user,
+  userEmail,
+  ...
+}: {
   fish = import ./fish.nix;
   bash = import ./bash.nix;
   mtr.enable = true;
@@ -10,4 +14,3 @@
   tmux.enable = true;
   traceroute.enable = true;
 }
-

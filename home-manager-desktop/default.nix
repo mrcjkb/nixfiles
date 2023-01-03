@@ -1,8 +1,15 @@
-{ pkgs, user, userEmail, ... }:
 {
+  pkgs,
+  user,
+  userEmail,
+  ...
+}: {
   home-manager = {
     users."${user}" = {
-      programs = import ./programs { pkgs = pkgs.unstable; inherit user userEmail; };
+      programs = import ./programs {
+        pkgs = pkgs.unstable;
+        inherit user userEmail;
+      };
       gtk = {
         enable = true;
         theme = {

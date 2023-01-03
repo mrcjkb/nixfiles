@@ -1,5 +1,4 @@
-package:
-{
+package: {
   inherit package;
   agent = {
     enable = true;
