@@ -96,6 +96,10 @@
     udev.packages = [pkgs.yubikey-personalization];
     automatic-timezoned.enable = lib.mkDefault true;
     geoclue2.enable = lib.mkDefault true;
+    clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
   };
 
   # Disable sound (replaced with pipewire)
