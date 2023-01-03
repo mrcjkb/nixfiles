@@ -13,7 +13,7 @@
     ];
   in
   {
-    package = pkgs.nix-monitored;
+    package = pkgs.nixFlakes;
     extraOptions = ''
       allowed-uris = https://github.com
       auto-optimise-store = true
@@ -47,16 +47,6 @@
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
       };
     };
-    overlays = [
-      (self: super: {
-       nixos-rebuild = super.nixos-rebuild.override {
-         nix = super.nix-monitored;
-       };
-       nix-direnv = super.nix-direnv.override {
-         nix = super.nix-monitored;
-       };
-       })
-    ];
   };
 
   # Boot loader
