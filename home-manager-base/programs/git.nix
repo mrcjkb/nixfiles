@@ -29,5 +29,7 @@
     "Session.vim"
     ".hlint.yaml"
     "tags"
+    ".direnv"
+    ".pre-commit-config.yaml"
   ];
 }
