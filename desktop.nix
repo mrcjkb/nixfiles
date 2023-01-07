@@ -97,6 +97,7 @@
       unstable.gh # GitHub CLI tool
       unstable.act # Run GitHub workflows locally
       unstable.arduino-cli
+      unstable.element-desktop # Matrix client
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
