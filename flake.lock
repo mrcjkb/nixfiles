@@ -1374,11 +1374,11 @@
         "pre-commit-hooks": "pre-commit-hooks_3"
       },
       "locked": {
-        "lastModified": 1673266069,
-        "narHash": "sha256-vR7Mwa+BoR34xCP2LeWgEdaO3yaDzV4wu9/4afF41tE=",
+        "lastModified": 1673269619,
+        "narHash": "sha256-tP7kdkpFz6BbiJ8cTgBB9bcrV/uJUhInFhTgCPTWnCA=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "5d6311ed30f76f4646d6ef8eeb0754c89970875c",
+        "rev": "0e3fbf457d68df1b028a02e9e4c28bdc9baadc10",
         "type": "github"
       },
       "original": {
