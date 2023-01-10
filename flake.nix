@@ -6,7 +6,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
-    nvim-config.url = "github:MrcJkb/nvim-config";
+    nvim-config = {
+      url = "github:MrcJkb/nvim-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xmonad-session.url = "github:MrcJkb/.xmonad";
     cursor-theme.url = "github:MrcJkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
