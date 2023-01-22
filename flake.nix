@@ -15,6 +15,11 @@
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
+    stylix.url = "github:danth/stylix";
+    base16schemes = {
+      url = "github:tinted-theming/base16-schemes";
+      flake = false;
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,13 +32,15 @@
     nixpkgs-unstable,
     nur,
     home-manager,
-    pre-commit-hooks,
     nvim-config,
     xmonad-session,
     cursor-theme,
     feedback,
     gh2rockspec,
     nurl,
+    stylix,
+    base16schemes,
+    pre-commit-hooks,
     ...
   } @ attrs: let
     supportedSystems = [
@@ -70,13 +77,14 @@
     searx = ./searx.nix;
     mkNixosSystem = {
       extraModules ? [],
+      extraArgs ? {},
       defaultUser ? "mrcjk",
       userEmail ? "mrcjkb89@outlook.com",
       system ? "x86_64-linux",
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = attrs // {inherit defaultUser userEmail;};
+        specialArgs = attrs // {inherit defaultUser userEmail;} // extraArgs;
         modules =
           [
             # Overlays-module makes "pkgs.unstable" available in configuration.nix
@@ -92,7 +100,7 @@
               ];
             })
             ./base.nix
-            home-manager.nixosModule
+            home-manager.nixosModules.home-manager
             nvim-config.nixosModule
           ]
           ++ extraModules;
@@ -118,6 +126,7 @@
             })
             ./desktop.nix
             xmonad-session.nixosModule
+            stylix.nixosModules.stylix
             {
               environment.systemPackages = [
                 xmonad-session.xmobar-package
@@ -127,6 +136,7 @@
               ];
             }
           ];
+        extraArgs = { inherit base16schemes; };
       };
     rpi4 = let
       system = "aarch64-linux";

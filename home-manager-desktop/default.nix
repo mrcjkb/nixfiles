@@ -12,10 +12,6 @@
       };
       gtk = {
         enable = true;
-        theme = {
-          name = "Materia-dark";
-          package = pkgs.unstable.materia-theme;
-        };
         iconTheme = {
           name = "Papirus-Dark";
           package = pkgs.unstable.papirus-icon-theme;
