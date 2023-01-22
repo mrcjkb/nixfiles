@@ -5,7 +5,6 @@
   config,
   defaultUser,
   userEmail,
-  base16schemes,
   ...
 }: {
   imports = [
@@ -111,16 +110,6 @@
         "${config.system.path}"
       ];
     };
-  };
-
-  stylix = {
-    image = pkgs.fetchurl {
-      url = "https://user-images.githubusercontent.com/12857160/213937865-c910a41c-2092-48d1-83cc-e1776da0ec14.png";
-      sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
-    };
-    polarity = "dark";
-    base16Scheme = "${base16schemes}/material-darker.yaml";
-    fonts.serif = config.stylix.fonts.sansSerif;
   };
 
   xdg = import ./xdg;

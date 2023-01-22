@@ -1,10 +1,18 @@
 {
   pkgs,
   lib,
+  config,
   defaultUser ? "mrcjk",
   userEmail ? "mrcjkb89@outlook.com",
+  base16schemes,
   ...
-}: {
+}: let
+  jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
+    fonts = [
+      "JetBrainsMono"
+    ];
+  };
+in {
   imports = [
     (import ./home-manager-base {
       pkgs = pkgs.unstable;
@@ -282,15 +290,41 @@
     };
   };
 
+  stylix = {
+    image = pkgs.fetchurl {
+      url = "https://user-images.githubusercontent.com/12857160/213937865-c910a41c-2092-48d1-83cc-e1776da0ec14.png";
+      sha256 = "pnvx65H/OewNAodCiM3YB41+JzS+uYrS6o9xO4fJm+0=";
+    };
+    polarity = "dark";
+    base16Scheme = "${base16schemes}/material-darker.yaml";
+    fonts = {
+      serif = {
+        package = jetbrains-mono-nerdfont;
+        name = "JetBrains Mono Nerd Font Mono";
+      };
+
+      sansSerif = {
+        package = jetbrains-mono-nerdfont;
+        name = "JetBrains Mono Nerd Font Mono";
+      };
+
+      monospace = {
+        package = jetbrains-mono-nerdfont;
+        name = "JetBrains Mono Nerd Font Mono";
+      };
+
+      emoji = {
+        package = jetbrains-mono-nerdfont;
+        name = "JetBrains Mono Nerd Font Mono";
+      };
+    };
+  };
+
   fonts = {
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
     fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+      jetbrains-mono-nerdfont
       roboto
       lato # Font used in tiko presentations, etc.
     ];

@@ -77,14 +77,13 @@
     searx = ./searx.nix;
     mkNixosSystem = {
       extraModules ? [],
-      extraArgs ? {},
       defaultUser ? "mrcjk",
       userEmail ? "mrcjkb89@outlook.com",
       system ? "x86_64-linux",
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = attrs // {inherit defaultUser userEmail;} // extraArgs;
+        specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
         modules =
           [
             # Overlays-module makes "pkgs.unstable" available in configuration.nix
@@ -136,7 +135,6 @@
               ];
             }
           ];
-        extraArgs = { inherit base16schemes; };
       };
     rpi4 = let
       system = "aarch64-linux";
