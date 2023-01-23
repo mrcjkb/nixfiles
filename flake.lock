@@ -1862,11 +1862,11 @@
         "pre-commit-hooks": "pre-commit-hooks_5"
       },
       "locked": {
-        "lastModified": 1674469963,
-        "narHash": "sha256-pTWXYEF8qWmtzq0Qb0/Fmn1W4gb+XG82qhwHSy5xEzc=",
+        "lastModified": 1674471640,
+        "narHash": "sha256-8fsVt0vztasgCyU4RXw/m0jwOr8iLGv+PpmhNFugAJM=",
         "owner": "MrcJkb",
         "repo": ".xmonad",
-        "rev": "e6da9ee7bb27a4ac638731b61858eb5e6d0b36a7",
+        "rev": "f2cf888814d9d2855ce993e41eae16a07e23cd4a",
         "type": "github"
       },
       "original": {
