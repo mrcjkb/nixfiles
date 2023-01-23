@@ -222,7 +222,7 @@ in {
         zip
         unzip
         unstable.exa # Replacement for ls
-        unstable.autorandr # Automatic XRandR configurations
+        autorandr # Automatic XRandR configurations
         unstable.arandr # A simple visual front end for XRandR
         upower # D-Bus service for power management
         killall
