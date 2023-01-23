@@ -123,10 +123,9 @@ in {
     };
   };
 
-  # Disable sound (replaced with pipewire)
-  sound.enable = lib.mkDefault false;
+  sound.enable = lib.mkDefault true;
   hardware = {
-    pulseaudio.enable = lib.mkDefault false;
+    pulseaudio.enable = lib.mkDefault true;
     bluetooth = {
       enable = lib.mkDefault true;
     };
