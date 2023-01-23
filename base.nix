@@ -317,6 +317,12 @@ in {
         name = "JetBrains Mono Nerd Font Mono";
       };
     };
+    targets = {
+      grub = {
+        enable = true;
+        useImage = true;
+      };
+    };
   };
 
   fonts = {
