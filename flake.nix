@@ -15,7 +15,7 @@
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:mrcjkb/stylix/k9s";
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
       flake = false;
