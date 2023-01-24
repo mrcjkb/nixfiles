@@ -320,8 +320,8 @@ in {
     };
     targets = {
       grub = {
-        enable = true;
-        useImage = true;
+        enable = false;
+        # useImage = true;
       };
     };
   };
