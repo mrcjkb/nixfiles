@@ -250,6 +250,7 @@ in {
         unstable.usbutils
         unstable.nix-output-monitor
         unstable.nix-index # A files database for nix
+        unstable.nixos-opton
         unstable.direnv
         unstable.nix-direnv
         zlib # Lossles data compression library
