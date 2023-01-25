@@ -1704,11 +1704,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1674681618,
-        "narHash": "sha256-pT6bOqvBlI/iOOny/lgpax5cXbSMRkNA2/77rcxEaco=",
+        "lastModified": 1674681698,
+        "narHash": "sha256-m5rVdW6ycO+fSVVVQ3rozdIAQRM6GqnUfdjiJrXnCTw=",
         "owner": "mrcjkb",
         "repo": "stylix",
-        "rev": "3ab84a2a2b9138ce26236f49f9a80b8380de41d3",
+        "rev": "15c341af30684bf08a2f092f0c0188425828467e",
         "type": "github"
       },
       "original": {
