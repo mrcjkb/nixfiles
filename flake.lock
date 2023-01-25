@@ -1704,16 +1704,16 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1674680670,
-        "narHash": "sha256-avmVfMWvHKmOQz9bO6Q4DCm42aZJosRE7tNIy+nrcAA=",
+        "lastModified": 1674681505,
+        "narHash": "sha256-kvq+jsDbefitHe1uzz5PVEoiSoECtCbn7r0dL+ooShI=",
         "owner": "mrcjkb",
         "repo": "stylix",
-        "rev": "5ff7d144bce34640a1ad52fda299a066515ecae7",
+        "rev": "fe1ee26572b02d7c39faf241273bb8437a7fb55e",
         "type": "github"
       },
       "original": {
         "owner": "mrcjkb",
-        "ref": "k9s-tweak",
+        "ref": "k9s",
         "repo": "stylix",
         "type": "github"
       }
