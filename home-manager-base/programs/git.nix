@@ -22,6 +22,9 @@
     pull = {
       rebase = true;
     };
+    push = {
+      autoSetupRemote = true;
+    };
     # Force SSH instead of HTTPS:
     # url."ssh://git@github.com/".insteadOf = "https://github.com/";
   };
