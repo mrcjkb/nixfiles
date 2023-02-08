@@ -7,7 +7,7 @@
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     nvim-config = {
-      url = "github:MrcJkb/nvim-config";
+      url = "github:MrcJkb/nvim-config/nix-plugin-management";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-session.url = "github:MrcJkb/.xmonad";
