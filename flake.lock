@@ -1518,7 +1518,7 @@
         "type": "github"
       }
     },
-    "neodev": {
+    "neodev-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1675845933,
@@ -2247,7 +2247,7 @@
         "lualine": "lualine",
         "luasnip": "luasnip",
         "material-theme": "material-theme",
-        "neodev": "neodev",
+        "neodev-nvim": "neodev-nvim",
         "neogit": "neogit",
         "neotest": "neotest",
         "neotest-plenary": "neotest-plenary",
@@ -2302,11 +2302,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1675903738,
-        "narHash": "sha256-WR4V3caogvUNvdtXTXJPLH//mhTjrdX2Sy31USS8Kwg=",
+        "lastModified": 1675903900,
+        "narHash": "sha256-Zk9bWGkc9hhXkQIhZ0cR01pzIanN1r2j1LAe9K+TB/Y=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "b16f874646b449dddd7d986af0b63cf70bdb3687",
+        "rev": "beb94d9087823ded019105e96cb7ead5757ccf9e",
         "type": "github"
       },
       "original": {
