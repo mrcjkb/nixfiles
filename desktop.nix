@@ -93,6 +93,8 @@
       unstable.kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
       unstable.asciinema # Terminal session recoreder
+      unstable.ovh-ttyrec # Terminal session recoreder
+      unstable.ttygif # Convert ttyrec recordings to gif
       unstable.playerctl
       unstable.gh # GitHub CLI tool
       unstable.act # Run GitHub workflows locally
