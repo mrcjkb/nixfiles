@@ -88,11 +88,7 @@
         modules =
           [
             # Overlays-module makes "pkgs.unstable" available in configuration.nix
-            ({
-              config,
-              pkgs,
-              ...
-            }: {
+            ({...}: {
               nixpkgs.overlays = [
                 overlay-unstable
                 nur.overlay
