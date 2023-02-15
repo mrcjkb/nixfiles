@@ -1,6 +1,6 @@
 package: {
   inherit package;
-  enable = true;
+  enable = false;
   extraConfig = builtins.readFile ./wezterm.lua;
   colorSchemes = {
     mrcjk = rec {
