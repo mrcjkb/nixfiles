@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     nvim-config = {
       url = "github:MrcJkb/nvim-config";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     xmonad-session.url = "github:MrcJkb/.xmonad";
     cursor-theme.url = "github:MrcJkb/volantes-cursors-material";
