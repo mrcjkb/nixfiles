@@ -2335,11 +2335,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1678548135,
-        "narHash": "sha256-sOUocBPDm3tfMiPysjWm5CGKtbGNQB7fktpL40Os/y0=",
+        "lastModified": 1678548464,
+        "narHash": "sha256-K2LcsNcdycGOTVCUfgPlwJcXDa2Q0pV7bXazeEnh2vg=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "4bb8a91cb6e5d577e2cbc37aae0187020f9e1583",
+        "rev": "92ca3ec432d2e6b89011e6b15151f9afcf9f8339",
         "type": "github"
       },
       "original": {
