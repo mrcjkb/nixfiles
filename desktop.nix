@@ -100,6 +100,7 @@
       unstable.act # Run GitHub workflows locally
       unstable.arduino-cli
       unstable.element-desktop # Matrix client
+      unstable.xscast # Screen cast for Xorg
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
