@@ -203,6 +203,7 @@ in {
         cachix # Nix package caching
         unstable.manix
         manix-fzf
+        unstable.fzf
         gcc
         gnumake
         unstable.librsvg # Small SVG rendering library
