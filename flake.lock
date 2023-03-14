@@ -2315,7 +2315,7 @@
         "repeat": "repeat",
         "rnvimr": "rnvimr",
         "rust-tools": "rust-tools",
-        "schemastore-nnvim": "schemastore-nnvim",
+        "schemastore-nvim": "schemastore-nvim",
         "sqlite": "sqlite",
         "statuscol": "statuscol",
         "surround": "surround",
@@ -2336,11 +2336,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1678830254,
-        "narHash": "sha256-FQZSBagjog2pmxVRb9ccakaok9I9oBhSEgbYXUC5jUk=",
+        "lastModified": 1678830330,
+        "narHash": "sha256-6QEBBMd6nkrTDplf0BatpBOZTPEeeYlMVWVme8Wb7UY=",
         "owner": "MrcJkb",
         "repo": "nvim-config",
-        "rev": "a842356974c5332b3908745e1da4b265bae3406d",
+        "rev": "d5114814165324c726cbc03f1de8fd636281e64d",
         "type": "github"
       },
       "original": {
@@ -2867,7 +2867,7 @@
         "type": "github"
       }
     },
-    "schemastore-nnvim": {
+    "schemastore-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1678726850,
