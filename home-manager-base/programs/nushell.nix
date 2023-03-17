@@ -36,7 +36,6 @@ package: {
       }
       source ~/.zoxide.nu
       source ~/.cache/starship/init.nu
-      alias cd = z
       alias exa = exa --icons --git
       alias la = exa --icons --git -a
       alias ll = exa --icons --git -l
