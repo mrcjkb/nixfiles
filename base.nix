@@ -318,6 +318,12 @@ in {
         package = jetbrains-mono-nerdfont;
         name = "JetBrains Mono Nerd Font Mono";
       };
+
+      sizes = {
+        terminal = 18;
+        applications = 14;
+        desktop = 12;
+      };
     };
     targets = {
       grub = {
