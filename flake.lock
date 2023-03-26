@@ -2193,11 +2193,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1679329871,
-        "narHash": "sha256-7/laUf3lHo26dFvn/HUvsBed80CflDWeqiwJ91hEgtk=",
+        "lastModified": 1679852077,
+        "narHash": "sha256-2p9RQzEAWitck+bMzJuYCC43EJrUShFt40z2MxIbK8c=",
         "owner": "nix-community",
         "repo": "nurl",
-        "rev": "56d39b73a33ef6a5e9f7926f6940852e7ce1972a",
+        "rev": "de177f31f5d06fe9a6d8f15237d946273395419f",
         "type": "github"
       },
       "original": {
