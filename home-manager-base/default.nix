@@ -37,6 +37,11 @@
           '';
         };
       };
+      stylix = {
+        targets = {
+          mako.enable = false;
+        };
+      };
     };
   };
 }

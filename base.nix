@@ -330,7 +330,6 @@ in {
         enable = false;
         # useImage = true;
       };
-      # mako.enable = false;
     };
   };
 
