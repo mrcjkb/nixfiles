@@ -37,11 +37,13 @@
           '';
         };
       };
+    };
+    sharedModules = [{
       stylix = {
         targets = {
           mako.enable = false;
         };
       };
-    };
+    }];
   };
 }
