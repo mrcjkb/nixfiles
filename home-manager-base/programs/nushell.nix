@@ -17,6 +17,9 @@ package: {
 
   configFile = {
     text = ''
+      let carapace_completer = {|spans|
+        carapace $spans.0 nushell $spans | from json
+      }
       let-env config = {
         show_banner: false
         edit_mode: vi
@@ -32,6 +35,13 @@ package: {
               $direnv | load-env
             "
           }]
+        }
+        completions: {
+          external: {
+            enable: true
+            max_results: 100
+            completer: $carapace_completer
+          }
         }
       }
       source ~/.zoxide.nu
