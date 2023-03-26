@@ -16,7 +16,7 @@
     gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
-    stylix.url = "github:danth/stylix?rev=0e2f7876d2f2ae98a67d89a8bef8c49332aae5af";
+    stylix.url = "github:danth/stylix?rev=d4759279ce0f60ed5991ce53abecd0fa80679aa4";
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
       flake = false;
