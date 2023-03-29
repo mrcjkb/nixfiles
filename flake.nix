@@ -12,11 +12,11 @@
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     nvim-config = {
-      url = "github:MrcJkb/nvim-config";
+      url = "github:mrcjkb/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    xmonad-session.url = "github:MrcJkb/.xmonad";
-    cursor-theme.url = "github:MrcJkb/volantes-cursors-material";
+    xmonad-session.url = "github:mrcjkb/.xmonad";
+    cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
     gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
