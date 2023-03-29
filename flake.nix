@@ -1,6 +1,11 @@
 {
   description = "Wrapper for creating a NixOS system configuration.";
 
+  nixConfig = {
+    extra-substituters = "https://mrcjkb.cachix.org";
+    extra-trusted-public-keys = "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4=";
+  };
+
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
