@@ -439,13 +439,13 @@
       "locked": {
         "lastModified": 1673716997,
         "narHash": "sha256-CdmHBhH2Qk5tmXK0WLC6FwKFQSjtYNZkt0QWhwE4eew=",
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": "volantes-cursors-material",
         "rev": "7d0b4e5bb648ded397413b1538b90a8f05186678",
         "type": "github"
       },
       "original": {
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": "volantes-cursors-material",
         "type": "github"
       }
@@ -2176,11 +2176,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1680080610,
-        "narHash": "sha256-e5GOM6FHXXPu4byNAiLQDKu/REVM2MtDH5QJ/C/JQbI=",
+        "lastModified": 1680095198,
+        "narHash": "sha256-dw8LKnmiUwnFlK9cq+lS+g88LCeXBFeZ/cDAMArMdOA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a9ac1b12b58122c9c1ba4cbdfd444f5ba080fe36",
+        "rev": "630945f9efb382ba793d2777d1f43e33a5e552f6",
         "type": "github"
       },
       "original": {
@@ -2338,13 +2338,13 @@
       "locked": {
         "lastModified": 1680095053,
         "narHash": "sha256-O+jrnTwA0Jz7q2iO02ADEXS4DMrKPytLg+fF47BEYnY=",
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": "nvim-config",
         "rev": "3983120d3b8649b5010da2401a313a8bad15a463",
         "type": "github"
       },
       "original": {
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": "nvim-config",
         "type": "github"
       }
@@ -3390,13 +3390,13 @@
       "locked": {
         "lastModified": 1680094980,
         "narHash": "sha256-PJ+G5RYGjR0qXde+gpcKZtcPlEjMVhLLoc3vTT3AAZU=",
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": ".xmonad",
         "rev": "1690b2f3e23cb4deccfaedee2a9f528ce0dc263d",
         "type": "github"
       },
       "original": {
-        "owner": "MrcJkb",
+        "owner": "mrcjkb",
         "repo": ".xmonad",
         "type": "github"
       }
