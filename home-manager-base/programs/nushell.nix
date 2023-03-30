@@ -59,6 +59,7 @@ package: {
       old-alias vi = nvim
       old-alias vim = nvim
       old-alias nv = neovide
+      old-alias ssh = TERM=xterm-256color ssh
     '';
   };
 }

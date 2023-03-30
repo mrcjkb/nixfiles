@@ -22,4 +22,5 @@
   vi = "nvim";
   vim = "nvim";
   nv = "neovide";
+  ssh = "TERM=xterm-256color ssh";
 }
