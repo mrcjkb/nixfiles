@@ -22,5 +22,8 @@
   vi = "nvim";
   vim = "nvim";
   nv = "neovide";
-  ssh = "TERM=xterm-256color ssh";
+  ":w" = "cowsay 'You are not in neovim anymore.'";
+  ":wq" = "cowsay 'You are not in neovim anymore.'";
+  ":q" = "cowsay 'You are not in neovim anymore.'";
+  ":x" = "cowsay 'You are not in neovim anymore.'";
 }

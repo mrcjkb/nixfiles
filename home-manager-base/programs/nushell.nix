@@ -59,7 +59,10 @@ package: {
       old-alias vi = nvim
       old-alias vim = nvim
       old-alias nv = neovide
-      old-alias ssh = TERM=xterm-256color ssh
+      old-alias :w = cowsay 'You are not in neovim anymore.'
+      old-alias :q = cowsay 'You are not in neovim anymore.'
+      old-alias :wq = cowsay 'You are not in neovim anymore.'
+      old-alias :x = cowsay 'You are not in neovim anymore.'
     '';
   };
 }

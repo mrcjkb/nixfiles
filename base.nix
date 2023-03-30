@@ -252,6 +252,7 @@ in {
         zlib # Lossles data compression library
         pciutils # Inspection/manipulation of PCI devices
         unstable.bluetuith # Bluetooth TUI
+        unstable.neo-cowsay
       ]
       ++ (import ./packages/fishPlugins.nix unstable.fishPlugins);
   };
