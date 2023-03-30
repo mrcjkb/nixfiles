@@ -23,7 +23,9 @@
   vim = "nvim";
   nv = "neovide";
   ":w" = "cowsay 'You are not in neovim anymore.'";
+  ":wa" = "cowsay 'You are not in neovim anymore.'";
   ":wq" = "cowsay 'You are not in neovim anymore.'";
   ":q" = "cowsay 'You are not in neovim anymore.'";
+  ":qa" = "cowsay 'You are not in neovim anymore.'";
   ":x" = "cowsay 'You are not in neovim anymore.'";
 }
