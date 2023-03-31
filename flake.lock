@@ -584,6 +584,22 @@
         "type": "github"
       }
     },
+    "femaco": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665401609,
+        "narHash": "sha256-fayT1gtbxO0B3qK3pISsgarFVL9Kt/NWOyI26+S9Y+c=",
+        "owner": "AckslD",
+        "repo": "nvim-FeMaco.lua",
+        "rev": "469465fc1adf8bddc2c9bbe549d38304de95e9f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AckslD",
+        "repo": "nvim-FeMaco.lua",
+        "type": "github"
+      }
+    },
     "fidget": {
       "flake": false,
       "locked": {
@@ -2176,11 +2192,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1680205534,
-        "narHash": "sha256-tStRnbt9bSlmQagn1Z4u1J3HlggxVIfStXPl70evqjk=",
+        "lastModified": 1680218758,
+        "narHash": "sha256-ztkuMsfs4NjTRZZZiPxfFJWF7r0nWHRWlYAf1fGX0ug=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a964f0e626f52b4110d9c14197d649eef6ff5e89",
+        "rev": "d1f0a3e5f1780a0187a8e8ab6ec4056c5832781e",
         "type": "github"
       },
       "original": {
@@ -2259,6 +2275,7 @@
         "comment": "comment",
         "diffview": "diffview",
         "dirbuf": "dirbuf",
+        "femaco": "femaco",
         "fidget": "fidget",
         "formatter": "formatter",
         "fzf-lua": "fzf-lua",
@@ -2336,11 +2353,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1680176320,
-        "narHash": "sha256-lbn1bc6CC5nbzfzlRqhuQ+zs47YJBoQ6aRKwBxuUB3M=",
+        "lastModified": 1680221977,
+        "narHash": "sha256-EhA4Laaxe3SnVOgxsixWdv5mpTrPF7IoAp2KyK2/fqk=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "35aa01b409ea8a6a95cd539abfae6279c1591eb1",
+        "rev": "72cfd4b329d8bd82b2888fca0ac1a805445c864b",
         "type": "github"
       },
       "original": {
