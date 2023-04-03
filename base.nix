@@ -128,7 +128,7 @@ in {
   users = let
     defaultShell = pkgs.unstable.nushell;
   in {
-    defaultUserShell = defaultShell;
+    defaultUserShell = pkgs.unstable.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
