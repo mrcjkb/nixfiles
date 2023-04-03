@@ -59,12 +59,13 @@ package: {
       old-alias vi = nvim
       old-alias vim = nvim
       old-alias nv = neovide
+      old-alias :e = nvim
+      old-alias :q = exit
+      old-alias :qa = exit
+      old-alias :wq = exit
+      old-alias :x = exit
       old-alias :w = cowsay 'You are not in neovim anymore.'
       old-alias :wa = cowsay 'You are not in neovim anymore.'
-      old-alias :q = cowsay 'You are not in neovim anymore.'
-      old-alias :qa = cowsay 'You are not in neovim anymore.'
-      old-alias :wq = cowsay 'You are not in neovim anymore.'
-      old-alias :x = cowsay 'You are not in neovim anymore.'
     '';
   };
 }

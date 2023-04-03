@@ -22,10 +22,11 @@
   vi = "nvim";
   vim = "nvim";
   nv = "neovide";
+  ":e" = "nvim";
+  ":q" = "exit";
+  ":qa" = "exit";
+  ":x" = "exit";
+  ":wq" = "exit";
   ":w" = "cowsay 'You are not in neovim anymore.'";
   ":wa" = "cowsay 'You are not in neovim anymore.'";
-  ":wq" = "cowsay 'You are not in neovim anymore.'";
-  ":q" = "cowsay 'You are not in neovim anymore.'";
-  ":qa" = "cowsay 'You are not in neovim anymore.'";
-  ":x" = "cowsay 'You are not in neovim anymore.'";
 }
