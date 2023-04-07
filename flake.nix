@@ -153,11 +153,6 @@
 
     in {
 
-      # images = {
-      #   baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-      #   rpi4 = rpi4.config.system.build.sdImage;
-      # };
-
       devShells = {
         default = shell;
       };
@@ -180,6 +175,12 @@
           ];
         };
         inherit rpi4;
+
+        images = {
+          baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+          rpi4 = rpi4.config.system.build.sdImage;
+        };
+
       };
 
       helpers = {
