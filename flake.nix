@@ -52,55 +52,43 @@
       "aarch64-linux"
       "x86_64-linux"
     ];
-  in
-    flake-utils.lib.eachSystem supportedSystems (system: let
-      pkgs = import nixpkgs {inherit system;};
-      pre-commit-check = pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          alejandra.enable = true;
-        };
-      };
-      shell = pkgs.mkShell {
-        name = "nixfiles-devShell";
-        inherit (pre-commit-check) shellHook;
-        buildInputs = with pkgs; [
-          alejandra
-        ];
+
+    overlay-unstable = final: prev: {
+      unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+    };
+
+    direnv-overlay = final: prev: {
+      nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
+    };
+
+    searx = ./searx.nix;
+
+    mkNixosSystem = {
+      extraModules ? [],
+      defaultUser ? "mrcjk",
+      userEmail ? "mrcjkb89@outlook.com",
+      system ? "x86_64-linux",
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
+        modules =
+          [
+            # Overlays-module makes "pkgs.unstable" available in configuration.nix
+            ({...}: {
+              nixpkgs.overlays = [
+                overlay-unstable
+                nur.overlay
+                direnv-overlay
+              ];
+            })
+            ./base.nix
+            home-manager.nixosModules.home-manager
+            nvim-config.nixosModule
+          ]
+          ++ extraModules;
       };
 
-      overlay-unstable = final: prev: {
-        unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-      };
-      direnv-overlay = final: prev: {
-        nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
-      };
-      searx = ./searx.nix;
-      mkNixosSystem = {
-        extraModules ? [],
-        defaultUser ? "mrcjk",
-        userEmail ? "mrcjkb89@outlook.com",
-        system ? "x86_64-linux",
-      }:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
-          modules =
-            [
-              # Overlays-module makes "pkgs.unstable" available in configuration.nix
-              ({...}: {
-                nixpkgs.overlays = [
-                  overlay-unstable
-                  nur.overlay
-                  direnv-overlay
-                ];
-              })
-              ./base.nix
-              home-manager.nixosModules.home-manager
-              nvim-config.nixosModule
-            ]
-            ++ extraModules;
-        };
       mkDesktopSystem = {
         extraModules ? [],
         defaultUser ? "mrcjk",
@@ -131,6 +119,7 @@
               }
             ];
         };
+
       rpi4 = let
         system = "aarch64-linux";
       in
@@ -145,7 +134,38 @@
             ./configurations/rpi4/configuration.nix
           ];
         };
+  in
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+      shell = pkgs.mkShell {
+        name = "nixfiles-devShell";
+        inherit (pre-commit-check) shellHook;
+        buildInputs = with pkgs; [
+          alejandra
+        ];
+      };
+
     in {
+
+      # images = {
+      #   baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+      #   rpi4 = rpi4.config.system.build.sdImage;
+      # };
+
+      devShells = {
+        default = shell;
+      };
+
+      checks = {
+        inherit pre-commit-check;
+      };
+    }) // {
       nixosConfigurations = {
         home-pc = mkDesktopSystem {
           extraModules = [
@@ -161,23 +181,10 @@
         };
         inherit rpi4;
       };
-      images = {
-        baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-        rpi4 = rpi4.config.system.build.sdImage;
-      };
+
       helpers = {
         inherit mkNixosSystem mkDesktopSystem;
       };
-      modules = {
-        inherit searx;
-      };
 
-      devShells = {
-        default = shell;
-      };
-
-      checks = {
-        inherit pre-commit-check;
-      };
-    });
+    };
 }
