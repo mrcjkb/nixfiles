@@ -29,6 +29,7 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
@@ -44,26 +45,23 @@
     stylix,
     base16schemes,
     pre-commit-hooks,
+    flake-utils,
     ...
   } @ attrs: let
     supportedSystems = [
       "aarch64-linux"
       "x86_64-linux"
     ];
-    perSystem = nixpkgs.lib.genAttrs supportedSystems;
-    pkgsFor = system: import nixpkgs {inherit system;};
-    pre-commit-check-for = system:
-      pre-commit-hooks.lib.${system}.run {
+  in
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {inherit system;};
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
           alejandra.enable = true;
         };
       };
-    shellFor = system: let
-      pkgs = pkgsFor system;
-      pre-commit-check = pre-commit-check-for system;
-    in
-      pkgs.mkShell {
+      shell = pkgs.mkShell {
         name = "nixfiles-devShell";
         inherit (pre-commit-check) shellHook;
         buildInputs = with pkgs; [
@@ -71,115 +69,115 @@
         ];
       };
 
-    overlay-unstable = final: prev: {
-      unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-    };
-    direnv-overlay = final: prev: {
-      nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
-    };
-    searx = ./searx.nix;
-    mkNixosSystem = {
-      extraModules ? [],
-      defaultUser ? "mrcjk",
-      userEmail ? "mrcjkb89@outlook.com",
-      system ? "x86_64-linux",
-    }:
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
-        modules =
-          [
-            # Overlays-module makes "pkgs.unstable" available in configuration.nix
-            ({...}: {
-              nixpkgs.overlays = [
-                overlay-unstable
-                nur.overlay
-                direnv-overlay
-              ];
-            })
-            ./base.nix
-            home-manager.nixosModules.home-manager
-            nvim-config.nixosModule
-          ]
-          ++ extraModules;
+      overlay-unstable = final: prev: {
+        unstable = nixpkgs-unstable.legacyPackages.${prev.system};
       };
-    mkDesktopSystem = {
-      extraModules ? [],
-      defaultUser ? "mrcjk",
-      userEmail ? "mrcjkb89@outlook.com",
-      system ? "x86_64-linux",
-    }:
-      mkNixosSystem {
-        extraModules =
-          extraModules
-          ++ [
-            ({
-              config,
-              pkgs,
-              ...
-            }: {
-              nixpkgs.overlays = [
-                cursor-theme.overlay
-              ];
-            })
-            ./desktop.nix
-            xmonad-session.nixosModule
-            stylix.nixosModules.stylix
+      direnv-overlay = final: prev: {
+        nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
+      };
+      searx = ./searx.nix;
+      mkNixosSystem = {
+        extraModules ? [],
+        defaultUser ? "mrcjk",
+        userEmail ? "mrcjkb89@outlook.com",
+        system ? "x86_64-linux",
+      }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
+          modules =
+            [
+              # Overlays-module makes "pkgs.unstable" available in configuration.nix
+              ({...}: {
+                nixpkgs.overlays = [
+                  overlay-unstable
+                  nur.overlay
+                  direnv-overlay
+                ];
+              })
+              ./base.nix
+              home-manager.nixosModules.home-manager
+              nvim-config.nixosModule
+            ]
+            ++ extraModules;
+        };
+      mkDesktopSystem = {
+        extraModules ? [],
+        defaultUser ? "mrcjk",
+        userEmail ? "mrcjkb89@outlook.com",
+        system ? "x86_64-linux",
+      }:
+        mkNixosSystem {
+          extraModules =
+            extraModules
+            ++ [
+              ({
+                config,
+                pkgs,
+                ...
+              }: {
+                nixpkgs.overlays = [
+                  cursor-theme.overlay
+                ];
+              })
+              ./desktop.nix
+              xmonad-session.nixosModule
+              stylix.nixosModules.stylix
+              {
+                environment.systemPackages = [
+                  feedback.packages.${system}.default
+                  nurl.packages.${system}.default
+                ];
+              }
+            ];
+        };
+      rpi4 = let
+        system = "aarch64-linux";
+      in
+        mkNixosSystem {
+          inherit system;
+          extraModules = [
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
             {
-              environment.systemPackages = [
-                feedback.packages.${system}.default
-                nurl.packages.${system}.default
-              ];
+              nixpkgs.config.allowUnsupportedSystem = true;
+              nixpkgs.crossSystem.system = system;
             }
+            ./configurations/rpi4/configuration.nix
           ];
+        };
+    in {
+      nixosConfigurations = {
+        home-pc = mkDesktopSystem {
+          extraModules = [
+            ./configurations/home-pc/configuration.nix
+            searx
+          ];
+        };
+        p40yoga = mkDesktopSystem {
+          extraModules = [
+            ./configurations/p40yoga/configuration.nix
+            searx
+          ];
+        };
+        inherit rpi4;
       };
-    rpi4 = let
-      system = "aarch64-linux";
-    in
-      mkNixosSystem {
-        inherit system;
-        extraModules = [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          {
-            nixpkgs.config.allowUnsupportedSystem = true;
-            nixpkgs.crossSystem.system = system;
-          }
-          ./configurations/rpi4/configuration.nix
-        ];
+      images = {
+        baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+        rpi4 = rpi4.config.system.build.sdImage;
       };
-  in {
-    nixosConfigurations = {
-      home-pc = mkDesktopSystem {
-        extraModules = [
-          ./configurations/home-pc/configuration.nix
-          searx
-        ];
+      helpers = {
+        inherit mkNixosSystem mkDesktopSystem;
       };
-      p40yoga = mkDesktopSystem {
-        extraModules = [
-          ./configurations/p40yoga/configuration.nix
-          searx
-        ];
+      modules = {
+        inherit searx;
       };
-      inherit rpi4;
-    };
-    images = {
-      baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-      rpi4 = rpi4.config.system.build.sdImage;
-    };
-    helpers = {
-      inherit mkNixosSystem mkDesktopSystem;
-    };
-    modules = {
-      inherit searx;
-    };
 
-    devShells = perSystem (system: {
-      default = shellFor system;
-    });
+      devShells = {
+        default = shell;
+      };
 
-    checks = perSystem (system: {
-      formatting = pre-commit-check-for system;
+      checks = {
+        inherit pre-commit-check;
+      };
     });
-  };
 }
