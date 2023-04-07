@@ -18,7 +18,6 @@
     xmonad-session.url = "github:mrcjkb/.xmonad";
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
-    gh2rockspec.url = "github:teto/gh2rockspec";
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
     stylix.url = "github:danth/stylix/release-22.11";
@@ -41,7 +40,6 @@
     xmonad-session,
     cursor-theme,
     feedback,
-    gh2rockspec,
     nurl,
     stylix,
     base16schemes,
@@ -129,9 +127,7 @@
             stylix.nixosModules.stylix
             {
               environment.systemPackages = [
-                xmonad-session.xmobar-package
                 feedback.packages.${system}.default
-                gh2rockspec.packages.${system}.default
                 nurl.packages.${system}.default
               ];
             }
