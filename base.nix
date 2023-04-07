@@ -25,6 +25,7 @@ in {
     substituters = [
       "https://mrcjkb.cachix.org"
       "https://nix-community.cachix.org"
+      "https://arm.cachix.org"
     ];
   in {
     package = pkgs.nixFlakes;
@@ -47,6 +48,7 @@ in {
       trusted-public-keys = [
         "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "arm.cachix.org-1:5BZ2kjoL1q6nWhlnrbAl+G7ThY7+HaBRD9PZzqZkbnM="
       ];
     };
   };
