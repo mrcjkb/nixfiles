@@ -84,7 +84,7 @@
             })
             ./base.nix
             home-manager.nixosModules.home-manager
-            nvim-config.nixosModule
+            nvim-config.nixosModules.default
           ]
           ++ extraModules;
       };
@@ -109,7 +109,7 @@
                 ];
               })
               ./desktop.nix
-              xmonad-session.nixosModule
+              xmonad-session.nixosModules.default
               stylix.nixosModules.stylix
               {
                 environment.systemPackages = [
