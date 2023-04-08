@@ -31,6 +31,10 @@
       url = "github:tinted-theming/base16-schemes";
       flake = false;
     };
+    haskell-tags-nix = {
+      url = "github:shajra/haskell-tags-nix";
+      flake = false;
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +54,7 @@
     nurl,
     stylix,
     base16schemes,
+    haskell-tags-nix,
     pre-commit-hooks,
     flake-utils,
     ...
@@ -74,10 +79,19 @@
       defaultUser ? "mrcjk",
       userEmail ? "mrcjkb89@outlook.com",
       system ? "x86_64-linux",
+      nixosSystem ? nixpkgs.lib.nixosSystem,
     }:
-      nixpkgs.lib.nixosSystem {
+      nixosSystem {
         inherit system;
-        specialArgs = attrs // {inherit defaultUser userEmail base16schemes;};
+        specialArgs =
+          attrs
+          // {
+            inherit
+              defaultUser
+              userEmail
+              base16schemes
+              ;
+          };
         modules =
           [
             # Overlays-module makes "pkgs.unstable" available in configuration.nix
@@ -102,6 +116,11 @@
       system ? "x86_64-linux",
     }:
       mkNixosSystem {
+        inherit
+          defaultUser
+          userEmail
+          system
+          ;
         extraModules =
           extraModules
           ++ [
@@ -121,6 +140,7 @@
               environment.systemPackages = [
                 feedback.packages.${system}.default
                 nurl.packages.${system}.default
+                ((import "${haskell-tags-nix}/default.nix").haskell-tags-nix-exe)
               ];
             }
           ];

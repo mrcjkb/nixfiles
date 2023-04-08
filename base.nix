@@ -180,19 +180,9 @@ in {
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       };
 
-      # fish-nix-shell = import (fetchGit "https://github.com/haslersn/fish-nix-shell"); # TODO: Add flake.nix to fork
-
-      haskell-tags-nix =
-        (import (fetchGit {
-            url = "https://github.com/shajra/haskell-tags-nix";
-            ref = "main";
-          }
-          + "/default.nix"))
-        .haskell-tags-nix-exe;
     in
       [
         # fish-nix-shell
-        haskell-tags-nix
         unstable.git-filter-repo
         cachix # Nix package caching
         unstable.manix
@@ -260,8 +250,7 @@ in {
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs = import ./programs {
-    inherit pkgs userEmail;
-    user = defaultUser;
+    inherit pkgs;
   };
 
   virtualisation = {
@@ -270,7 +259,6 @@ in {
       autoPrune.enable = lib.mkDefault true;
       enableOnBoot = lib.mkDefault true;
     };
-    libvirtd.enable = lib.mkDefault true;
   };
 
   security = {

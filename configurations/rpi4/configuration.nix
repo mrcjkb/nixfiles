@@ -16,8 +16,21 @@
     ];
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = false;
+    };
+  };
+  sound.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = false;
+  };
+
   networking = {
     hostName = "nixos-rpi4";
+    networkmanager.enable = false;
   };
 
   home-manager = {

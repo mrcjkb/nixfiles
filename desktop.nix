@@ -45,8 +45,17 @@
     };
   };
 
+  programs = import ./desktop-programs {
+    inherit pkgs;
+  };
+
+  virtualisation = {
+    libvirtd.enable = lib.mkDefault true;
+  };
+
   environment = {
     systemPackages = with pkgs; [
+      unstable.neovide
       unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       unstable.yubioath-flutter # Yubico Authenticator Desktop app
       unstable.brave
