@@ -11,6 +11,7 @@ package: {
 
       mkdir ~/.cache/starship
       starship init nu
+        | str replace 'PROMPT_COMMAND = {' 'PROMPT_COMMAND = {||'
         | save -f ~/.cache/starship/init.nu
     '';
   };
