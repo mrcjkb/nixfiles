@@ -7,7 +7,13 @@
   userEmail,
   base16schemes,
   ...
-}: {
+}: let
+  jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
+    fonts = [
+      "JetBrainsMono"
+    ];
+  };
+in {
   imports = [
     (import ./home-manager-desktop {
       user = defaultUser;
