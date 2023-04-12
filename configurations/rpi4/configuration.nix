@@ -1,8 +1,6 @@
 {
-  config,
-  pkgs,
-  lib,
   defaultUser,
+  pkgs,
   ...
 }: {
   boot = {
@@ -16,18 +14,6 @@
     ];
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa = {
-      enable = false;
-    };
-  };
-  sound.enable = false;
-  hardware = {
-    pulseaudio.enable = false;
-    bluetooth.enable = false;
-  };
-
   networking = {
     hostName = "nixos-rpi4";
     networkmanager.enable = false;
@@ -39,11 +25,16 @@
     };
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system = {
+    build.hostPlatform.config = {
+    buildInputs = [ pkgs.unstable.gcc-arm-embedded ];
+  };
+    # This value determines the NixOS release from which the default
+    # settings for stateful data, like file locations and database versions
+    # on your system were taken. It‘s perfectly fine and recommended to leave
+    # this value at the release version of the first install of this system.
+    # Before changing this value read the documentation for this option
+    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    stateVersion = "22.11"; # Did you read the comment?
+  };
 }
