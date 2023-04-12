@@ -35,6 +35,7 @@
       url = "github:shajra/haskell-tags-nix";
       flake = false;
     };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +44,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixpkgs-unstable,
     nur,
@@ -55,6 +57,7 @@
     stylix,
     base16schemes,
     haskell-tags-nix,
+    nixos-hardware,
     pre-commit-hooks,
     flake-utils,
     ...
@@ -152,11 +155,7 @@
       mkNixosSystem {
         inherit system;
         extraModules = [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-          {
-            nixpkgs.config.allowUnsupportedSystem = true;
-            nixpkgs.crossSystem.system = system;
-          }
+          nixos-hardware.nixosModules.raspberry-pi-4
           ./configurations/rpi4/configuration.nix
         ];
       };
@@ -203,7 +202,14 @@
 
         images = {
           baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-          rpi4 = rpi4.config.system.build.sdImage;
+          rpi4 =
+            (self.nixosConfigurations.rpi4.extendModules {
+              modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
+            })
+            .config
+            .system
+            .build
+            .sdImage;
         };
       };
 
