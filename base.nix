@@ -182,7 +182,6 @@ in {
 
     in
       [
-        # fish-nix-shell
         unstable.git-filter-repo
         cachix # Nix package caching
         unstable.manix
