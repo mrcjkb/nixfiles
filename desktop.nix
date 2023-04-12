@@ -117,7 +117,11 @@ in {
       unstable.arduino-cli
       unstable.element-desktop # Matrix client
       unstable.xscast # Screen cast for Xorg
-    ];
+      ]
+      ++ (with unstable.fishPlugins; [
+        fzf-fish
+        done # Notifications when long background processes finish
+      ]);
     sessionVariables = {
       # Workaround for cursor theme not being recognized
       XCURSOR_PATH = [

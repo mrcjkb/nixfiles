@@ -179,7 +179,6 @@ in {
         runtimeInputs = [unstable.manix unstable.ripgrep unstable.fzf];
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       };
-
     in
       [
         unstable.git-filter-repo
@@ -243,7 +242,10 @@ in {
         unstable.bluetuith # Bluetooth TUI
         unstable.neo-cowsay
       ]
-      ++ (import ./packages/fishPlugins.nix unstable.fishPlugins);
+      ++ (with unstable.fishPlugins; [
+        bass # `bass source` bash scripts
+        autopair-fish
+      ]);
   };
 
   # Some programs need SUID wrappers, can be configured further or are
