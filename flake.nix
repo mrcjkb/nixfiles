@@ -199,18 +199,18 @@
           ];
         };
         inherit rpi4;
+      };
 
-        images = {
-          baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
-          rpi4 =
-            (self.nixosConfigurations.rpi4.extendModules {
-              modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
-            })
-            .config
-            .system
-            .build
-            .sdImage;
-        };
+      images = {
+        baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
+        rpi4 =
+          (self.nixosConfigurations.rpi4.extendModules {
+            modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
+          })
+          .config
+          .system
+          .build
+          .sdImage;
       };
 
       helpers = {
