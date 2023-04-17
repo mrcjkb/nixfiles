@@ -35,6 +35,11 @@
       url = "github:shajra/haskell-tags-nix";
       flake = false;
     };
+    fenix = {
+      # Rust toolchains
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -57,6 +62,7 @@
     stylix,
     base16schemes,
     haskell-tags-nix,
+    fenix,
     nixos-hardware,
     pre-commit-hooks,
     flake-utils,
@@ -144,6 +150,13 @@
                 feedback.packages.${system}.default
                 nurl.packages.${system}.default
                 ((import "${haskell-tags-nix}/default.nix").haskell-tags-nix-exe)
+                (fenix.complete.withComponents [
+                  "cargo"
+                  "clippy"
+                  "rust-src"
+                  "rustc"
+                  "rustfmt"
+                ])
               ];
             }
           ];
