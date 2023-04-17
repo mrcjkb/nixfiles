@@ -456,27 +456,6 @@
         "type": "github"
       }
     },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1681712564,
-        "narHash": "sha256-14QeQU5m1iJg4v+HnLnH1X5W2V1d0lHfaHxDJP/6aig=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "0d8c0d08db5fe6e5d995f4584f991ad60bbb1673",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
     "fidget": {
       "flake": false,
       "locked": {
@@ -2140,7 +2119,6 @@
         "base16schemes": "base16schemes",
         "cursor-theme": "cursor-theme",
         "feedback": "feedback",
-        "fenix": "fenix",
         "flake-utils": "flake-utils_3",
         "haskell-tags-nix": "haskell-tags-nix",
         "home-manager": "home-manager",
@@ -2153,23 +2131,6 @@
         "pre-commit-hooks": "pre-commit-hooks_4",
         "stylix": "stylix",
         "xmonad-session": "xmonad-session"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1681679582,
-        "narHash": "sha256-bijdVXzzfVSMHCjRuQ+PysNJt0Ei2mIhs+CPnR6yP4w=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "bab80dae445fd576cb4cc22ba208e9fbc39dc18d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "rust-tools": {
