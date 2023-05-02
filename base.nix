@@ -186,6 +186,8 @@ in {
         unstable.manix
         manix-fzf
         unstable.fzf
+        unstable.ripgrep
+        unstable.fd
         gcc
         gnumake
         unstable.librsvg # Small SVG rendering library
