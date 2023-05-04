@@ -2,6 +2,7 @@
   enableBashIntegration = true;
   enableZshIntegration = true;
   enableFishIntegration = true;
+  enableNushellIntegration = true;
   settings = {
     character = {
       success_symbol = " ✔(green)";
