@@ -163,7 +163,7 @@ in {
       };
 
       sizes = {
-        terminal = 14;
+        terminal = 16;
         applications = 14;
         desktop = 12;
       };
