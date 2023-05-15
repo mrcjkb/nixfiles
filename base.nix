@@ -119,10 +119,23 @@ in {
 
   sound.enable = lib.mkDefault true;
   hardware = {
-    pulseaudio.enable = lib.mkDefault true;
+    pulseaudio = {
+      enable = lib.mkDefault true;
+      extraConfig = "
+        # Automatically switch audio to the connected bluetooth device when it connects.
+        load-module module-switch-on-connect
+      ";
+    };
     bluetooth = {
       enable = lib.mkDefault true;
+      settings = {
+        General = {
+          # Modern headsets will generally try to connect using the A2DP profile.
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
     };
+    enableAllFirmware = lib.mkDefault true;
   };
 
   users = let
