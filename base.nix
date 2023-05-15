@@ -128,6 +128,7 @@ in {
     };
     bluetooth = {
       enable = lib.mkDefault true;
+      package = pkgs.unstable.bluez;
       settings = {
         General = {
           # Modern headsets will generally try to connect using the A2DP profile.
