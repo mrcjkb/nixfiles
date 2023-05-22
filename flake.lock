@@ -1952,11 +1952,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1684789501,
-        "narHash": "sha256-wTKZDC5UJmQI2JP4IIwxCPTACYXpu1qwLu4X6yGC9iw=",
+        "lastModified": 1684789801,
+        "narHash": "sha256-wAGHPyPiLZ9TQgqLKotlcmkPkAOeG0Vz1q2s0cQOdfU=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "3bdd0d4939bb2437651e1478d7bdc7a26bc3f057",
+        "rev": "1a4e8209596481532b532f7f1a83e957ea1d48f1",
         "type": "github"
       },
       "original": {
