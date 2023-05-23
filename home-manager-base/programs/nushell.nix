@@ -46,26 +46,26 @@ package: {
       }
       source ~/.zoxide.nu
       source ~/.cache/starship/init.nu
-      old-alias cd = z
-      old-alias exa = exa --icons --git
-      old-alias la = exa --icons --git -a
-      old-alias ll = exa --icons --git -l
-      old-alias lt = exa --icons --tree
-      old-alias grep = rg
-      old-alias cat = bat --style=plain
-      old-alias cloc = tokei
-      old-alias top = btm
-      old-alias htop = btm
-      old-alias vi = nvim
-      old-alias vim = nvim
-      old-alias nv = neovide
-      old-alias :e = nvim
-      old-alias :q = exit
-      old-alias :qa = exit
-      old-alias :wq = exit
-      old-alias :x = exit
-      old-alias :w = cowsay 'You are not in neovim anymore.'
-      old-alias :wa = cowsay 'You are not in neovim anymore.'
+      alias cd = z
+      alias exa = exa --icons --git
+      alias la = exa --icons --git -a
+      alias ll = exa --icons --git -l
+      alias lt = exa --icons --tree
+      alias grep = rg
+      alias cat = bat --style=plain
+      alias cloc = tokei
+      alias top = btm
+      alias htop = btm
+      alias vi = nvim
+      alias vim = nvim
+      alias nv = neovide
+      alias :e = nvim
+      alias :q = exit
+      alias :qa = exit
+      alias :wq = exit
+      alias :x = exit
+      alias :w = cowsay 'You are not in neovim anymore.'
+      alias :wa = cowsay 'You are not in neovim anymore.'
     '';
   };
 }
