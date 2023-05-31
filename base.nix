@@ -257,6 +257,7 @@ in {
         pciutils # Inspection/manipulation of PCI devices
         unstable.bluetuith # Bluetooth TUI
         unstable.neo-cowsay
+        unstable.dive # A tool for exploring each layer in a docker image
       ]
       ++ (with unstable.fishPlugins; [
         bass # `bass source` bash scripts
