@@ -1142,22 +1142,6 @@
         "type": "github"
       }
     },
-    "impatient": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1683276465,
-        "narHash": "sha256-qDmoUwK4k+lg4Z6JEvjfaF1utKa6PwVkBFM/HSkxH+o=",
-        "owner": "lewis6991",
-        "repo": "impatient.nvim",
-        "rev": "47302af74be7b79f002773011f0d8e85679a7618",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lewis6991",
-        "repo": "impatient.nvim",
-        "type": "github"
-      }
-    },
     "inlay-hints": {
       "flake": false,
       "locked": {
@@ -1806,11 +1790,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1685648671,
-        "narHash": "sha256-b7nrnHEdT165zgKAbhmk6+NkdYr+pYUZMRSvdRlet+I=",
+        "lastModified": 1685652397,
+        "narHash": "sha256-81h+NYjKsi0whOCUqOMEzpCQyJDpez2rK1rbh8VXFhE=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c23dab4a0920eaa5d16883810f54f796690069d5",
+        "rev": "c2cd67b25c0975e162eeb7e04bcd11fcff735151",
         "type": "github"
       },
       "original": {
@@ -1901,7 +1885,6 @@
         "glow": "glow",
         "harpoon": "harpoon",
         "illuminate": "illuminate",
-        "impatient": "impatient",
         "inlay-hints": "inlay-hints",
         "iron": "iron",
         "jdtls": "jdtls",
@@ -1968,11 +1951,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1685646082,
-        "narHash": "sha256-ym6Y5ZFo3gPHi2OHgEvyRqMmilfO8i5fH82z+Ag0UqU=",
+        "lastModified": 1685652613,
+        "narHash": "sha256-ouB6nEw4TY4HcMS2UM8HOqorCElNDR+m5F8d7OX4scM=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "142b717f44e2cebd3292237a0c9b556d7285cc3f",
+        "rev": "91d280048c94b68615d934ea6aedeb1893b61788",
         "type": "github"
       },
       "original": {
