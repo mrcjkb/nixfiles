@@ -54,6 +54,7 @@ in {
   nixpkgs = {
     config = {
       allowBroken = lib.mkDefault true;
+      allowUnfree = lib.mkDefault false;
       packageOverrides = pkgs: {
         xsaneGimp = pkgs.xsane.override {gimpSupport = true;}; # Support for scanning in GIMP
         # NOTE: For GIMP scanning, a symlink must be created manually: ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
@@ -66,13 +67,14 @@ in {
     loader = {
       grub = {
         enable = lib.mkDefault true;
-        version = 2;
         efiSupport = lib.mkDefault true;
         device = "nodev";
       };
     };
-    cleanTmpDir = lib.mkDefault true;
-    tmpOnTmpfs = lib.mkDefault true;
+    tmp = {
+      useTmpfs = lib.mkDefault true;
+      cleanOnBoot = lib.mkDefault true;
+    };
     supportedFilesystems = ["ntfs"];
   };
 
@@ -136,7 +138,6 @@ in {
         };
       };
     };
-    enableAllFirmware = lib.mkDefault true;
   };
 
   users = let
