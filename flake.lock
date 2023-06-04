@@ -1937,6 +1937,7 @@
         "telescope": "telescope",
         "telescope-smart-history": "telescope-smart-history",
         "telescope_hoogle": "telescope_hoogle",
+        "tmux-nvim": "tmux-nvim",
         "todo-comments": "todo-comments",
         "toggleterm": "toggleterm",
         "treesitter-context": "treesitter-context",
@@ -1951,11 +1952,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1685873226,
-        "narHash": "sha256-Cu65nUo7QOzafox/ZNhWw8+Yshb7pJwWT7849mFkt4Q=",
+        "lastModified": 1685915409,
+        "narHash": "sha256-IYutf3rwdfpRDHDqIL0dJWnvvAGmNmqWPi0hB+raqs8=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "288ac1591cf1e016518e82f5d4587f987e0f816a",
+        "rev": "610c78a43dfca61ddb9996781cf1d6d354c2f470",
         "type": "github"
       },
       "original": {
@@ -2690,6 +2691,22 @@
       "original": {
         "owner": "luc-tielen",
         "repo": "telescope_hoogle",
+        "type": "github"
+      }
+    },
+    "tmux-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685339965,
+        "narHash": "sha256-QfIoI5eaMXgxjP8SQ3n291SuhSLOf3fcbSm3WtBwKEM=",
+        "owner": "aserowy",
+        "repo": "tmux.nvim",
+        "rev": "03e28fdaa2ef54b975ba1930f1e69b5e231dedc9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aserowy",
+        "repo": "tmux.nvim",
         "type": "github"
       }
     },
