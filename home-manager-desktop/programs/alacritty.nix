@@ -2,14 +2,16 @@ package: {
   inherit package;
   enable = true;
   settings = {
-    # shell = {
-    #   program = "nu";
-    #   args = [
-    #     "-l"
-    #     "-c"
-    #     "tmux"
-    #   ];
-    # };
+    shell = {
+      program = "tmux";
+      args = [
+        "new-session"
+        "-A"
+        "-D"
+        "-s"
+        "main"
+      ];
+    };
     font = {
       # The normal (roman) font face to use.
       normal = {
