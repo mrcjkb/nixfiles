@@ -2995,11 +2995,11 @@
         "pre-commit-hooks": "pre-commit-hooks_5"
       },
       "locked": {
-        "lastModified": 1685964179,
-        "narHash": "sha256-JsfGcwV4XN8q6j5FwD93NDEyYvlUmKoCU4rtv+CF4p8=",
+        "lastModified": 1685965095,
+        "narHash": "sha256-KSJqQvTiAPcF5vXxOFZ7RV1+12kkBoUIcV93TbSx7Cc=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "b2ac1eb03584e972178fc469bd1fd4e2c8688bcc",
+        "rev": "7aad069526c100f1527025a0eacacde44f730b84",
         "type": "github"
       },
       "original": {
