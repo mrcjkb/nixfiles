@@ -3013,11 +3013,11 @@
         "pre-commit-hooks": "pre-commit-hooks_5"
       },
       "locked": {
-        "lastModified": 1686120912,
-        "narHash": "sha256-GjdBAdhd+pYPhDbgWgMUTUrde2vnfdiiR1ss0GbL2fM=",
+        "lastModified": 1686121473,
+        "narHash": "sha256-iFtD/q+51nP3PK5VCS2kmnfJolhpj6BQaisudRU7Ig4=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "9207249cbf2f436bc7d859f8bedc40e2558ad9a4",
+        "rev": "71a5b172e012182f1da6a18539173b5691cfc189",
         "type": "github"
       },
       "original": {
