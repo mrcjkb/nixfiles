@@ -198,6 +198,7 @@ in {
         unstable.git-filter-repo
         cachix # Nix package caching
         unstable.manix
+        unstable.nix-diff # Explain why 2 nix derivations differ
         manix-fzf
         unstable.fzf
         unstable.ripgrep
