@@ -1,31 +1,33 @@
-{
+let
+  browser = "brave";
+in {
   mime = {
     defaultApplications = {
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
-      "x-scheme-handler/mailto" = "firefox.desktop";
-      "x-scheme-handler/chrome" = "firefox.desktop";
-      "application/x-extension-htm" = "firefox.desktop";
-      "application/x-extension-html" = "firefox.desktop";
-      "application/x-extension-shtml" = "firefox.desktop";
-      "application/xhtml+xml" = "firefox.desktop";
-      "application/x-extension-xhtml" = "firefox.desktop";
-      "application/x-extension-xht" = "firefox.desktop";
+      "text/html" = "${browser}.desktop";
+      "x-scheme-handler/http" = "${browser}.desktop";
+      "x-scheme-handler/https" = "${browser}.desktop";
+      "x-scheme-handler/about" = "${browser}.desktop";
+      "x-scheme-handler/unknown" = "${browser}.desktop";
+      "x-scheme-handler/mailto" = "${browser}.desktop";
+      "x-scheme-handler/chrome" = "${browser}.desktop";
+      "application/x-extension-htm" = "${browser}.desktop";
+      "application/x-extension-html" = "${browser}.desktop";
+      "application/x-extension-shtml" = "${browser}.desktop";
+      "application/xhtml+xml" = "${browser}.desktop";
+      "application/x-extension-xhtml" = "${browser}.desktop";
+      "application/x-extension-xht" = "${browser}.desktop";
     };
     addedAssociations = {
-      "x-scheme-handler/http" = "firefox.desktop;";
-      "x-scheme-handler/https" = "firefox.desktop;";
-      "x-scheme-handler/chrome" = "firefox.desktop;";
-      "text/html" = "firefox.desktop;";
-      "application/x-extension-htm" = "firefox.desktop;";
-      "application/x-extension-html" = "firefox.desktop;";
-      "application/x-extension-shtml" = "firefox.desktop;";
-      "application/xhtml+xml" = "firefox.desktop;";
-      "application/x-extension-xhtml" = "firefox.desktop;";
-      "application/x-extension-xht" = "firefox.desktop;";
+      "x-scheme-handler/http" = "${browser}.desktop;";
+      "x-scheme-handler/https" = "${browser}.desktop;";
+      "x-scheme-handler/chrome" = "${browser}.desktop;";
+      "text/html" = "${browser}.desktop;";
+      "application/x-extension-htm" = "${browser}.desktop;";
+      "application/x-extension-html" = "${browser}.desktop;";
+      "application/x-extension-shtml" = "${browser}.desktop;";
+      "application/xhtml+xml" = "${browser}.desktop;";
+      "application/x-extension-xhtml" = "${browser}.desktop;";
+      "application/x-extension-xht" = "${browser}.desktop;";
       "application/octet-stream" = "neovide.desktop;";
     };
   };

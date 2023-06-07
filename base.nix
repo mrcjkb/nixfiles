@@ -166,7 +166,7 @@ in {
       XDG_DATA_HOME = "\${HOME}/.local/share";
       XDG_RUNTIME_DIR = "/run/user/1000";
       EDITOR = "nvim";
-      BROWSER = "firefox";
+      BROWSER = "brave";
       TZ = "Europe/Berlin";
       BAT_THEME = "Material-darker";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
