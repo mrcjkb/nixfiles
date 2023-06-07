@@ -1,5 +1,5 @@
 pkgs: {
-  enable = pkgs.lib.mkDefault true;
+  enable = pkgs.lib.mkDefault false;
   wrappedBinaries = {
     firefox = {
       executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
