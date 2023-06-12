@@ -23,10 +23,18 @@ package: {
       let-env config = {
         show_banner: false
         edit_mode: vi
-        max_history_size: 100000
-        filesize_metric: false
-        table_mode: rounded
-        use_ls_colors: true
+        history: {
+          max_size: 100000
+        }
+        filesize: {
+          metric: true
+        }
+        ls: {
+          use_ls_colors: true
+        }
+        table: {
+          mode: rounded
+        }
         hooks: {
           pre_prompt: [{
             code: "
@@ -42,6 +50,7 @@ package: {
             max_results: 100
             completer: $carapace_completer
           }
+          algorithm: "fuzzy"
         }
       }
       source ~/.zoxide.nu
