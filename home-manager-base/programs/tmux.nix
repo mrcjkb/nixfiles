@@ -21,6 +21,13 @@
         set -g @resurrect-strategy-vim 'session'
       '';
     }
+    {
+      plugin = tmux-sessionizer;
+      extraConfig = ''
+        bind C-o display-popup -E "tms"
+        bind C-j display-popup -E "tms switch"
+      '';
+    }
   ];
   extraConfig = builtins.readFile ./tmux.conf;
 }
