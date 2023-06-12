@@ -253,6 +253,7 @@ in {
         unstable.nixos-option
         unstable.direnv
         unstable.nix-direnv
+        unstable.tmux-sessionizer # The fastest way to manage projects as tmux sessions
         zlib # Lossles data compression library
         pciutils # Inspection/manipulation of PCI devices
         unstable.bluetuith # Bluetooth TUI
