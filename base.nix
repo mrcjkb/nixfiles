@@ -211,6 +211,7 @@ in {
         unstable.yubikey-manager # Yubico Authenticator CLI
         unstable.signal-cli
         unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
+        unstable.carapace # Multi-shell multi-command argument completer
         wget
         curl
         unstable.whois

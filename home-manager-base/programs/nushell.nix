@@ -17,12 +17,8 @@ package: {
 
   configFile = {
     text = ''
-      let fish_completer = {|spans|
-        fish --command $'complete "--do-complete=($spans | str join " ")"'
-          | str trim
-          | split row "\n"
-          | each { |line| $line | split column "\t" value description }
-          | flatten
+      let carapace_completer = {|spans|
+        carapace $spans.0 nushell $spans | from json
       }
       let-env config = {
         show_banner: false
@@ -52,7 +48,7 @@ package: {
           external: {
             enable: true
             max_results: 100
-            completer: $fish_completer
+            completer: $carapace_completer
           }
           algorithm: "fuzzy"
         }
