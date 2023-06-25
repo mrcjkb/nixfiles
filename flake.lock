@@ -1885,11 +1885,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1687723568,
-        "narHash": "sha256-Yz5NG5kxfSc/OCrEcw/A5PRbQHxI2rTeKnXCGzHmXeM=",
+        "lastModified": 1687723764,
+        "narHash": "sha256-tRw7Y0VlJs13xJP3I8MATQpopQBtsie2q8UkZylb3W4=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "5935eba33509069be869edd7f1668822d7861e89",
+        "rev": "7dd837d3012deb5f68e932876e549e87c480ecb5",
         "type": "github"
       },
       "original": {
