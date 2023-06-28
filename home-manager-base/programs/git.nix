@@ -11,12 +11,16 @@
   #   signByDefault = false;
   # };
   extraConfig = {
-    merge = {
-      tool = "nvim";
-    };
+    merge.tool = "nvim";
     mergetool = {
       nvim = {
-        cmd = "${pkgs.neovim}/bin/nvim -f -c \"DiffViewOpen\"";
+        cmd = "nvim -f -c \"DiffviewOpen\"";
+      };
+    };
+    diff.tool = "nvim";
+    difftool = {
+      nvim = {
+        cmd = "nvim -f -c \"DiffviewOpen $LOCAL..$REMOTE\"";
       };
     };
     pull = {
