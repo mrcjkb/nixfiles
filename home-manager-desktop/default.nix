@@ -39,12 +39,14 @@
         };
       };
     };
-    sharedModules = [{
-      stylix = {
-        targets = {
-          mako.enable = false;
+    sharedModules = [
+      {
+        stylix = {
+          targets = {
+            mako.enable = false;
+          };
         };
-      };
-    }];
+      }
+    ];
   };
 }
