@@ -1,4 +1,4 @@
-config: {
+{
   enable = true;
   histSize = 100000;
   shellInit = ''

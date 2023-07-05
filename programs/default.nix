@@ -1,9 +1,5 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  zsh = (import ./zsh.nix) config;
+{pkgs, ...}: {
+  zsh = import ./zsh.nix;
   fish = import ./fish.nix;
   bash = import ./bash.nix;
   mtr.enable = true;

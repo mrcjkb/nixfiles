@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   lib,
   defaultUser ? "mrcjk",
   userEmail ? "mrcjkb89@outlook.com",
@@ -272,7 +271,6 @@ in {
   # started in user sessions.
   programs = import ./programs {
     inherit pkgs;
-    inherit config;
   };
 
   virtualisation = {
