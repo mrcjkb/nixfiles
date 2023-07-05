@@ -140,7 +140,7 @@ in {
   };
 
   users = let
-    defaultShell = pkgs.unstable.nushell;
+    defaultShell = pkgs.unstable.zsh;
   in {
     defaultUserShell = pkgs.unstable.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
