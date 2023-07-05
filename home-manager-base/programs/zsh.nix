@@ -4,6 +4,7 @@
     size = 100000;
   };
   initExtra = ''
+    . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     eval "$(zoxide init zsh)" # Must be called at the end
     eval "$(starship init zsh)"
   '';
@@ -15,7 +16,6 @@
     # fish-like extensions
     zsh-history-substring-search
     # zsh-autosuggestions
-    zsh-syntax-highlighting
     # fish-like extensions
   ];
 }
