@@ -1,10 +1,10 @@
 {pkgs}: {
   enable = true;
-  histSize = 100000;
-  shellInit = ''
+  history = {
+    size = 100000;
+  };
+  initExtra = ''
     eval "$(zoxide init zsh)" # Must be called at the end
-  '';
-  promptInit = ''
     eval "$(starship init zsh)"
   '';
   shellAliases = import ./shellAliases.nix;
