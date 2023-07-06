@@ -7,14 +7,13 @@
   home-manager = {
     users."${user}" = {
       programs = import ./programs {
-        pkgs = pkgs.unstable;
-        inherit user userEmail;
+        inherit pkgs user userEmail;
       };
       gtk = {
         enable = true;
         iconTheme = {
           name = "Papirus-Dark";
-          package = pkgs.unstable.papirus-icon-theme;
+          package = pkgs.papirus-icon-theme;
         };
         cursorTheme = {
           name = "Volantes Material Dark";

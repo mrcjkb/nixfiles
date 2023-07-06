@@ -13,9 +13,8 @@
 in {
   imports = [
     (import ./home-manager-base {
-      pkgs = pkgs.unstable;
       user = defaultUser;
-      inherit userEmail;
+      inherit pkgs userEmail;
     })
   ];
 
@@ -129,7 +128,6 @@ in {
     };
     bluetooth = {
       enable = lib.mkDefault true;
-      package = pkgs.unstable.bluez;
       settings = {
         General = {
           # Modern headsets will generally try to connect using the A2DP profile.
@@ -140,9 +138,9 @@ in {
   };
 
   users = let
-    defaultShell = pkgs.unstable.nushell;
+    defaultShell = pkgs.nushell;
   in {
-    defaultUserShell = pkgs.unstable.fish;
+    defaultUserShell = pkgs.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
@@ -173,7 +171,7 @@ in {
       WORKSPACE = "\${HOME}/.workspace";
     };
 
-    shells = with pkgs.unstable; [
+    shells = with pkgs; [
       fish
       nushell
     ];
@@ -190,78 +188,78 @@ in {
     systemPackages = with pkgs; let
       manix-fzf = pkgs.writeShellApplication {
         name = "nixf";
-        runtimeInputs = [unstable.manix unstable.ripgrep unstable.fzf];
+        runtimeInputs = [manix ripgrep fzf];
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       };
     in
       [
-        unstable.git-filter-repo
+        git-filter-repo
         cachix # Nix package caching
-        unstable.manix
-        unstable.nix-diff # Explain why 2 nix derivations differ
+        manix
+        nix-diff # Explain why 2 nix derivations differ
         manix-fzf
-        unstable.fzf
-        unstable.ripgrep
-        unstable.fd
+        fzf
+        ripgrep
+        fd
         gcc
         gnumake
-        unstable.librsvg # Small SVG rendering library
-        unstable.odt2txt
-        unstable.joplin # Joplin (notes) CLI client
-        unstable.yubikey-manager # Yubico Authenticator CLI
-        unstable.signal-cli
-        unstable.cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-        unstable.carapace # Multi-shell multi-command argument completer
+        librsvg # Small SVG rendering library
+        odt2txt
+        joplin # Joplin (notes) CLI client
+        yubikey-manager # Yubico Authenticator CLI
+        signal-cli
+        cht-sh # CLI client for cheat.sh, a community driven cheat sheet
+        carapace # Multi-shell multi-command argument completer
         wget
         curl
-        unstable.whois
-        # unstable.silver-searcher # Fast search
+        whois
+        # silver-searcher # Fast search
         file
-        unstable.moreutils
-        unstable.neofetch # System information CLI
+        moreutils
+        neofetch # System information CLI
         # neomutt # E-mail
         zip
         unzip
-        unstable.exa # Replacement for ls
+        exa # Replacement for ls
         autorandr # Automatic XRandR configurations
-        unstable.arandr # A simple visual front end for XRandR
+        arandr # A simple visual front end for XRandR
         upower # D-Bus service for power management
         killall
         libnotify
-        unstable.zoxide # Fast alternative to autojump and z-lua
-        unstable.starship # Shell theme (fish, zsh, ...)
-        unstable.jq # JSON processor
+        zoxide # Fast alternative to autojump and z-lua
+        starship # Shell theme (fish, zsh, ...)
+        jq # JSON processor
         # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
         # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
-        unstable.binutils # Tools for manipulating binaries
-        unstable.dig # Domain information groper
+        binutils # Tools for manipulating binaries
+        dig # Domain information groper
         nmap
         update-systemd-resolved
-        unstable.dconf # Required to set GTK theme in home-manager
-        unstable.pdftk # Command-line tool for working with PDFs
-        unstable.tokei # Count lines of code
-        unstable.bottom # Alternative to htop
-        unstable.du-dust # Alternative to du
-        unstable.procs # Alternative to ps
-        unstable.sd # Alternative to sed
-        unstable.hyperfine # Alternative to time
-        unstable.tealdeer # tldr implementation for simplified example based man pages
-        unstable.grex # Generate regular expressions from user-provided test cases
+        dconf # Required to set GTK theme in home-manager
+        pdftk # Command-line tool for working with PDFs
+        tokei # Count lines of code
+        bottom # Alternative to htop
+        du-dust # Alternative to du
+        procs # Alternative to ps
+        sd # Alternative to sed
+        hyperfine # Alternative to time
+        tealdeer # tldr implementation for simplified example based man pages
+        grex # Generate regular expressions from user-provided test cases
         openssl
-        unstable.usbutils
-        unstable.nix-output-monitor
-        unstable.nix-index # A files database for nix
-        unstable.nixos-option
-        unstable.direnv
-        unstable.nix-direnv
-        unstable.tmux-sessionizer # The fastest way to manage projects as tmux sessions
+        usbutils
+        nix-output-monitor
+        nix-index # A files database for nix
+        nixos-option
+        direnv
+        nix-direnv
+        tmux-sessionizer # The fastest way to manage projects as tmux sessions
         zlib # Lossles data compression library
         pciutils # Inspection/manipulation of PCI devices
-        unstable.bluetuith # Bluetooth TUI
-        unstable.neo-cowsay
-        unstable.dive # A tool for exploring each layer in a docker image
+        bluetuith # Bluetooth TUI
+        neo-cowsay
+        dive # A tool for exploring each layer in a docker image
       ]
-      ++ (with unstable.fishPlugins; [
+      ++ (with fishPlugins; [
         bass # `bass source` bash scripts
         autopair-fish
       ]);

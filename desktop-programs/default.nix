@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  firejail = import ./firejail.nix pkgs.unstable;
+  firejail = import ./firejail.nix pkgs;
 }

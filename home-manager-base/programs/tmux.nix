@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   enable = true;
-  package = pkgs.tmux;
   clock24 = true;
   disableConfirmationPrompt = true;
   keyMode = "vi";

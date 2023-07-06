@@ -13,10 +13,9 @@
   };
 
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager";
     nvim-config = {
       url = "github:mrcjkb/nvim-config";
     };
@@ -25,7 +24,7 @@
     feedback.url = "github:NorfairKing/feedback";
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
-    stylix.url = "github:danth/stylix/release-22.11";
+    stylix.url = "github:danth/stylix";
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
       flake = false;
@@ -45,7 +44,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     nur,
     home-manager,
     nvim-config,
@@ -65,10 +63,6 @@
       "aarch64-linux"
       "x86_64-linux"
     ];
-
-    overlay-unstable = final: prev: {
-      unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-    };
 
     direnv-overlay = final: prev: {
       nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
@@ -96,10 +90,8 @@
           };
         modules =
           [
-            # Overlays-module makes "pkgs.unstable" available in configuration.nix
             ({...}: {
               nixpkgs.overlays = [
-                overlay-unstable
                 nur.overlay
                 direnv-overlay
               ];

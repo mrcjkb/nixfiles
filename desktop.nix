@@ -34,7 +34,6 @@ in {
     };
     onedrive = {
       enable = lib.mkDefault true;
-      package = pkgs.unstable.onedrive;
     };
     gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
     logind.lidSwitch = "ignore";
@@ -62,60 +61,60 @@ in {
   environment = {
     systemPackages = with pkgs;
       [
-        unstable.neovide
-        unstable.pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-        unstable.yubioath-flutter # Yubico Authenticator Desktop app
-        unstable.brave
-        unstable.firefox
-        unstable.joplin-desktop # Joplin (notes, desktop app)
-        unstable.simplescreenrecorder
-        unstable.inkscape-with-extensions
-        unstable.gimp
-        unstable.shutter # Screenshots
-        unstable.signal-desktop
-        unstable.gparted
-        unstable.xcolor # Color picker
-        unstable.skanlite # Lightweight sane frontend
-        unstable.xsane # Sane frontend (advanced)
-        unstable.koreader # ebook reader
-        unstable.xournalpp # notetaking software with PDF annotation support
+        neovide
+        pcmanfm # File browser like Nautilus, but with no Gnome dependencies
+        yubioath-flutter # Yubico Authenticator Desktop app
+        brave
+        firefox
+        joplin-desktop # Joplin (notes, desktop app)
+        simplescreenrecorder
+        inkscape-with-extensions
+        gimp
+        shutter # Screenshots
+        signal-desktop
+        gparted
+        xcolor # Color picker
+        skanlite # Lightweight sane frontend
+        xsane # Sane frontend (advanced)
+        koreader # ebook reader
+        xournalpp # notetaking software with PDF annotation support
         texlive.combined.scheme-medium
         biber
-        unstable.keepassxc
+        keepassxc
         # Nix
-        unstable.alejandra # The uncompromising nix code formatter
+        alejandra # The uncompromising nix code formatter
         # Haskell
-        unstable.ghc
-        unstable.cabal-install
-        unstable.cabal2nix
+        ghc
+        cabal-install
+        cabal2nix
         # stack2nix # Broken
-        # unstable.haskellPackages.summoner
-        # unstable.haskellPackages.summoner-tui
-        # unstable.haskellPackages.feedback # Declarative feedback loop manager
-        unstable.hpack
+        # haskellPackages.summoner
+        # haskellPackages.summoner-tui
+        # haskellPackages.feedback # Declarative feedback loop manager
+        hpack
         # Rust
         crate2nix
         #
-        unstable.pandoc
-        unstable.redshift # Blue light filter
-        unstable.imagemagick
-        unstable.nitrogen # Wallpaper browser/setter for X11
-        unstable.jmtpfs # MTP (Android phone) support
-        unstable.mpv-unwrapped # Media player
-        unstable.mdp # A command-line based markdown presentation tool
-        unstable.kcat # A generic non-JVM producer and consumer for Apache Kafka
+        pandoc
+        redshift # Blue light filter
+        imagemagick
+        nitrogen # Wallpaper browser/setter for X11
+        jmtpfs # MTP (Android phone) support
+        mpv-unwrapped # Media player
+        mdp # A command-line based markdown presentation tool
+        kcat # A generic non-JVM producer and consumer for Apache Kafka
         paperkey # Print OpenPGP or GnuPG on paper
-        unstable.asciinema # Terminal session recoreder
-        unstable.ovh-ttyrec # Terminal session recoreder
-        unstable.ttygif # Convert ttyrec recordings to gif
-        unstable.playerctl
-        unstable.gh # GitHub CLI tool
-        unstable.act # Run GitHub workflows locally
-        unstable.arduino-cli
-        unstable.element-desktop # Matrix client
-        unstable.xscast # Screen cast for Xorg
+        asciinema # Terminal session recoreder
+        ovh-ttyrec # Terminal session recoreder
+        ttygif # Convert ttyrec recordings to gif
+        playerctl
+        gh # GitHub CLI tool
+        act # Run GitHub workflows locally
+        arduino-cli
+        element-desktop # Matrix client
+        xscast # Screen cast for Xorg
       ]
-      ++ (with unstable.fishPlugins; [
+      ++ (with fishPlugins; [
         fzf-fish
         done # Notifications when long background processes finish
       ]);
