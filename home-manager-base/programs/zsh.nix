@@ -9,7 +9,8 @@
     eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
   '';
-  shellAliases = import ./shellAliases.nix;
+  # TODO: Move
+  shellAliases = import ../../programs/shellAliases.nix;
   # FIXME:
   # plugins = with pkgs; [
   #   zsh-vi-mode
