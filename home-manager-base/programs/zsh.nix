@@ -10,13 +10,14 @@
     eval "$(direnv hook zsh)"
   '';
   shellAliases = import ./shellAliases.nix;
-  plugins = with pkgs; [
-    zsh-vi-mode
-    zsh-fzf-tab
-    zsh-nix-shell
-    # fish-like extensions
-    zsh-history-substring-search
-    # zsh-autosuggestions
-    # fish-like extensions
-  ];
+  # FIXME:
+  # plugins = with pkgs; [
+  #   zsh-vi-mode
+  #   zsh-fzf-tab
+  #   zsh-nix-shell
+  #   # fish-like extensions
+  #   zsh-history-substring-search
+  #   # zsh-autosuggestions
+  #   # fish-like extensions
+  # ];
 }
