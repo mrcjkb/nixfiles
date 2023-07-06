@@ -1329,15 +1329,15 @@
     "neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1686318130,
-        "narHash": "sha256-Wid1gKch3aHO97qklic3feqz+tfcz+WhG400s6CQzhk=",
-        "owner": "TimUntersberger",
+        "lastModified": 1688574545,
+        "narHash": "sha256-1DEzVPHL+l8y2PHWcAg/bPBA+E/5riMa6pon3vvyQag=",
+        "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "68a3e90e9d1ed9e362317817851d0f34b19e426b",
+        "rev": "72824006f2dcf775cc498cc4a046ddd2c99d20a3",
         "type": "github"
       },
       "original": {
-        "owner": "TimUntersberger",
+        "owner": "NeogitOrg",
         "repo": "neogit",
         "type": "github"
       }
@@ -1902,11 +1902,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1688629767,
-        "narHash": "sha256-wOP1Phlvup97cJtvqY30A1MvgxjR9CWg8B/3G19buVM=",
+        "lastModified": 1688630891,
+        "narHash": "sha256-3NIVDoM1NAxoxa57j3JtGNZEw464OeMvnr05Q4kfUNk=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "d4747731d62556658608f96de001ed1ef4d5133e",
+        "rev": "1ef523a89527cd523eb051dbf6839b88c36354b4",
         "type": "github"
       },
       "original": {
