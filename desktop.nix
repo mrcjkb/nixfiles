@@ -82,8 +82,6 @@ in {
         texlive.combined.scheme-medium
         biber
         unstable.keepassxc
-        (unstable.python311.withPackages (_: [
-          ]))
         # Nix
         unstable.alejandra # The uncompromising nix code formatter
         # Haskell
