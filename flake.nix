@@ -139,7 +139,6 @@
             }
           ];
       };
-
     rpi4 = let
       system = "aarch64-linux";
     in
@@ -189,7 +188,7 @@
             searx
           ];
         };
-        inherit rpi4;
+        # inherit rpi4;
       };
 
       images = {
