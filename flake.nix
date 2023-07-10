@@ -30,8 +30,9 @@
       flake = false;
     };
     haskell-tags-nix = {
-      url = "github:shajra/haskell-tags-nix";
-      flake = false;
+      url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
+      # url = "github:shajra/haskell-tags-nix";
+      # flake = false;
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     pre-commit-hooks = {
@@ -134,7 +135,7 @@
               environment.systemPackages = [
                 feedback.packages.${system}.default
                 nurl.packages.${system}.default
-                ((import "${haskell-tags-nix}/default.nix").haskell-tags-nix-exe)
+                haskell-tags-nix.packages.${system}.default
               ];
             }
           ];
