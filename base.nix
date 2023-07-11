@@ -169,6 +169,7 @@ in {
       BAT_THEME = "Material-darker";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
+      PAGER = "nvimpager";
     };
 
     shells = with pkgs; [
@@ -258,6 +259,7 @@ in {
         bluetuith # Bluetooth TUI
         neo-cowsay
         dive # A tool for exploring each layer in a docker image
+        nvimpager # Use neovim to view man pages, etc.
       ]
       ++ (with fishPlugins; [
         bass # `bass source` bash scripts
