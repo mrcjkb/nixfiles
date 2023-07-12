@@ -21,6 +21,15 @@
           source = ./configs/ranger/.;
           recursive = true;
         };
+        "ranger/plugins/ranger_devicons" = {
+          source = pkgs.fetchFromGitHub {
+            owner = "alexanderjeurissen";
+            repo = "ranger_devicons";
+            rev = "1b5780117eeebdfcd221ce45823a1ddef8399848";
+            hash = "sha256-MMPbYXlSLwECf/Li4KqYbSmKZ8n8LfTdkOfZKshJ30w=";
+          };
+          recursive = true;
+        };
         joplin = {
           source = ./configs/joplin/.;
           recursive = true;
