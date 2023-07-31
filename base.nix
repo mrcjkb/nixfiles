@@ -298,7 +298,7 @@ in {
   fonts = {
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       jetbrains-mono-nerdfont
       roboto
       lato # Font used in tiko presentations, etc.
