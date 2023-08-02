@@ -194,6 +194,21 @@ in {
       };
     in
       [
+        haskell-language-server
+        haskellPackages.hoogle
+        haskellPackages.haskell-debug-adapter
+        haskellPackages.ghci-dap
+        nil
+        dhall-lsp-server
+        rust-analyzer
+        taplo # toml toolkit including a language server
+        nodePackages.vim-language-server
+        nodePackages.yaml-language-server
+        nodePackages.dockerfile-language-server-nodejs
+        nodePackages.vscode-json-languageserver-bin
+        nodePackages.bash-language-server
+        sqls
+        texlab
         git-filter-repo
         cachix # Nix package caching
         manix
@@ -243,6 +258,10 @@ in {
         du-dust # Alternative to du
         procs # Alternative to ps
         sd # Alternative to sed
+        bat
+        ueberzug
+        feh
+        xclip
         hyperfine # Alternative to time
         tealdeer # tldr implementation for simplified example based man pages
         grex # Generate regular expressions from user-provided test cases
