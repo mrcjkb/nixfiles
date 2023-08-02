@@ -34,7 +34,8 @@ in {
     '';
     # Binary Cache for Haskell.nix
     settings = {
-      sandbox = lib.mkDefault true;
+      sandbox = lib.mkDefault false;
+      auto-optimise-store = lib.mkDefault true;
       inherit substituters;
       experimental-features = [
         "nix-command"
@@ -47,6 +48,12 @@ in {
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "arm.cachix.org-1:5BZ2kjoL1q6nWhlnrbAl+G7ThY7+HaBRD9PZzqZkbnM="
       ];
+    };
+    gc = {
+      # garbage collection
+      automatic = lib.mkDefault true;
+      dates = lib.mkDefault "monthly";
+      options = lib.mkDefault "--delete-older-than 30d";
     };
   };
 
