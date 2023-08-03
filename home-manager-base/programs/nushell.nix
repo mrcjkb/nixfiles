@@ -20,7 +20,7 @@ package: {
       let carapace_completer = {|spans|
         carapace $spans.0 nushell $spans | from json
       }
-      let-env config = {
+      $env.config = {
         show_banner: false
         edit_mode: vi
         history: {
