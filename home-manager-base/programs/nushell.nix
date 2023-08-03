@@ -5,8 +5,7 @@ package: {
   envFile = {
     text = ''
       zoxide init nushell
-        | str replace '&&' 'and'
-        | str replace '\|\|' 'or'
+        | str replace 'let-env ' '$env.'
         | save -f ~/.zoxide.nu
 
       mkdir ~/.cache/starship
