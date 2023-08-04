@@ -286,6 +286,7 @@ in {
         neo-cowsay
         dive # A tool for exploring each layer in a docker image
         nvimpager # Use neovim to view man pages, etc.
+        typst
       ]
       ++ (with fishPlugins; [
         bass # `bass source` bash scripts
