@@ -2603,6 +2603,7 @@
         "nvim-dap-ui": "nvim-dap-ui",
         "nvim-dap-virtual-text": "nvim-dap-virtual-text",
         "nvim-gps": "nvim-gps",
+        "nvim-lastplace": "nvim-lastplace",
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
@@ -2643,11 +2644,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1692026623,
-        "narHash": "sha256-b5qMn0X7Fo4JeejBDeEzZ9kYM92F4VkR3LLoe/f9ud0=",
+        "lastModified": 1692033107,
+        "narHash": "sha256-8f+kt6SXI4NdYTdquJwxYDJHetNvzPadCuo/nX4fniM=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "06555c68f65bfdc478e430494a12659555dcc748",
+        "rev": "8e4a39d980eeed7e814d7f10b940c7723ac68380",
         "type": "github"
       },
       "original": {
@@ -2717,6 +2718,22 @@
       "original": {
         "owner": "SmiteshP",
         "repo": "nvim-gps",
+        "type": "github"
+      }
+    },
+    "nvim-lastplace": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690473226,
+        "narHash": "sha256-jmF06Cl1ieYXKTnW9pWdQH4IJGicvSVJAR7ppju9qyg=",
+        "owner": "ethanholz",
+        "repo": "nvim-lastplace",
+        "rev": "0bb6103c506315044872e0f84b1f736c4172bb20",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethanholz",
+        "repo": "nvim-lastplace",
         "type": "github"
       }
     },
