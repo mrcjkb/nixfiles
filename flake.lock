@@ -425,22 +425,6 @@
         "type": "github"
       }
     },
-    "diagflow-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690646868,
-        "narHash": "sha256-BUF0OXu3EPOgzFxkuEBJkg/I/Mhime31uBXCvMBp+wU=",
-        "owner": "dgagn",
-        "repo": "diagflow.nvim",
-        "rev": "dafd9d4a76bd97a17dc7ea6d2f1a2675c65324e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dgagn",
-        "repo": "diagflow.nvim",
-        "type": "github"
-      }
-    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -2481,11 +2465,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1692012688,
-        "narHash": "sha256-WX4G0eQFA32evBVrfia+Gqt+lRvcT3PJx73x8QlJmcw=",
+        "lastModified": 1692017787,
+        "narHash": "sha256-RVohbSWkS3iMexiF6w9QkMtmwsCRe7OLxJ0hgCe22/g=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5ec189f17d078713cb91b7a53a649aa31fe7400c",
+        "rev": "2ba2c24ca845753a7c8a62f5e372b68a7e39b78e",
         "type": "github"
       },
       "original": {
@@ -2578,7 +2562,6 @@
         "cmp-tmux": "cmp-tmux",
         "colorizer": "colorizer",
         "comment": "comment",
-        "diagflow-nvim": "diagflow-nvim",
         "diffview": "diffview",
         "eyeliner-nvim": "eyeliner-nvim",
         "femaco": "femaco",
@@ -2659,11 +2642,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1692013527,
-        "narHash": "sha256-72a6yD+ofir7IQIOuXEjqHQABBInySUuzlXr1AC224M=",
+        "lastModified": 1692022196,
+        "narHash": "sha256-iIiIS3pQJmEOy8WsA0uDRG1B2OnuAl1us8O61LcibWk=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "40d159b037edb822d2c4d97a8dc74c528fe48c7f",
+        "rev": "c7990ad78ee190fff72fe5c067a1af013aa44d68",
         "type": "github"
       },
       "original": {
