@@ -2639,14 +2639,15 @@
         "vim-matchup": "vim-matchup",
         "vim-textobj-user": "vim-textobj-user",
         "vim-wordmotion": "vim-wordmotion",
+        "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1692023048,
-        "narHash": "sha256-cnXmEUXFqWXgPgDKanLfJABsKOKtJTWf09th5FWw8aY=",
+        "lastModified": 1692026127,
+        "narHash": "sha256-js3eEhLAnEppuKXpJPqYuJtTSDJHi26jo8tByASf51c=",
         "owner": "mrcjkb",
         "repo": "nvim-config",
-        "rev": "6491fbc444b5caaedb111f43e9b7f669de84edd1",
+        "rev": "b7d2994dfb9f76e8aef48f5daac69c79a388a1f8",
         "type": "github"
       },
       "original": {
@@ -3637,6 +3638,22 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
+        "type": "github"
+      }
+    },
+    "wildfire-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691931045,
+        "narHash": "sha256-LA4UQ2uooccIt8JcqdA6lGW6tCGwveJA0s5gIG28oLg=",
+        "owner": "sustech-data",
+        "repo": "wildfire.nvim",
+        "rev": "fa2a7cf716160e96a205d9cf08ec39f33842f54f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sustech-data",
+        "repo": "wildfire.nvim",
         "type": "github"
       }
     },
