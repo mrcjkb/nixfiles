@@ -29,4 +29,9 @@
   ":wq" = "exit";
   ":w" = "cowsay 'You are not in neovim anymore.'";
   ":wa" = "cowsay 'You are not in neovim anymore.'";
+  neogit = "nvim -c :Neogit";
+  ngit = "nvim -c :Neogit";
+  diffview = "nvim -c :DiffviewOpen";
+  ndiff = "nvim -c :DiffviewOpen";
+  nlog = "nvim -c :DiffviewFileHistory";
 }

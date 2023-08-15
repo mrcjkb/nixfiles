@@ -74,6 +74,11 @@ package: {
       alias :x = exit
       alias :w = cowsay 'You are not in neovim anymore.'
       alias :wa = cowsay 'You are not in neovim anymore.'
+      alias neogit = nvim -c :Neogit
+      alias ngit = nvim -c :Neogit
+      alias diffview = nvim -c :DiffviewOpen
+      alias ndiff = nvim -c :DiffviewOpen
+      alias nlog = nvim -c :DiffviewFileHistory
     '';
   };
 }
