@@ -206,7 +206,7 @@ in {
         haskellPackages.haskell-debug-adapter
         haskellPackages.ghci-dap
         nil
-        dhall-lsp-server
+        # dhall-lsp-server
         rust-analyzer
         taplo # toml toolkit including a language server
         nodePackages.vim-language-server
