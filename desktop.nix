@@ -13,6 +13,16 @@
       "JetBrainsMono"
     ];
   };
+
+  lowBatteryNotifier =
+    pkgs.writeScript "lowBatteryNotifier"
+    ''
+      BAT_PCT=`${pkgs.acpi}/bin/acpi -b | ${pkgs.gnugrep}/bin/grep -P -o '[0-9]+(?=%)'`
+      BAT_STA=`${pkgs.acpi}/bin/acpi -b | ${pkgs.gnugrep}/bin/grep -P -o '\w+(?=,)'`
+      echo "`date` battery status:$BAT_STA percentage:$BAT_PCT"
+      test $BAT_PCT -le 10 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -c device -u normal   "Low Battery" "Would be wise to keep my charger nearby."
+      test $BAT_PCT -le  5                        && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -c device -u critical "Low Battery" "Charge me or watch me die!"
+    '';
 in {
   imports = [
     (import ./home-manager-desktop {
@@ -38,6 +48,12 @@ in {
     gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
     logind.lidSwitch = "ignore";
     blueman.enable = lib.mkDefault true;
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "* * * * * ${defaultUser} bash -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+      ];
+    };
   };
 
   hardware = {
