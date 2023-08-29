@@ -29,27 +29,6 @@ in {
       user = defaultUser;
       inherit pkgs userEmail;
     })
-    ({
-      config,
-      lib,
-      pkgs,
-      ...
-    }: let
-      cfg = config.services.slock-sleep;
-    in {
-      options.services-slock-sleep.enable = lib.mkEnableOption (lib.mdDoc "run slock on sleep");
-      config = lib.mkIf (cfg.enable) {
-        services.slock-sleep = {
-          description = "Lock X session using slock on sleep";
-          before = ["sleep.target"];
-          wantedBy = ["sleep.target"];
-          User = defaultUser;
-          Environment = "DISPLAY=:0";
-          ExecStartPre = "${pkgs.xset}/bin/xset dpms force suspend";
-          ExecStart = "${pkgs.slock}/bin/slock";
-        };
-      };
-    })
   ];
 
   # For building Raspberry Pi images
@@ -85,7 +64,16 @@ in {
         "* * * * * ${defaultUser} bash -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
       ];
     };
-    slock-sleep.enable = true;
+  };
+
+  systemd.services.slock-sleep = {
+    enable = true;
+    description = "Lock X session using slock on sleep";
+    before = ["sleep.target"];
+    wantedBy = ["sleep.target"];
+    environment = "DISPLAY=:0";
+    preStart = "${pkgs.xset}/bin/xset dpms force suspend";
+    script = "${pkgs.slock}/bin/slock";
   };
 
   hardware = {

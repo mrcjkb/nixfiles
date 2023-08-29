@@ -2419,11 +2419,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1693248724,
-        "narHash": "sha256-+9+n8HbDeH1UAyTwera2UOisybT7g7bM3YKKWiemweA=",
+        "lastModified": 1693331844,
+        "narHash": "sha256-S+RccMMFamY8ZF007jJWy16PCtoQHbq20W7NIL3xcto=",
         "owner": "nix-community",
         "repo": "nurl",
-        "rev": "5bc49638adcb422514fc15734306df180bb1bb83",
+        "rev": "4dc042cc7f5c8b33fc51b640dedef841ebbeea96",
         "type": "github"
       },
       "original": {
