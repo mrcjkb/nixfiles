@@ -46,13 +46,32 @@ in {
       enable = lib.mkDefault true;
     };
     gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
-    logind.lidSwitch = "ignore";
+    logind = {
+      lidSwitch = "hybrid-sleep";
+      lidSwitchExternalPower = "ignore";
+      lidSwitchDocked = "lock";
+      extraConfig = ''
+        IdleAction=hybrid-sleep
+        IdleActionSec=30min
+        HandlePowerKey=suspend
+        HandlePowerKeyLongPress=poweroff
+      '';
+    };
     blueman.enable = lib.mkDefault true;
     cron = {
       enable = true;
       systemCronJobs = [
         "* * * * * ${defaultUser} bash -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
       ];
+    };
+    slock-sleep = {
+      description = "Lock X session using slock on sleep";
+      before = ["sleep.target"];
+      wantedBy = ["sleep.target"];
+      User = defaultUser;
+      Environment = "DISPLAY=:0";
+      ExecStartPre = "xset dpms force suspend";
+      ExecStart = "slock";
     };
   };
 
