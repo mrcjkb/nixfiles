@@ -71,7 +71,9 @@ in {
     description = "Lock X session using slock on sleep";
     before = ["sleep.target"];
     wantedBy = ["sleep.target"];
-    environment = "DISPLAY=:0";
+    environment = {
+      DISPLAY = ":0";
+    };
     preStart = "${pkgs.xorg.xset}/bin/xset dpms force suspend";
     script = "${pkgs.slock}/bin/slock";
   };
