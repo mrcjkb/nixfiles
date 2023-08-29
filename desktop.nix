@@ -72,7 +72,7 @@ in {
     before = ["sleep.target"];
     wantedBy = ["sleep.target"];
     serviceConfig.PassEnvironment = "DISPLAY";
-    preStart = "${pkgs.xorg.xset}/bin/xset dpms force suspend";
+    # preStart = "${pkgs.xorg.xset}/bin/xset dpms force suspend";
     script = "${pkgs.slock}/bin/slock";
   };
 
