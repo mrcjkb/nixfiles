@@ -72,7 +72,7 @@ in {
     before = ["sleep.target"];
     wantedBy = ["sleep.target"];
     environment = "DISPLAY=:0";
-    preStart = "${pkgs.xset}/bin/xset dpms force suspend";
+    preStart = "${pkgs.xorg.xset}/bin/xset dpms force suspend";
     script = "${pkgs.slock}/bin/slock";
   };
 
