@@ -285,7 +285,9 @@ in {
         bluetuith # Bluetooth TUI
         neo-cowsay
         dive # A tool for exploring each layer in a docker image
-        nvimpager # Use neovim to view man pages, etc.
+        (nvimpager.overrideAttrs (_: {
+          doCheck = false;
+        })) # Use neovim to view man pages, etc.
       ]
       ++ (with fishPlugins; [
         bass # `bass source` bash scripts
