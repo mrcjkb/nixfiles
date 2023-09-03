@@ -16,8 +16,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager";
-    nvim-config = {
-      url = "github:mrcjkb/nvim-config";
+    nvim = {
+      url = "github:mrcjkb/nvim";
     };
     xmonad-session.url = "github:mrcjkb/.xmonad";
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
@@ -47,7 +47,7 @@
     nixpkgs,
     nur,
     home-manager,
-    nvim-config,
+    nvim,
     xmonad-session,
     cursor-theme,
     feedback,
@@ -99,7 +99,6 @@
             })
             ./base.nix
             home-manager.nixosModules.home-manager
-            nvim-config.nixosModules.default
           ]
           ++ extraModules;
       };
@@ -133,6 +132,7 @@
             stylix.nixosModules.stylix
             {
               environment.systemPackages = [
+                nvim.packages.${system}.nvim-dev
                 feedback.packages.${system}.default
                 nurl.packages.${system}.default
                 haskell-tags-nix.packages.${system}.default
