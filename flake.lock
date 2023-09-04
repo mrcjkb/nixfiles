@@ -4088,11 +4088,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1693846770,
-        "narHash": "sha256-wPNyi/tViFdorgZoFTVMj+oS99AN8RIeMBlK7b4WYaA=",
+        "lastModified": 1693853756,
+        "narHash": "sha256-IpHY3vTO2fEniEiP6P2ExCR17O9sllRTXq4EdONZIr0=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "45fecda1de8337bad5d6ed45b15bb3beb76ba884",
+        "rev": "c237520ef3337964f0a74d11ba50119ca0824160",
         "type": "github"
       },
       "original": {
