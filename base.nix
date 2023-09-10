@@ -243,7 +243,7 @@ in {
         # neomutt # E-mail
         zip
         unzip
-        exa # Replacement for ls
+        eza # Replacement for ls
         autorandr # Automatic XRandR configurations
         arandr # A simple visual front end for XRandR
         upower # D-Bus service for power management

@@ -2,9 +2,9 @@
   cd = "z";
   bd = "prevd";
   nd = "nextd";
-  exa = "exa --icons --git";
-  ls = "exa --icons --git";
-  la = "exa --icons --git -a";
+  eza = "eza --icons --git";
+  ls = "eza --icons --git";
+  la = "eza --icons --git -a";
   ll = "ls --icons --git -l";
   lt = "ls --icons --tree";
   ltg = "lt --git";
