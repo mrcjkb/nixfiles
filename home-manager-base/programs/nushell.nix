@@ -52,7 +52,8 @@ package: {
           algorithm: "fuzzy"
         }
       }
-      menus: [
+
+      keybindings: [
         {
           name: menu_accept
           modifier: control
