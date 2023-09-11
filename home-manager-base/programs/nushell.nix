@@ -52,8 +52,32 @@ package: {
           algorithm: "fuzzy"
         }
       }
+      menus: [
+        {
+          name: menu_accept
+          modifier: control
+          keycode: char_y
+          mode: [emacs, vi_normal, vi_insert]
+          event: { send: Enter }
+        }
+        {
+          name: completion_menu_open
+          modifier: control
+          keycode: char_n
+          mode: [emacs, vi_normal, vi_insert]
+          event: {
+            until: [
+                    { send: menu name: completion_menu }
+                    { send: menunext }
+                    { edit: complete }
+                   ]
+          }
+        }
+      ]
+
       source ~/.zoxide.nu
       source ~/.cache/starship/init.nu
+
       alias cd = z
       alias eza = eza --icons --git
       alias la = eza --icons --git -a
