@@ -79,6 +79,9 @@ package: {
       alias diffview = nvim -c :DiffviewOpen
       alias ndiff = nvim -c :DiffviewOpen
       alias nlog = nvim -c :DiffviewFileHistory
+
+      # git log to table
+      def "git logt" [] { git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 5 | lines | split column "»¦«" commit subject name email date | upsert date {|d| $d.date | into datetime} }
     '';
   };
 }
