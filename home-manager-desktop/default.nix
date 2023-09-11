@@ -21,6 +21,10 @@
         };
       };
       xdg.configFile = {
+        keepassxc = {
+          source = ./configs/keepassxc/.;
+          recursive = true;
+        };
         Yubico = {
           source = ./configs/Yubico/.;
           recursive = true;

@@ -13,10 +13,6 @@
           source = ./configs/bat/.;
           recursive = true;
         };
-        keepassxc = {
-          source = ./configs/keepassxc/.;
-          recursive = true;
-        };
         ranger = {
           source = ./configs/ranger/.;
           recursive = true;
