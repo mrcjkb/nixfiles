@@ -26,6 +26,7 @@ in {
     ];
   in {
     package = pkgs.nixFlakes;
+    allowedUsers = ["@wheel"];
     extraOptions = ''
       allowed-uris = https://github.com
       auto-optimise-store = true
@@ -83,7 +84,12 @@ in {
     supportedFilesystems = ["ntfs"];
   };
 
-  fileSystems."/" = {options = ["noatime" "nodiratime"];};
+  fileSystems = {
+    "/".options = ["noatime" "nodiratime"];
+    "/etc/nixos".options = ["noexec"];
+    "/srv".options = ["noexec"];
+    "/var/log".options = ["noexec"];
+  };
 
   networking = {
     networkmanager.enable = lib.mkDefault true; # Enables wireless support via NetworkManager
@@ -111,6 +117,15 @@ in {
   services = {
     openssh = {
       enable = lib.mkDefault true;
+      passwordAuthentication = lib.mkDefault false;
+      challengeResponseAuthentication = lib.mkDefault false;
+      extraConfig = ''
+        AllowTcpForwarding yes
+        X11Forwarding no
+        AllowAgentForwarding no
+        AllowStreamLocalForwarding no
+        AuthenticationMethods publickey
+      '';
     };
     upower.enable = lib.mkDefault true;
     # Yubikey
@@ -192,6 +207,9 @@ in {
     pathsToLink = [
       "/share/nix-direnv"
     ];
+
+    # Rip out default packages like nano, perl and rsync
+    defaultPackages = lib.mkForce [];
 
     systemPackages = with pkgs; let
       manix-fzf = pkgs.writeShellApplication {
@@ -321,6 +339,15 @@ in {
         login.u2fAuth = lib.mkDefault true;
       };
     };
+    # audit rules to log every single time a program is attempted to be run.
+    auditd.enable = lib.mkDefault true;
+    audit = {
+      enable = lib.mkDefault true;
+      rules = [
+        "-a exit,always -F arch=b64 -S execve"
+      ];
+    };
+    sudo.execWheelOnly = lib.mkDefault true;
   };
 
   fonts = {
