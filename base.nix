@@ -86,9 +86,6 @@ in {
 
   fileSystems = {
     "/".options = ["noatime" "nodiratime"];
-    "/etc/nixos".options = ["noexec"];
-    "/srv".options = ["noexec"];
-    "/var/log".options = ["noexec"];
   };
 
   networking = {
