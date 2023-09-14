@@ -218,24 +218,15 @@ in {
       [
         haskell-language-server
         haskellPackages.hoogle
-        haskellPackages.haskell-debug-adapter
-        haskellPackages.ghci-dap
         nil
         # dhall-lsp-server
         rust-analyzer
-        taplo # toml toolkit including a language server
-        nodePackages.vim-language-server
-        nodePackages.yaml-language-server
-        nodePackages.dockerfile-language-server-nodejs
-        nodePackages.vscode-json-languageserver-bin
-        nodePackages.bash-language-server
-        sqls
         texlab
         git-filter-repo
         cachix # Nix package caching
         manix
-        nix-diff # Explain why 2 nix derivations differ
         manix-fzf
+        nix-diff # Explain why 2 nix derivations differ
         fzf
         ripgrep
         fd
