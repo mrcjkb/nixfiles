@@ -11,4 +11,5 @@
   direnv = import ./direnv.nix;
   tmux = import ./tmux.nix {inherit pkgs;};
   fzf = import ./fzf.nix;
+  broot = import ./broot.nix;
 }
