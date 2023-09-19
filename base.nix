@@ -250,6 +250,7 @@ in {
         zip
         unzip
         eza # Replacement for ls
+        broot # interactive tree file manager
         autorandr # Automatic XRandR configurations
         arandr # A simple visual front end for XRandR
         upower # D-Bus service for power management
