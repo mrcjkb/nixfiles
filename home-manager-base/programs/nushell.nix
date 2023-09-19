@@ -83,6 +83,7 @@ package: {
       alias la = eza --icons --git -a
       alias ll = eza --icons --git -l
       alias lt = eza --icons --tree
+      alias br = broot
       alias grep = rg
       alias cat = bat --style=plain
       alias cloc = tokei

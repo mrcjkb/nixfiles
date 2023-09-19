@@ -11,6 +11,7 @@
   lta = "lt -a";
   ltl = "lt -l";
   lla = "ls --icons --git -al";
+  br = "broot";
   grep = "rg";
   cat = "bat --style=plain";
   du = "dust";
