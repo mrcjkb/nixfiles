@@ -5663,11 +5663,11 @@
         "pre-commit-hooks": "pre-commit-hooks_12"
       },
       "locked": {
-        "lastModified": 1695282298,
-        "narHash": "sha256-puC9CH50RSzuPKUn6+uZtDUfxZXYPE2kOuUuWK4wcrs=",
+        "lastModified": 1695282745,
+        "narHash": "sha256-EcJ+W58kp/ZR7JU+n2Bb1XPZHWdEeK5NKoFxkrNbQcY=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "0c7a38edb89deeae08b2eea1fa08c70810220a02",
+        "rev": "2562bc10dcf358cd684f13fae02f1d848de42cad",
         "type": "github"
       },
       "original": {
