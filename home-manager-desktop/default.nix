@@ -41,6 +41,7 @@
           package = pkgs.volantes-cursors-material;
         };
       };
+      services = import ./services;
     };
     sharedModules = [
       {

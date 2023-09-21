@@ -1,0 +1,3 @@
+{
+  flameshot = import ./flameshot.nix;
+}
