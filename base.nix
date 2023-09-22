@@ -26,7 +26,6 @@ in {
     ];
   in {
     package = pkgs.nixFlakes;
-    allowedUsers = ["@wheel"];
     extraOptions = ''
       allowed-uris = https://github.com
       auto-optimise-store = true
@@ -35,6 +34,7 @@ in {
     '';
     # Binary Cache for Haskell.nix
     settings = {
+      allowed-users = ["@wheel"];
       sandbox = lib.mkDefault false;
       auto-optimise-store = lib.mkDefault true;
       inherit substituters;
