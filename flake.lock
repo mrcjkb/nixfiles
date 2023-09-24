@@ -2416,13 +2416,13 @@
       "locked": {
         "lastModified": 1694466768,
         "narHash": "sha256-yjQOBX5sKMTTpCCht66b0Kh0KEhZaNDrnLInZPZPpvQ=",
-        "owner": "mizlan",
+        "owner": "mrcjkb",
         "repo": "iswap.nvim",
         "rev": "623f46106731d4a981b83f11cc567985fa94f516",
         "type": "github"
       },
       "original": {
-        "owner": "mizlan",
+        "owner": "mrcjkb",
         "repo": "iswap.nvim",
         "type": "github"
       }
@@ -3893,11 +3893,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1695581151,
-        "narHash": "sha256-bfkwcXggHOofHUllpNKXqgRnwBYxJA0PrcnyoDW3sdI=",
+        "lastModified": 1695589748,
+        "narHash": "sha256-MDC7xxuYT1QTEfA9OglMx6ZA99Ue15lb6hJmoNeWnEc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "04778c61a15175746035606066ac0d943b6434c5",
+        "rev": "56cf286340ff356e7adf1eb5c8a06c25b191e626",
         "type": "github"
       },
       "original": {
@@ -4024,11 +4024,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1695583796,
-        "narHash": "sha256-ixVcmIX8aJ92zq6XwgAvM7z4nQrOkKajxdjAHqdcr28=",
+        "lastModified": 1695589791,
+        "narHash": "sha256-7vOCthRhArFyKuMp2ny/4Uu0U1guttogwimoNDKl7pw=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "14020a98cfd7a7288486d50e7e52c7dedb3a89b5",
+        "rev": "cb5dd887d005d3b75c69b7eca4f9a1918fbc8448",
         "type": "github"
       },
       "original": {
@@ -5594,16 +5594,15 @@
     "vim-matchup": {
       "flake": false,
       "locked": {
-        "lastModified": 1689866307,
-        "narHash": "sha256-5l1XLr1Mc2yF3btlg6a5vaqwh+shnLN0aqwENhBNpXw=",
-        "owner": "mrcjkb",
+        "lastModified": 1693662630,
+        "narHash": "sha256-tHAJZyFvDFPfo7uWevIMAc+dMFi2qZI3vTnLC3KbGbA=",
+        "owner": "andymass",
         "repo": "vim-matchup",
-        "rev": "0748f3dfa80f7484f85b181e86e833a9945c8679",
+        "rev": "6dbe108230c7dbbf00555b7d4d9f6a891837ef07",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "mrcjkb/haskell-queries",
+        "owner": "andymass",
         "repo": "vim-matchup",
         "type": "github"
       }
