@@ -35,7 +35,7 @@ in {
     # Binary Cache for Haskell.nix
     settings = {
       allowed-users = ["@wheel"];
-      sandbox = lib.mkDefault false;
+      sandbox = lib.mkDefault true;
       auto-optimise-store = lib.mkDefault true;
       inherit substituters;
       experimental-features = [
