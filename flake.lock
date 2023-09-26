@@ -2398,15 +2398,16 @@
     "iswap-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1694466768,
-        "narHash": "sha256-yjQOBX5sKMTTpCCht66b0Kh0KEhZaNDrnLInZPZPpvQ=",
+        "lastModified": 1695589684,
+        "narHash": "sha256-EOzO/q5huJ3BuqHM5HkRLGyRPUPAeQd4Nd+CMhuc9MU=",
         "owner": "mrcjkb",
         "repo": "iswap.nvim",
-        "rev": "623f46106731d4a981b83f11cc567985fa94f516",
+        "rev": "a477f5e2a48d2817c934e741a348312b218d9182",
         "type": "github"
       },
       "original": {
         "owner": "mrcjkb",
+        "ref": "haskell-nix",
         "repo": "iswap.nvim",
         "type": "github"
       }
@@ -4007,11 +4008,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1695729654,
-        "narHash": "sha256-2i76YozYyyFsy7Qb5HqdawKyozj5ajnsoqZkNVEvvaU=",
+        "lastModified": 1695730119,
+        "narHash": "sha256-7fIxQpCAuxnwNaBtEgjQoz6Nuv1s+QyXGqt4qJRBx/0=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "0f96329739fbe89742885764e563b570f09ffa91",
+        "rev": "721706d5d1c942eff912e72a20990eff8f0c9a68",
         "type": "github"
       },
       "original": {
