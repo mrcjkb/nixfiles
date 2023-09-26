@@ -309,22 +309,6 @@
         "type": "github"
       }
     },
-    "cmp-omni": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1695551166,
-        "narHash": "sha256-PyCZGb+54l9nLR0fXM2QXACGt25nH0IlucbTXIgbJp0=",
-        "owner": "hrsh7th",
-        "repo": "cmp-omni",
-        "rev": "4ef610bbd85a5ee4e97e09450c0daecbdc60de86",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hrsh7th",
-        "repo": "cmp-omni",
-        "type": "github"
-      }
-    },
     "cmp-path": {
       "flake": false,
       "locked": {
@@ -2304,11 +2288,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1695550077,
-        "narHash": "sha256-xoxR/iY69/3lTnnZDP6gf3J46DUKPcf+Y1jH03tfZXE=",
+        "lastModified": 1695708052,
+        "narHash": "sha256-QiWOrZcCmY+zH2NVM6/opZaMRMgam9u+qVYycKLqL10=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a88df2fb101778bfd98a17556b3a2618c6c66091",
+        "rev": "dd88dbc69438384bd94f8282584a86798750028c",
         "type": "github"
       },
       "original": {
@@ -3893,11 +3877,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1695660394,
-        "narHash": "sha256-dALoxP3Un34kiFngNOgyQDRCyiYkRAIJPPNvunAHP6A=",
+        "lastModified": 1695728798,
+        "narHash": "sha256-O5lnfy/JI9BRE9z6LSERQoHhFGJ1Sdp1/f2DSZ8lNPY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3f2fa35cc193bd1c57ac1cd08eb6cf49e3d4945b",
+        "rev": "d006be310c80ba9737e9b587d003d2c24e6f26ae",
         "type": "github"
       },
       "original": {
@@ -3911,11 +3895,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1695238873,
-        "narHash": "sha256-Ye06z/nhBrUxCJ3d/fWHLZ0f33MEQwkr6uftR1JDPWE=",
+        "lastModified": 1695668210,
+        "narHash": "sha256-7pJcCR7qdDLg6yWPvnCPVQyGM2LCseIuBTTkM1A3dpA=",
         "owner": "nix-community",
         "repo": "nurl",
-        "rev": "31a132d57d6327430a1f5f3bd0568ada3c4d9302",
+        "rev": "eed1622b5e9d938426d9e679b3007c569f3bc540",
         "type": "github"
       },
       "original": {
@@ -3937,7 +3921,6 @@
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
         "cmp-nvim-lua": "cmp-nvim-lua",
-        "cmp-omni": "cmp-omni",
         "cmp-path": "cmp-path",
         "cmp-rg": "cmp-rg",
         "cmp-tmux": "cmp-tmux",
@@ -4024,11 +4007,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1695661123,
-        "narHash": "sha256-/s29fGx5+6JCSNaaPOhI5OUnWjPyo4WwABdgkCEG7BI=",
+        "lastModified": 1695729654,
+        "narHash": "sha256-2i76YozYyyFsy7Qb5HqdawKyozj5ajnsoqZkNVEvvaU=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "d0eb2c52c465a0f63699f76a621adfdbd969066f",
+        "rev": "0f96329739fbe89742885764e563b570f09ffa91",
         "type": "github"
       },
       "original": {
