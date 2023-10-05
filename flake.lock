@@ -2146,11 +2146,11 @@
         "toggleterm": "toggleterm"
       },
       "locked": {
-        "lastModified": 1696262914,
-        "narHash": "sha256-eB9XV8XrpMEtmWLYbRQJNGRSVzzGGsPr/n/+Dp+DRS4=",
+        "lastModified": 1696548742,
+        "narHash": "sha256-yklSVjeYW4JX+Dy1Xdn+R0nq7K+3EjhhZV1eo2CNBwg=",
         "owner": "mrcjkb",
         "repo": "haskell-tools.nvim",
-        "rev": "74135a0e4017b97b0578d258d7a610d5252f0697",
+        "rev": "e9a0984db6778bb7ac44bc99231caabf7fdc64d9",
         "type": "github"
       },
       "original": {
@@ -2398,16 +2398,15 @@
     "iswap-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1695589684,
+        "lastModified": 1696543742,
         "narHash": "sha256-EOzO/q5huJ3BuqHM5HkRLGyRPUPAeQd4Nd+CMhuc9MU=",
-        "owner": "mrcjkb",
+        "owner": "mizlan",
         "repo": "iswap.nvim",
-        "rev": "a477f5e2a48d2817c934e741a348312b218d9182",
+        "rev": "8b038cb10585713b4c3918d44d6c329effad2a5d",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "haskell-nix",
+        "owner": "mizlan",
         "repo": "iswap.nvim",
         "type": "github"
       }
@@ -4005,15 +4004,16 @@
         "vim-matchup": "vim-matchup",
         "vim-textobj-user": "vim-textobj-user",
         "vim-wordmotion": "vim-wordmotion",
+        "wf-nvim": "wf-nvim",
         "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1696529116,
-        "narHash": "sha256-H6rdA2EviqKswgyqC2nUvnRQzUNYcZ6DJw80AdYGolk=",
+        "lastModified": 1696548777,
+        "narHash": "sha256-uewxbbo9qTUL8h9TGN0KaeUMRd7IbJ0H8N+hrniMBI0=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "0e77347e73851692abdafb9c5a0c5ab4a478f5f6",
+        "rev": "1f9052a183300cfe8d709a585fbc88433a8d77d4",
         "type": "github"
       },
       "original": {
@@ -5637,6 +5637,22 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
+        "type": "github"
+      }
+    },
+    "wf-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694084982,
+        "narHash": "sha256-C5y171FySVSZ6iGE1lDBR/l6gly9PiY9EKy4CVEfqY4=",
+        "owner": "Cassin01",
+        "repo": "wf.nvim",
+        "rev": "d7de32119e933ddd4c006324475d487c87b8d80b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Cassin01",
+        "repo": "wf.nvim",
         "type": "github"
       }
     },
