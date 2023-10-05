@@ -115,8 +115,10 @@ in {
   services = {
     openssh = {
       enable = lib.mkDefault true;
-      passwordAuthentication = lib.mkDefault false;
-      challengeResponseAuthentication = lib.mkDefault false;
+      settings = {
+        PasswordAuthentication = lib.mkDefault false;
+        KbdInteractiveAuthentication = lib.mkDefault false;
+      };
       extraConfig = ''
         AllowTcpForwarding yes
         X11Forwarding no
