@@ -4009,11 +4009,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1697448194,
-        "narHash": "sha256-Vn0XZCLvSv7MYdz0DKCbpgJUXxRUxWvVcmFyD9cKwtM=",
+        "lastModified": 1697451278,
+        "narHash": "sha256-+O4WVZstr0vaBPNRDayubaVAXvI58US0jf7xYKjCa9g=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ab6c1b3f546f96670f07dc9c13768b94146d0695",
+        "rev": "5d77923d18bdc1333ce766adbb507fced46dbab7",
         "type": "github"
       },
       "original": {
@@ -4141,11 +4141,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1697443891,
-        "narHash": "sha256-QYnTuHob3dZ6x9ZEy972iUyv6s57gNOUO41nObpwpfk=",
+        "lastModified": 1697456130,
+        "narHash": "sha256-+S+HDTyAZDJwAnkvOgzOTFpZ27H1xc/wKP2m2oQ3/j8=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "7ab8d20fe6999b8ce2a3097990083ee59fb235b0",
+        "rev": "52849c2d783d06d621360f93e32fef8db33b9cf8",
         "type": "github"
       },
       "original": {
@@ -4357,9 +4357,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "type": "github"
+        "path": "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork",
+        "type": "path"
       }
     },
     "nvim-ts-context-commentstring": {
