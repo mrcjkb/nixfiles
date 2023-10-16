@@ -65,10 +65,6 @@
       "x86_64-linux"
     ];
 
-    direnv-overlay = final: prev: {
-      nix-direnv = prev.nix-direnv.override {enableFlakes = true;};
-    };
-
     searx = ./searx.nix;
 
     mkNixosSystem = {
@@ -94,7 +90,6 @@
             ({...}: {
               nixpkgs.overlays = [
                 nur.overlay
-                direnv-overlay
               ];
             })
             ./base.nix
