@@ -230,6 +230,7 @@ in {
         manix
         manix-fzf
         nix-diff # Explain why 2 nix derivations differ
+        nixpkgs-review
         fzf
         ripgrep
         fd
