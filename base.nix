@@ -224,6 +224,7 @@ in {
         nil
         # dhall-lsp-server
         rust-analyzer
+        lldb # for DAP
         texlab
         git-filter-repo
         cachix # Nix package caching
