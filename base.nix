@@ -219,11 +219,11 @@ in {
       };
     in
       [
-        haskell-language-server
+        # haskell-language-server
         haskellPackages.hoogle
         nil
         # dhall-lsp-server
-        rust-analyzer
+        # rust-analyzer
         lldb # for DAP
         texlab
         git-filter-repo
