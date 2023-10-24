@@ -276,6 +276,7 @@ in {
         du-dust # Alternative to du
         procs # Alternative to ps
         sd # Alternative to sed
+        sad # Space Age seD
         bat
         ueberzug
         feh
