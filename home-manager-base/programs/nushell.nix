@@ -83,7 +83,7 @@
         source ~/.cache/starship/init.nu
         source ${nu-scripts}/sourced/filesystem/cdpath.nu
         source ${nu-scripts}/sourced/filesystem/up.nu
-        source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
+        # source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
         source ${nu-scripts}/sourced/cool-oneliners/dict.nu
 
         alias cd = z
