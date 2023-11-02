@@ -3,6 +3,7 @@
   lib,
   defaultUser ? "mrcjk",
   userEmail ? "mrcjkb89@outlook.com",
+  nu-scripts,
   ...
 }: let
   jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
@@ -14,7 +15,11 @@ in {
   imports = [
     (import ./home-manager-base {
       user = defaultUser;
-      inherit pkgs userEmail;
+      inherit
+        pkgs
+        userEmail
+        nu-scripts
+        ;
     })
   ];
 

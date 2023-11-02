@@ -35,6 +35,10 @@
       # flake = false;
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nu-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +60,7 @@
     base16schemes,
     haskell-tags-nix,
     nixos-hardware,
+    nu-scripts,
     pre-commit-hooks,
     flake-utils,
     ...
@@ -83,6 +88,7 @@
               defaultUser
               userEmail
               base16schemes
+              nu-scripts
               ;
           };
         modules =

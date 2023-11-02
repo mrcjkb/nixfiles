@@ -2,12 +2,20 @@
   pkgs,
   user,
   userEmail,
+  nu-scripts,
   ...
 }: {
   home-manager = {
     users."${user}" = {
       xdg.enable = true;
-      programs = import ./programs {inherit pkgs user userEmail;};
+      programs = import ./programs {
+        inherit
+          pkgs
+          user
+          userEmail
+          nu-scripts
+          ;
+      };
       xdg.configFile = {
         bat = {
           source = ./configs/bat/.;

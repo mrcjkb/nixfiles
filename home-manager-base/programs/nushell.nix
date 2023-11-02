@@ -1,4 +1,7 @@
-package: {
+{
+  package,
+  nu-scripts,
+}: {
   inherit package;
   enable = true;
 
@@ -24,10 +27,12 @@ package: {
       nu
       */
       ''
+        use ${nu-scripts}/themes/nu-themes/material-darker.nu
         let carapace_completer = {|spans|
           carapace $spans.0 nushell $spans | from json
         }
         $env.config = {
+          color_config: (material-darker)
           show_banner: false
           edit_mode: vi
           history: {
@@ -76,6 +81,10 @@ package: {
 
         source ~/.zoxide.nu
         source ~/.cache/starship/init.nu
+        source ${nu-scripts}/sourced/filesystem/cdpath.nu
+        source ${nu-scripts}/sourced/filesystem/up.nu
+        source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
+        source ${nu-scripts}/sourced/cool-oneliners/dict.nu
 
         alias cd = z
         alias eza = eza --icons --git
@@ -106,6 +115,7 @@ package: {
 
         # git log to table
         def "git logt" [] { git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD | lines | split column "»¦«" commit subject name email date | upsert date {|d| $d.date | into datetime} }
+        def "git branch-cleanup" [] { git branch --merged | lines | where $it !~ '\*' | str trim | where $it != 'master' and $it != 'main' | each { |it| git branch -d $it } }
       '';
   };
 }
