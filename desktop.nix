@@ -187,6 +187,10 @@ in {
         desktop = 12;
       };
     };
+    cursor = {
+      name = "Volantes Material Dark";
+      package = pkgs.volantes-cursors-material;
+    };
     targets = {
       grub = {
         enable = false;

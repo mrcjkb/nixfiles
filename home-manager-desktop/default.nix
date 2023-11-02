@@ -15,10 +15,6 @@
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
         };
-        cursorTheme = {
-          name = "Volantes Material Dark";
-          package = pkgs.volantes-cursors-material;
-        };
       };
       xdg.configFile = {
         keepassxc = {
@@ -36,10 +32,6 @@
       };
       home = {
         file.".icons/default".source = "${pkgs.volantes-cursors-material}/share/icons/volantes_cursors";
-        pointerCursor = {
-          name = "Volantes Material Dark";
-          package = pkgs.volantes-cursors-material;
-        };
       };
       services = import ./services;
     };
