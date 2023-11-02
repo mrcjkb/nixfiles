@@ -188,7 +188,7 @@ in {
       EDITOR = "nvim";
       BROWSER = "brave";
       TZ = "Europe/Berlin";
-      BAT_THEME = "Material-darker";
+      # BAT_THEME = "Material-darker";
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
       PAGER = "nvimpager";
