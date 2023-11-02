@@ -4322,13 +4322,29 @@
         "type": "github"
       }
     },
+    "nu-scripts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698772191,
+        "narHash": "sha256-Sug07QTL7fxxQAf9YOprMNEQSDqeXEk7qt1g2dP0Eqk=",
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "rev": "c2bb125a6790bef1e448680e077345c4d10dcb12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
-        "lastModified": 1698922063,
-        "narHash": "sha256-B3jD4pL8IgG+P4JDcV2GShRk1UtBZnFgVQBQ5g4BxBg=",
+        "lastModified": 1698927001,
+        "narHash": "sha256-GjlvG8BK1O/2c680ZJOaY5bnV2R+7iTfxzVaoELWSY0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a03e1f164d616bd838c9bfa7b2cb609c94775947",
+        "rev": "177cf2b9d244f0896efd68ee32d201a2dc5b099a",
         "type": "github"
       },
       "original": {
@@ -5356,6 +5372,7 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
+        "nu-scripts": "nu-scripts",
         "nur": "nur",
         "nurl": "nurl",
         "nvim": "nvim",
