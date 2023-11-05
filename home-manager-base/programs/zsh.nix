@@ -9,6 +9,7 @@
     eval "$(zoxide init zsh)" # Must be called at the end
     eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
+    eval "$(atuin init zsh)"
   '';
   # TODO: Move
   shellAliases = import ../../programs/shellAliases.nix;
