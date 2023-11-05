@@ -4,6 +4,7 @@
   nu-scripts,
   ...
 }: {
+  atuin = import ./atuin.nix;
   git = import ./git.nix {inherit pkgs userEmail;};
   gh = import ./gh.nix;
   zoxide = import ./zoxide.nix pkgs.zoxide;
