@@ -4218,11 +4218,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1699215054,
-        "narHash": "sha256-SGBDfW4tSgWWQJ7sURbcNuqM+bBB8JYWK4Imue8Nhcs=",
+        "lastModified": 1699215841,
+        "narHash": "sha256-BOLjx/poNMduaHBVJamlxsydMqORgPoP1MZgzbmbnho=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "4e46eff7eb2c3b023c00c097ebc5d67feaaf2bc0",
+        "rev": "5e6394907f1a2dea22139b20e99275b0eb77acdd",
         "type": "github"
       },
       "original": {
