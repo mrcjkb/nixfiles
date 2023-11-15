@@ -22,6 +22,7 @@
   mkdir = "mkdir -p";
   vi = "nvim";
   vim = "nvim";
+  vis = "nvim -c -S";
   nv = "neovide";
   ":e" = "nvim";
   ":q" = "exit";

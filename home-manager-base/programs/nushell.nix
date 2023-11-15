@@ -102,6 +102,7 @@
         alias top = btm
         alias htop = btm
         alias vi = nvim
+        alias vis = nvim -c S
         alias vim = nvim
         alias nv = neovide
         alias :e = nvim
