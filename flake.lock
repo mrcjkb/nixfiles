@@ -2425,16 +2425,17 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "dirtyRev": "993fb02d20760067b8ee19c713d94cee07037759-dirty",
-        "dirtyShortRev": "993fb02d-dirty",
         "lastModified": 1700419052,
-        "narHash": "sha256-a0zZfGOl7uf4cy3HRzj9a13dv9vYPtX5ySP6GsWY3qY=",
-        "type": "git",
-        "url": "file:///home/mrcjk/git/github/forks/home-manager"
+        "narHash": "sha256-U6a5f9ynbzcp8PMIHULbHPkbwp7YfPKOYmTcLqlalD4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "993fb02d20760067b8ee19c713d94cee07037759",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/mrcjk/git/github/forks/home-manager"
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "home-manager_2": {
