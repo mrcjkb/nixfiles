@@ -13,6 +13,7 @@
       ''
         zoxide init nushell
           | str replace 'let-env ' "\$\$env." --all
+          | str replace 'def-env' 'def --env' --all
           | save -f ~/.zoxide.nu
 
         mkdir ~/.cache/starship
