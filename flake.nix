@@ -16,6 +16,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager";
+    # home-manager.url = "/home/mrcjk/git/github/forks/home-manager/";
     nvim = {
       url = "github:mrcjkb/nvim";
     };
