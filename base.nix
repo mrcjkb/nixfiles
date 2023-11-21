@@ -178,6 +178,7 @@ in {
         "docker"
         "scanner"
         "lp"
+        "bluetooth"
       ];
       shell = defaultShell;
     };
