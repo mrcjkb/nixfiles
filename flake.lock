@@ -6074,11 +6074,11 @@
         "pre-commit-hooks": "pre-commit-hooks_14"
       },
       "locked": {
-        "lastModified": 1700683153,
-        "narHash": "sha256-9zg6K1zEzldj0cx6kWmwsK+QnI/b6IDust9AX+AqsDE=",
+        "lastModified": 1700683305,
+        "narHash": "sha256-3CLwybuNqjAJCoASfoxKFuDrEoGASyEfEfNTSl+ZwiI=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "c4f4b7094c141e5c822a8a6dbdcbfa90aa9fb51e",
+        "rev": "8ee252c63c6336089803845c7c31d9dd7fc39e37",
         "type": "github"
       },
       "original": {
