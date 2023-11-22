@@ -4069,11 +4069,11 @@
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1700484935,
-        "narHash": "sha256-Np3RKeKEBGqq9pc6JYx/WggjDfWVyoYq4A+Qsuj83I4=",
+        "lastModified": 1700673923,
+        "narHash": "sha256-nRplK0w55I1rk15tfkCMxFBqTR9ihhnE/tHRs9mKLdY=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "06d3095ab17c7edeb8a2dcbcc1ebe7768179013a",
+        "rev": "91b6a2b2280123ed5789f5c0870b9de22c722fb3",
         "type": "github"
       },
       "original": {
@@ -4084,11 +4084,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1700603363,
-        "narHash": "sha256-0f/qOTj4lOsdYUDoxQg1gH9RgCRz5yy+H1bYK1CYOSc=",
+        "lastModified": 1700662260,
+        "narHash": "sha256-mEqx6EyEhDqgIKFKGgsTcaWLzgOeM2NymOX6E+1Rr18=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "73a121a8cef922a2f65898af1953c206757589e1",
+        "rev": "0b44c1ac9ae6105b4c57123913fb2a969305c75a",
         "type": "github"
       },
       "original": {
@@ -6074,11 +6074,11 @@
         "pre-commit-hooks": "pre-commit-hooks_14"
       },
       "locked": {
-        "lastModified": 1697846797,
-        "narHash": "sha256-ZVtnwmzz2FLJhx8YglMVwV/8yYsJUNQSAF/VsXXu0ZE=",
+        "lastModified": 1700671664,
+        "narHash": "sha256-rOGBaf0VuMtHKeH+GBBPgOEhkR2UC9X9WRMeOH1PL+U=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "7c458b9e5dc630347625fd44072512a7059c0486",
+        "rev": "9068fd80b60d41a1e299748450db90a347fe48a0",
         "type": "github"
       },
       "original": {
