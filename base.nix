@@ -227,6 +227,7 @@ in {
       [
         # haskell-language-server
         haskellPackages.hoogle
+        haskellPackages.bhoogle # hoogle TUI
         nil
         # dhall-lsp-server
         # rust-analyzer
