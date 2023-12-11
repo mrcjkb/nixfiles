@@ -15,7 +15,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # home-manager.url = "/home/mrcjk/git/github/forks/home-manager/";
     nvim = {
       url = "github:mrcjkb/nvim";
@@ -25,14 +28,21 @@
     feedback.url = "github:NorfairKing/feedback";
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
-    stylix.url = "github:danth/stylix";
-    tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    tmux-sessionizer = {
+      url = "github:jrmoulton/tmux-sessionizer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
       flake = false;
     };
     haskell-tags-nix = {
       url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
       # url = "github:shajra/haskell-tags-nix";
       # flake = false;
     };
@@ -45,7 +55,10 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -98,8 +111,7 @@
           [
             ({...}: {
               nixpkgs.overlays = [
-                nur.overlay
-                tmux-sessionizer.overlays.default
+                nur.ovrlay
               ];
             })
             ./base.nix
