@@ -26,6 +26,7 @@
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
     stylix.url = "github:danth/stylix";
+    tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
       flake = false;
@@ -58,6 +59,7 @@
     feedback,
     nurl,
     stylix,
+    tmux-sessionizer,
     base16schemes,
     haskell-tags-nix,
     nixos-hardware,
@@ -97,6 +99,7 @@
             ({...}: {
               nixpkgs.overlays = [
                 nur.overlay
+                tmux-sessionizer.overlays.default
               ];
             })
             ./base.nix
