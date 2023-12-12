@@ -34,7 +34,7 @@
     };
     tmux-sessionizer = {
       url = "github:jrmoulton/tmux-sessionizer";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     base16schemes = {
       url = "github:tinted-theming/base16-schemes";
