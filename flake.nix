@@ -111,7 +111,8 @@
           [
             ({...}: {
               nixpkgs.overlays = [
-                nur.ovrlay
+                nur.overlay
+                tmux-sessionizer.overlays.default
               ];
             })
             ./base.nix
