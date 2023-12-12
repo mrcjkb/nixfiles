@@ -132,7 +132,8 @@ in {
         playerctl
         gh # GitHub CLI tool
         act # Run GitHub workflows locally
-        arduino-cli
+        # FIXME: Broken on nixpkgs-unstable
+        # arduino-cli
         element-desktop # Matrix client
         xscast # Screen cast for Xorg
       ]
