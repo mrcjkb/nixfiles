@@ -2464,11 +2464,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1702735279,
-        "narHash": "sha256-SztEzDOE/6bDNnWWvnRbSHPVrgewLwdSei1sxoZFejM=",
+        "lastModified": 1702814335,
+        "narHash": "sha256-Qck7BAMi3eydzT1WFOzp/SgECetyPpOn1dLgmxH2ebQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e9b9ecef4295a835ab073814f100498716b05a96",
+        "rev": "e4dba0bd01956170667458be7b45f68170a63651",
         "type": "github"
       },
       "original": {
@@ -4127,11 +4127,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1702770334,
-        "narHash": "sha256-MVILxIF9ZVIk0f9w3yYZpy8auwxgey0MFzdoIFFvQNU=",
+        "lastModified": 1702814871,
+        "narHash": "sha256-b0istFGIKjrhLl7iUdnXLykV26LwQpUA7isR4d+4hSA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1d37444620523278aa163bb9e30104f5d1152061",
+        "rev": "47e505f4e877fb5d469764f8e0d48f1bfcdfde55",
         "type": "github"
       },
       "original": {
@@ -4246,7 +4246,6 @@
         "todo-comments": "todo-comments",
         "toggleterm": "toggleterm_2",
         "treesitter-context": "treesitter-context",
-        "treesitter-playground": "treesitter-playground",
         "treesitter-refactor": "treesitter-refactor",
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
@@ -4258,11 +4257,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1702774370,
-        "narHash": "sha256-Xsm9QawBA5QeORYoW9JSIJZUf+t6Rm4901R3F8iUH/0=",
+        "lastModified": 1702819119,
+        "narHash": "sha256-Hg0p6do62227Z232mJoWScgl6/SDqPRIZmJxYPIwPQA=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "b65a31a0f791e6b383c1425bbccd2e7a22b4c510",
+        "rev": "d70cc9fd309a4364e7130b502cee087f678f6166",
         "type": "github"
       },
       "original": {
@@ -5882,11 +5881,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1702680445,
-        "narHash": "sha256-J57v/2nWYfUhOFfsNNjSb0DabUg+K2D+KUFAEzUew1U=",
+        "lastModified": 1702792000,
+        "narHash": "sha256-ZascTDIV9MqPPtK0CHSXUW5gIk/zjRhUB0xATcu7ICM=",
         "owner": "jrmoulton",
         "repo": "tmux-sessionizer",
-        "rev": "a2574afd9a0e83dbaca250643041abe40b120614",
+        "rev": "3f8ee9cd1530cd5fdc91a86a79150ed27f205ffc",
         "type": "github"
       },
       "original": {
@@ -5956,22 +5955,6 @@
       "original": {
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
-        "type": "github"
-      }
-    },
-    "treesitter-playground": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1694797903,
-        "narHash": "sha256-gOQr61Y3bVa6EAb0P924X9SJmg9lOmGiLcFTMdgu8u0=",
-        "owner": "nvim-treesitter",
-        "repo": "playground",
-        "rev": "ba48c6a62a280eefb7c85725b0915e021a1a0749",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "repo": "playground",
         "type": "github"
       }
     },
