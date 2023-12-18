@@ -122,6 +122,9 @@
         # git log to table
         def "git logt" [] { git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD | lines | split column "»¦«" commit subject name email date | upsert date {|d| $d.date | into datetime} }
         def "git branch-cleanup" [] { git branch --merged | lines | where $it !~ '\*' | str trim | where $it != 'master' and $it != 'main' | each { |it| git branch -d $it } }
+
+        # remove result from nix store
+        def "nix-rm-result" [] { realpath result | lines | each {sudo nix-store --delete $in --ignore-liveness} }
       '';
   };
 }
