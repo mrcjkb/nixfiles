@@ -31,7 +31,7 @@ in {
     avahi = {
       # To find network scanners
       enable = lib.mkDefault true;
-      nssmdns = lib.mkDefault true;
+      nssmdns4 = lib.mkDefault true;
     };
     onedrive = {
       enable = lib.mkDefault true;
