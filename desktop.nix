@@ -85,7 +85,7 @@ in {
       [
         neovide
         pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-        yubioath-flutter # Yubico Authenticator Desktop app
+        #yubioath-flutter # Yubico Authenticator Desktop app
         brave
         firefox
         joplin-desktop # Joplin (notes, desktop app)
