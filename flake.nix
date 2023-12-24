@@ -42,7 +42,6 @@
     };
     haskell-tags-nix = {
       url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
-      inputs.nixpkgs.follows = "nixpkgs";
       # url = "github:shajra/haskell-tags-nix";
       # flake = false;
     };
