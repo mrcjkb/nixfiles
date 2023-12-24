@@ -55,7 +55,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils = {
-      url = "github:nix-community/flake-utils";
+      url = "github:numtide/flake-utils";
     };
   };
 
