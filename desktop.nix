@@ -70,6 +70,7 @@ in {
         # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
       ];
     };
+    openrazer.enable = true;
   };
 
   programs = import ./desktop-programs {
@@ -135,6 +136,8 @@ in {
         arduino-cli
         element-desktop # Matrix client
         xscast # Screen cast for Xorg
+        openrazer-daemon
+        polychromatic # GUI frontend for razer peripherals
       ]
       ++ (with fishPlugins; [
         fzf-fish
