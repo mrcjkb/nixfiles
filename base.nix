@@ -341,7 +341,7 @@ in {
       };
     };
     # audit rules to log every single time a program is attempted to be run.
-    auditd.enable = lib.mkDefault true;
+    # auditd.enable = lib.mkDefault true;
     audit = {
       enable = lib.mkDefault true;
       rules = [
