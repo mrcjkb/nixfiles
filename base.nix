@@ -242,6 +242,7 @@ in {
         fzf
         ripgrep
         fd
+        tailspin # Log file highlighter
         gcc
         gnumake
         librsvg # Small SVG rendering library
