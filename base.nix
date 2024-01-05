@@ -234,6 +234,7 @@ in {
         lldb # for DAP
         texlab
         git-filter-repo
+        git-absorb # git commit --fixup, but automatic
         cachix # Nix package caching
         manix
         manix-fzf
