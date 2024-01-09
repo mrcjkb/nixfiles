@@ -5289,7 +5289,7 @@
         "flake-compat": "flake-compat_26",
         "home-manager": "home-manager_2",
         "nixpkgs": [
-          "nixpkgs"
+          "home-manager"
         ]
       },
       "locked": {
