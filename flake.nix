@@ -30,7 +30,7 @@
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "home-manager";
     };
     tmux-sessionizer = {
       url = "github:jrmoulton/tmux-sessionizer";
