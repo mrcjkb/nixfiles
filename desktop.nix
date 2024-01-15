@@ -82,67 +82,62 @@ in {
   };
 
   environment = {
-    systemPackages = with pkgs;
-      [
-        neovide
-        pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-        #yubioath-flutter # Yubico Authenticator Desktop app
-        brave
-        firefox
-        joplin-desktop # Joplin (notes, desktop app)
-        simplescreenrecorder
-        inkscape-with-extensions
-        gimp
-        shutter # Screenshots
-        signal-desktop
-        gparted
-        xcolor # Color picker
-        skanlite # Lightweight sane frontend
-        xsane # Sane frontend (advanced)
-        koreader # ebook reader
-        xournalpp # notetaking software with PDF annotation support
-        texlive.combined.scheme-medium
-        biber
-        keepassxc
-        # Nix
-        alejandra # The uncompromising nix code formatter
-        # Haskell
-        ghc
-        cabal-install
-        cabal2nix
-        # stack2nix # Broken
-        # haskellPackages.summoner
-        # haskellPackages.summoner-tui
-        # haskellPackages.feedback # Declarative feedback loop manager
-        hpack
-        # Rust
-        crate2nix
-        #
-        pandoc
-        redshift # Blue light filter
-        imagemagick
-        nitrogen # Wallpaper browser/setter for X11
-        jmtpfs # MTP (Android phone) support
-        mpv-unwrapped # Media player
-        mdp # A command-line based markdown presentation tool
-        kcat # A generic non-JVM producer and consumer for Apache Kafka
-        paperkey # Print OpenPGP or GnuPG on paper
-        asciinema # Terminal session recoreder
-        ovh-ttyrec # Terminal session recoreder
-        ttygif # Convert ttyrec recordings to gif
-        playerctl
-        gh # GitHub CLI tool
-        act # Run GitHub workflows locally
-        arduino-cli
-        element-desktop # Matrix client
-        xscast # Screen cast for Xorg
-        openrazer-daemon
-        polychromatic # GUI frontend for razer peripherals
-      ]
-      ++ (with fishPlugins; [
-        fzf-fish
-        done # Notifications when long background processes finish
-      ]);
+    systemPackages = with pkgs; [
+      neovide
+      pcmanfm # File browser like Nautilus, but with no Gnome dependencies
+      #yubioath-flutter # Yubico Authenticator Desktop app
+      brave
+      firefox
+      joplin-desktop # Joplin (notes, desktop app)
+      simplescreenrecorder
+      inkscape-with-extensions
+      gimp
+      shutter # Screenshots
+      signal-desktop
+      gparted
+      xcolor # Color picker
+      skanlite # Lightweight sane frontend
+      xsane # Sane frontend (advanced)
+      koreader # ebook reader
+      xournalpp # notetaking software with PDF annotation support
+      texlive.combined.scheme-medium
+      biber
+      keepassxc
+      # Nix
+      alejandra # The uncompromising nix code formatter
+      # Haskell
+      ghc
+      cabal-install
+      cabal2nix
+      # stack2nix # Broken
+      # haskellPackages.summoner
+      # haskellPackages.summoner-tui
+      # haskellPackages.feedback # Declarative feedback loop manager
+      hpack
+      # Rust
+      crate2nix
+      #
+      pandoc
+      redshift # Blue light filter
+      imagemagick
+      nitrogen # Wallpaper browser/setter for X11
+      jmtpfs # MTP (Android phone) support
+      mpv-unwrapped # Media player
+      mdp # A command-line based markdown presentation tool
+      kcat # A generic non-JVM producer and consumer for Apache Kafka
+      paperkey # Print OpenPGP or GnuPG on paper
+      asciinema # Terminal session recoreder
+      ovh-ttyrec # Terminal session recoreder
+      ttygif # Convert ttyrec recordings to gif
+      playerctl
+      gh # GitHub CLI tool
+      act # Run GitHub workflows locally
+      arduino-cli
+      element-desktop # Matrix client
+      xscast # Screen cast for Xorg
+      openrazer-daemon
+      polychromatic # GUI frontend for razer peripherals
+    ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
       XCURSOR_PATH = [

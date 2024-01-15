@@ -167,7 +167,7 @@ in {
   users = let
     defaultShell = pkgs.nushell;
   in {
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.zsh;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
       isNormalUser = true;
@@ -201,7 +201,7 @@ in {
     };
 
     shells = with pkgs; [
-      fish
+      zsh
       nushell
     ];
 
@@ -223,97 +223,92 @@ in {
         runtimeInputs = [manix ripgrep fzf];
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       };
-    in
-      [
-        # haskell-language-server
-        haskellPackages.hoogle
-        haskellPackages.bhoogle # hoogle TUI
-        nil
-        # dhall-lsp-server
-        # rust-analyzer
-        lldb # for DAP
-        texlab
-        git-filter-repo
-        git-absorb # git commit --fixup, but automatic
-        cachix # Nix package caching
-        manix
-        manix-fzf
-        nix-diff # Explain why 2 nix derivations differ
-        nixpkgs-review
-        fzf
-        ripgrep
-        fd
-        tailspin # Log file highlighter
-        gcc
-        gnumake
-        librsvg # Small SVG rendering library
-        odt2txt
-        joplin # Joplin (notes) CLI client
-        yubikey-manager # Yubico Authenticator CLI
-        signal-cli
-        cht-sh # CLI client for cheat.sh, a community driven cheat sheet
-        carapace # Multi-shell multi-command argument completer
-        wget
-        curl
-        whois
-        # silver-searcher # Fast search
-        file
-        moreutils
-        neofetch # System information CLI
-        # neomutt # E-mail
-        zip
-        unzip
-        eza # Replacement for ls
-        autorandr # Automatic XRandR configurations
-        arandr # A simple visual front end for XRandR
-        upower # D-Bus service for power management
-        killall
-        libnotify
-        zoxide # Fast alternative to autojump and z-lua
-        starship # Shell theme (fish, zsh, ...)
-        jq # JSON processor
-        # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
-        # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
-        binutils # Tools for manipulating binaries
-        dig # Domain information groper
-        nmap
-        update-systemd-resolved
-        dconf # Required to set GTK theme in home-manager
-        pdftk # Command-line tool for working with PDFs
-        tokei # Count lines of code
-        bottom # Alternative to htop
-        du-dust # Alternative to du
-        procs # Alternative to ps
-        sd # Alternative to sed
-        sad # Space Age seD
-        bat
-        ueberzug
-        feh
-        xclip
-        hyperfine # Alternative to time
-        tealdeer # tldr implementation for simplified example based man pages
-        grex # Generate regular expressions from user-provided test cases
-        openssl
-        usbutils
-        nix-output-monitor
-        nix-index # A files database for nix
-        nixos-option
-        direnv
-        nix-direnv
-        tmux-sessionizer # The fastest way to manage projects as tmux sessions
-        zlib # Lossles data compression library
-        pciutils # Inspection/manipulation of PCI devices
-        bluetuith # Bluetooth TUI
-        neo-cowsay
-        dive # A tool for exploring each layer in a docker image
-        (nvimpager.overrideAttrs (_: {
-          doCheck = false;
-        })) # Use neovim to view man pages, etc.
-      ]
-      ++ (with fishPlugins; [
-        bass # `bass source` bash scripts
-        autopair-fish
-      ]);
+    in [
+      # haskell-language-server
+      haskellPackages.hoogle
+      haskellPackages.bhoogle # hoogle TUI
+      nil
+      # dhall-lsp-server
+      # rust-analyzer
+      lldb # for DAP
+      texlab
+      git-filter-repo
+      git-absorb # git commit --fixup, but automatic
+      cachix # Nix package caching
+      manix
+      manix-fzf
+      nix-diff # Explain why 2 nix derivations differ
+      nixpkgs-review
+      fzf
+      ripgrep
+      fd
+      tailspin # Log file highlighter
+      gcc
+      gnumake
+      librsvg # Small SVG rendering library
+      odt2txt
+      joplin # Joplin (notes) CLI client
+      yubikey-manager # Yubico Authenticator CLI
+      signal-cli
+      cht-sh # CLI client for cheat.sh, a community driven cheat sheet
+      carapace # Multi-shell multi-command argument completer
+      wget
+      curl
+      whois
+      # silver-searcher # Fast search
+      file
+      moreutils
+      neofetch # System information CLI
+      # neomutt # E-mail
+      zip
+      unzip
+      eza # Replacement for ls
+      autorandr # Automatic XRandR configurations
+      arandr # A simple visual front end for XRandR
+      upower # D-Bus service for power management
+      killall
+      libnotify
+      zoxide # Fast alternative to autojump and z-lua
+      starship # Shell theme (nu, zsh, fish, ...)
+      jq # JSON processor
+      # dpkg # For the interaction with .deb packages --> See https://reflexivereflection.com/posts/2015-02-28-deb-installation-nixos.html
+      # patchelf # Determine/modify dynamic linker and RPATH of ELF executables
+      binutils # Tools for manipulating binaries
+      dig # Domain information groper
+      nmap
+      update-systemd-resolved
+      dconf # Required to set GTK theme in home-manager
+      pdftk # Command-line tool for working with PDFs
+      tokei # Count lines of code
+      bottom # Alternative to htop
+      du-dust # Alternative to du
+      procs # Alternative to ps
+      sd # Alternative to sed
+      sad # Space Age seD
+      bat
+      ueberzug
+      feh
+      xclip
+      hyperfine # Alternative to time
+      tealdeer # tldr implementation for simplified example based man pages
+      grex # Generate regular expressions from user-provided test cases
+      openssl
+      usbutils
+      nix-output-monitor
+      nix-index # A files database for nix
+      nixos-option
+      direnv
+      nix-direnv
+      tmux-sessionizer # The fastest way to manage projects as tmux sessions
+      zlib # Lossles data compression library
+      pciutils # Inspection/manipulation of PCI devices
+      bluetuith # Bluetooth TUI
+      neo-cowsay
+      dive # A tool for exploring each layer in a docker image
+      (nvimpager.overrideAttrs (_: {
+        doCheck = false;
+      })) # Use neovim to view man pages, etc.
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

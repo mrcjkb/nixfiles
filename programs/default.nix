@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  fish = import ./fish.nix;
   bash = import ./bash.nix;
   zsh.enable = true; # Configured with home-manager
   mtr.enable = true;
