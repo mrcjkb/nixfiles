@@ -36,7 +36,7 @@ package: {
     env = {
       WINIT_X11_SCALE_FACTOR = "1.0";
     };
-    key_bindings = [
+    keyboard.bindings = [
       {
         key = "Equals";
         mods = "Control";
