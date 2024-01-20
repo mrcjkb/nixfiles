@@ -235,6 +235,7 @@ in {
       git-filter-repo
       git-absorb # git commit --fixup, but automatic
       difftastic
+      delta # A syntax-highlighting pager for git, diff, and grep output
       cachix # Nix package caching
       manix
       manix-fzf

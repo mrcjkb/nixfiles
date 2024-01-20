@@ -11,13 +11,24 @@
   #   signByDefault = false;
   # };
   extraConfig = {
+    core.pager = "delta";
+    interactive.diffFilter = "delta --color-only";
+    delta = {
+      # use n and N to move between diff sections
+      navigate = true;
+      light = false;
+      line-numbers = true;
+    };
     merge.tool = "nvim";
     mergetool = {
       nvim = {
         cmd = "nvim -f -c \"DiffviewOpen\"";
       };
     };
-    diff.tool = "difftastic";
+    diff = {
+      tool = "difftastic";
+      colorMoved = "default";
+    };
     difftool = {
       prompt = false;
       nvim = {
