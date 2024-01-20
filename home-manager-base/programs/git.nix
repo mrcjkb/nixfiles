@@ -17,11 +17,19 @@
         cmd = "nvim -f -c \"DiffviewOpen\"";
       };
     };
-    diff.tool = "nvim";
+    diff.tool = "difftastic";
     difftool = {
+      prompt = false;
       nvim = {
         cmd = "nvim -f -c \"DiffviewOpen $LOCAL..$REMOTE\"";
       };
+      difftastic = {
+        cmd = ''difft "$LOCAL" "$REMOTE"'';
+      };
+    };
+    pager.difftool = true;
+    alias = {
+      dft = "difftool";
     };
     pull = {
       rebase = true;

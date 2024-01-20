@@ -234,6 +234,7 @@ in {
       texlab
       git-filter-repo
       git-absorb # git commit --fixup, but automatic
+      difftastic
       cachix # Nix package caching
       manix
       manix-fzf
