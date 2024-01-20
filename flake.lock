@@ -4322,11 +4322,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1705771235,
-        "narHash": "sha256-9NZUo2lie77lU1YaDimXrkp5Q2u3yFOWmvu0DGmCu94=",
+        "lastModified": 1705772589,
+        "narHash": "sha256-zou0v7AN0bTdEbBMEbgwwGME9FQWR0rWZ01LFsaEk5E=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "3c8ae88d1f2c522d24cdb396c8c2cae9f77895fe",
+        "rev": "b632175be929f93503c60401abce6e7b1953114f",
         "type": "github"
       },
       "original": {
