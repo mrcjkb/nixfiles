@@ -29,7 +29,8 @@
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "github:Lillecarl/stylix/k9s_deprecation_warning";
       inputs.nixpkgs.follows = "home-manager";
     };
     tmux-sessionizer = {
