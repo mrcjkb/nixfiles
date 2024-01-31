@@ -22,6 +22,15 @@ in {
     ./modules/battery.nix
   ];
 
+  nix = {
+    binaryCaches = [
+      "https://smos.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "smos.cachix.org-1:YOs/tLEliRoyhx7PnNw36cw2Zvbw5R0ASZaUlpUv+yM="
+    ];
+  };
+
   # For building Raspberry Pi images
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
@@ -59,6 +68,7 @@ in {
     };
     blueman.enable = lib.mkDefault true;
     batteryNotifier.enable = lib.mkDefault true;
+    smos.production.enable = true;
   };
 
   systemd.services.slock-sleep = {
