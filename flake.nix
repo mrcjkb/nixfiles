@@ -26,6 +26,7 @@
     xmonad-session.url = "github:mrcjkb/.xmonad";
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
+    smos.url = "github:NorfairKing/smos";
     nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
@@ -68,6 +69,7 @@
     xmonad-session,
     cursor-theme,
     feedback,
+    smos,
     nurl,
     stylix,
     tmux-sessionizer,
@@ -143,6 +145,8 @@
                 cursor-theme.overlay
               ];
             })
+            smos.nixosModules.${system}.default
+            smos.homeManagerModules.${system}.default
             ./desktop.nix
             xmonad-session.nixosModules.default
             stylix.nixosModules.stylix
