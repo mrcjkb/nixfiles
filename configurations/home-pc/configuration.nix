@@ -17,8 +17,10 @@
   services = {
     xserver = {
       # Configure keymap in X11
-      layout = "us";
-      xkb.variant = "altgr-intl";
+      xkb = {
+        layout = "us";
+        variant = "altgr-intl";
+      };
     };
   };
 
