@@ -3287,11 +3287,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1707210664,
-        "narHash": "sha256-l1J8hcVBXNpz96z3jvrfTTxLSoehSMYB7jvtDbJ37AY=",
+        "lastModified": 1707211557,
+        "narHash": "sha256-LTKTzZ6fM5j8XWXf51IMBzDaOaJg9kYWLUZxoIhzRN8=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "fc8d1ebb82b470e7c315d18f06804f26802afec8",
+        "rev": "6e5cc385fc8cf5ca6495d70243074ccdea9f64c7",
         "type": "github"
       },
       "original": {
@@ -4176,11 +4176,11 @@
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1707136128,
-        "narHash": "sha256-OyQ4dMord891jClK/ucOAfATNlNSddLJENnrJYS5pXo=",
+        "lastModified": 1707253186,
+        "narHash": "sha256-C8UfxBaBqUXbxFSEtYuFvgGgp4JbFKnqRj2ksbAJP3w=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "14e77c7ec8479d210af230f75814e72efee7beb8",
+        "rev": "a17186f25f2647d808f139b7ea22e32c17912459",
         "type": "github"
       },
       "original": {
@@ -4191,11 +4191,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1707210396,
-        "narHash": "sha256-Ca37esT2qfStB/+jKBcu8YeWFTa0Df27RF5E1RN6H9o=",
+        "lastModified": 1707291887,
+        "narHash": "sha256-Jls62X+S2qMGdDOa5tUSwqXiIdYENARq1vC6qODohPA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a92630ba5bd35d9f3ea8432ffc8b75a3aa34df04",
+        "rev": "1c51a38f6bb8297ffdcd4d203fed1154b8523361",
         "type": "github"
       },
       "original": {
@@ -4847,11 +4847,11 @@
         "nixpkgs-stable": "nixpkgs-stable_12"
       },
       "locked": {
-        "lastModified": 1706424699,
-        "narHash": "sha256-Q3RBuOpZNH2eFA1e+IHgZLAOqDD9SKhJ/sszrL8bQD4=",
+        "lastModified": 1707297608,
+        "narHash": "sha256-ADjo/5VySGlvtCW3qR+vdFF4xM9kJFlRDqcC9ZGI8EA=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "7c54e08a689b53c8a1e5d70169f2ec9e2a68ffaf",
+        "rev": "0db2e67ee49910adfa13010e7f012149660af7f0",
         "type": "github"
       },
       "original": {
@@ -5915,11 +5915,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707076770,
-        "narHash": "sha256-0H2E1epOsO6wUmbJy0ky0dFB5zOi6fxTG9ZK8oPOXos=",
+        "lastModified": 1707242093,
+        "narHash": "sha256-gzbCeNZML2ygIy/H3uT9apahqI+4hmrTwgXvcZq4Xog=",
         "owner": "jrmoulton",
         "repo": "tmux-sessionizer",
-        "rev": "d667c31f490cbbb55cb98d71a7d80bfb94e304e0",
+        "rev": "79ab43a4087aa7e4e865cab6a181dfd24c6e7a90",
         "type": "github"
       },
       "original": {
