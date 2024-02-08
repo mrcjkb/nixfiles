@@ -1,13 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  lib,
-  defaultUser,
-  ...
-}: {
+{defaultUser, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -16,9 +10,11 @@
   services = {
     xserver = {
       # Configure keymap in X11
-      layout = "us,de";
-      xkbVariant = "altgr-intl,";
-      xkbOptions = "grp:alt_shift_toggle";
+      xkb = {
+        layout = "us,de";
+        variant = "altgr-intl,";
+        options = "grp:alt_shift_toggle";
+      };
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
     };
