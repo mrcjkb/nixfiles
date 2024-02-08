@@ -6161,11 +6161,11 @@
         "pre-commit-hooks": "pre-commit-hooks_14"
       },
       "locked": {
-        "lastModified": 1705320339,
-        "narHash": "sha256-rgvu/XhZ0pzO1L2vGGYGrfBAVuBnJ1t8uYVabk08a5Y=",
+        "lastModified": 1707382618,
+        "narHash": "sha256-73BNkyvFs5rBut0tjv8ptssIHDa/dp6ZGSuMGcA+GvI=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "a29800fa749a4eb8b7d336a932896b932a6eb2aa",
+        "rev": "33e4fe4d10a8c35fe6164e108c2606d507704573",
         "type": "github"
       },
       "original": {

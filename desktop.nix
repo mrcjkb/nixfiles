@@ -3,8 +3,8 @@
   pkgs,
   lib,
   config,
-  defaultUser,
-  userEmail,
+  defaultUser ? "mrcjk",
+  userEmail ? "mrcjkb89@outlook.com",
   base16schemes,
   ...
 }: let
