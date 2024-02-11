@@ -1261,11 +1261,11 @@
         "nixpkgs-lib": "nixpkgs-lib_5"
       },
       "locked": {
-        "lastModified": 1701473968,
-        "narHash": "sha256-YcVE5emp1qQ8ieHUnxt1wCZCC3ZfAS+SRRWZ2TMda7E=",
+        "lastModified": 1706830856,
+        "narHash": "sha256-a0NYyp+h9hlb7ddVz4LUn1vT/PLwqfrWYcHMvFB1xYg=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "34fed993f1674c8d06d58b37ce1e0fe5eebcb9f5",
+        "rev": "b253292d9c0a5ead9bc98c4e9a26c6312e27d69f",
         "type": "github"
       },
       "original": {
@@ -2530,11 +2530,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707175763,
-        "narHash": "sha256-0MKHC6tQ4KEuM5rui6DjKZ/VNiSANB4E+DJ/+wPS1PU=",
+        "lastModified": 1707607386,
+        "narHash": "sha256-hj/RgQMTvCWQVInkZwiMMieumkfOjHXhtWhfuXHop/8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f99eace7c167b8a6a0871849493b1c613d0f1b80",
+        "rev": "bfd0ae29a86eff4603098683b516c67e22184511",
         "type": "github"
       },
       "original": {
@@ -3504,11 +3504,11 @@
     "nixpkgs-lib_5": {
       "locked": {
         "dir": "lib",
-        "lastModified": 1701253981,
-        "narHash": "sha256-ztaDIyZ7HrTAfEEUt9AtTDNoCYxUdSd6NrRHaYOIxtk=",
+        "lastModified": 1706550542,
+        "narHash": "sha256-UcsnCG6wx++23yeER4Hg18CXWbgNpqNXcHIo5/1Y+hc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e92039b55bcd58469325ded85d4f58dd5a4eaf58",
+        "rev": "97b17f32362e475016f942bbdfda4a4a72a8a652",
         "type": "github"
       },
       "original": {
@@ -4112,11 +4112,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1707092692,
-        "narHash": "sha256-ZbHsm+mGk/izkWtT4xwwqz38fdlwu7nUUKXTOmm4SyE=",
+        "lastModified": 1707268954,
+        "narHash": "sha256-2en1kvde3cJVc3ZnTy8QeD2oKcseLFjYPLKhIGDanQ0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "faf912b086576fd1a15fca610166c98d47bc667e",
+        "rev": "f8e2ebd66d097614d51a56a755450d4ae1632df1",
         "type": "github"
       },
       "original": {
@@ -4193,11 +4193,11 @@
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1707324401,
-        "narHash": "sha256-7PwB5DaXe3gfyytDd7ge4nRQtnzbrXoOgGij5MuakXY=",
+        "lastModified": 1707603810,
+        "narHash": "sha256-ORv6uV3danJDD2HM/gvCQzRIo+taHFNze1ODTSsQAh0=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "dbf4586594a30eeec3e3a39977a397d5ea4b6be0",
+        "rev": "36dcb7ccf2befa9b5eb805968ccffb205fcbda80",
         "type": "github"
       },
       "original": {
@@ -4208,11 +4208,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1707327949,
-        "narHash": "sha256-u7TQhJwoF5SFKw2ZJxN7RRDYdzDcMuswSEMEp7Sa2ic=",
+        "lastModified": 1707607086,
+        "narHash": "sha256-69fTyKaUqBUmXafkS9YZG7L0kvQeO0KuLa+fF09u7Ro=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "63bd457df8b0a9e3dd32350ce908b411a8b548e2",
+        "rev": "3a315bbd42ead8a1bafa90e8c3d14c43c80db912",
         "type": "github"
       },
       "original": {
@@ -5312,11 +5312,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707311311,
-        "narHash": "sha256-Se80sgOhpKxlG/6mlpezHSJjGBDzO3X0SQTn9eL2j7o=",
+        "lastModified": 1707492526,
+        "narHash": "sha256-i87wM/l56Hrvmr5D41+S7lL0uWBDHQUJGp3dVzKNQXM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "9942fca8707efbd8c3f6108549f098462425d1b3",
+        "rev": "b17c41ca43866609579ea9c9ef96532d8854b85f",
         "type": "github"
       },
       "original": {
@@ -5933,11 +5933,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707242093,
-        "narHash": "sha256-gzbCeNZML2ygIy/H3uT9apahqI+4hmrTwgXvcZq4Xog=",
+        "lastModified": 1707554210,
+        "narHash": "sha256-/gulnlo5a9CGwqp20xCj++QHXze+X8eN27b4jRtR6hY=",
         "owner": "jrmoulton",
         "repo": "tmux-sessionizer",
-        "rev": "79ab43a4087aa7e4e865cab6a181dfd24c6e7a90",
+        "rev": "60b8cfe226c0bd77b565780858c27797bec1c5ea",
         "type": "github"
       },
       "original": {
