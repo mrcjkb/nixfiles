@@ -183,30 +183,30 @@
         ];
       };
     in {
-      packages.default = pkgs.nixosTest {
-        name = "vm";
-        nodes.machine = {...}: {
-          nixpkgs.overlays = [
-            nur.overlay
-          ];
-          imports = [
-            (import ./base.nix {
-              inherit pkgs nu-scripts;
-              lib = pkgs.lib;
-            })
-            (import ./configurations/p40yoga/configuration.nix {defaultUser = "mrcjk";})
-            home-manager.nixosModules.home-manager
-            {
-              environment.systemPackages = [
-                nvim.packages.${system}.nvim
-                pkgs.rust-analyzer
-              ];
-            }
-          ];
-          virtualisation.memorySize = 8000;
-        };
-        testScript = "";
-      };
+      # packages.default = pkgs.nixosTest {
+      #   name = "vm";
+      #   nodes.machine = {...}: {
+      #     nixpkgs.overlays = [
+      #       nur.overlay
+      #     ];
+      #     imports = [
+      #       (import ./base.nix {
+      #         inherit pkgs nu-scripts;
+      #         lib = pkgs.lib;
+      #       })
+      #       (import ./configurations/p40yoga/configuration.nix {defaultUser = "mrcjk";})
+      #       home-manager.nixosModules.home-manager
+      #       {
+      #         environment.systemPackages = [
+      #           nvim.packages.${system}.nvim
+      #           pkgs.rust-analyzer
+      #         ];
+      #       }
+      #     ];
+      #     virtualisation.memorySize = 8000;
+      #   };
+      #   testScript = "";
+      # };
 
       devShells = {
         default = shell;
