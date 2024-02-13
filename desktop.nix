@@ -83,7 +83,6 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
-      neovide
       lldb # for DAP
       vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb
       pcmanfm # File browser like Nautilus, but with no Gnome dependencies
@@ -96,7 +95,6 @@ in {
       gimp
       shutter # Screenshots
       signal-desktop
-      gparted
       xcolor # Color picker
       skanlite # Lightweight sane frontend
       xsane # Sane frontend (advanced)
@@ -110,22 +108,14 @@ in {
       # Haskell
       ghc
       cabal-install
-      cabal2nix
-      # stack2nix # Broken
       # haskellPackages.summoner
       # haskellPackages.summoner-tui
-      # haskellPackages.feedback # Declarative feedback loop manager
-      hpack
-      # Rust
-      crate2nix
-      #
       pandoc
       redshift # Blue light filter
       imagemagick
       nitrogen # Wallpaper browser/setter for X11
       jmtpfs # MTP (Android phone) support
       mpv-unwrapped # Media player
-      mdp # A command-line based markdown presentation tool
       kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
       asciinema # Terminal session recoreder
@@ -133,12 +123,10 @@ in {
       ttygif # Convert ttyrec recordings to gif
       playerctl
       gh # GitHub CLI tool
-      act # Run GitHub workflows locally
       arduino-cli
       element-desktop # Matrix client
       xscast # Screen cast for Xorg
       openrazer-daemon
-      polychromatic # GUI frontend for razer peripherals
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
