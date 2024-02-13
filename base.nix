@@ -231,6 +231,7 @@ in {
       # dhall-lsp-server
       # rust-analyzer
       lldb # for DAP
+      vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb
       texlab
       git-filter-repo
       git-absorb # git commit --fixup, but automatic
