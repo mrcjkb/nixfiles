@@ -86,7 +86,9 @@ in {
       lldb # for DAP
       vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb
       pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-      #yubioath-flutter # Yubico Authenticator Desktop app
+      yubioath-flutter # Yubico Authenticator Desktop app
+      librsvg # Small SVG rendering library
+      texlab
       brave
       firefox
       joplin-desktop # Joplin (notes, desktop app)
@@ -94,7 +96,14 @@ in {
       inkscape-with-extensions
       gimp
       shutter # Screenshots
+      signal-cli
+      # neomutt # E-mail
       signal-desktop
+      autorandr # Automatic XRandR configurations
+      arandr # A simple visual front end for XRandR
+      libnotify
+      pdftk # Command-line tool for working with PDFs
+      xclip
       xcolor # Color picker
       skanlite # Lightweight sane frontend
       xsane # Sane frontend (advanced)
@@ -127,6 +136,7 @@ in {
       element-desktop # Matrix client
       xscast # Screen cast for Xorg
       openrazer-daemon
+      polychromatic # GUI frontend for razer peripherals
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
