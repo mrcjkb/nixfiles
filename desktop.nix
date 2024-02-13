@@ -84,6 +84,8 @@ in {
   environment = {
     systemPackages = with pkgs; [
       neovide
+      lldb # for DAP
+      vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb
       pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       #yubioath-flutter # Yubico Authenticator Desktop app
       brave
