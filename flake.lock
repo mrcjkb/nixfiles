@@ -4332,6 +4332,7 @@
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
+        "vim-tpipeline": "vim-tpipeline",
         "vim-wordmotion": "vim-wordmotion",
         "wf-nvim": "wf-nvim",
         "which-key-nvim": "which-key-nvim",
@@ -4339,11 +4340,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1707744416,
-        "narHash": "sha256-JPt6Z2vHYm2CN1KTbcrJtlsQQnvN/rM1DND/UiNaI0s=",
+        "lastModified": 1707984479,
+        "narHash": "sha256-Qz8Hb7clCg9mGrQL3bQKhoD46qT2e26A25qmoA1je48=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "74eb887c95de24eea0c742ea029386bcc7ee4efa",
+        "rev": "dd0277620f70044ea5b213a1289cd24b9adb1e3f",
         "type": "github"
       },
       "original": {
@@ -6087,6 +6088,22 @@
       "original": {
         "owner": "andymass",
         "repo": "vim-matchup",
+        "type": "github"
+      }
+    },
+    "vim-tpipeline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706370088,
+        "narHash": "sha256-yPg/svPFzUKRs8H9kKCzRCkCr965sgiqxcXGhuBuCNI=",
+        "owner": "vimpostor",
+        "repo": "vim-tpipeline",
+        "rev": "86be2d4d7719db34d651df4690ab5f49274c646a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vimpostor",
+        "repo": "vim-tpipeline",
         "type": "github"
       }
     },
