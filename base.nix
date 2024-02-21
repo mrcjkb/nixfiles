@@ -232,6 +232,7 @@ in {
       # rust-analyzer
       git-filter-repo
       git-absorb # git commit --fixup, but automatic
+      git-mit # hooks to aid pairing and link commits to issues
       difftastic
       delta # A syntax-highlighting pager for git, diff, and grep output
       cachix # Nix package caching
