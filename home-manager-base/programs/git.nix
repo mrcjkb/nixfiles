@@ -50,6 +50,7 @@
     };
     # Force SSH instead of HTTPS:
     # url."ssh://git@github.com/".insteadOf = "https://github.com/";
+    rerere = true; # reuse recorded resolution - auto fix previously fixed conflicts
   };
   ignores = [
     "Session.vim"
