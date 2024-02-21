@@ -57,6 +57,10 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -77,6 +81,7 @@
     nu-scripts,
     pre-commit-hooks,
     flake-utils,
+    nixos-generators,
     ...
   } @ attrs: let
     supportedSystems = [
@@ -146,6 +151,7 @@
             ./desktop.nix
             xmonad-session.nixosModules.default
             stylix.nixosModules.stylix
+            nixos-generators.nixosModules.all-formats
             {
               environment.systemPackages = [
                 nvim.packages.${system}.nvim-dev
@@ -183,31 +189,6 @@
         ];
       };
     in {
-      # packages.default = pkgs.nixosTest {
-      #   name = "vm";
-      #   nodes.machine = {...}: {
-      #     nixpkgs.overlays = [
-      #       nur.overlay
-      #     ];
-      #     imports = [
-      #       (import ./base.nix {
-      #         inherit pkgs nu-scripts;
-      #         lib = pkgs.lib;
-      #       })
-      #       (import ./configurations/p40yoga/configuration.nix {defaultUser = "mrcjk";})
-      #       home-manager.nixosModules.home-manager
-      #       {
-      #         environment.systemPackages = [
-      #           nvim.packages.${system}.nvim
-      #           pkgs.rust-analyzer
-      #         ];
-      #       }
-      #     ];
-      #     virtualisation.memorySize = 8000;
-      #   };
-      #   testScript = "";
-      # };
-
       devShells = {
         default = shell;
       };
