@@ -11,7 +11,11 @@
   #   signByDefault = false;
   # };
   extraConfig = {
-    core.pager = "delta";
+    core = {
+      pager = "delta";
+      untrackedcache = true;
+      fsmonitor = true;
+    };
     interactive.diffFilter = "delta --color-only";
     delta = {
       # use n and N to move between diff sections
@@ -19,7 +23,10 @@
       light = false;
       line-numbers = true;
     };
-    merge.tool = "nvim";
+    merge = {
+      tool = "nvim";
+      conflictstyle = "zdiff3";
+    };
     mergetool = {
       nvim = {
         cmd = "nvim -f -c \"DiffviewOpen\"";
@@ -28,6 +35,7 @@
     diff = {
       tool = "difftastic";
       colorMoved = "default";
+      algorithm = "histogram";
     };
     difftool = {
       prompt = false;
@@ -46,11 +54,22 @@
       rebase = true;
     };
     push = {
-      autoSetupRemote = true;
+      default = "current";
     };
+    rebase = {
+      autosquash = true;
+    };
+    init = {
+      defaultBranch = "main";
+    };
+    commit.verbose = true;
+    help.autocorrect = "prompt";
     # Force SSH instead of HTTPS:
     # url."ssh://git@github.com/".insteadOf = "https://github.com/";
     rerere = true; # reuse recorded resolution - auto fix previously fixed conflicts
+    column.ui = "auto";
+    branch.sort = "-commiterdate";
+    gpg.format = "ssh";
   };
   ignores = [
     "Session.vim"
