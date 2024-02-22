@@ -129,6 +129,7 @@
       defaultUser ? "mrcjk",
       userEmail ? "mrcjkb89@outlook.com",
       system ? "x86_64-linux",
+      nvim-pkg ? nvim.packages.${system}.nvim-dev,
     }:
       mkNixosSystem {
         inherit
@@ -154,7 +155,7 @@
             nixos-generators.nixosModules.all-formats
             {
               environment.systemPackages = [
-                nvim.packages.${system}.nvim-dev
+                nvim-pkg
                 feedback.packages.${system}.default
                 nurl.packages.${system}.default
                 haskell-tags-nix.packages.${system}.default
@@ -209,6 +210,13 @@
           extraModules = [
             ./configurations/p40yoga/configuration.nix
             searx
+          ];
+        };
+        installer = mkDesktopSystem {
+          defaultUser = "nixos";
+          nvim-pkg = nvim.packages.x86_64-linux.nvim;
+          extraModules = [
+            ./configurations/installer/configuration.nix
           ];
         };
         # inherit rpi4;
