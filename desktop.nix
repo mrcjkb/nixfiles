@@ -4,7 +4,7 @@
   lib,
   config,
   defaultUser ? "mrcjk",
-  userEmail ? "mrcjkb89@outlook.com",
+  userEmail ? "marc@jakobi.dev",
   base16schemes,
   ...
 }: let

@@ -94,7 +94,7 @@
     mkNixosSystem = {
       extraModules ? [],
       defaultUser ? "mrcjk",
-      userEmail ? "mrcjkb89@outlook.com",
+      userEmail ? "marc@jakobi.dev",
       system ? "x86_64-linux",
       nixosSystem ? nixpkgs.lib.nixosSystem,
     }:
@@ -127,7 +127,7 @@
     mkDesktopSystem = {
       extraModules ? [],
       defaultUser ? "mrcjk",
-      userEmail ? "mrcjkb89@outlook.com",
+      userEmail ? "marc@jakobi.dev",
       system ? "x86_64-linux",
       nvim-pkg ? nvim.packages.${system}.nvim-dev,
     }:
@@ -163,6 +163,23 @@
             }
           ];
       };
+
+    mkInstaller = {
+      extraModules ? [],
+      userEmail ? "marc@jakobi.dev",
+      system ? "x86_64-linux",
+    }:
+      mkDesktopSystem {
+        inherit userEmail system;
+        defaultUser = "nixos";
+        nvim-pkg = nvim.packages.x86_64-linux.nvim;
+        extraModules =
+          extraModules
+          ++ [
+            ./configurations/installer/configuration.nix
+          ];
+      };
+
     rpi4 = let
       system = "aarch64-linux";
     in
@@ -212,18 +229,10 @@
             searx
           ];
         };
-        installer = mkDesktopSystem {
-          defaultUser = "nixos";
-          nvim-pkg = nvim.packages.x86_64-linux.nvim;
-          extraModules = [
-            ./configurations/installer/configuration.nix
-          ];
-        };
-        # inherit rpi4;
+        installer = mkInstaller {};
       };
 
       images = {
-        baseIso = mkNixosSystem {extraModules = ["${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"];};
         rpi4 =
           (self.nixosConfigurations.rpi4.extendModules {
             modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
@@ -235,7 +244,7 @@
       };
 
       helpers = {
-        inherit mkNixosSystem mkDesktopSystem;
+        inherit mkNixosSystem mkDesktopSystem mkInstaller;
       };
     };
 }

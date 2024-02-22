@@ -2,7 +2,7 @@
   pkgs,
   lib,
   defaultUser ? "mrcjk",
-  userEmail ? "mrcjkb89@outlook.com",
+  userEmail ? "marc@jakobi.dev",
   nu-scripts,
   ...
 }: let
