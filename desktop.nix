@@ -26,6 +26,15 @@ in {
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   services = {
+    xserver = {
+      xkb = {
+        layout = lib.mkDefault "us";
+        variant = lib.mkDefault "altgr-intl,";
+      };
+      # Enable touchpad support
+      libinput.enable = lib.mkDefault true;
+    };
+
     # Enable CUPS to print documents.
     printing.enable = lib.mkDefault true;
     avahi = {
