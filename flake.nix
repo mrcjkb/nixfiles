@@ -26,7 +26,7 @@
     xmonad-session.url = "github:mrcjkb/.xmonad";
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
-    nurl.url = "github:nix-community/nurl";
+    # nurl.url = "github:nix-community/nurl";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
@@ -72,7 +72,7 @@
     xmonad-session,
     cursor-theme,
     feedback,
-    nurl,
+    # nurl,
     stylix,
     tmux-sessionizer,
     base16schemes,
@@ -157,7 +157,7 @@
               environment.systemPackages = [
                 nvim-pkg
                 feedback.packages.${system}.default
-                nurl.packages.${system}.default
+                # nurl.packages.${system}.default
                 haskell-tags-nix.packages.${system}.default
               ];
             }
