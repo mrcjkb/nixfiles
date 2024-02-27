@@ -4251,11 +4251,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1709038338,
-        "narHash": "sha256-DNaOqpAY+WnoXa4YC38TOQYcpS5YHzxSlRwERaUaRco=",
+        "lastModified": 1709049270,
+        "narHash": "sha256-d/1F6SYEJYJsDkX2uqkhDR7OrqBoZysLHFKdAtMMZ+0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "50c9ffc84902256dc6d095a0dddb0d9cb69b4938",
+        "rev": "1ecfd53fed16ad1ac971cf4cbfa89f44a7683fbd",
         "type": "github"
       },
       "original": {
@@ -4356,17 +4356,16 @@
         "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
-        "wf-nvim": "wf-nvim",
         "which-key-nvim": "which-key-nvim",
         "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1709040508,
-        "narHash": "sha256-QTuiObpM1stNNl2L3Pw9EcGvIX2VWT2BW+3kP7IZ51w=",
+        "lastModified": 1709057842,
+        "narHash": "sha256-I7bUxaWu1rAmZzuX4gt77J7fMI7vdfq4nHCiqi7JjWw=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "5ac5b14d1db6053e4ef1e77db24fe31c9c8523ff",
+        "rev": "bbd63b77d3aafbef81b5f32338f1802781d787e9",
         "type": "github"
       },
       "original": {
@@ -6127,22 +6126,6 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
-        "type": "github"
-      }
-    },
-    "wf-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705944484,
-        "narHash": "sha256-QssI2cF4PjKT0TAo9CveKeLwcIN8DQl7loi77fiIoo4=",
-        "owner": "Cassin01",
-        "repo": "wf.nvim",
-        "rev": "fe5d94278f33446c3afdb34dac9f3a953907f720",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Cassin01",
-        "repo": "wf.nvim",
         "type": "github"
       }
     },
