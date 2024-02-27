@@ -84,7 +84,6 @@ in {
       };
     };
     tmp = {
-      useTmpfs = lib.mkDefault true;
       cleanOnBoot = lib.mkDefault true;
     };
     supportedFilesystems = ["ntfs"];
