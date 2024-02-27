@@ -92,12 +92,9 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
-      lldb # for DAP
-      vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb
       pcmanfm # File browser like Nautilus, but with no Gnome dependencies
       yubioath-flutter # Yubico Authenticator Desktop app
       librsvg # Small SVG rendering library
-      texlab
       brave
       firefox
       joplin-desktop # Joplin (notes, desktop app)
@@ -106,7 +103,6 @@ in {
       gimp
       shutter # Screenshots
       signal-cli
-      # neomutt # E-mail
       signal-desktop
       autorandr # Automatic XRandR configurations
       arandr # A simple visual front end for XRandR
@@ -118,17 +114,7 @@ in {
       xsane # Sane frontend (advanced)
       koreader # ebook reader
       xournalpp # notetaking software with PDF annotation support
-      texlive.combined.scheme-medium
-      biber
       keepassxc
-      # Nix
-      alejandra # The uncompromising nix code formatter
-      # Haskell
-      ghc
-      cabal-install
-      # haskellPackages.summoner
-      # haskellPackages.summoner-tui
-      pandoc
       redshift # Blue light filter
       imagemagick
       nitrogen # Wallpaper browser/setter for X11
@@ -141,11 +127,7 @@ in {
       ttygif # Convert ttyrec recordings to gif
       playerctl
       gh # GitHub CLI tool
-      arduino-cli
       element-desktop # Matrix client
-      xscast # Screen cast for Xorg
-      openrazer-daemon
-      polychromatic # GUI frontend for razer peripherals
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
