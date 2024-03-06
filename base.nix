@@ -62,6 +62,9 @@ in {
       dates = lib.mkDefault "monthly";
       options = lib.mkDefault "--delete-older-than 30d";
     };
+    nixPath = [
+      "nixpkgs=/run/current-system/sw/nixpkgs"
+    ];
   };
 
   nixpkgs = {
@@ -293,6 +296,10 @@ in {
       (nvimpager.overrideAttrs (_: {
         doCheck = false;
       })) # Use neovim to view man pages, etc.
+    ];
+
+    nixPath = [
+      "nixpkgs=/run/current-system/sw/nixpkgs"
     ];
   };
 
