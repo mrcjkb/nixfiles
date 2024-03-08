@@ -297,10 +297,6 @@ in {
         doCheck = false;
       })) # Use neovim to view man pages, etc.
     ];
-
-    nixPath = [
-      "nixpkgs=/run/current-system/sw/nixpkgs"
-    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
