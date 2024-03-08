@@ -128,6 +128,7 @@ in {
       playerctl
       gh # GitHub CLI tool
       element-desktop # Matrix client
+      overskride # bluetooth client UI
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
