@@ -200,7 +200,7 @@ in {
       SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       WORKSPACE = "\${HOME}/.workspace";
       PAGER = "nvimpager";
-      NIX_AUTO_RUN = 1;
+      NIX_AUTO_RUN = "1";
     };
 
     shells = with pkgs; [
