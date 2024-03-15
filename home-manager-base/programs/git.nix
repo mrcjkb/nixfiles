@@ -1,8 +1,4 @@
-{
-  pkgs,
-  userEmail,
-  ...
-}: {
+{userEmail, ...}: {
   enable = true;
   userName = "Marc Jakobi";
   inherit userEmail;
@@ -25,7 +21,7 @@
     };
     merge = {
       tool = "nvim";
-      conflictstyle = "zdiff3";
+      # conflictstyle = "zdiff3";
     };
     mergetool = {
       nvim = {
@@ -39,11 +35,11 @@
     };
     difftool = {
       prompt = false;
-      nvim = {
-        cmd = "nvim -f -c \"DiffviewOpen $LOCAL..$REMOTE\"";
-      };
+      # nvim = {
+      #   cmd = "nvim -f -c \"DiffviewOpen $LOCAL..$REMOTE\"";
+      # };
       difftastic = {
-        cmd = ''difft "$LOCAL" "$REMOTE"'';
+        cmd = ''difft --color always "$LOCAL" "$REMOTE"'';
       };
     };
     pager.difftool = true;
