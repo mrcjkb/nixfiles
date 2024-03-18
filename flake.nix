@@ -155,11 +155,14 @@
                   smos.homeManagerModules.${system}.default
                 ];
               };
-              nix = {
-                binaryCaches = [
+              nix.settings = let
+                substituters = [
                   "https://smos.cachix.org"
                 ];
-                binaryCachePublicKeys = [
+              in {
+                inherit substituters;
+                trusted-substituters = substituters;
+                trusted-public-keys = [
                   "smos.cachix.org-1:YOs/tLEliRoyhx7PnNw36cw2Zvbw5R0ASZaUlpUv+yM="
                 ];
               };
