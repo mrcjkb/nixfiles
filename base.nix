@@ -244,6 +244,7 @@ in {
       nix-diff # Explain why 2 nix derivations differ
       fzf
       ripgrep
+      ripgrep-all # Also search in PDFs, e-books, zip, tar.gz, and more (with rga-fzf integration)
       fd
       tailspin # Log file highlighter
       odt2txt
