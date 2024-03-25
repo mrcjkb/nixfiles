@@ -4985,11 +4985,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1711360026,
-        "narHash": "sha256-1MyDu65b7hECwOtvgWTDZ+NodGdPdpYkFqGT22TB6yk=",
+        "lastModified": 1711373381,
+        "narHash": "sha256-yE4C7yqY07FPS0k48+fVUUn7hVuZNtH9RYifwWiZtP4=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1fe0820e8caaa45a2d686141c72c44c0a14e71cc",
+        "rev": "906301be75ee865f17cb6fc52720df9dcb49b93f",
         "type": "github"
       },
       "original": {
@@ -5056,6 +5056,7 @@
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
+        "nvim-metals": "nvim-metals",
         "nvim-navic": "nvim-navic",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
@@ -5094,11 +5095,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1711239066,
-        "narHash": "sha256-p2UOZIfETR8x5MfxvoxypyiAJgceRJTd6wBxdNT64Rw=",
+        "lastModified": 1711373601,
+        "narHash": "sha256-Bag+c5Chp60o1cL9G9BmDbTwIIzO1+U+7Rh9MqamCJM=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "51a0d39f9e86b9da340003055cc5c5b7de0b7975",
+        "rev": "78712afbde6748fcc8461b69fcccc7a2346135cf",
         "type": "github"
       },
       "original": {
@@ -5267,6 +5268,22 @@
       "original": {
         "owner": "camilledejoye",
         "repo": "nvim-lsp-selection-range",
+        "type": "github"
+      }
+    },
+    "nvim-metals": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709368177,
+        "narHash": "sha256-0v3kcosNthhdOrdD825a0eLPqBXIsBJpJxYY7bzZohU=",
+        "owner": "scalameta",
+        "repo": "nvim-metals",
+        "rev": "4f9bf0c821092f20dd34c1a4ea5b07b0500ff089",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scalameta",
+        "repo": "nvim-metals",
         "type": "github"
       }
     },
@@ -7129,11 +7146,11 @@
         "pre-commit-hooks": "pre-commit-hooks_16"
       },
       "locked": {
-        "lastModified": 1711238827,
-        "narHash": "sha256-mDMy9Ew8Km8q75AWMU4uDxJYhpAu7lxu2Imxki2cKAI=",
+        "lastModified": 1711366563,
+        "narHash": "sha256-LFBCiVZvSFQbylmbWIIRzUsq3DPjBxs7OkKwJNKgdIY=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "b31af2de88647dde51550f588504ed48af0a686f",
+        "rev": "3c803307e3bcc2e0e0adbff9ea685ff428909a04",
         "type": "github"
       },
       "original": {
