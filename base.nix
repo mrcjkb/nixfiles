@@ -284,7 +284,6 @@ in {
       grex # Generate regular expressions from user-provided test cases
       openssl
       usbutils
-      nix-output-monitor
       nix-index # A files database for nix
       nixos-option
       direnv

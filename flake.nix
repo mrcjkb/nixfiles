@@ -33,6 +33,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "home-manager";
     };
+    nix-monitored = {
+      url = "github:ners/nix-monitored";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tmux-sessionizer = {
       url = "github:jrmoulton/tmux-sessionizer";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,6 +80,7 @@
     # nurl,
     smos,
     stylix,
+    nix-monitored,
     tmux-sessionizer,
     base16schemes,
     haskell-tags-nix,
@@ -142,6 +147,7 @@
         extraModules =
           extraModules
           ++ [
+            nix-monitored.nixosModules.default
             ({
               config,
               pkgs,
@@ -149,6 +155,15 @@
             }: {
               nixpkgs.overlays = [
                 cursor-theme.overlay
+                nix-monitored.overlays.default
+                (final: prev: {
+                  nixos-rebuild = prev.nixos-rebuild.override {
+                    nix = prev.nix-monitored;
+                  };
+                  nix-direnv = prev.nix-direnv.override {
+                    nix = prev.nix-monitored;
+                  };
+                })
               ];
               home-manager.users.${defaultUser} = {
                 imports = [
