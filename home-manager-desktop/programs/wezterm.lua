@@ -14,7 +14,6 @@ return {
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
   color_scheme = "mrcjk",
-  default_gui_startup_args = { 'start', 'tmux' },
   hide_tab_bar_if_only_one_tab = true,
   force_reverse_video_cursor = true,
   keys = {
