@@ -7312,11 +7312,11 @@
         "pre-commit-hooks": "pre-commit-hooks_16"
       },
       "locked": {
-        "lastModified": 1712534767,
-        "narHash": "sha256-7qGNHUOBKqtnZsGd/dg8LDxnBc8ccapG8u3NpsJp2Uc=",
+        "lastModified": 1712610847,
+        "narHash": "sha256-Csg3CDJSMHXg6DCWy5g2TCBuN+GEbLSrwSzhpKPNHrs=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "1a574ca1ed0ed14e4e03e5b9686bbf2ad12aa14e",
+        "rev": "f8e4ba4f1fc7ee7ee68a502570b73713de6e74aa",
         "type": "github"
       },
       "original": {
