@@ -35,6 +35,7 @@ package: {
     };
     env = {
       WINIT_X11_SCALE_FACTOR = "1.0";
+      term = "xterm-256color";
     };
     keyboard.bindings = [
       {
