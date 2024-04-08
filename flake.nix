@@ -28,6 +28,7 @@
     feedback.url = "github:NorfairKing/feedback";
     # nurl.url = "github:nix-community/nurl";
     smos.url = "github:NorfairKing/smos/release";
+    atuin.url = "github:atuinsh/atuin";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
@@ -79,6 +80,7 @@
     feedback,
     # nurl,
     smos,
+    atuin,
     stylix,
     nix-monitored,
     tmux-sessionizer,
@@ -123,6 +125,7 @@
             ({...}: {
               nixpkgs.overlays = [
                 nur.overlay
+                atuin.overlays.default
                 # tmux-sessionizer.overlays.default
               ];
             })
