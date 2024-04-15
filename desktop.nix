@@ -24,8 +24,11 @@ in {
 
   nix.package = lib.mkForce (pkgs.nix-monitored.override {withNotify = false;});
 
-  # For building Raspberry Pi images
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "aarch64-darwin"
+    "x86_64-darwin"
+  ];
 
   services = {
     xserver = {
