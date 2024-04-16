@@ -265,6 +265,7 @@ in {
       zoxide # Fast alternative to autojump and z-lua
       starship # Shell theme (nu, zsh, fish, ...)
       carapace # Multi-shell multi-command argument completer
+      fish # Needed for nushell's fish_completer
       jq # JSON processor
       binutils # Tools for manipulating binaries
       dig # Domain information groper

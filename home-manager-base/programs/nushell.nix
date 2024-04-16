@@ -35,6 +35,39 @@
         let carapace_completer = {|spans|
           carapace $spans.0 nushell $spans | from json
         }
+        let zoxide_completer = {|spans|
+          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
+        }
+        let fish_completer = {|spans|
+          fish --command $'complete "--do-complete=($spans | str join " ")"'
+          | $"value(char tab)description(char newline)" + $in
+          | from tsv --flexible --no-infer
+        }
+        let multiple_completers = {|spans|
+          let expanded_alias = scope aliases
+            | where name == $spans.0
+            | get -i 0.expansion
+
+          let spans = if $expanded_alias != null {
+              $spans
+              | skip 1
+              | prepend ($expanded_alias | split row ' ' | take 1)
+          } else {
+              $spans
+          }
+          match $spans.0 {
+            # carapace completions are incorrect for nu
+            nu => $fish_completer
+            # fish completes commits and branch names in a nicer way
+            git => $fish_completer
+            # carapace doesn't have completions for asdf
+            asdf => $fish_completer
+            # carapace doesn't complete nix attributes
+            nix => $fish_completer
+            __zoxide_z | __zoxide_zi => $zoxide_completer
+            _ => $carapace_completer
+          } | do $in $spans
+        }
         $env.config = {
           color_config: (material-darker)
           show_banner: false
@@ -55,7 +88,7 @@
             external: {
               enable: true
               max_results: 100
-              completer: $carapace_completer
+              completer: $multiple_completers
             }
             algorithm: "fuzzy"
           }
