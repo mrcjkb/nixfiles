@@ -21,11 +21,11 @@
       };
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
-      displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "nixos";
-        };
+    };
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "nixos";
       };
     };
   };
