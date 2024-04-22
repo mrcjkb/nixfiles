@@ -39,11 +39,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1713696119,
-        "narHash": "sha256-gnVsGnBojpNNCT8t6pA9wGQQ592SUpj229VfvQIfQMU=",
+        "lastModified": 1713778636,
+        "narHash": "sha256-5Yqx2phsC+P7Tzs6vkLvB2Rugd/GUzIbG+3YEr964tk=",
         "owner": "atuinsh",
         "repo": "atuin",
-        "rev": "9ee1fb809f2a83bd8b039143e5013fa89a0784bc",
+        "rev": "bbf83801e6222618a4e160687c214cb4ee2421d5",
         "type": "github"
       },
       "original": {
@@ -7296,11 +7296,11 @@
         "pre-commit-hooks": "pre-commit-hooks_16"
       },
       "locked": {
-        "lastModified": 1713744400,
-        "narHash": "sha256-utGTlyXdJwjrdcpL8d7cF0foGl2QvW0suD+1oCotqhA=",
+        "lastModified": 1713780692,
+        "narHash": "sha256-efQerizx1yAi1PYs3RHG4FUX3aWAXkdP2G8U1rAULPA=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "465eafa1e1dc0e11248840a7fee4ff3cc3ac0eb7",
+        "rev": "449bdedee83cc60ce08a6accfbeb00316fb289d2",
         "type": "github"
       },
       "original": {
