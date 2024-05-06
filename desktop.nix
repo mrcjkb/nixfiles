@@ -81,7 +81,6 @@ in {
         # pkgs.hplipWithPlugin # HP support - requires allowUnfree = true
       ];
     };
-    openrazer.enable = true;
   };
 
   programs = import ./desktop-programs {
