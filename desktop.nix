@@ -33,9 +33,9 @@ in {
         layout = lib.mkDefault "us";
         variant = lib.mkDefault "altgr-intl,";
       };
-      # Enable touchpad support
-      libinput.enable = lib.mkDefault true;
     };
+    # Enable touchpad support
+    libinput.enable = lib.mkDefault true;
 
     # Enable CUPS to print documents.
     printing.enable = lib.mkDefault true;

@@ -19,9 +19,9 @@
         variant = "altgr-intl,";
         options = "grp:alt_shift_toggle";
       };
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
     };
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
     displayManager = {
       autoLogin = {
         enable = true;
