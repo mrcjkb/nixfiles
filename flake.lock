@@ -3322,16 +3322,15 @@
     "neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1716148858,
-        "narHash": "sha256-jO/AKIF0Z5cmp0v2KOmL4H0hYlqaQFtGqLPwMrD+AAc=",
+        "lastModified": 1716442983,
+        "narHash": "sha256-A6YgNvGo/+APV8AQ8h1vQtIIHzZnUiGwZD2gXVUGnEE=",
         "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "d55898fe64e3b3d87a0b3b38ddc9c3d57526ff48",
+        "rev": "daebc4bc94bdcfa69d8d75c731878bff758e16fa",
         "type": "github"
       },
       "original": {
         "owner": "NeogitOrg",
-        "ref": "nightly",
         "repo": "neogit",
         "type": "github"
       }
@@ -5147,11 +5146,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1716467794,
-        "narHash": "sha256-7Yfn/gx91cvcr7I/7JgxSoAPE8U+SZp1piH5I94BRWo=",
+        "lastModified": 1716468973,
+        "narHash": "sha256-MT1XkoXaMHJZJfqt2Paks8tKfFQZ4q8Cu9uf1MVN7p0=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "078f1ea138a698c3807c155edf318d1b825a9f2c",
+        "rev": "305963721c45108d1c62da7271201f2cdf2d48f3",
         "type": "github"
       },
       "original": {
