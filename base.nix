@@ -200,6 +200,7 @@ in {
       WORKSPACE = "\${HOME}/.workspace";
       PAGER = "nvimpager";
       NIX_AUTO_RUN = "1";
+      NIX_PATH = "nixpkgs=flake:nixpkgs";
     };
 
     shells = with pkgs; [
