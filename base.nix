@@ -63,7 +63,7 @@ in {
       options = lib.mkDefault "--delete-older-than 30d";
     };
     nixPath = [
-      "nixpkgs=/run/current-system/sw/nixpkgs"
+      "nixpkgs=${pkgs.outPath}"
     ];
   };
 
