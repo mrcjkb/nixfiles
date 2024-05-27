@@ -5265,11 +5265,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1716682604,
-        "narHash": "sha256-lMXkRZqi66QXyFRqLSNN8hCyuGHQS/7+5pJ6z63YQEM=",
+        "lastModified": 1716815480,
+        "narHash": "sha256-R9v8ZOpIwEOhiUXWu8EQB6xhxGIfXBptTYlGPwPX1XE=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "7c6ebf05d04002a6eac3fef5127036e0bad7cd99",
+        "rev": "c28fb118ac7ee1a574c84979d40e97cfa89ee69b",
         "type": "github"
       },
       "original": {
@@ -6115,16 +6115,16 @@
     "project": {
       "flake": false,
       "locked": {
-        "lastModified": 1708378093,
-        "narHash": "sha256-3HQZXF6eHNh6RDztdWDqogz26ixunFqj4pT1vk0lj/g=",
+        "lastModified": 1716815413,
+        "narHash": "sha256-grwdxrbL6UZwXZ73GL36Z4I/J2157+0uYXZew7T8tbw=",
         "owner": "mrcjkb",
         "repo": "project.nvim",
-        "rev": "ab1c6979149eee688a14a72ac25778935f2e87c6",
+        "rev": "6aeb268608e439c5f802c56242e3f8383bf58ba3",
         "type": "github"
       },
       "original": {
         "owner": "mrcjkb",
-        "ref": "use-workspace-root",
+        "ref": "fixes",
         "repo": "project.nvim",
         "type": "github"
       }
