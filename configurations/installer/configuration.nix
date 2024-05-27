@@ -21,6 +21,7 @@
       };
     };
     # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
     displayManager = {
       autoLogin = {
         enable = true;
@@ -28,7 +29,6 @@
       };
     };
   };
-  libinput.enable = true;
   home-manager.users.nixos.home.stateVersion = "23.11";
 
   environment.systemPackages = with pkgs; [
