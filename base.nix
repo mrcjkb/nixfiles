@@ -62,9 +62,6 @@ in {
       dates = lib.mkDefault "monthly";
       options = lib.mkDefault "--delete-older-than 30d";
     };
-    nixPath = [
-      "nixpkgs=${pkgs.outPath}"
-    ];
   };
 
   nixpkgs = {
