@@ -62,6 +62,8 @@ in {
       dates = lib.mkDefault "monthly";
       options = lib.mkDefault "--delete-older-than 30d";
     };
+    # Set the nixPath for compatibility with `import <nixpkgs>` statements
+    nixPath = ["nixpkgs=flake:nixpkgs"];
   };
 
   nixpkgs = {

@@ -128,8 +128,6 @@
                 atuin.overlays.default
                 # tmux-sessionizer.overlays.default
               ];
-              # Set the nixPath for compatibility with `import <nixpkgs>` statements
-              nix.nixPath = [nixpkgs.outPath];
             })
             ./base.nix
           ]
