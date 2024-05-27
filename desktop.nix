@@ -22,7 +22,10 @@ in {
     ./modules/battery.nix
   ];
 
-  nix.package = lib.mkForce (pkgs.nix-monitored.override {withNotify = false;});
+  nix.monitored = {
+    enable = lib.mkDefault true;
+    notify = lib.mkForce false;
+  };
 
   # For building Raspberry Pi images
   boot.binfmt.emulatedSystems = ["aarch64-linux"];

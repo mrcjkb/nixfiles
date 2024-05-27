@@ -158,15 +158,6 @@
             }: {
               nixpkgs.overlays = [
                 cursor-theme.overlay
-                nix-monitored.overlays.default
-                (final: prev: {
-                  nixos-rebuild = prev.nixos-rebuild.override {
-                    nix = prev.nix-monitored;
-                  };
-                  nix-direnv = prev.nix-direnv.override {
-                    nix = prev.nix-monitored;
-                  };
-                })
               ];
               home-manager.users.${defaultUser} = {
                 imports = [

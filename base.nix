@@ -30,7 +30,7 @@ in {
       "https://arm.cachix.org"
     ];
   in {
-    package = pkgs.nixFlakes;
+    package = lib.mkDefault pkgs.nixFlakes;
     extraOptions = ''
       allowed-uris = https://github.com
       auto-optimise-store = true
