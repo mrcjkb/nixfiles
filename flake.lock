@@ -5235,7 +5235,6 @@
         "persistence": "persistence",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks_9",
-        "project": "project",
         "promise-async": "promise-async",
         "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "repeat": "repeat",
@@ -5265,11 +5264,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1716820680,
-        "narHash": "sha256-5lcp3nFcWPrQzATquGtWj7GiafXuVgOZrB0CRPJ2Hns=",
+        "lastModified": 1716821857,
+        "narHash": "sha256-dVa6uE3aq4Em0X1hFrKZomrvIV5x8U7EE4AnV7YWzPg=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "de9120db886f4a8c67123e96e09fb227b0e79ad3",
+        "rev": "f28ca8b3c7e271b5b20dcdea45382b709d6b59a0",
         "type": "github"
       },
       "original": {
@@ -6109,23 +6108,6 @@
       "original": {
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "type": "github"
-      }
-    },
-    "project": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716820641,
-        "narHash": "sha256-qCm8rI4UGifaycAeihPw442+IMcjo9jB9EGTNznj56o=",
-        "owner": "mrcjkb",
-        "repo": "project.nvim",
-        "rev": "fa2e3ed3f6ba47a437126777a32a142d989f380a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrcjkb",
-        "ref": "fixes",
-        "repo": "project.nvim",
         "type": "github"
       }
     },
