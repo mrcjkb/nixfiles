@@ -187,20 +187,19 @@ in {
 
   environment = {
     sessionVariables = {
-      XDG_CACHE_HOME = "\${HOME}/.cache";
-      XDG_CONFIG_HOME = "\${HOME}/.config";
-      XDG_BIN_HOME = "\${HOME}/.local/bin";
-      XDG_DATA_HOME = "\${HOME}/.local/share";
-      XDG_RUNTIME_DIR = "/run/user/1000";
-      EDITOR = "nvim";
-      BROWSER = "brave";
-      TZ = "Europe/Berlin";
-      # BAT_THEME = "Material-darker";
-      SSH_AUTH_SOCK = "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
-      WORKSPACE = "\${HOME}/.workspace";
-      PAGER = "nvimpager";
-      NIX_AUTO_RUN = "1";
-      NIX_PATH = "nixpkgs=flake:nixpkgs";
+      XDG_CACHE_HOME = lib.mkDefault "\${HOME}/.cache";
+      XDG_CONFIG_HOME = lib.mkDefault "\${HOME}/.config";
+      XDG_BIN_HOME = lib.mkDefault "\${HOME}/.local/bin";
+      XDG_DATA_HOME = lib.mkDefault "\${HOME}/.local/share";
+      XDG_RUNTIME_DIR = lib.mkDefault "/run/user/1000";
+      EDITOR = lib.mkDefault "nvim";
+      BROWSER = lib.mkDefault "brave";
+      TZ = lib.mkDefault "Europe/Berlin";
+      # BAT_THEME = lib.mkDefault "Material-darker";
+      SSH_AUTH_SOCK = lib.mkDefault "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
+      PAGER = lib.mkDefault "nvimpager";
+      NIX_AUTO_RUN = lib.mkDefault "1";
+      NIX_PATH = lib.mkDefault "nixpkgs=flake:nixpkgs";
     };
 
     shells = with pkgs; [
