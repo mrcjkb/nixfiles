@@ -52,8 +52,8 @@
       url = "github:nushell/nu_scripts";
       flake = false;
     };
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils = {
@@ -83,7 +83,7 @@
     haskell-tags-nix,
     nixos-hardware,
     nu-scripts,
-    pre-commit-hooks,
+    git-hooks,
     flake-utils,
     nixos-generators,
     ...
@@ -214,7 +214,7 @@
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {inherit system;};
-      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+      pre-commit-check = git-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
           alejandra.enable = true;
