@@ -230,6 +230,22 @@
         "type": "github"
       }
     },
+    "base16schemes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702718998,
+        "narHash": "sha256-VTczZi1C4WSzejpTFbneMonAdarRLtDnFehVxWs6ad0=",
+        "owner": "tinted-theming",
+        "repo": "base16-schemes",
+        "rev": "2b6f2d0677216ddda50c9cabd6ee70fae4665f81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-schemes",
+        "type": "github"
+      }
+    },
     "cabal-32": {
       "flake": false,
       "locked": {
@@ -6611,6 +6627,7 @@
     "root": {
       "inputs": {
         "atuin": "atuin",
+        "base16schemes": "base16schemes",
         "cursor-theme": "cursor-theme",
         "feedback": "feedback",
         "flake-utils": "flake-utils_4",

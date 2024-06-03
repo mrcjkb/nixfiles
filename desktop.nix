@@ -5,6 +5,7 @@
   config,
   defaultUser ? "mrcjk",
   userEmail ? "marc@jakobi.dev",
+  base16schemes,
   ...
 }: let
   jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
@@ -153,7 +154,7 @@ in {
       sha256 = "pnvx65H/OewNAodCiM3YB41+JzS+uYrS6o9xO4fJm+0=";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
+    base16Scheme = "${base16schemes}/material-darker.yaml";
     fonts = {
       serif = {
         package = jetbrains-mono-nerdfont;
