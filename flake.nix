@@ -42,10 +42,6 @@
       url = "github:jrmoulton/tmux-sessionizer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    base16schemes = {
-      url = "github:tinted-theming/base16-schemes";
-      flake = false;
-    };
     haskell-tags-nix = {
       url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
       # url = "github:shajra/haskell-tags-nix";
@@ -84,7 +80,6 @@
     stylix,
     nix-monitored,
     tmux-sessionizer,
-    base16schemes,
     haskell-tags-nix,
     nixos-hardware,
     nu-scripts,
@@ -115,7 +110,6 @@
             inherit
               defaultUser
               userEmail
-              base16schemes
               nu-scripts
               ;
           };
