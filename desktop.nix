@@ -27,7 +27,10 @@ in {
   };
 
   # For building Raspberry Pi images
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot = {
+    binfmt.emulatedSystems = ["aarch64-linux"];
+    plymouth.enable = lib.mkDefault true; # boot animation
+  };
 
   services = {
     xserver = {
