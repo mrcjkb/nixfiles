@@ -1,5 +1,5 @@
 {
-  enableCompletion = true;
+  completion.enable = true;
   interactiveShellInit = ''
     # eval "$(zoxide init bash)"
     # if command -v fzf-share >/dev/null; then
