@@ -5949,6 +5949,7 @@
         "telescope": "telescope",
         "telescope-manix": "telescope-manix",
         "telescope-smart-history": "telescope-smart-history",
+        "telescope-zf-native": "telescope-zf-native",
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
         "tmux-nvim": "tmux-nvim",
@@ -5964,11 +5965,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1718906390,
-        "narHash": "sha256-AFq2PSu1vTSCDPyn0VihlLB3Ctd9apjZV/JD1iRZYl0=",
+        "lastModified": 1719221119,
+        "narHash": "sha256-IKsX9VSDlqOO/uB1DMjsabeCe2xEI+cVEACBjoJmXU8=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "a1b2b8e62b1e0d9d4e84138d73c64868e4f89318",
+        "rev": "ee58bec941dffb4ef81840ddd131fd5dd2945627",
         "type": "github"
       },
       "original": {
@@ -7395,6 +7396,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-smart-history.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-zf-native": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719179598,
+        "narHash": "sha256-HIeu5F1uF6jNHvcWn5sNTCjfc4FucM5kj9cbhGLDzA4=",
+        "owner": "natecraddock",
+        "repo": "telescope-zf-native.nvim",
+        "rev": "3f565ad0c0643d6592b5c3fc44b09b4fb2badc21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "natecraddock",
+        "repo": "telescope-zf-native.nvim",
         "type": "github"
       }
     },
