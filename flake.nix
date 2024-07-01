@@ -250,6 +250,9 @@
             searx
           ];
         };
+        # nix build .#nixosSystems.installer.config.system.build.isoImage
+        # USB_PATH=/dev/change/me
+        # cp -vi result/iso/*.iso $USB_PATH
         installer = mkInstaller {};
       };
 
