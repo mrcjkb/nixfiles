@@ -143,6 +143,7 @@ in {
       daemon.enable = true;
       updater.enable = true;
     };
+    fwupd.enable = true;
   };
 
   sound.enable = lib.mkDefault true;
