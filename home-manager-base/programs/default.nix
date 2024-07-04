@@ -6,7 +6,7 @@
 }: {
   atuin = import ./atuin.nix {inherit pkgs;};
   git = import ./git.nix {inherit userEmail;};
-  jujutsu = import ./jujutsu.nix {inherit userEmail;};
+  jujutsu = import ./jujutsu.nix {inherit userEmail pkgs;};
   gh = import ./gh.nix;
   zoxide = import ./zoxide.nix pkgs.zoxide;
   nushell = import ./nushell.nix {
