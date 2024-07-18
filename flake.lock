@@ -5941,11 +5941,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1720079470,
-        "narHash": "sha256-QBkMMflE6gmTf5/rTS7KZ8whf/UgNj/Id9k6B9uavPU=",
+        "lastModified": 1721294257,
+        "narHash": "sha256-afbvsCViEFqwKy5raxB+jeUMRbKlYbW1WABciUVoGXg=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "f2af9303c4a2a4c9178de955c9389f95e94410a9",
+        "rev": "12b8be30b5c7c11cedb27e29336d31aa7d9d2a52",
         "type": "github"
       },
       "original": {
@@ -7655,11 +7655,11 @@
     "which-key-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1717769072,
-        "narHash": "sha256-xfz51JQsEqaPRSzFw6DxM8yKFznOk9o9ETlZkErSzNg=",
+        "lastModified": 1721292676,
+        "narHash": "sha256-82i0wiYGeuN/gjjNflJw1GLGEqw6eIxzLGMxolRch/Y=",
         "owner": "folke",
         "repo": "which-key.nvim",
-        "rev": "0099511294f16b81c696004fa6a403b0ae61f7a0",
+        "rev": "439d1247cbfed8ee46d6c9a5edbfad6b4c968e06",
         "type": "github"
       },
       "original": {
