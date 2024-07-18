@@ -248,7 +248,7 @@ in {
       fd
       tailspin # Log file highlighter
       odt2txt
-      joplin # Joplin (notes) CLI client
+      # joplin # Joplin (notes) CLI client
       yubikey-manager # Yubico Authenticator CLI
       cht-sh # CLI client for cheat.sh, a community driven cheat sheet
       wget
