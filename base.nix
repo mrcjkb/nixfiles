@@ -89,6 +89,7 @@ in {
       cleanOnBoot = lib.mkDefault true;
     };
     supportedFilesystems = ["ntfs"];
+    kernel.sysctl."kernel.sysrq" = 502;
   };
 
   fileSystems = {
