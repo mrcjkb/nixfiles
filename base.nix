@@ -141,8 +141,8 @@ in {
     automatic-timezoned.enable = lib.mkDefault true;
     geoclue2.enable = lib.mkDefault true;
     clamav = {
-      daemon.enable = true;
-      updater.enable = true;
+      daemon.enable = lib.mkDefault true;
+      updater.enable = lib.mkDefault true;
     };
     fwupd.enable = true;
   };
