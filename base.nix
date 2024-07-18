@@ -146,7 +146,6 @@ in {
     fwupd.enable = true;
   };
 
-  sound.enable = lib.mkDefault true;
   hardware = {
     pulseaudio = {
       enable = lib.mkDefault true;
