@@ -190,6 +190,7 @@ in {
       package = pkgs.volantes-cursors-material;
     };
     targets = {
+      # NOTE: If a target does not exist, it belongs in home-manager-desktop/default.nix
       grub = {
         enable = true;
         # useImage = true;

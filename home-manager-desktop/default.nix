@@ -39,8 +39,10 @@
     sharedModules = [
       {
         stylix = {
+          # NOTE: If a target does not exist, it belongs in desktop.nix
           targets = {
             mako.enable = false;
+            kde.enable = false;
           };
         };
       }
