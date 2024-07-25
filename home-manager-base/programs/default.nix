@@ -18,4 +18,5 @@
   tmux = import ./tmux.nix {inherit pkgs;};
   fzf = import ./fzf.nix;
   broot = import ./broot.nix;
+  yazi = import ./yazi.nix;
 }
