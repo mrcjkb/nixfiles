@@ -198,7 +198,8 @@ in {
       TZ = lib.mkDefault "Europe/Berlin";
       # BAT_THEME = lib.mkDefault "Material-darker";
       SSH_AUTH_SOCK = lib.mkDefault "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
-      PAGER = lib.mkDefault "nvimpager";
+      PAGER = lib.mkDefault "page -q 90000 -z 90000";
+      MANPAGER = lib.mkDefault "page -t man";
       NIX_AUTO_RUN = lib.mkDefault "1";
       NIX_PATH = lib.mkDefault "nixpkgs=flake:nixpkgs";
     };
@@ -296,9 +297,7 @@ in {
       bluetuith # Bluetooth TUI
       neo-cowsay
       dive # A tool for exploring each layer in a docker image
-      (nvimpager.overrideAttrs (_: {
-        doCheck = false;
-      })) # Use neovim to view man pages, etc.
+      page
     ];
   };
 
