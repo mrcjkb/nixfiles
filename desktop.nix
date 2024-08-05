@@ -124,6 +124,7 @@ in {
       keepassxc
       redshift # Blue light filter
       imagemagick
+      ghostscript
       nitrogen # Wallpaper browser/setter for X11
       jmtpfs # MTP (Android phone) support
       mpv-unwrapped # Media player
