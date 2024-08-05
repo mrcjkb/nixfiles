@@ -689,11 +689,11 @@
     "eyeliner-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1722724265,
-        "narHash": "sha256-zPoUs9ixpvnAJwzrIHoC7YUj2butjO8srOHEvOTJKu8=",
+        "lastModified": 1694881767,
+        "narHash": "sha256-k9aquvmJMGCY1YmRzHiyRt9IOC1t3ZjaC8Cb4ga8qcE=",
         "owner": "jinh0",
         "repo": "eyeliner.nvim",
-        "rev": "55df056fbb720adc30e5a523b62f7edbceef6995",
+        "rev": "c540d58bf52aa979d4cca639c60387ae0c0ccf88",
         "type": "github"
       },
       "original": {
@@ -6141,11 +6141,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1722842308,
-        "narHash": "sha256-rKdnuiqq1WJe/69v9lvw+AhMIduNWiQjT0f1KdUzrzA=",
+        "lastModified": 1722851711,
+        "narHash": "sha256-MBRLnPpe5JUIjmfda0Rgn7XtcAoMcf2ihD/uZteLFzg=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "563f4e8dda0f98a092c80a1e811d9d1d7d29b95f",
+        "rev": "5e2967a1afb37d110d43241f4d607e51979859cf",
         "type": "github"
       },
       "original": {
