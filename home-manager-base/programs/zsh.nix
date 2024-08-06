@@ -6,10 +6,10 @@
   initExtra = ''
     . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source ${pkgs.zsh-nix-shell}/nix-shell.plugin.zsh
-    eval "$(zoxide init zsh)" # Must be called at the end
     eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
     eval "$(atuin init zsh)"
+    eval "$(zoxide init zsh)" # Must be called at the end
   '';
   # TODO: Move
   shellAliases = import ../../programs/shellAliases.nix;
