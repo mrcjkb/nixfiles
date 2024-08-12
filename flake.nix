@@ -47,6 +47,10 @@
       # url = "github:shajra/haskell-tags-nix";
       # flake = false;
     };
+    jj = {
+      url = "github:martinvonz/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nu-scripts = {
       url = "github:nushell/nu_scripts";
@@ -79,6 +83,7 @@
     atuin,
     stylix,
     nix-monitored,
+    jj,
     tmux-sessionizer,
     haskell-tags-nix,
     nixos-hardware,
@@ -120,6 +125,7 @@
               nixpkgs.overlays = [
                 nur.overlay
                 atuin.overlays.default
+                jj.overlays.default
                 # tmux-sessionizer.overlays.default
               ];
             })
