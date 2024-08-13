@@ -65,7 +65,7 @@
     # url."ssh://git@github.com/".insteadOf = "https://github.com/";
     rerere.enabled = true; # reuse recorded resolution - auto fix previously fixed conflicts
     column.ui = "auto";
-    branch.sort = "-commiterdate";
+    branch.sort = "-committerdate";
     gpg.format = "ssh";
   };
   ignores = [
