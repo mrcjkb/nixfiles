@@ -125,7 +125,7 @@
               nixpkgs.overlays = [
                 nur.overlay
                 atuin.overlays.default
-                jj.overlays.default
+                # jj.overlays.default
                 # tmux-sessionizer.overlays.default
               ];
             })
