@@ -135,7 +135,7 @@ in {
       ttygif # Convert ttyrec recordings to gif
       playerctl
       gh # GitHub CLI tool
-      element-desktop # Matrix client
+      # element-desktop # Matrix client (disabled, as jitsi-meet is insecure)
       overskride # bluetooth client UI
     ];
     sessionVariables = {
