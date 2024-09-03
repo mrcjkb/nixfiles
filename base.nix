@@ -298,6 +298,7 @@ in {
       neo-cowsay
       dive # A tool for exploring each layer in a docker image
       page # pager that uses Neovim
+      lazyjj
     ];
   };
 
