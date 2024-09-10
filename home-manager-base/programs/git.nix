@@ -71,7 +71,7 @@
   ignores = [
     "Session.vim"
     ".hlint.yaml"
-    "tags"
+    "/tags"
     ".direnv"
     ".pre-commit-config.yaml"
   ];
