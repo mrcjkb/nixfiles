@@ -120,6 +120,7 @@ in {
   };
 
   services = {
+    pipewire.enable = lib.mkForce false; # Conflicts with hardware.pulseaudio
     openssh = {
       enable = lib.mkDefault true;
       settings = {
