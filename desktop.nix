@@ -66,6 +66,10 @@ in {
     };
     blueman.enable = lib.mkDefault true;
     batteryNotifier.enable = lib.mkDefault true;
+    udev.packages = [
+      # For flashing android devices as non-root
+      pkgs.android-udev-rules
+    ];
   };
 
   systemd.services.slock-sleep = {
