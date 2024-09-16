@@ -182,6 +182,7 @@ in {
         "scanner"
         "lp"
         "bluetooth"
+        "adbusers"
       ];
       shell = defaultShell;
     };
