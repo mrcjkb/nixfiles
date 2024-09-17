@@ -1,4 +1,8 @@
-{userEmail, ...}: {
+{
+  userEmail,
+  pkgs,
+  ...
+}: {
   enable = true;
   userName = "Marc Jakobi";
   lfs.enable = true;
@@ -67,6 +71,14 @@
     column.ui = "auto";
     branch.sort = "-committerdate";
     gpg.format = "ssh";
+    credential = {
+      helper = [
+        "${pkgs.git-credential-keepassxc}/bin/git-credential-keepassxc"
+      ];
+      # "https://github.com" = [
+      #   "${pkgs.git-credential-oauth}/bin/git-credential-oauth"
+      # ];
+    };
   };
   ignores = [
     "Session.vim"
