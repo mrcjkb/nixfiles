@@ -73,7 +73,9 @@
     gpg.format = "ssh";
     credential = {
       helper = [
-        "${pkgs.git-credential-keepassxc}/bin/git-credential-keepassxc"
+        # "${pkgs.git-credential-keepassxc}/bin/git-credential-keepassxc"
+        # Must run 'git-credential-keepassxc configure' first
+        "keepassxc --git-groups"
       ];
       # "https://github.com" = [
       #   "${pkgs.git-credential-oauth}/bin/git-credential-oauth"
