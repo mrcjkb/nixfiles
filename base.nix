@@ -4,6 +4,7 @@
   defaultUser ? "mrcjk",
   userEmail ? "marc@jakobi.dev",
   nu-scripts,
+  starship-jj-patch,
   ...
 }: let
   jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
@@ -267,7 +268,14 @@ in {
       upower # D-Bus service for power management
       killall
       zoxide # Fast alternative to autojump and z-lua
-      starship # Shell theme (nu, zsh, fish, ...)
+      # Shell theme (nu, zsh, fish, ...)
+      (starship.overrideAttrs (oa: {
+        patches =
+          (oa.patches or [])
+          ++ [
+            starship-jj-patch
+          ];
+      }))
       carapace # Multi-shell multi-command argument completer
       fish # Needed for nushell's fish_completer
       jq # JSON processor

@@ -6846,6 +6846,7 @@
         "nur": "nur",
         "nvim": "nvim",
         "smos": "smos",
+        "starship-jj-patch": "starship-jj-patch",
         "stylix": "stylix",
         "tmux-sessionizer": "tmux-sessionizer",
         "xmonad-session": "xmonad-session"
@@ -7111,6 +7112,18 @@
         "owner": "input-output-hk",
         "repo": "stackage.nix",
         "type": "github"
+      }
+    },
+    "starship-jj-patch": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-obIIYKgjQ/d8FACCyThitqq9d6gHjrJFRo1dTgqvwko=",
+        "type": "file",
+        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.diff"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.diff"
       }
     },
     "statuscol": {
