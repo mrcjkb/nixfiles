@@ -14,5 +14,6 @@
       sign-all = true;
       key = "E35672602EEA430245D61B53071AC75AA313BFCA";
     };
+    git.push-bookmark-prefix = "mj/push-";
   };
 }
