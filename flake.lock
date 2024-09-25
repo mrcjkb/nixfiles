@@ -7117,13 +7117,13 @@
     "starship-jj-patch": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-obIIYKgjQ/d8FACCyThitqq9d6gHjrJFRo1dTgqvwko=",
+        "narHash": "sha256-smHoryUubMwTx7+KgbLLiI4yZ1xRrfPCOdet0awKG60=",
         "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.diff"
+        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff"
       },
       "original": {
         "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.diff"
+        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff"
       }
     },
     "statuscol": {

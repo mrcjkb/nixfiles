@@ -68,7 +68,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     starship-jj-patch = {
-      url = "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.diff";
+      url = "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff";
       flake = false;
     };
   };
