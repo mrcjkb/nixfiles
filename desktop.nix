@@ -21,6 +21,15 @@ in {
     ./modules/battery.nix
   ];
 
+  nixpkgs.config.overlays = [
+    (self: super: {
+      brave = super.brave.override {
+        # Prevent brave from trying to use kwallet
+        commandLineArgs = "--password-store=basic";
+      };
+    })
+  ];
+
   nix.monitored = {
     enable = lib.mkDefault true;
     notify = lib.mkForce false;
