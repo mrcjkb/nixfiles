@@ -143,9 +143,7 @@ in {
       mpv-unwrapped # Media player
       kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
-      asciinema # Terminal session recoreder
-      ovh-ttyrec # Terminal session recoreder
-      ttygif # Convert ttyrec recordings to gif
+      t-rec # Terminal screen recorder
       playerctl
       gh # GitHub CLI tool
       # element-desktop # Matrix client (disabled, as jitsi-meet is insecure)
