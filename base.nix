@@ -111,7 +111,7 @@ in {
   # and also slow down the system when something crash
   systemd.coredump.enable = lib.mkDefault false;
 
-  time.timeZone = "Europe/Zurich";
+  # time.timeZone = "Europe/Zurich";
 
   # Internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
