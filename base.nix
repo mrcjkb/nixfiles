@@ -240,6 +240,7 @@ in {
       git-filter-repo
       git-absorb # git commit --fixup, but automatic
       git-credential-keepassxc
+      gitu # CLI magit clone
       # git-mit # hooks to aid pairing and link commits to issues
       difftastic
       delta # A syntax-highlighting pager for git, diff, and grep output
