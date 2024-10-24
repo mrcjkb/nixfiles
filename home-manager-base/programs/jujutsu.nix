@@ -15,7 +15,7 @@
       key = "E35672602EEA430245D61B53071AC75AA313BFCA";
     };
     git = {
-      push-branch-prefix = "mj/push-";
+      push-bookmark-prefix = "mj/push-";
       git.private-commits = "description(glob:'wip:*') | description(glob:'private:*')";
     };
     ui = {
