@@ -2,7 +2,7 @@ package: {
   inherit package;
   enable = true;
   settings = {
-    shell = {
+    terminal.shell = {
       program = "tmux";
       args = [
         "new-session"
