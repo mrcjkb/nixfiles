@@ -155,7 +155,7 @@
         alias ndiff = nvim -c :DiffviewOpen
         alias nlog = nvim -c :DiffviewFileHistory
 
-        alias nix devel = nix develop -c nu
+        alias "nix devel" = nix develop -c nu
 
         # git log to table
         def "git logt" [] { git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD | lines | split column "»¦«" commit subject name email date | upsert date {|d| $d.date | into datetime} }
