@@ -36,4 +36,5 @@
   diffview = "nvim -c :DiffviewOpen";
   ndiff = "nvim -c :DiffviewOpen";
   nlog = "nvim -c :DiffviewFileHistory";
+  "nix devel" = "nix develop -c $SHELL";
 }
