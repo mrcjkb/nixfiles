@@ -169,7 +169,7 @@ in {
       sha256 = "pnvx65H/OewNAodCiM3YB41+JzS+uYrS6o9xO4fJm+0=";
     };
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/material-darker.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     fonts = {
       serif = {
         package = jetbrains-mono-nerdfont;
