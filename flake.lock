@@ -6425,11 +6425,11 @@
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1729452566,
-        "narHash": "sha256-qopggGJdbhZC5Bjkx3ohEqEw/WEqMhe3Y/9hlc/D2ZM=",
+        "lastModified": 1730201512,
+        "narHash": "sha256-WlvUtd1XK6GWLNU1xcORRY0OPtumndlhX55R0/xsiH4=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "96c7e61141d2813426a5131e2a5b9bd439bd47f2",
+        "rev": "58f8c75688f4718d1be0ddc5312ac2a99da5a43e",
         "type": "github"
       },
       "original": {
@@ -6440,11 +6440,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1730186143,
-        "narHash": "sha256-5wi2z2JQp6jhGu1YB1CI0jmLt1knjh8LGQ8lkU0DJgs=",
+        "lastModified": 1730210456,
+        "narHash": "sha256-CL+fiLfc6G3hl9ZvBbUy+oGHSehW/8zoOhKqXV+c/24=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "47b74dec0590af547549be4d70d43d8245ef3832",
+        "rev": "d55e02e57dd4d433a43a5f1cd0128bcc979eed1d",
         "type": "github"
       },
       "original": {
