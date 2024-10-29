@@ -8197,11 +8197,11 @@
         "pre-commit-hooks": "pre-commit-hooks_8"
       },
       "locked": {
-        "lastModified": 1730231122,
-        "narHash": "sha256-7NM5chC/pFkD8GMBsCZPfjaXJLjBilri8iPGNIUv+N0=",
+        "lastModified": 1730231894,
+        "narHash": "sha256-zIo/o1LFeB8meUliRsdihgW+JSoraugtGHnIki1sYVE=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "d61bb6b782901877fa7d88d1aa3bc38d5d58d0b8",
+        "rev": "deb717182ed5b5c7e3a3d1673d4cb67bc36f6dc9",
         "type": "github"
       },
       "original": {
