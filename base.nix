@@ -253,7 +253,7 @@ in {
       ripgrep-all # Also search in PDFs, e-books, zip, tar.gz, and more (with rga-fzf integration)
       fd
       lsof # list open files
-      tailspin # Log file highlighter
+      # tailspin # Log file highlighter
       odt2txt
       # joplin # Joplin (notes) CLI client
       yubikey-manager # Yubico Authenticator CLI
