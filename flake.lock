@@ -6513,11 +6513,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1730592441,
-        "narHash": "sha256-iK/FpPmKmULgD1E4QhjzOlCVSTiO3kTtlbIVv/5Gr7Y=",
+        "lastModified": 1731003364,
+        "narHash": "sha256-DLp1ohq3R0oMPm6u3WM1WFYSUVsIUxn+vAZkD3qawOA=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "5049ead5866a85686e09461836c1d377fd1b61f6",
+        "rev": "18b138651b7ba2451e8a0ceb38201e6d4a94ca9e",
         "type": "github"
       },
       "original": {
