@@ -29,6 +29,7 @@
       l = ["log" "-r" "(main..@):: | (main..@)-"];
       ll = ["log" "-r" "(master..@):: | (master..@)-"];
       lm = ["log" "-r" "author(\"Marc Jakobi\")"];
+      trackorigin = ["bookmark" "track" "glob:*@origin"];
     };
     core = {
       fsmonitor = "watchman";
