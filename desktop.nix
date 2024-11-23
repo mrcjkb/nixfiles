@@ -146,7 +146,7 @@ in {
       t-rec # Terminal screen recorder
       playerctl
       gh # GitHub CLI tool
-      # element-desktop # Matrix client (disabled, as jitsi-meet is insecure)
+      element-desktop # Matrix client
       overskride # bluetooth client UI
     ];
     sessionVariables = {
