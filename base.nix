@@ -72,7 +72,7 @@ in {
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "darwin-build-box.nix-community.org";
         publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIFz8FXSVEdf8FvDMfboxhB5VjSe7y2WgSa09q1L4t099";
-        protocol = "ssh-ng";
+        # protocol = "ssh-ng";
         supportedFeatures = [
           "big-parallel"
         ];
@@ -83,7 +83,7 @@ in {
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "build-box.nix-community.org";
         publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
-        protocol = "ssh-ng";
+        # protocol = "ssh-ng";
         supportedFeatures = [
           "big-parallel"
           "kvm"
