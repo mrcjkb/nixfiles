@@ -71,19 +71,27 @@ in {
         sshUser = "mrcjkb";
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "darwin-build-box.nix-community.org";
-        publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIFz8FXSVEdf8FvDMfboxhB5VjSe7y2WgSa09q1L4t099";
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUZ6OEZYU1ZFZGY4RnZETWZib3hoQjVWalNlN3kyV2dTYTA5cTFMNHQwOTkgCg";
+        maxJobs = 32;
         # protocol = "ssh-ng";
         supportedFeatures = [
+          "benchmark"
           "big-parallel"
+          "kvm"
+          "nixos-test"
         ];
         mandatoryFeatures = [];
       }
       {
-        systems = ["x86_64-linux" "aarch64-linux"];
+        systems = [
+          "i686-linux"
+          "riscv64-linux"
+          "x86_64-linux"
+        ];
         sshUser = "mrcjkb";
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "build-box.nix-community.org";
-        publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
         # protocol = "ssh-ng";
         supportedFeatures = [
           "big-parallel"
