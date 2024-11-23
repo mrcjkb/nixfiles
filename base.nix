@@ -65,6 +65,20 @@ in {
     };
     # Set the nixPath for compatibility with `import <nixpkgs>` statements
     nixPath = ["nixpkgs=flake:nixpkgs"];
+    buildMachines = [
+      {
+        systems = ["x86_64-darwin" "aarch64-darwin"];
+        sshUser = "mrcjkb";
+        sshKey = "~/.ssh/community-builders";
+        hostName = "darwin-build-box.nix-community.org";
+      }
+      {
+        systems = ["x86_64-linux" "aarch64-linux"];
+        sshUser = "mrcjkb";
+        sshKey = "~/.ssh/community-builders";
+        hostName = "build-box.nix-community.org";
+      }
+    ];
   };
 
   nixpkgs = {
