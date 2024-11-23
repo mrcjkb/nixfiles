@@ -69,14 +69,16 @@ in {
       {
         systems = ["x86_64-darwin" "aarch64-darwin"];
         sshUser = "mrcjkb";
-        sshKey = "~/.ssh/community-builders";
+        sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "darwin-build-box.nix-community.org";
+        protocol = "ssh-ng";
       }
       {
         systems = ["x86_64-linux" "aarch64-linux"];
         sshUser = "mrcjkb";
-        sshKey = "~/.ssh/community-builders";
+        sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "build-box.nix-community.org";
+        protocol = "ssh-ng";
       }
     ];
   };
