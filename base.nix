@@ -71,13 +71,15 @@ in {
         sshUser = "mrcjkb";
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "darwin-build-box.nix-community.org";
+        publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIFz8FXSVEdf8FvDMfboxhB5VjSe7y2WgSa09q1L4t099";
         protocol = "ssh-ng";
       }
       {
-        systems = ["x86_64-linux" "aarch64-linux"];
+        systems = ["x86_64-linux"];
         sshUser = "mrcjkb";
         sshKey = "/home/mrcjk/.ssh/community-builders";
         hostName = "build-box.nix-community.org";
+        publicHostKey = "AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
         protocol = "ssh-ng";
       }
     ];
