@@ -135,7 +135,7 @@
         # source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
         source ${nu-scripts}/sourced/cool-oneliners/dict.nu
         source ${nu-scripts}/custom-completions/bat/bat-completions.nu
-        source ${nu-scripts}/custom-completions/cargo/cargo-completions.nu
+        # source ${nu-scripts}/custom-completions/cargo/cargo-completions.nu
         source ${nu-scripts}/custom-completions/curl/curl-completions.nu
         source ${nu-scripts}/custom-completions/docker/docker-completions.nu
         source ${nu-scripts}/custom-completions/gh/gh-completions.nu
