@@ -67,7 +67,7 @@
             # carapace doesn't have proper completions for nix
             nix => $fish_completer
             # use zoxide completions for zoxide commands
-            __zoxide_z | __zoxide_zi => $zoxide_completer
+            __zoxide_z | __zoxide_zi | z | zi => $zoxide_completer
             _ => $carapace_completer
           } | do $in $spans
         }
@@ -90,7 +90,6 @@
           completions: {
             external: {
               enable: true
-              max_results: 100
               completer: $external_completer
             }
             algorithm: "fuzzy"
@@ -135,6 +134,25 @@
         source ${nu-scripts}/sourced/filesystem/up.nu
         # source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
         source ${nu-scripts}/sourced/cool-oneliners/dict.nu
+        source ${nu-scripts}/custom-completions/bat/bat-completions.nu
+        source ${nu-scripts}/custom-completions/cargo/cargo-completions.nu
+        source ${nu-scripts}/custom-completions/curl/curl-completions.nu
+        source ${nu-scripts}/custom-completions/docker/docker-completions.nu
+        source ${nu-scripts}/custom-completions/gh/gh-completions.nu
+        source ${nu-scripts}/custom-completions/git/git-completions.nu
+        source ${nu-scripts}/custom-completions/gradlew/gradlew-completions.nu
+        source ${nu-scripts}/custom-completions/just/just-completions.nu
+        source ${nu-scripts}/custom-completions/less/less-completions.nu
+        source ${nu-scripts}/custom-completions/make/make-completions.nu
+        source ${nu-scripts}/custom-completions/man/man-completions.nu
+        source ${nu-scripts}/custom-completions/mysql/mysql-completions.nu
+        source ${nu-scripts}/custom-completions/nix/nix-completions.nu
+        source ${nu-scripts}/custom-completions/npm/npm-completions.nu
+        source ${nu-scripts}/custom-completions/pre-commit/pre-commit-completions.nu
+        source ${nu-scripts}/custom-completions/rg/rg-completions.nu
+        source ${nu-scripts}/custom-completions/ssh/ssh-completions.nu
+        source ${nu-scripts}/custom-completions/tar/tar-completions.nu
+        source ${nu-scripts}/custom-completions/typst/typst-completions.nu
 
         alias cd = z
         alias eza = eza --icons --git
