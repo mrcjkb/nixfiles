@@ -174,6 +174,7 @@
         alias :qa = exit
         alias :wq = exit
         alias :x = exit
+        alias :te = nvim -c :te -c :startinsert
         alias :w = cowsay 'You are not in neovim anymore.'
         alias :wa = cowsay 'You are not in neovim anymore.'
         alias neogit = nvim -c :Neogit

@@ -25,6 +25,7 @@
   vis = "nvim -c -S";
   nv = "neovide";
   ":e" = "nvim";
+  ":te" = "nvim -c :te -c :startinsert";
   ":q" = "exit";
   ":qa" = "exit";
   ":x" = "exit";
