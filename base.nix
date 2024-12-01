@@ -7,11 +7,7 @@
   starship-jj-patch,
   ...
 }: let
-  jetbrains-mono-nerdfont = pkgs.nerdfonts.override {
-    fonts = [
-      "JetBrainsMono"
-    ];
-  };
+  jetbrains-mono-nerdfont = pkgs.nerd-fonts.jetbrains-mono;
 in {
   imports = [
     (import ./home-manager-base {
