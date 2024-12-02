@@ -67,7 +67,7 @@
             # carapace doesn't have proper completions for nix
             nix => $fish_completer
             # use zoxide completions for zoxide commands
-            __zoxide_z | __zoxide_zi | z | zi => $zoxide_completer
+            __zoxide_z | __zoxide_zi => $zoxide_completer
             _ => $carapace_completer
           } | do $in $spans
         }
