@@ -6,9 +6,7 @@
   nu-scripts,
   starship-jj-patch,
   ...
-}: let
-  jetbrains-mono-nerdfont = pkgs.nerd-fonts.jetbrains-mono;
-in {
+}: {
   imports = [
     (import ./home-manager-base {
       user = defaultUser;
@@ -262,17 +260,10 @@ in {
         text = "manix \"\" | rg '^# ' | sed 's/^# \\(.*\\) (.*/\\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
       };
     in [
-      # haskell-language-server
       haskellPackages.hoogle
-      # haskellPackages.bhoogle # hoogle TUI
       nil
-      # dhall-lsp-server
-      # rust-analyzer
-      git-filter-repo
-      git-absorb # git commit --fixup, but automatic
       git-credential-keepassxc
       gitu # CLI magit clone
-      # git-mit # hooks to aid pairing and link commits to issues
       difftastic
       delta # A syntax-highlighting pager for git, diff, and grep output
       cachix # Nix package caching
@@ -288,9 +279,9 @@ in {
       odt2txt
       # joplin # Joplin (notes) CLI client
       yubikey-manager # Yubico Authenticator CLI
-      cht-sh # CLI client for cheat.sh, a community driven cheat sheet
       wget
       curl
+      xh # Alternative to curl
       whois
       file
       moreutils
@@ -298,7 +289,6 @@ in {
       zip
       unzip
       eza # Replacement for ls
-      upower # D-Bus service for power management
       killall
       zoxide # Fast alternative to autojump and z-lua
       # Shell theme (nu, zsh, fish, ...)
@@ -311,8 +301,8 @@ in {
       }))
       carapace # Multi-shell multi-command argument completer
       fish # Needed for nushell's fish_completer
-      jq # JSON processor
-      binutils # Tools for manipulating binaries
+      jq
+      binutils
       dig # Domain information groper
       nmap
       update-systemd-resolved
@@ -328,7 +318,6 @@ in {
       feh
       hyperfine # Alternative to time
       tealdeer # tldr implementation for simplified example based man pages
-      grex # Generate regular expressions from user-provided test cases
       openssl
       usbutils
       nix-index # A files database for nix
@@ -388,7 +377,7 @@ in {
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
     packages = with pkgs; [
-      jetbrains-mono-nerdfont
+      nerd-fonts.jetbrains-mono
       roboto
       lato # Font used in tiko presentations, etc.
     ];
