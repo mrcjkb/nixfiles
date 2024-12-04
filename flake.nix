@@ -38,18 +38,10 @@
       url = "github:ners/nix-monitored";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tmux-sessionizer = {
-      url = "github:jrmoulton/tmux-sessionizer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     haskell-tags-nix = {
       url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
       # url = "github:shajra/haskell-tags-nix";
       # flake = false;
-    };
-    jj = {
-      url = "github:martinvonz/jj";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nu-scripts = {
@@ -73,35 +65,14 @@
     };
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
-    nur,
-    home-manager,
-    nvim,
-    xmonad-session,
-    cursor-theme,
-    feedback,
-    # nurl,
-    smos,
-    atuin,
-    stylix,
-    nix-monitored,
-    jj,
-    tmux-sessionizer,
-    haskell-tags-nix,
-    nixos-hardware,
-    nu-scripts,
     git-hooks,
     flake-utils,
-    nixos-generators,
-    starship-jj-patch,
     ...
-  } @ attrs: let
-    supportedSystems = [
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
+  }: let
+    supportedSystems = builtins.attrNames nixpkgs.legacyPackages;
 
     searx = ./searx.nix;
 
@@ -115,24 +86,21 @@
       nixosSystem {
         inherit system;
         specialArgs =
-          attrs
+          inputs
           // {
             inherit
               defaultUser
               userEmail
-              nu-scripts
-              starship-jj-patch
               ;
+            inherit (inputs) starship-jj-patch nu-scripts;
           };
         modules =
           [
-            home-manager.nixosModules.default
+            inputs.home-manager.nixosModules.default
             ({...}: {
-              nixpkgs.overlays = [
+              nixpkgs.overlays = with inputs; [
                 nur.overlay
                 atuin.overlays.default
-                # jj.overlays.default
-                # tmux-sessionizer.overlays.default
               ];
             })
             ./base.nix
@@ -145,7 +113,7 @@
       defaultUser ? "mrcjk",
       userEmail ? "marc@jakobi.dev",
       system ? "x86_64-linux",
-      nvim-pkg ? nvim.packages.${system}.nvim-dev,
+      nvim-pkg ? inputs.nvim.packages.${system}.nvim-dev,
     }:
       mkNixosSystem {
         inherit
@@ -156,18 +124,18 @@
         extraModules =
           extraModules
           ++ [
-            nix-monitored.nixosModules.default
+            inputs.nix-monitored.nixosModules.default
             ({
               config,
               pkgs,
               ...
             }: {
               nixpkgs.overlays = [
-                cursor-theme.overlay
+                inputs.cursor-theme.overlay
               ];
               home-manager.users.${defaultUser} = {
                 imports = [
-                  smos.homeManagerModules.${system}.default
+                  inputs.smos.homeManagerModules.${system}.default
                 ];
               };
               nix.settings = let
@@ -183,15 +151,14 @@
               };
             })
             ./desktop.nix
-            xmonad-session.nixosModules.default
-            stylix.nixosModules.stylix
-            nixos-generators.nixosModules.all-formats
+            inputs.xmonad-session.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.nixos-generators.nixosModules.all-formats
             {
               environment.systemPackages = [
                 nvim-pkg
-                feedback.packages.${system}.default
-                # nurl.packages.${system}.default
-                haskell-tags-nix.packages.${system}.default
+                inputs.feedback.packages.${system}.default
+                inputs.haskell-tags-nix.packages.${system}.default
               ];
             }
           ];
@@ -205,7 +172,7 @@
       mkDesktopSystem {
         inherit userEmail system;
         defaultUser = "nixos";
-        nvim-pkg = nvim.packages.x86_64-linux.nvim;
+        nvim-pkg = inputs.nvim.packages.x86_64-linux.nvim;
         extraModules =
           extraModules
           ++ [
@@ -219,7 +186,7 @@
       mkNixosSystem {
         inherit system;
         extraModules = [
-          nixos-hardware.nixosModules.raspberry-pi-4
+          inputs.nixos-hardware.nixosModules.raspberry-pi-4
           ./configurations/rpi4/configuration.nix
         ];
       };
