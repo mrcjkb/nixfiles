@@ -101,6 +101,7 @@
               nixpkgs.overlays = with inputs; [
                 nur.overlay
                 atuin.overlays.default
+                xmonad-session.overlays.default
               ];
             })
             ./base.nix
