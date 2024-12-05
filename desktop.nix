@@ -112,7 +112,6 @@ in {
       yubioath-flutter # Yubico Authenticator Desktop app
       librsvg # Small SVG rendering library
       brave
-      firefox
       joplin-desktop # Joplin (notes, desktop app)
       simplescreenrecorder
       inkscape-with-extensions
