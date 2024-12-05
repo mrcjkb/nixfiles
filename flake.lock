@@ -6920,11 +6920,11 @@
         "nixpkgs-stable": "nixpkgs-stable_22"
       },
       "locked": {
-        "lastModified": 1732021966,
-        "narHash": "sha256-mnTbjpdqF0luOkou8ZFi2asa1N3AA2CchR/RqCNmsGE=",
+        "lastModified": 1733318908,
+        "narHash": "sha256-SVQVsbafSM1dJ4fpgyBqLZ+Lft+jcQuMtEL3lQWx2Sk=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "3308484d1a443fc5bc92012435d79e80458fe43c",
+        "rev": "6f4e2a2112050951a314d2733a994fbab94864c6",
         "type": "github"
       },
       "original": {
@@ -7016,8 +7016,7 @@
         "smos": "smos",
         "starship-jj-patch": "starship-jj-patch",
         "stylix": "stylix",
-        "xmonad-session": "xmonad-session",
-        "zen-browser": "zen-browser"
+        "xmonad-session": "xmonad-session"
       }
     },
     "rust-analyzer-src": {
@@ -8015,14 +8014,15 @@
       "inputs": {
         "flake-utils": "flake-utils_14",
         "nixpkgs": "nixpkgs_42",
-        "pre-commit-hooks": "pre-commit-hooks_8"
+        "pre-commit-hooks": "pre-commit-hooks_8",
+        "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1733270875,
-        "narHash": "sha256-/9/O44NXcA3vL0dfapY9gH7VqBm3jMf8J4RzBroxuYM=",
+        "lastModified": 1733390991,
+        "narHash": "sha256-onS7NRvBEERqKOfHH0h5n/gscoO75R5ehgnScSCJO5c=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "60d4c1440ed46af02469393367b1790adb0936b4",
+        "rev": "a13484c06c7990ababe6e147274d4355176900dc",
         "type": "github"
       },
       "original": {

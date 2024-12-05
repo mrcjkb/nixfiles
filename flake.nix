@@ -43,7 +43,6 @@
       # url = "github:shajra/haskell-tags-nix";
       # flake = false;
     };
-    zen-browser.url = "github:ch4og/zen-browser-flake";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nu-scripts = {
       url = "github:nushell/nu_scripts";
@@ -160,7 +159,6 @@
                 nvim-pkg
                 inputs.feedback.packages.${system}.default
                 inputs.haskell-tags-nix.packages.${system}.default
-                inputs.zen-browser.packages."${system}".default
               ];
             }
           ];
