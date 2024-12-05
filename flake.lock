@@ -8018,11 +8018,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1733392398,
-        "narHash": "sha256-sielZINOZo3CCk3wayBfsqOnwvaG62Jot+f/S+ZcFQM=",
+        "lastModified": 1733392762,
+        "narHash": "sha256-NqhA+ZC1PL9mOeNqbWOQwfClFEnRi85KCW3RPXL9V38=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "8cec8214a13aeca9462d282c9f7e7c576df9e304",
+        "rev": "3a00adaef6712a1c750d04ab8b0ccc1ac199f057",
         "type": "github"
       },
       "original": {
