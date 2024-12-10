@@ -99,7 +99,7 @@
             inputs.home-manager.nixosModules.default
             ({...}: {
               nixpkgs.overlays = with inputs; [
-                nur.overlay
+                nur.overlays.default
                 atuin.overlays.default
                 xmonad-session.overlays.default
               ];
