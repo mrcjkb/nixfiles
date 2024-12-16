@@ -6449,11 +6449,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1734299078,
-        "narHash": "sha256-hlKJkE6Aa5mV9htiGCCVP/Zss6eF88KVdnofQxHw6L8=",
+        "lastModified": 1734339413,
+        "narHash": "sha256-IiwD4FgDm/fc08RA1UvOtHhD6gFWVOtYmhCRxAHexX0=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "48dfce12747e0ed6d30ea683a24a0331aa7777e5",
+        "rev": "b6cdb5ab595357a438189355f25ece7c1d5d96f6",
         "type": "github"
       },
       "original": {
