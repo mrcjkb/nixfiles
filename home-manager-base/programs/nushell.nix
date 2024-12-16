@@ -22,6 +22,10 @@
         mkdir ~/.local/share/atuin/
         atuin init nu
           | save -f ~/.local/share/atuin/init.nu
+        mkdir ~/.cache/carapace
+        $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+        carapace _carapace nushell
+          | save --force ~/.cache/carapace/init.nu
       '';
   };
 
@@ -130,6 +134,7 @@
         source ~/.zoxide.nu
         source ~/.cache/starship/init.nu
         source ~/.local/share/atuin/init.nu
+        source ~/.cache/carapace/init.nu
         source ${nu-scripts}/sourced/filesystem/cdpath.nu
         source ${nu-scripts}/sourced/filesystem/up.nu
         # source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
