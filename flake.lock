@@ -6432,11 +6432,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1734516773,
-        "narHash": "sha256-ccE8BWIqSsYh4fLmQLPjjBt27go3M08450gQq48YjY0=",
+        "lastModified": 1734518512,
+        "narHash": "sha256-4G4/7vkf3lS3VmOGmwAZ1C57yqlUaS+VCMgpCrRQXTc=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "1762f0267c1f5e63e6481e95b4cf372420929640",
+        "rev": "03089c052442d87b92328ce23dc3e76a4679bb85",
         "type": "github"
       },
       "original": {
