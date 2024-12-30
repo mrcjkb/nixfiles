@@ -6640,11 +6640,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1735570607,
+        "lastModified": 1735571112,
         "narHash": "sha256-y3FYkFl7lSRWddlIPESfRGsOMPO0v6vjFtjitxJ3pcA=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "3291342fcdc892f8f2d695f5970a9c1a2095ad56",
+        "rev": "d8e83f7ea30e1df544d3856477c5c8b35ea31ef2",
         "type": "github"
       },
       "original": {
