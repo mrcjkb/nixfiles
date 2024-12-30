@@ -116,7 +116,7 @@ in {
       simplescreenrecorder
       inkscape-with-extensions
       gimp
-      # shutter # Screenshots
+      shutter # Screenshots
       signal-cli
       signal-desktop
       autorandr # Automatic XRandR configurations
@@ -126,7 +126,7 @@ in {
       xclip
       xcolor # Color picker
       skanlite # Lightweight sane frontend
-      # xsane # Sane frontend (advanced)
+      xsane # Sane frontend (advanced)
       koreader # ebook reader
       xournalpp # notetaking software with PDF annotation support
       keepassxc
@@ -136,7 +136,7 @@ in {
       nitrogen # Wallpaper browser/setter for X11
       jmtpfs # MTP (Android phone) support
       mpv-unwrapped # Media player
-      # kcat # A generic non-JVM producer and consumer for Apache Kafka
+      kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
       t-rec # Terminal screen recorder
       playerctl
