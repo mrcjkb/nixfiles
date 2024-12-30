@@ -116,7 +116,7 @@ in {
       simplescreenrecorder
       inkscape-with-extensions
       gimp
-      shutter # Screenshots
+      # shutter # Screenshots
       signal-cli
       signal-desktop
       autorandr # Automatic XRandR configurations
