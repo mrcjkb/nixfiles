@@ -136,7 +136,7 @@ in {
       nitrogen # Wallpaper browser/setter for X11
       jmtpfs # MTP (Android phone) support
       mpv-unwrapped # Media player
-      kcat # A generic non-JVM producer and consumer for Apache Kafka
+      # kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
       t-rec # Terminal screen recorder
       playerctl
