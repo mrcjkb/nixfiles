@@ -150,7 +150,14 @@
   };
 
   services = {
-    pipewire.enable = lib.mkForce false; # Conflicts with hardware.pulseaudio
+    pipewire.enable = lib.mkForce false; # Conflicts with pulseaudio
+    pulseaudio = {
+      enable = lib.mkDefault true;
+      extraConfig = "
+        # Automatically switch audio to the connected bluetooth device when it connects.
+        load-module module-switch-on-connect
+      ";
+    };
     openssh = {
       enable = lib.mkDefault true;
       settings = {
@@ -179,13 +186,6 @@
   };
 
   hardware = {
-    pulseaudio = {
-      enable = lib.mkDefault true;
-      extraConfig = "
-        # Automatically switch audio to the connected bluetooth device when it connects.
-        load-module module-switch-on-connect
-      ";
-    };
     bluetooth = {
       enable = lib.mkDefault true;
       settings = {
