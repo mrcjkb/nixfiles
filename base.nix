@@ -134,6 +134,9 @@
       allowedTCPPorts = [];
       allowedUDPPorts = [];
     };
+    hosts = {
+      "127.0.0.1" = ["updates.zen-browser.app"];
+    };
   };
 
   # disable coredump that could be exploited later
