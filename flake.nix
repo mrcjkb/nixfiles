@@ -115,7 +115,7 @@
       defaultUser ? "mrcjk",
       userEmail ? "marc@jakobi.dev",
       system ? "x86_64-linux",
-      nvim-pkg ? inputs.nvim.packages.${system}.nvim-dev,
+      nvim-pkg ? inputs.nvim.packages.${system}.nvim,
     }:
       mkNixosSystem {
         inherit
