@@ -4940,11 +4940,11 @@
         "vimcats": "vimcats"
       },
       "locked": {
-        "lastModified": 1737856109,
-        "narHash": "sha256-lZszUR4zVF4d8z3K36QfCeaGGDB/RkF9RWZR213Ftmw=",
+        "lastModified": 1737906754,
+        "narHash": "sha256-oeKCbh4RxDiPx1cMiYkIEGIuhDK+1nwo3nv8KBljGKw=",
         "owner": "nvim-neorocks",
         "repo": "lz.n",
-        "rev": "525d029dfbff4bef23ecb7c12cabaf41bdef920c",
+        "rev": "1ce5a476ae307e88f72cfc4fd85032775ec9c116",
         "type": "github"
       },
       "original": {
@@ -7442,11 +7442,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1737906068,
-        "narHash": "sha256-acwUzrBGuxzpWyEr5Vm8YpkI5Iy86xCznAFLNoL9nJA=",
+        "lastModified": 1737906953,
+        "narHash": "sha256-KTuc1XrL2vX1cbDw2848duGz5ykoDUJJbOCw8yF+xl8=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "292796f06955b66e4d69465299b38a625512573b",
+        "rev": "676563cb57e381d40ce5ff674454ccee0d014e20",
         "type": "github"
       },
       "original": {
