@@ -109,7 +109,8 @@ in {
     systemPackages = with pkgs; [
       nix-output-monitor
       pcmanfm # File browser like Nautilus, but with no Gnome dependencies
-      yubioath-flutter # Yubico Authenticator Desktop app
+      # FIXME: Broken again
+      # yubioath-flutter # Yubico Authenticator Desktop app
       librsvg # Small SVG rendering library
       brave
       joplin-desktop # Joplin (notes, desktop app)
