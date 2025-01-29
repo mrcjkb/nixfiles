@@ -28,9 +28,12 @@
       # A decent revset for larger repositories.
       l = ["log" "-r" "(main..@):: | (main..@)-"];
       ll = ["log" "-r" "(master..@):: | (master..@)-"];
-      lm = ["log" "-r" "author(\"Marc Jakobi\")"];
+      lm = ["log" "-r" "mine()"];
       bto = ["bookmark" "track" "glob:*@origin"];
-      my-heads = ["log" "-r" "\heads(mine())\""];
+      # log my heads, showing only those with a description
+      my-heads = ["log" "-r" "\heads(mine()) & description(regex:'.+')\""];
+      # (this is more useful than 'jj bookmark list')
+      my-bookmarks = ["log" "-r" "\heads(mine()) & bookmarks(regex:'.+')\""];
     };
     core = {
       fsmonitor = "watchman";
