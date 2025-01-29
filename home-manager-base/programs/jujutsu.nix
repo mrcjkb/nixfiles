@@ -30,6 +30,7 @@
       ll = ["log" "-r" "(master..@):: | (master..@)-"];
       lm = ["log" "-r" "author(\"Marc Jakobi\")"];
       bto = ["bookmark" "track" "glob:*@origin"];
+      my-heads = ["log" "-r" "\heads(mine())\""];
     };
     core = {
       fsmonitor = "watchman";
