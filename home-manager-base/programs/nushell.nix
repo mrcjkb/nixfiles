@@ -83,7 +83,7 @@
             max_size: 100000
           }
           filesize: {
-            metric: true
+            unit: "metric"
           }
           ls: {
             use_ls_colors: true
