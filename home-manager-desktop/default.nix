@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   user,
   userEmail,
   ...
@@ -16,7 +17,7 @@
           package = pkgs.papirus-icon-theme;
         };
       };
-      qt.platformTheme = "gtk3";
+      qt.platformTheme = lib.mkForce "gtk3";
       xdg.configFile = {
         keepassxc = {
           source = ./configs/keepassxc/.;

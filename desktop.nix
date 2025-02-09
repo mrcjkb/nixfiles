@@ -12,7 +12,7 @@ in {
   imports = [
     (import ./home-manager-desktop {
       user = defaultUser;
-      inherit pkgs userEmail;
+      inherit pkgs lib userEmail;
     })
     ./modules/battery.nix
   ];
