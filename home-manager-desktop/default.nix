@@ -17,7 +17,7 @@
           package = pkgs.papirus-icon-theme;
         };
       };
-      # qt.platformTheme = lib.mkForce "gtk3";
+      qt.platformTheme.name = lib.mkDefault "gtk3";
       xdg.configFile = {
         keepassxc = {
           source = ./configs/keepassxc/.;
