@@ -28,7 +28,6 @@
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
     # nurl.url = "github:nix-community/nurl";
-    smos.url = "github:NorfairKing/smos/release";
     atuin.url = "github:atuinsh/atuin";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
@@ -135,22 +134,6 @@
               nixpkgs.overlays = [
                 inputs.cursor-theme.overlay
               ];
-              home-manager.users.${defaultUser} = {
-                imports = [
-                  inputs.smos.homeManagerModules.${system}.default
-                ];
-              };
-              nix.settings = let
-                substituters = [
-                  "https://smos.cachix.org"
-                ];
-              in {
-                inherit substituters;
-                trusted-substituters = substituters;
-                trusted-public-keys = [
-                  "smos.cachix.org-1:YOs/tLEliRoyhx7PnNw36cw2Zvbw5R0ASZaUlpUv+yM="
-                ];
-              };
             })
             ./desktop.nix
             inputs.xmonad-session.nixosModules.default
