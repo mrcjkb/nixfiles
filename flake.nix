@@ -63,6 +63,7 @@
       url = "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff";
       flake = false;
     };
+    jj.url = "github:jj-vcs/jj";
   };
 
   outputs = inputs @ {
@@ -102,6 +103,7 @@
                 nur.overlays.default
                 atuin.overlays.default
                 xmonad-session.overlays.default
+                jj.overlays.default
               ];
             })
             ./base.nix
