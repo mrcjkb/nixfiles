@@ -125,7 +125,6 @@ in {
       pdftk # Command-line tool for working with PDFs
       xclip
       xcolor # Color picker
-      skanlite # Lightweight sane frontend
       # xsane # Sane frontend (advanced)
       koreader # ebook reader
       xournalpp # notetaking software with PDF annotation support
