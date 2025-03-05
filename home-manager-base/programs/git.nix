@@ -89,5 +89,6 @@
     ".direnv"
     ".pre-commit-config.yaml"
     "'$'\r"
+    "\r"
   ];
 }
