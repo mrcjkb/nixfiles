@@ -88,5 +88,6 @@
     "!/*/tags"
     ".direnv"
     ".pre-commit-config.yaml"
+    "'$'\r"
   ];
 }
