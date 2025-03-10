@@ -4,6 +4,9 @@
   ...
 }: {
   enable = pkgs.lib.mkDefault true;
+  package = pkgs.jj.overrideAttrs (oa: {
+    doCheck = false;
+  });
   ediff = true;
   settings = {
     user = {
