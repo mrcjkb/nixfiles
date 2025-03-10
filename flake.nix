@@ -105,7 +105,7 @@
                 xmonad-session.overlays.default
                 jj.overlays.default
                 (_: prev: {
-                  jujutsu = pkgs.jujutsu.overrideAttrs (oa: {
+                  jujutsu = prev.jujutsu.overrideAttrs (oa: {
                     doCheck = false;
                   });
                 })
