@@ -104,6 +104,11 @@
                 atuin.overlays.default
                 xmonad-session.overlays.default
                 jj.overlays.default
+                (_: prev: {
+                  jujutsu = pkgs.jujutsu.overrideAttrs (oa: {
+                    doCheck = false;
+                  });
+                })
               ];
             })
             ./base.nix
