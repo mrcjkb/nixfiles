@@ -11,7 +11,8 @@
       name = "Marc Jakobi";
     };
     signing = {
-      sign-all = true;
+      behavior = "own";
+      backend = "gpg";
       key = "E35672602EEA430245D61B53071AC75AA313BFCA";
     };
     git = {
