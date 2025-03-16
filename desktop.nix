@@ -142,6 +142,7 @@ in {
       gh # GitHub CLI tool
       element-desktop # Matrix client
       overskride # bluetooth client UI
+      tmate # ssh terminal sharing
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
