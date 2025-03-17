@@ -13,7 +13,7 @@
     signing = {
       behavior = "own";
       backend = "gpg";
-      key = "E35672602EEA430245D61B53071AC75AA313BFCA";
+      key = "AA641BFC2D63E4A70ABBC89EA62702B226DB0A22";
     };
     git = {
       push-bookmark-prefix = "mj/push-";
