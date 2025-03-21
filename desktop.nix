@@ -195,6 +195,7 @@ in {
     cursor = {
       name = "Volantes Material Dark";
       package = pkgs.volantes-cursors-material;
+      size = 12;
     };
     targets = {
       # NOTE: If a target does not exist, it belongs in home-manager-desktop/default.nix
