@@ -29,6 +29,8 @@
     feedback.url = "github:NorfairKing/feedback";
     # nurl.url = "github:nix-community/nurl";
     atuin.url = "github:atuinsh/atuin";
+    # tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
+    tmux-sessionizer.url = "github:junglerobba/tmux-sessionizer?ref=jj";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
@@ -102,6 +104,7 @@
               nixpkgs.overlays = with inputs; [
                 nur.overlays.default
                 atuin.overlays.default
+                tmux-sessionizer.overlays.default
                 xmonad-session.overlays.default
                 jj.overlays.default
                 (_: prev: {
