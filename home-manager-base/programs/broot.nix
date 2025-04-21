@@ -1,6 +1,6 @@
 # Interactive tree file manager
 {
-  enable = true;
+  enable = false;
   enableZshIntegration = true;
   settings = {
     modal = true;
