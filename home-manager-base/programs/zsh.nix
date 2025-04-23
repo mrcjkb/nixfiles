@@ -5,7 +5,6 @@
   };
   initExtra = ''
     . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    source ${pkgs.zsh-nix-shell}/nix-shell.plugin.zsh
     eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
     eval "$(atuin init zsh)"

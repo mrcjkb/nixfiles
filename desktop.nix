@@ -143,6 +143,7 @@ in {
       element-desktop # Matrix client
       overskride # bluetooth client UI
       tmate # ssh terminal sharing
+      perl # Needed by the zsh zplug plugin manager
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
