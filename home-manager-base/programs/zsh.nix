@@ -3,7 +3,7 @@
   history = {
     size = 100000;
   };
-  initExtra = ''
+  initContent = ''
     . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
