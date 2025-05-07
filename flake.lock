@@ -8487,11 +8487,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1746628677,
-        "narHash": "sha256-vavpn1G6Jze1tpk5Fmh6WHlc8Au0jxiPHaynljoTfic=",
+        "lastModified": 1746629104,
+        "narHash": "sha256-raxqw3DmoBMzG1quTK6nPO19j1urbGJHaQHIM52ZZ0A=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "1e5b49073d8e9d4ab384dd1a9be74a646e06ecd2",
+        "rev": "a5aaaa573bf1b15a52e2fd650e623665a38a177a",
         "type": "github"
       },
       "original": {
