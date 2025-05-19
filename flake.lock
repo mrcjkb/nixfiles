@@ -2183,22 +2183,6 @@
         "type": "github"
       }
     },
-    "formatter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730834708,
-        "narHash": "sha256-DQjLg413qhKBlEvlupCIdEzfRzQrCy0IFcmomScE2EQ=",
-        "owner": "mhartington",
-        "repo": "formatter.nvim",
-        "rev": "eb89a1f3e079f1b9680bc7293b75fffccb5e1598",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mhartington",
-        "repo": "formatter.nvim",
-        "type": "github"
-      }
-    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -6389,11 +6373,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1747651583,
-        "narHash": "sha256-rEy3pcrWcdOhPmOJyMxX/h1HMSrL3rLLxaTLH92jsVo=",
+        "lastModified": 1747659111,
+        "narHash": "sha256-44e3+itSKg1OWLjoOCWGsugf48hzjwL6rBaDUUoHylg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "55ca7b015043f28205d35b8fba19b087eec88ab2",
+        "rev": "406611779fd73bf55d2d69a55c2deb42654cb155",
         "type": "github"
       },
       "original": {
@@ -6437,7 +6421,6 @@
         "fidget": "fidget",
         "flake-utils": "flake-utils_6",
         "flash-nvim": "flash-nvim",
-        "formatter": "formatter",
         "gen-luarc": "gen-luarc",
         "git-hooks": "git-hooks_3",
         "gitlinker": "gitlinker",
@@ -6501,11 +6484,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1747649965,
-        "narHash": "sha256-hxmxRJrtkmildGTmwRv3ujBX1G1ApGBzJROj5Z4EiIY=",
+        "lastModified": 1747659888,
+        "narHash": "sha256-b0j62UQ1N0xQY4tjllrWB77RG+az1ZjpIgvtmNHzRBc=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "b1c9970546c6333f607ef154a0ad3d76a55b1d6f",
+        "rev": "924f14c17e397534c814a02486f39e2415d11230",
         "type": "github"
       },
       "original": {
