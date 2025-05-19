@@ -23,6 +23,7 @@
     # home-manager.url = "/home/mrcjk/git/github/forks/home-manager/";
     nvim = {
       url = "github:mrcjkb/nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-session.url = "github:mrcjkb/.xmonad";
     cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
@@ -34,7 +35,7 @@
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-monitored = {
       url = "github:ners/nix-monitored";
