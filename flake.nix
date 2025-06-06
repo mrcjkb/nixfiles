@@ -30,8 +30,7 @@
     feedback.url = "github:NorfairKing/feedback";
     # nurl.url = "github:nix-community/nurl";
     atuin.url = "github:atuinsh/atuin";
-    # tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
-    tmux-sessionizer.url = "github:junglerobba/tmux-sessionizer?ref=jj";
+    tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
     # stylix.url = "github:mrcjkb/stylix";
     stylix = {
       url = "github:danth/stylix";
