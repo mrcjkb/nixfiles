@@ -16,8 +16,10 @@
       key = "AA641BFC2D63E4A70ABBC89EA62702B226DB0A22";
     };
     git = {
-      push-bookmark-prefix = "mj/push-";
-      git.private-commits = "description(glob:'wip:*') | description(glob:'private:*')";
+      private-commits = "description(glob:'wip:*') | description(glob:'private:*')";
+    };
+    templates = {
+      git_push_bookmark = "\"mj/push-\" ++ change_id.short()";
     };
     ui = {
       paginate = "never";
