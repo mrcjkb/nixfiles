@@ -6275,11 +6275,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1752738196,
-        "narHash": "sha256-nqifp7SP0aO1B4TCYR9AGrPy0udYWOrLGh7wlcOehJI=",
+        "lastModified": 1752746109,
+        "narHash": "sha256-21FKysxjY5IBrKsiQhwrrof1/tCdtclhucH/vsxOAWI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "45c3f5ac0cb9b9c17cd7d49c6e795c7160ec91f7",
+        "rev": "945f926daf73c1380c8e45eaffc07904ae64195e",
         "type": "github"
       },
       "original": {
