@@ -115,7 +115,6 @@ in {
       joplin-desktop # Joplin (notes, desktop app)
       simplescreenrecorder
       inkscape-with-extensions
-      gimp
       # shutter # Screenshots
       signal-cli
       signal-desktop
