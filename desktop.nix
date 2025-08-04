@@ -125,8 +125,6 @@ in {
       xclip
       xcolor # Color picker
       # xsane # Sane frontend (advanced)
-      koreader # ebook reader
-      xournalpp # notetaking software with PDF annotation support
       keepassxc
       redshift # Blue light filter
       imagemagick
