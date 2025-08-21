@@ -26,6 +26,7 @@
   nv = "neovide";
   ":e" = "nvim";
   ":te" = "nvim -c :te -c :startinsert";
+  ":o" = "nvim -c :Oil";
   ":q" = "exit";
   ":qa" = "exit";
   ":x" = "exit";
