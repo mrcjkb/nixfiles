@@ -4065,6 +4065,22 @@
         "type": "github"
       }
     },
+    "hunk-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749462866,
+        "narHash": "sha256-va7cCBuBk3WLAZjKl+lxlKmVckaK010RAdWMzrXlzAw=",
+        "owner": "julienvincent",
+        "repo": "hunk.nvim",
+        "rev": "1e0a4d719c780bb8b0690a54915601508ced321e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "julienvincent",
+        "repo": "hunk.nvim",
+        "type": "github"
+      }
+    },
     "hydra": {
       "inputs": {
         "nix": "nix",
@@ -6400,6 +6416,7 @@
         "harpoon": "harpoon",
         "haskell-snippets": "haskell-snippets",
         "haskell-tools": "haskell-tools",
+        "hunk-nvim": "hunk-nvim",
         "illuminate": "illuminate",
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
@@ -6420,7 +6437,6 @@
         "nvim-lastplace": "nvim-lastplace",
         "nvim-lint": "nvim-lint",
         "nvim-navic": "nvim-navic",
-        "nvim-treesitter": "nvim-treesitter",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
@@ -6456,11 +6472,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1756114520,
-        "narHash": "sha256-2rTtMbTFIcRfFH8Fb+1NYtoDwiFFR7BGyuU6DEupXoQ=",
+        "lastModified": 1756126363,
+        "narHash": "sha256-saFEBoShugY+M8Id3kOvIFrUnPMReC4/KMor6KVh4Ec=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "40f90b3da40343b293d2198e977fad60502df50e",
+        "rev": "aa01d2ced1012ba459bba9d36ae91bb85e4b0f8e",
         "type": "github"
       },
       "original": {
@@ -6549,22 +6565,6 @@
       "original": {
         "owner": "SmiteshP",
         "repo": "nvim-navic",
-        "type": "github"
-      }
-    },
-    "nvim-treesitter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748094813,
-        "narHash": "sha256-CVs9FTdg3oKtRjz2YqwkMr0W5qYLGfVyxyhE3qnGYbI=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "rev": "42fc28ba918343ebfd5565147a42a26580579482",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
         "type": "github"
       }
     },

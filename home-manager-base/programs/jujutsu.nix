@@ -24,6 +24,7 @@
     ui = {
       paginate = "never";
       editor = "nvim";
+      diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
     };
     aliases = {
       # `jj l` shows commits on the working-copy commit's (anonymous) bookmark
