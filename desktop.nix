@@ -58,16 +58,16 @@ in {
       enable = lib.mkDefault true;
     };
     gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
-    logind = {
-      lidSwitch = "hybrid-sleep";
-      lidSwitchExternalPower = "ignore";
-      lidSwitchDocked = "lock";
-      extraConfig = ''
-        IdleAction=hybrid-sleep
-        IdleActionSec=30min
-        HandlePowerKey=suspend
-        HandlePowerKeyLongPress=poweroff
-      '';
+    logind.settings = {
+      Login = {
+        HandleLidSwitch = "hybrid-sleep";
+        HandleLidSwitchExternalPower = "lock";
+        HandleLidSwitchDocked = "lock";
+        IdleAction = "hybrid-sleep";
+        IdleActionSec = "30min";
+        HandlePowerKey = "suspend";
+        HandlePowerKeyLongPress = "poweroff";
+      };
     };
     blueman.enable = lib.mkDefault true;
     batteryNotifier.enable = lib.mkDefault true;
