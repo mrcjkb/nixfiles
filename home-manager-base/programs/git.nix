@@ -24,15 +24,6 @@
       light = false;
       line-numbers = true;
     };
-    merge = {
-      tool = "nvim";
-      # conflictstyle = "zdiff3";
-    };
-    mergetool = {
-      nvim = {
-        cmd = "nvim -f -c \"DiffviewOpen\"";
-      };
-    };
     diff = {
       tool = "difftastic";
       colorMoved = "default";
@@ -40,9 +31,6 @@
     };
     difftool = {
       prompt = false;
-      # nvim = {
-      #   cmd = "nvim -f -c \"DiffviewOpen $LOCAL..$REMOTE\"";
-      # };
       difftastic = {
         cmd = ''difft --color always "$LOCAL" "$REMOTE"'';
       };
