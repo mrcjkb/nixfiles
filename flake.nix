@@ -26,7 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-session.url = "github:mrcjkb/.xmonad";
-    cursor-theme.url = "github:mrcjkb/volantes-cursors-material";
     feedback.url = "github:NorfairKing/feedback";
     # nurl.url = "github:nix-community/nurl";
     atuin.url = "github:atuinsh/atuin";
@@ -136,15 +135,6 @@
           extraModules
           ++ [
             inputs.nix-monitored.nixosModules.default
-            ({
-              config,
-              pkgs,
-              ...
-            }: {
-              nixpkgs.overlays = [
-                inputs.cursor-theme.overlay
-              ];
-            })
             ./desktop.nix
             inputs.xmonad-session.nixosModules.default
             inputs.stylix.nixosModules.stylix

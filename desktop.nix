@@ -191,8 +191,8 @@ in {
       };
     };
     cursor = {
-      name = "Volantes Material Dark";
-      package = pkgs.volantes-cursors-material;
+      name = "Volantes Catppuccin (Mocha Dark)";
+      package = pkgs.catppuccin-cursors.mochaDark;
       size = 12;
     };
     targets = {

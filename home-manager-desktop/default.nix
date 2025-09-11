@@ -33,7 +33,7 @@
         };
       };
       home = {
-        file.".icons/default".source = "${pkgs.volantes-cursors-material}/share/icons/volantes_cursors";
+        file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
       };
       services = import ./services;
     };
