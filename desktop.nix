@@ -193,7 +193,7 @@ in {
     cursor = {
       name = "Volantes Catppuccin (Mocha Dark)";
       package = pkgs.catppuccin-cursors.mochaDark;
-      size = 12;
+      size = 24;
     };
     targets = {
       # NOTE: If a target does not exist, it belongs in home-manager-desktop/default.nix
