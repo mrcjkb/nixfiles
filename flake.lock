@@ -7807,11 +7807,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1760514120,
-        "narHash": "sha256-w+/FPhRTm5z6fkQBF4MmXk2qyO7gNMujo1dP1G3jJsI=",
+        "lastModified": 1760514898,
+        "narHash": "sha256-L1geAlrMs3TViIG3EOxnSWVvQKDdzuEgwJ1k8iLzG20=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "9d653e5912f6b8517472b619a256172643264cfc",
+        "rev": "ac1625f7ba44742c996531eaaeb8501dbd41aade",
         "type": "github"
       },
       "original": {
