@@ -10,8 +10,6 @@ package: {
         "-D"
         "-s"
         "main"
-        "-c"
-        "nu"
       ];
     };
     font = {
