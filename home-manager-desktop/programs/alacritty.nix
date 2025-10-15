@@ -3,8 +3,10 @@ package: {
   enable = true;
   settings = {
     terminal.shell = {
-      program = "tmux";
+      program = "nu";
       args = [
+        "-c"
+        "tmux"
         "new-session"
         "-A"
         "-D"
