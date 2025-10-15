@@ -356,7 +356,8 @@
     # audit rules to log every single time a program is attempted to be run.
     # auditd.enable = lib.mkDefault true;
     audit = {
-      enable = lib.mkDefault true;
+      # Disabled by default, because it prints lots of logs to tty sessions
+      enable = lib.mkDefault false;
       rules = [
         "-a exit,always -F arch=b64 -S execve"
       ];
