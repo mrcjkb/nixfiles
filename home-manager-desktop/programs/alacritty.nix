@@ -3,15 +3,15 @@ package: {
   enable = true;
   settings = {
     terminal.shell = {
-      program = "nu";
+      program = "tmux";
       args = [
-        "-c"
-        "tmux"
         "new-session"
         "-A"
         "-D"
         "-s"
         "main"
+        "-c"
+        "nu"
       ];
     };
     font = {
