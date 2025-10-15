@@ -1,6 +1,7 @@
 # ISO installation medium configuration
 {
   pkgs,
+  lib,
   modulesPath,
   ...
 }: {
@@ -24,7 +25,7 @@
     libinput.enable = true;
     displayManager = {
       autoLogin = {
-        enable = true;
+        enable = lib.mkDefault false;
         user = "nixos";
       };
     };
