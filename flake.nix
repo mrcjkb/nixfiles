@@ -67,41 +67,40 @@
     jj.url = "github:jj-vcs/jj";
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      git-hooks,
-      flake-utils,
-      ...
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    git-hooks,
+    flake-utils,
+    ...
+  }: let
+    supportedSystems = builtins.attrNames nixpkgs.legacyPackages;
+
+    searx = ./searx.nix;
+
+    mkNixosSystem = {
+      extraModules ? [],
+      defaultUser ? "mrcjk",
+      userEmail ? "marc@jakobi.dev",
+      system ? "x86_64-linux",
+      nixosSystem ? nixpkgs.lib.nixosSystem,
     }:
-    let
-      supportedSystems = builtins.attrNames nixpkgs.legacyPackages;
-
-      searx = ./searx.nix;
-
-      mkNixosSystem =
-        {
-          extraModules ? [ ],
-          defaultUser ? "mrcjk",
-          userEmail ? "marc@jakobi.dev",
-          system ? "x86_64-linux",
-          nixosSystem ? nixpkgs.lib.nixosSystem,
-        }:
-        nixosSystem {
-          inherit system;
-          specialArgs = inputs // {
+      nixosSystem {
+        inherit system;
+        specialArgs =
+          inputs
+          // {
             inherit
               defaultUser
               userEmail
               ;
             inherit (inputs) starship-jj-patch nu-scripts;
           };
-          modules = [
+        modules =
+          [
             inputs.home-manager.nixosModules.default
             (
-              { ... }:
-              {
+              {...}: {
                 nixpkgs.overlays = with inputs; [
                   nur.overlays.default
                   atuin.overlays.default
@@ -119,23 +118,24 @@
             ./base.nix
           ]
           ++ extraModules;
-        };
+      };
 
-      mkDesktopSystem =
-        {
-          extraModules ? [ ],
-          defaultUser ? "mrcjk",
-          userEmail ? "marc@jakobi.dev",
-          system ? "x86_64-linux",
-          nvim-pkg ? inputs.nvim.packages.${system}.nvim,
-        }:
-        mkNixosSystem {
-          inherit
-            defaultUser
-            userEmail
-            system
-            ;
-          extraModules = extraModules ++ [
+    mkDesktopSystem = {
+      extraModules ? [],
+      defaultUser ? "mrcjk",
+      userEmail ? "marc@jakobi.dev",
+      system ? "x86_64-linux",
+      nvim-pkg ? inputs.nvim.packages.${system}.nvim,
+    }:
+      mkNixosSystem {
+        inherit
+          defaultUser
+          userEmail
+          system
+          ;
+        extraModules =
+          extraModules
+          ++ [
             inputs.nix-monitored.nixosModules.default
             ./desktop.nix
             inputs.xmonad-session.nixosModules.default
@@ -149,39 +149,38 @@
               ];
             }
           ];
-        };
+      };
 
-      mkInstaller =
-        {
-          extraModules ? [ ],
-          userEmail ? "marc@jakobi.dev",
-          system ? "x86_64-linux",
-        }:
-        mkDesktopSystem {
-          inherit userEmail system;
-          defaultUser = "nixos";
-          nvim-pkg = inputs.nvim.packages.x86_64-linux.nvim;
-          extraModules = extraModules ++ [
+    mkInstaller = {
+      extraModules ? [],
+      userEmail ? "marc@jakobi.dev",
+      system ? "x86_64-linux",
+    }:
+      mkDesktopSystem {
+        inherit userEmail system;
+        defaultUser = "nixos";
+        nvim-pkg = inputs.nvim.packages.x86_64-linux.nvim;
+        extraModules =
+          extraModules
+          ++ [
             ./configurations/installer/configuration.nix
           ];
-        };
+      };
 
-      rpi4 =
-        let
-          system = "aarch64-linux";
-        in
-        mkNixosSystem {
-          inherit system;
-          extraModules = [
-            inputs.nixos-hardware.nixosModules.raspberry-pi-4
-            ./configurations/rpi4/configuration.nix
-          ];
-        };
+    rpi4 = let
+      system = "aarch64-linux";
     in
+      mkNixosSystem {
+        inherit system;
+        extraModules = [
+          inputs.nixos-hardware.nixosModules.raspberry-pi-4
+          ./configurations/rpi4/configuration.nix
+        ];
+      };
+  in
     flake-utils.lib.eachSystem supportedSystems (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
+      system: let
+        pkgs = import nixpkgs {inherit system;};
         pre-commit-check = git-hooks.lib.${system}.run {
           src = ./.;
           hooks = {
@@ -195,8 +194,7 @@
             alejandra
           ];
         };
-      in
-      {
+      in {
         devShells = {
           default = shell;
         };
@@ -204,6 +202,15 @@
         checks = {
           inherit pre-commit-check;
         };
+
+        formatter = let
+          config = self.checks.${system}.pre-commit-check.config;
+          inherit (config) package configFile;
+          script = ''
+            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
+          '';
+        in
+          pkgs.writeShellScriptBin "pre-commit-run" script;
       }
     )
     // {
@@ -223,13 +230,13 @@
         # nix build .#nixosConfigurations.installer.config.system.build.isoImage
         # USB_PATH=/dev/change/me
         # cp -vi result/iso/*.iso $USB_PATH
-        installer = mkInstaller { };
+        installer = mkInstaller {};
       };
 
       images = {
         rpi4 =
           (self.nixosConfigurations.rpi4.extendModules {
-            modules = [ "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix" ];
+            modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
           }).config.system.build.sdImage;
       };
 
