@@ -190,9 +190,7 @@
     };
   };
 
-  users = let
-    defaultShell = pkgs.nushell;
-  in {
+  users = {
     defaultUserShell = pkgs.zsh;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users."${defaultUser}" = {
@@ -207,7 +205,7 @@
         "bluetooth"
         "adbusers"
       ];
-      shell = defaultShell;
+      shell = pkgs.zsh;
     };
   };
 
