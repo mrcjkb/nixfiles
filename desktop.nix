@@ -158,10 +158,10 @@ in {
 
   stylix = {
     enable = lib.mkDefault true;
-    # image = pkgs.fetchurl {
-    #   url = "https://user-images.githubusercontent.com/12857160/213937865-c910a41c-2092-48d1-83cc-e1776da0ec14.png";
-    #   sha256 = "pnvx65H/OewNAodCiM3YB41+JzS+uYrS6o9xO4fJm+0=";
-    # };
+    image = pkgs.fetchurl {
+      url = "https://user-images.githubusercontent.com/12857160/213937865-c910a41c-2092-48d1-83cc-e1776da0ec14.png";
+      sha256 = "pnvx65H/OewNAodCiM3YB41+JzS+uYrS6o9xO4fJm+0=";
+    };
     polarity = "dark";
     base16Scheme = ./catppuccin-mocha.yaml;
     fonts = {
