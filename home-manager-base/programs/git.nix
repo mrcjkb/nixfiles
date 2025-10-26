@@ -4,14 +4,16 @@
   ...
 }: {
   enable = true;
-  userName = "Marc Jakobi";
   lfs.enable = true;
-  inherit userEmail;
   # signing = {
   #   key = "F31C0D0D5BBB0289";
   #   signByDefault = false;
   # };
-  extraConfig = {
+  settings = {
+    user = {
+      name = "Marc Jakobi";
+      email = userEmail;
+    };
     core = {
       pager = "delta";
       untrackedcache = true;
