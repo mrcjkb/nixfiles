@@ -300,7 +300,7 @@
       dconf # Required to set GTK theme in home-manager
       tokei # Count lines of code
       bottom # Alternative to htop
-      du-dust # CLI alternative to du
+      dust # CLI alternative to du
       ncdu # TUI alternative to du
       procs # Alternative to ps
       sd # Alternative to sed
