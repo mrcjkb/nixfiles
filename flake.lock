@@ -6153,11 +6153,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1761814432,
-        "narHash": "sha256-tloZbhBTWylqbQj8dxpmgXgR+wM1Ibj6aGFo+TbVrzk=",
+        "lastModified": 1761815657,
+        "narHash": "sha256-hhZIObqZ5FS0oI2nKsNL9qX3/ndksKh/sjRD/UHWTNM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c8994dcf554aed6689c53c30e67f76ba0fb6d7f9",
+        "rev": "ed57843b592ee120ad77ffd6785113cfadfb00a1",
         "type": "github"
       },
       "original": {
