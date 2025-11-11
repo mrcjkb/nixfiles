@@ -39,11 +39,6 @@
       url = "github:ners/nix-monitored";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    haskell-tags-nix = {
-      url = "github:mrcjkb/haskell-tags-nix/mjkb/flake";
-      # url = "github:shajra/haskell-tags-nix";
-      # flake = false;
-    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nu-scripts = {
       url = "github:nushell/nu_scripts";
@@ -145,7 +140,6 @@
               environment.systemPackages = [
                 nvim-pkg
                 inputs.feedback.packages.${system}.default
-                inputs.haskell-tags-nix.packages.${system}.default
               ];
             }
           ];
