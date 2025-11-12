@@ -372,6 +372,8 @@
       nerd-fonts.jetbrains-mono
       roboto
       lato # Font used in tiko presentations, etc.
+      fira-sans
+      fira-math
     ];
   };
 }
