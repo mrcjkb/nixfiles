@@ -369,6 +369,7 @@
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
     packages = with pkgs; [
+      excalifont # Used by excalidraw
       nerd-fonts.jetbrains-mono
       roboto
       lato # Font used in tiko presentations, etc.
