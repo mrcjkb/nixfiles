@@ -209,6 +209,11 @@
     )
     // {
       nixosConfigurations = {
+        framework = mkDesktopSystem {
+          extraModules = [
+            ./configurations/framework/configuration.nix
+          ];
+        };
         home-pc = mkDesktopSystem {
           extraModules = [
             ./configurations/home-pc/configuration.nix
