@@ -176,6 +176,7 @@
       updater.enable = lib.mkDefault true;
     };
     fwupd.enable = true;
+    libinput.touchpad.disableWhileTyping = lib.mkDefault true;
   };
 
   hardware = {
