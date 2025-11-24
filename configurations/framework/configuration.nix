@@ -22,11 +22,21 @@
     initrd.luks.devices = {
       crypted = {
         device = "/dev/disk/by-uuid/7e8799c4-fdec-4351-9ec6-9c6e933f0c27";
+        preLVM = true;
       };
     };
     tmp = {
       useTmpfs = true;
       tmpfsSize = "14G";
+    };
+    loader = {
+      grub = {
+        enable = true;
+        enableCryptodisk = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
     };
   };
 
