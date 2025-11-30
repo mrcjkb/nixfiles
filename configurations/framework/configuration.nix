@@ -25,9 +25,11 @@
 
   networking = {
     hostName = "nixos-framework";
-    interfaces = {
-      wlp4s0.useDHCP = lib.mkDefault true;
-    };
+    # Disabled, because networking.useDHCP is set to true in hardware-configuration.nix
+    # interfaces = {
+    #   wlp1s0.useDHCP = lib.mkDefault true; # expansion bay module (no gpu)
+    #   wlp4s0.useDHCP = lib.mkDefault true; # amdgpu module
+    # };
   };
 
   services = {
