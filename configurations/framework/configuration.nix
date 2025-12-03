@@ -108,6 +108,12 @@
       MatchUdevType=keyboard
       MatchDMIModalias=dmi:*svnFramework:pnLaptop16*
       AttrKeyboardIntegration=internal
+
+      [Framework Laptop 16 Keyboard Module - ANSI]
+      MatchName=Framework Laptop 16 Keyboard Module*
+      MatchUdevType=keyboard
+      MatchDMIModalias=dmi:*svnFramework:pnLaptop16*
+      AttrKeyboardIntegration=internal
     '';
   };
 
