@@ -140,6 +140,7 @@ in {
       tmate # ssh terminal sharing
       perl # Needed by the zsh zplug plugin manager
       libreoffice
+      mupdf # Lightweight pdf/ebook viewer
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
