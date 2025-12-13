@@ -1,15 +1,8 @@
 {lib, ...}: {
-  programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      gamescopeSession.enable = true;
-    };
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
   nixpkgs.config.allowUnfreePredicate = pkg:
     lib.elem (lib.getName pkg) [
