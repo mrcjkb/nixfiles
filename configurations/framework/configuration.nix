@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ./bluetooth.nix
     ./kmod.nix
+    ./steam.nix
   ];
 
   # adds amdgpu to kernelModules
