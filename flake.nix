@@ -16,6 +16,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs.url = "/home/mrcjk/git/github/forks/nix/nixpkgs";
     nur.url = "github:nix-community/NUR";
+    # NOTE: nixos-hardware doesn't have a nixpkgs input
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +41,6 @@
       url = "github:ners/nix-monitored";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware";
     nu-scripts = {
       url = "github:nushell/nu_scripts";
       flake = false;
@@ -212,6 +213,7 @@
         framework = mkDesktopSystem {
           extraModules = [
             ./configurations/framework/configuration.nix
+            inputs.nixos-hardware.nixosModules.framework-16-7040-amd
           ];
         };
         home-pc = mkDesktopSystem {
