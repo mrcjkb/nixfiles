@@ -210,6 +210,15 @@
     )
     // {
       nixosConfigurations = {
+        # Framework firmware is updateable through fwupd, so it's enabled by default.
+        #
+        # To get the latest firmware, run:
+        #
+        # ```sh
+        # $ fwupdmgr refresh
+        # $ fwupdmgr update
+        # ```
+        #
         framework = mkDesktopSystem {
           extraModules = [
             ./configurations/framework/configuration.nix
