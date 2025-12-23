@@ -376,6 +376,7 @@
       lato # Font used in tiko presentations, etc.
       fira-sans
       fira-math
+      figtree
     ];
   };
 }
