@@ -141,6 +141,7 @@ in {
       perl # Needed by the zsh zplug plugin manager
       libreoffice
       mupdf # Lightweight pdf/ebook viewer
+      pcmanfm
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
