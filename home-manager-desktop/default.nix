@@ -14,7 +14,9 @@
         enable = true;
         iconTheme = {
           name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
+          package = pkgs.catppuccin-papirus-folders.override {
+            accent = "mauve";
+          };
         };
       };
       qt.platformTheme.name = lib.mkDefault "gtk3";
