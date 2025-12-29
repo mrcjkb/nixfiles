@@ -11,24 +11,25 @@
       nu
       */
       ''
+        mkdir $"($nu.cache-dir)/zoxide"
         zoxide init nushell
           | str replace 'let-env ' "\$\$env." --all
           | str replace 'def-env' 'def --env' --all
-          | save -f ~/.zoxide.nu
+          | save -f $"($nu.cache-dir)/zoxide/init.nu"
 
-        mkdir ~/.cache/starship
+        mkdir $"($nu.cache-dir)/starship"
         starship init nu
-          | save -f ~/.cache/starship/init.nu
-        mkdir ~/.local/share/atuin/
+          | save -f $"($nu.cache-dir)/starship/init.nu"
+        mkdir $"($nu.cache-dir)/atuin"
         atuin init nu
-          | save -f ~/.local/share/atuin/init.nu
-        mkdir ~/.cache/carapace
+          | save -f $"($nu.cache-dir)/atuin/init.nu"
+        mkdir $"($nu.cache-dir)/carapace"
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
         carapace _carapace nushell
-          | save --force ~/.cache/carapace/init.nu
-        mkdir ~/.cache/jj
+          | save -f $"($nu.cache-dir)/carapace/init.nu"
+        mkdir $"($nu.cache-dir)/jj"
         jj util completion nushell
-          | save --force ~/.cache/jj/completions-jj.nu
+          | save -f $"($nu.cache-dir)/jj/completions.nu"
       '';
   };
 
@@ -134,11 +135,11 @@
           }
         }
 
-        source ~/.zoxide.nu
-        source ~/.cache/starship/init.nu
-        source ~/.local/share/atuin/init.nu
-        source ~/.cache/carapace/init.nu
-        source ~/.cache/jj/completions-jj.nu
+        source $"($nu.cache-dir)/zoxide/init.nu"
+        source $"($nu.cache-dir)/starship/init.nu"
+        source $"($nu.cache-dir)/atuin/init.nu"
+        source $"($nu.cache-dir)/carapace/init.nu"
+        source $"($nu.cache-dir)/jj/completions.nu"
         source ${nu-scripts}/sourced/filesystem/cdpath.nu
         source ${nu-scripts}/sourced/filesystem/up.nu
         # source ${nu-scripts}/sourced/api_wrappers/wolframalpha.nu
