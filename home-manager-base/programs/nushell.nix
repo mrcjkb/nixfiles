@@ -51,7 +51,7 @@
         let carapace_completer = {|spans: list<string>|
           carapace $spans.0 nushell ...$spans
           | from json
-          | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+          | if ($in | default [] | any {|| $in.display | str starts-with "ERR"}) { null } else { $in }
         }
         # This completer will use carapace by default
         let external_completer = {|spans|
@@ -66,14 +66,8 @@
             $spans
           }
           match $spans.0 {
-            # carapace completions are incorrect for nu
-            nu => $fish_completer
-            # fish completes commits and branch names in a nicer way
-            git => $fish_completer
             # carapace doesn't have completions for asdf
             asdf => $fish_completer
-            # carapace doesn't have proper completions for nix
-            nix => $fish_completer
             # use zoxide completions for zoxide commands
             __zoxide_z | __zoxide_zi => $zoxide_completer
             _ => $carapace_completer
