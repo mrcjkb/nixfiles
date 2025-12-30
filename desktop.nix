@@ -54,9 +54,6 @@ in {
       enable = lib.mkDefault true;
       nssmdns4 = lib.mkDefault true;
     };
-    onedrive = {
-      enable = lib.mkDefault true;
-    };
     gvfs.enable = lib.mkDefault true; # MTP support for PCManFM
     logind.settings = {
       Login = {

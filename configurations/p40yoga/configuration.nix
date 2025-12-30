@@ -52,23 +52,7 @@
   };
 
   home-manager = {
-    users."${defaultUser}" = {
-      home.stateVersion = "22.05";
-      xdg.configFile."onedrive/sync_list".text = ''
-        Books/Engineering
-        Books/Programming
-        Documents/Apartments
-        Documents/Tiko
-        Marisa
-        Other
-        Pictures/Scans
-        Pictures/Screenshots
-        Pictures/Wallpapers
-        Videos/AllDevices
-        Videos/P40Yoga
-        e-mail_attachments
-      '';
-    };
+    users."${defaultUser}".home.stateVersion = "22.05";
   };
 
   # This value determines the NixOS release from which the default
