@@ -36,7 +36,7 @@
 
   home-manager = {
     users.mrcjk = {
-      home.stateVersion = config.system.stateVersion;
+      home.stateVersion = "26.05";
     };
   };
 
