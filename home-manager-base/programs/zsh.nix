@@ -1,5 +1,9 @@
-{pkgs}: {
+{
+  pkgs,
+  config,
+}: {
   enable = true;
+  dotDir = "${config.xdg.configHome}/zsh";
   history = {
     size = 100000;
   };
