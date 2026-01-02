@@ -18,6 +18,8 @@
     })
   ];
 
+  boot.loader.timeout = lib.mkDefault 2;
+
   nix = let
     substituters = [
       "https://mrcjkb.cachix.org"
