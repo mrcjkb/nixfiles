@@ -139,6 +139,11 @@ in {
       libreoffice
       mupdf # Lightweight pdf/ebook viewer
       pcmanfm
+      # needed to enable thumbnails
+      ffmpeg-headless
+      ffmpegthumbnailer
+      gdk-pixbuf
+      webp-pixbuf-loader
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized

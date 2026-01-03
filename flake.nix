@@ -45,6 +45,10 @@
       url = "github:nushell/nu_scripts";
       flake = false;
     };
+    bash-env-nushell = {
+      url = "github:tesujimath/bash-env-nushell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -103,10 +107,13 @@
                   tmux-sessionizer.overlays.default
                   xmonad-session.overlays.default
                   jj.overlays.default
-                  (_: prev: {
+                  (_: prev: let
+                    system = prev.stend.hostPlatform.system;
+                  in {
                     jujutsu = prev.jujutsu.overrideAttrs (oa: {
                       doCheck = false;
                     });
+                    bash-env-nushell = inputs.bash-env-nushell.packages.${system}.default;
                   })
                 ];
               }
