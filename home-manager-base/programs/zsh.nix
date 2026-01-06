@@ -1,6 +1,4 @@
-{
-  pkgs,
-}: {
+{pkgs}: {
   enable = true;
   history = {
     size = 100000;
