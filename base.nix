@@ -372,8 +372,9 @@
     fontDir.enable = lib.mkDefault true;
     enableGhostscriptFonts = lib.mkDefault true;
     packages = with pkgs; [
-      excalifont # Used by excalidraw
       nerd-fonts.jetbrains-mono
+      excalifont # Used by excalidraw
+      (pkgs.callPackage ./pkgs/figtree.nix {}) # https://github.com/NixOS/nixpkgs/pull/473902
       roboto
       lato # Font used in tiko presentations, etc.
       fira-sans
