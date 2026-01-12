@@ -296,6 +296,7 @@
       carapace # Multi-shell multi-command argument completer
       fish # Needed for nushell's fish_completer
       pandoc
+      tectonic # --pdf-backend for pandoc
       jq
       binutils
       dig # Domain information groper
