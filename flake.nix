@@ -197,6 +197,8 @@
           ];
         };
       in {
+        legacyPackages = pkgs;
+
         devShells = {
           default = shell;
         };

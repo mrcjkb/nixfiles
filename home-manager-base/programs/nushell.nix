@@ -1,8 +1,13 @@
 {
-  package,
+  pkgs,
   nu-scripts,
-}: {
-  inherit package;
+}: let
+  inherit
+    (pkgs)
+    nushellPlugins
+    lib
+    ;
+in {
   enable = true;
 
   envFile = {
@@ -129,6 +134,10 @@
           }
         }
 
+        # FIXME: The skim plugin in nixpkgs is incompatible with the
+        # nushell version in nixpkgs.
+        # plugin add ${lib.getExe nushellPlugins.skim};
+
         source $"($nu.cache-dir)/zoxide/init.nu"
         source $"($nu.cache-dir)/starship/init.nu"
         source $"($nu.cache-dir)/atuin/init.nu"
@@ -158,35 +167,36 @@
         # source ${nu-scripts}/custom-completions/tar/tar-completions.nu
         # source ${nu-scripts}/custom-completions/typst/typst-completions.nu
 
+        alias :e = nvim
+        alias :o = nvim -c :Oil
+        alias :q = exit
+        alias :qa = exit
+        alias :te = nvim -c :te -c :startinsert
+        alias :w = cowsay 'You are not in neovim anymore.'
+        alias :wa = cowsay 'You are not in neovim anymore.'
+        alias :wq = exit
+        alias :x = exit
+        alias br = broot
+        alias cat = bat --style=plain
         alias cd = z
+        alias cloc = tokei
+        alias diffview = nvim -c :DiffviewOpen
         alias eza = eza --icons --git
+        alias fzf = sk # skim
+        alias grep = rg
+        alias htop = btm
         alias la = eza --icons --git -a
         alias ll = eza --icons --git -l
         alias lt = eza --icons --tree
-        alias br = broot
-        alias grep = rg
-        alias cat = bat --style=plain
-        alias cloc = tokei
-        alias top = btm
-        alias htop = btm
-        alias vi = nvim
-        alias vis = nvim -c S
-        alias vim = nvim
-        alias nv = neovide
-        alias :e = nvim
-        alias :q = exit
-        alias :qa = exit
-        alias :wq = exit
-        alias :x = exit
-        alias :te = nvim -c :te -c :startinsert
-        alias :o = nvim -c :Oil
-        alias :w = cowsay 'You are not in neovim anymore.'
-        alias :wa = cowsay 'You are not in neovim anymore.'
+        alias ndiff = nvim -c :DiffviewOpen
         alias neogit = nvim -c :Neogit
         alias ngit = nvim -c :Neogit
-        alias diffview = nvim -c :DiffviewOpen
-        alias ndiff = nvim -c :DiffviewOpen
         alias nlog = nvim -c :DiffviewFileHistory
+        alias nv = neovide
+        alias top = btm
+        alias vi = nvim
+        alias vim = nvim
+        alias vis = nvim -c S
 
         alias "nix devel" = nix develop -c nu
 

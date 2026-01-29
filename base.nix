@@ -264,7 +264,7 @@
       manix
       manix-fzf
       nix-diff # Explain why 2 nix derivations differ
-      fzf
+      skim
       ripgrep
       ripgrep-all # Also search in PDFs, e-books, zip, tar.gz, and more (with rga-fzf integration)
       fd

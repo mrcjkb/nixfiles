@@ -10,8 +10,7 @@
   gh = import ./gh.nix;
   zoxide = import ./zoxide.nix pkgs.zoxide;
   nushell = import ./nushell.nix {
-    package = pkgs.nushell;
-    inherit nu-scripts;
+    inherit nu-scripts pkgs;
   };
   zsh = import ./zsh.nix {inherit pkgs;};
   direnv = import ./direnv.nix;
