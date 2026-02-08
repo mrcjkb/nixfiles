@@ -257,7 +257,6 @@
       haskellPackages.hoogle
       nil
       git-credential-keepassxc
-      gitu # CLI magit clone
       difftastic
       delta # A syntax-highlighting pager for git, diff, and grep output
       cachix # Nix package caching
