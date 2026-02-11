@@ -34,9 +34,9 @@
       lm = ["log" "-r" "mine()"];
       bto = ["bookmark" "track" "--remote=origin" "glob:*"];
       # log my heads, showing only those with a description
-      my-heads = ["log" "-r" "\heads(mine()) & description(regex:'.+')\""];
+      my-heads = ["log" "-r" "heads(mine()) & description(regex:'.+')"];
       # (this is more useful than 'jj bookmark list')
-      my-bookmarks = ["log" "-r" "\heads(mine()) & bookmarks(regex:'.+')\""];
+      my-bookmarks = ["log" "-r" "heads(mine()) & bookmarks(regex:'.+')"];
     };
     fsmonitor = {
       backend = "watchman";
