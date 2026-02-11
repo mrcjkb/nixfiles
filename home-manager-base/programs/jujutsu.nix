@@ -32,7 +32,7 @@
       l = ["log" "-r" "(main..@):: | (main..@)-"];
       ll = ["log" "-r" "(master..@):: | (master..@)-"];
       lm = ["log" "-r" "mine()"];
-      bto = ["bookmark" "track" "glob:*@origin"];
+      bto = ["bookmark" "track" "--remote=origin" "glob:*"];
       # log my heads, showing only those with a description
       my-heads = ["log" "-r" "\heads(mine()) & description(regex:'.+')\""];
       # (this is more useful than 'jj bookmark list')
