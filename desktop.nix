@@ -137,7 +137,7 @@ in {
       tmate # ssh terminal sharing
       perl # Needed by the zsh zplug plugin manager
       libreoffice
-      mupdf # Lightweight pdf/ebook viewer
+      zathura # Lightweight pdf/ebook viewer
       pcmanfm
       # needed to enable thumbnails
       ffmpeg-headless
