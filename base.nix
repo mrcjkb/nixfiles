@@ -172,8 +172,8 @@
     automatic-timezoned.enable = lib.mkDefault true;
     geoclue2.enable = lib.mkDefault true;
     clamav = {
-      daemon.enable = lib.mkDefault true;
-      updater.enable = lib.mkDefault true;
+      daemon.enable = lib.mkDefault false;
+      updater.enable = lib.mkDefault false;
     };
     fwupd.enable = true;
     libinput.touchpad.disableWhileTyping = lib.mkDefault true;
