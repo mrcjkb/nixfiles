@@ -276,7 +276,7 @@
       whois
       file
       moreutils
-      neofetch # System information CLI
+      fastfetch # System information CLI
       zip
       unzip
       eza # Replacement for ls
