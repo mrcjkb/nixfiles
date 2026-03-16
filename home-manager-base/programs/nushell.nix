@@ -27,6 +27,7 @@ in {
           | save -f $"($nu.cache-dir)/starship/init.nu"
         mkdir $"($nu.cache-dir)/atuin"
         atuin init nu
+          | str replace "job spawn -d atuin" "job spawn --tag atuin" --all  # TODO: Remove when https://github.com/atuinsh/atuin/issues/3268 fixed
           | save -f $"($nu.cache-dir)/atuin/init.nu"
         mkdir $"($nu.cache-dir)/carapace"
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
