@@ -4176,7 +4176,6 @@
         "nvim-bqf": "nvim-bqf",
         "nvim-highlight-colors": "nvim-highlight-colors",
         "nvim-lastplace": "nvim-lastplace",
-        "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
         "oil-nvim": "oil-nvim",
@@ -4207,11 +4206,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1773659410,
-        "narHash": "sha256-Xgw2jnxx+VrY3hE53TZIqMKbM4ibjAEKWVHKjinHrng=",
+        "lastModified": 1773758476,
+        "narHash": "sha256-nDNaNI+FPD1L4HYD8voqRY6KiJVA3gJs5d89g09ubkw=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "59f30c2f8d878be9f152f0179589b553ea1b4c71",
+        "rev": "9dd397c4bdac3813253b52ad9e9e6a13aa338db7",
         "type": "github"
       },
       "original": {
@@ -4268,22 +4267,6 @@
       "original": {
         "owner": "mrcjkb",
         "repo": "nvim-lastplace",
-        "type": "github"
-      }
-    },
-    "nvim-ts-context-commentstring": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733574156,
-        "narHash": "sha256-AjDM3+n4+lNBQi8P2Yrh0Ab06uYCndBQT9TX36rDbOM=",
-        "owner": "JoosepAlviste",
-        "repo": "nvim-ts-context-commentstring",
-        "rev": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "JoosepAlviste",
-        "repo": "nvim-ts-context-commentstring",
         "type": "github"
       }
     },
