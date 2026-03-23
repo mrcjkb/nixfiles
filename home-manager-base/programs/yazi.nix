@@ -6,6 +6,7 @@
   plugins = with pkgs.yaziPlugins; {
     inherit
       mount
+      smart-paste
       starship
       vcs-files
       ;
@@ -23,6 +24,11 @@
         on = "M";
         run = "plugin mount";
         desc = "Manage mounts";
+      }
+      {
+        on = "p";
+        run = "plugin smart-paste";
+        desc = "Paste into the hovered directory or CWD";
       }
       {
         on = ["g" "c"];
