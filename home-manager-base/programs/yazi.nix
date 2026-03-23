@@ -6,7 +6,6 @@
   plugins = with pkgs.yaziPlugins; {
     inherit
       diff
-      git
       relative-motions
       mount
       smart-paste
@@ -17,9 +16,6 @@
   initLua =
     # lua
     ''
-      require('git').setup {
-        order = 1500,
-      }
       require('relative-motions'):setup {
         show_numbers = 'relative',
       }
@@ -27,20 +23,6 @@
         hide_flags = true,
       }
     '';
-  settings = {
-    plugin.prepend_fetchers = [
-      {
-        id = "git";
-        url = "*";
-        run = "git";
-      }
-      {
-        id = "git";
-        url = "*/";
-        run = "git";
-      }
-    ];
-  };
   keymap = {
     mgr.prepend_keymap = [
       {
