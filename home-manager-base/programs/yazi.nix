@@ -5,6 +5,7 @@
   enableBashIntegration = true;
   plugins = with pkgs.yaziPlugins; {
     inherit
+      relative-motions
       mount
       smart-paste
       starship
@@ -14,12 +15,20 @@
   initLua =
     # lua
     ''
-      require("starship"):setup {
+      require('relative-motions'):setup {
+        show_numbers = 'relative',
+      }
+      require('starship'):setup {
         hide_flags = true,
       }
     '';
   keymap = {
     mgr.prepend_keymap = [
+      {
+        on = "m";
+        run = "plugin relative-motions";
+        desc = "Trigger a new relative motion";
+      }
       {
         on = "M";
         run = "plugin mount";
