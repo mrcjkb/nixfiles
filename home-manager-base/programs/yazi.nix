@@ -5,6 +5,7 @@
   enableBashIntegration = true;
   plugins = with pkgs.yaziPlugins; {
     inherit
+      diff
       relative-motions
       mount
       smart-paste
@@ -24,6 +25,11 @@
     '';
   keymap = {
     mgr.prepend_keymap = [
+      {
+        on = "<C-d>";
+        run = "plugin diff";
+        desc = "Diff the selected with the hovered file";
+      }
       {
         on = "m";
         run = "plugin relative-motions";
