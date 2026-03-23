@@ -5,21 +5,29 @@
   enableBashIntegration = true;
   plugins = with pkgs.yaziPlugins; {
     inherit
-      vcs-files
       mount
+      starship
+      vcs-files
       ;
   };
+  initLua =
+    # lua
+    ''
+      require("starship"):setup {
+        hide_flags = true,
+      }
+    '';
   keymap = {
     mgr.prepend_keymap = [
-      {
-        on = ["g" "c"];
-        run = "plugin vcs-files";
-        desc = "Show Git file changes";
-      }
       {
         on = "M";
         run = "plugin mount";
         desc = "Manage mounts";
+      }
+      {
+        on = ["g" "c"];
+        run = "plugin vcs-files";
+        desc = "Show Git file changes";
       }
     ];
   };
