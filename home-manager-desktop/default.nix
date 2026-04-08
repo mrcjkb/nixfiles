@@ -12,6 +12,7 @@
       };
       gtk = {
         enable = true;
+        gtk4.theme = null; # disable legacy behaviour
         iconTheme = {
           name = "Papirus-Dark";
           package = pkgs.catppuccin-papirus-folders.override {

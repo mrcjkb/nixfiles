@@ -5,10 +5,11 @@
 }: {
   enable = true;
   lfs.enable = true;
-  # signing = {
-  #   key = "F31C0D0D5BBB0289";
-  #   signByDefault = false;
-  # };
+  signing = {
+    format = null; # Disable legacy behaviour
+    #   key = "F31C0D0D5BBB0289";
+    #   signByDefault = false;
+  };
   settings = {
     user = {
       name = "Marc Jakobi";

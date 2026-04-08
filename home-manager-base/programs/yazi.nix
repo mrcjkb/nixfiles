@@ -3,6 +3,7 @@
   enableNushellIntegration = true;
   enableZshIntegration = true;
   enableBashIntegration = true;
+  shellWrapperName = "y";
   plugins = with pkgs.yaziPlugins; {
     inherit
       diff
