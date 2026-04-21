@@ -205,6 +205,7 @@
         "lp"
         "bluetooth"
         "adbusers"
+        "abuild" # for alpine linux packaging
       ];
       shell = pkgs.zsh;
     };
