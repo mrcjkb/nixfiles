@@ -4057,11 +4057,11 @@
         "yanky": "yanky"
       },
       "locked": {
-        "lastModified": 1776763944,
-        "narHash": "sha256-dZ3UWBpYomYKktztkQYMLyyhll+Zn6mnhTf2DUC3BYE=",
+        "lastModified": 1776772556,
+        "narHash": "sha256-zONPjJaZ6co/Cf38LOzN45Wc3biBTGIg2v0LalaOxuw=",
         "owner": "mrcjkb",
         "repo": "nvim",
-        "rev": "ac7430849ae491a84d3f6d4306e6e4abc8df5900",
+        "rev": "1ed374685fcbc4f3acbacc2b4360a888a233fd8e",
         "type": "github"
       },
       "original": {
