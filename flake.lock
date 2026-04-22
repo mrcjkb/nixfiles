@@ -3072,11 +3072,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745680380,
-        "narHash": "sha256-Z8PknjkmIr/8ZCH+dmc2Pc+UltiOr7/oKg37PXuVvuU=",
+        "lastModified": 1776847253,
+        "narHash": "sha256-w7OQkgP4Kd+aoFpDy5C3LS0ULb4dE6l0csptPzUH3AI=",
         "owner": "ners",
         "repo": "nix-monitored",
-        "rev": "60f3baa4701d58eab86c2d1d9c3d7e820074d461",
+        "rev": "aa239967ef2e78bc06073a905a7d3997f4ced30f",
         "type": "github"
       },
       "original": {
