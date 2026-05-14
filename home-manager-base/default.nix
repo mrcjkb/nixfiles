@@ -21,10 +21,6 @@
           source = ./configs/bat/.;
           recursive = true;
         };
-        joplin = {
-          source = ./configs/joplin/.;
-          recursive = true;
-        };
       };
       home.file = {
         ".yubico" = {

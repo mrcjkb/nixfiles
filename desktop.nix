@@ -107,8 +107,6 @@ in {
       yubioath-flutter # Yubico Authenticator Desktop app
       librsvg # Small SVG rendering library
       brave
-      # FIXME: electron is marked as insecure
-      # joplin-desktop # Joplin (notes, desktop app)
       simplescreenrecorder
       inkscape-with-extensions
       # shutter # Screenshots

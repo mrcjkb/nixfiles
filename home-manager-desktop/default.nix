@@ -30,10 +30,6 @@
           source = ./configs/Yubico/.;
           recursive = true;
         };
-        joplin-desktop = {
-          source = ./configs/joplin-desktop/.;
-          recursive = true;
-        };
       };
       home = {
         file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
