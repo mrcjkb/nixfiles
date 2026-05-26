@@ -348,17 +348,19 @@
   };
 
   security = {
-    pam = {
-      u2f.enable = lib.mkDefault true;
-      yubico = {
-        enable = lib.mkDefault true;
-        debug = lib.mkDefault true;
-        mode = "challenge-response";
-      };
-      services = {
-        login.u2fAuth = lib.mkDefault true;
-      };
-    };
+    # Use yubikey for login & sudo requests
+    # pam = {
+      # u2f.enable = lib.mkDefault true;
+      # yubico = {
+      #   enable = lib.mkDefault true;
+      #   debug = lib.mkDefault true;
+      #   mode = "challenge-response";
+      # };
+      # services = {
+      #   login.u2fAuth = lib.mkDefault true;
+      # };
+    # };
+
     # audit rules to log every single time a program is attempted to be run.
     # auditd.enable = lib.mkDefault true;
     audit = {
