@@ -200,7 +200,6 @@
         "wheel" # Enable ‘sudo’ for the user.
         "networkmanager"
         "video"
-        "docker"
         "scanner"
         "lp"
         "bluetooth"
@@ -341,7 +340,7 @@
 
   virtualisation = {
     docker = {
-      enable = lib.mkDefault true;
+      enable = lib.mkDefault false;
       autoPrune.enable = lib.mkDefault true;
       enableOnBoot = lib.mkDefault true;
     };
