@@ -7,9 +7,6 @@
     #   source "$(fzf-share)/completion.bash"
     # fi
   '';
-  # promptInit = ''
-  #   eval "$(starship init bash)"
-  # '';
   shellAliases = {
     # mkdir = "mkdir -p";
     # vi = "nvim";

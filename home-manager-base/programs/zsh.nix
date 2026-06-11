@@ -5,7 +5,6 @@
   };
   initContent = ''
     . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    eval "$(starship init zsh)"
     eval "$(direnv hook zsh)"
     eval "$(atuin init zsh)"
     eval "$(zoxide init zsh)" # Must be called at the end

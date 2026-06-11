@@ -3963,7 +3963,6 @@
         "nu-scripts": "nu-scripts",
         "nur": "nur",
         "nvim": "nvim",
-        "starship-jj-patch": "starship-jj-patch",
         "stylix": "stylix",
         "tmux-sessionizer": "tmux-sessionizer",
         "xmonad-session": "xmonad-session"
@@ -4140,18 +4139,6 @@
         "owner": "kkharji",
         "repo": "sqlite.lua",
         "type": "github"
-      }
-    },
-    "starship-jj-patch": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-smHoryUubMwTx7+KgbLLiI4yZ1xRrfPCOdet0awKG60=",
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff"
       }
     },
     "stylix": {

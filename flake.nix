@@ -69,10 +69,6 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    starship-jj-patch = {
-      url = "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/5772.diff";
-      flake = false;
-    };
     jj.url = "github:jj-vcs/jj";
   };
 
@@ -103,7 +99,7 @@
               defaultUser
               userEmail
               ;
-            inherit (inputs) starship-jj-patch nu-scripts;
+            inherit (inputs) nu-scripts;
           };
         modules =
           [

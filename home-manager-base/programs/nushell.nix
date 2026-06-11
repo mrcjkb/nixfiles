@@ -23,8 +23,6 @@ in {
           | save -f $"($nu.cache-dir)/zoxide/init.nu"
 
         mkdir $"($nu.cache-dir)/starship"
-        starship init nu
-          | save -f $"($nu.cache-dir)/starship/init.nu"
         mkdir $"($nu.cache-dir)/atuin"
         atuin init nu
           | str replace "job spawn -d atuin" "job spawn --tag atuin" --all  # TODO: Remove when https://github.com/atuinsh/atuin/issues/3268 fixed

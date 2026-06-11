@@ -4,7 +4,6 @@
   defaultUser ? "mrcjk",
   userEmail ? "marc@jakobi.dev",
   nu-scripts,
-  starship-jj-patch,
   config,
   ...
 }: {
@@ -283,14 +282,6 @@
       eza # Replacement for ls
       killall
       zoxide # Fast alternative to autojump and z-lua
-      # Shell theme (nu, zsh, fish, ...)
-      (starship.overrideAttrs (oa: {
-        patches =
-          (oa.patches or [])
-          ++ [
-            starship-jj-patch
-          ];
-      }))
       carapace # Multi-shell multi-command argument completer
       fish # Needed for nushell's fish_completer
       pandoc
