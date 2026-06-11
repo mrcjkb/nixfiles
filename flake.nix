@@ -22,17 +22,26 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # home-manager.url = "/home/mrcjk/git/github/forks/home-manager/";
     nvim = {
       url = "github:mrcjkb/nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xmonad-session.url = "github:mrcjkb/.xmonad";
-    feedback.url = "github:NorfairKing/feedback";
-    # nurl.url = "github:nix-community/nurl";
-    atuin.url = "github:atuinsh/atuin";
-    tmux-sessionizer.url = "github:jrmoulton/tmux-sessionizer";
-    # stylix.url = "github:mrcjkb/stylix";
+    xmonad-session = {
+      url = "github:mrcjkb/.xmonad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    feedback = {
+      url = "github:NorfairKing/feedback";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    atuin = {
+      url = "github:atuinsh/atuin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    tmux-sessionizer = {
+      url = "github:jrmoulton/tmux-sessionizer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
