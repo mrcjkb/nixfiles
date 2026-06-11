@@ -5,6 +5,7 @@
   userEmail ? "marc@jakobi.dev",
   nu-scripts,
   starship-jj-patch,
+  config,
   ...
 }: {
   imports = [
@@ -369,7 +370,11 @@
         "-a exit,always -F arch=b64 -S execve"
       ];
     };
-    sudo.execWheelOnly = lib.mkDefault true;
+    sudo = {
+      enable = !config.security.run0.enableSudoAlias;
+      execWheelOnly = lib.mkDefault true;
+    };
+    run0.enableSudoAlias = lib.mkDefault true;
   };
 
   fonts = {
