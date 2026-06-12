@@ -18,5 +18,9 @@
       shell = [jj-starship];
       format = "$output ";
     };
+    vcs.disabled = true;
+    git_branch.disabled = true;
+    git_commit.disabled = true;
+    nix_shell.format = "'[$symbol $name]($style) '";
   };
 }
