@@ -365,7 +365,10 @@
       enable = !config.security.run0.enableSudoAlias;
       execWheelOnly = lib.mkDefault true;
     };
-    run0.enableSudoAlias = lib.mkDefault true;
+    run0 = {
+      enable = lib.mkDefault true;
+      enableSudoAlias = lib.mkDefault true;
+    };
   };
 
   fonts = {
