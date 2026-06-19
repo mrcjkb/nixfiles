@@ -5,9 +5,9 @@
   enableNushellIntegration = true;
   settings = {
     character = {
-      success_symbol = " ✔(green)";
-      error_symbol = " ✘(red)";
-      use_symbol_for_status = true;
+      success_symbol = " ✔(bold green)";
+      error_symbol = " ✘(bold red)";
+      vicmd_symbol = "[❮](bold green)";
     };
     memory_usage = {disabled = true;};
     custom.jj = let
