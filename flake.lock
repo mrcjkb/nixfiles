@@ -2257,11 +2257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781989573,
-        "narHash": "sha256-npfH7Zv7t1akX/ArqCNro4zU4ViPlghLaPnbEfHbCxk=",
+        "lastModified": 1782051614,
+        "narHash": "sha256-xBRAhYLEXcjp8hM2tkkTTLb6PWU7VDxDoogl25g7Ezs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "78e7d8b13ecd7f5256a5c11ce216876164099d9f",
+        "rev": "d1ccd0721ec599866622665f3651e19e6e2d4c6a",
         "type": "github"
       },
       "original": {
@@ -2309,11 +2309,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1781825682,
-        "narHash": "sha256-lhtsOifkYku3fW+jRHF/dQBa5woSO3MuXRCBJkiYk3g=",
+        "lastModified": 1782034476,
+        "narHash": "sha256-n+7/yExM5Zfol0ZSGXDtMeyG8aL4ttjC6D1++BmomlU=",
         "owner": "jj-vcs",
         "repo": "jj",
-        "rev": "760330afb9475494e1dd5841eb7d84153e4bfbea",
+        "rev": "64d3cea6451776de5bd1079e2715c61da7aa4243",
         "type": "github"
       },
       "original": {
@@ -3571,11 +3571,11 @@
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1781888588,
-        "narHash": "sha256-LvlMu54RPvez7WyQ4RDfUUfRMGeY3EwLQbH2Y3e856A=",
+        "lastModified": 1782071756,
+        "narHash": "sha256-OfcKKaoVOdI7y+LZp3MajAPWF0QyuBllwJkCCTe1Y1Q=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "6e38e891d85876a180882ce44533182105e3ba1a",
+        "rev": "800e6223ab0f91bf1097c4be2b9a3647b9d666e3",
         "type": "github"
       },
       "original": {
@@ -3590,11 +3590,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1782002703,
-        "narHash": "sha256-6EVflEa97cLSz3BOSqvy1bxk1zsNBFYlkwqxN54wcsU=",
+        "lastModified": 1782090313,
+        "narHash": "sha256-u8gFcPNUlBDSGfW86SWmclW2T2jkATYxZAt2P7MtThc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "f73a6d5aa2a92165bcd26b7b44c9e83407c6eafd",
+        "rev": "8e69f02501d984e62f1e28b5d25ad5e4002c09b6",
         "type": "github"
       },
       "original": {
