@@ -6,6 +6,7 @@ package: {
   enableZshIntegration = true;
   clearDefaultKeybinds = true;
   settings = {
+    command = "nu";
     cursor-style = "block_hollow";
     window-decoration = "none";
     window-show-tab-bar = "never";
