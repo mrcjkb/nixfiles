@@ -236,7 +236,7 @@
       BROWSER = lib.mkDefault "brave";
       TZ = lib.mkDefault "Europe/Berlin";
       # BAT_THEME = lib.mkDefault "Material-darker";
-      SSH_AUTH_SOCK = lib.mkDefault "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
+      # SSH_AUTH_SOCK = lib.mkDefault "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
       PAGER = lib.mkDefault "page -q 90000 -z 90000";
       MANPAGER = lib.mkDefault "page -t man";
       NIX_AUTO_RUN = lib.mkDefault "1";
