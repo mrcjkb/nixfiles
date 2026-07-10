@@ -95,6 +95,21 @@
         ];
         mandatoryFeatures = [];
       }
+      {
+        systems = ["aarch64-linux"];
+        sshUser = "mrcjkb";
+        sshKey = "/home/mrcjk/.ssh/community-builders";
+        hostName = "aarch64-build-box.nix-community.org";
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
+        # protocol = "ssh-ng";
+        supportedFeatures = [
+          "benchmark"
+          "big-parallel"
+          "kvm"
+          "nixos-test"
+        ];
+        mandatoryFeatures = [];
+      }
     ];
   };
 
