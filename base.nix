@@ -233,7 +233,7 @@
       XDG_DATA_HOME = lib.mkDefault "\${HOME}/.local/share";
       XDG_RUNTIME_DIR = lib.mkDefault "/run/user/1000";
       EDITOR = lib.mkDefault "nvim";
-      BROWSER = lib.mkDefault "brave";
+      BROWSER = lib.mkDefault "zen";
       TZ = lib.mkDefault "Europe/Berlin";
       # BAT_THEME = lib.mkDefault "Material-darker";
       # SSH_AUTH_SOCK = lib.mkDefault "\${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh";
