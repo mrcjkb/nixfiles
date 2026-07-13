@@ -29,7 +29,8 @@ package: {
       "ctrl+b>j=new_split:down"
       "ctrl+b>k=new_split:up"
       "ctrl+b>l=new_split:right"
-      "ctrl+b>f=toggle_split_zoom"
+      "ctrl+b>z=toggle_split_zoom"
+      "ctrl+b>x=close_surface"
       "ctrl++=increase_font_size:1"
       "ctrl+==increase_font_size:1"
       "ctrl+-=decrease_font_size:1"
@@ -52,6 +53,11 @@ package: {
       "shift+arrow_left=adjust_selection:left"
       "shift+arrow_right=adjust_selection:right"
       "shift+arrow_up=adjust_selection:up"
+      "ctrl+b>Escape=end_key_sequence"
+      "ctrl+[=scroll_page_up"
+      "ctrl+]=scroll_page_down"
+      "ctrl+b>g=scroll_to_top"
+      "ctrl+b>shift+g=scroll_to_bottom"
     ];
   };
 }
