@@ -6,7 +6,9 @@ package: {
   enableZshIntegration = true;
   clearDefaultKeybinds = true;
   settings = {
-    command = "nu";
+    # Since nushell is not a POSIX shell, it cannot execute global shell rcfiles.
+    # Workaround: launch via zsh.
+    command = "zsh -l -c 'exec nu'";
     cursor-style = "block_hollow";
     window-decoration = "none";
     window-show-tab-bar = "never";
