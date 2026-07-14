@@ -75,6 +75,7 @@
   ignores = [
     "Session.vim"
     ".hlint.yaml"
+    ".serena"
     "/tags"
     "!/*/tags"
     ".direnv"

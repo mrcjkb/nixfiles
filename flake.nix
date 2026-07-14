@@ -42,6 +42,10 @@
       url = "github:jrmoulton/tmux-sessionizer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    serena = {
+      url = "github:oraios/serena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -153,6 +157,7 @@
               environment.systemPackages = [
                 nvim-pkg
                 inputs.feedback.packages.${system}.default
+                inputs.serena.packages.${system}.default
               ];
             }
           ];
