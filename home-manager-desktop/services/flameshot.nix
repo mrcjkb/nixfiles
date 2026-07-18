@@ -4,6 +4,7 @@
   settings = {
     General = {
       disabledTrayIcon = true;
+      useX11LegacyScreenshot = true;
       # showStartupLaunchMessage = false;
     };
   };
