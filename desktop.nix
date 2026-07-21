@@ -124,7 +124,7 @@ in {
       imagemagick
       ghostscript
       nitrogen # Wallpaper browser/setter for X11
-      jmtpfs # MTP (Android phone) support
+      # jmtpfs # MTP (Android phone) support - TODO: Find an alternative?
       mpv-unwrapped # Media player
       # kcat # A generic non-JVM producer and consumer for Apache Kafka
       paperkey # Print OpenPGP or GnuPG on paper
