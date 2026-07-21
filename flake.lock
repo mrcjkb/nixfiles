@@ -4493,11 +4493,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1784593397,
-        "narHash": "sha256-6jbH1cwjNV/Q+u5+9RzKCuWtWC1JmfiURz2F5F9612Y=",
+        "lastModified": 1784622390,
+        "narHash": "sha256-X2vBnNsUq1gYJgN+Nri38aM1vZCya4P6PtAHTTFBgeM=",
         "owner": "mrcjkb",
         "repo": ".xmonad",
-        "rev": "13b55f1f527e790eb0ee7797a713366edc0bea3e",
+        "rev": "8dc1d5027a9f4610b70f159987896276de971bad",
         "type": "github"
       },
       "original": {
