@@ -2,9 +2,78 @@ pkgs: {
   enable = true;
   enableMcpIntegration = true;
   settings = {
+    lsp = true;
     permission = {
       ask = "allow";
-      bash = "ask";
+      bash = {
+        "*" = "ask";
+
+        # Basic utilities
+        "basename *" = "allow";
+        "bat *" = "allow";
+        "cat *" = "allow";
+        "comm *" = "allow";
+        "df *" = "allow";
+        "diff *" = "allow";
+        "dirname *" = "allow";
+        "du *" = "allow";
+        "echo *" = "allow";
+        "eza *" = "allow";
+        "fd *" = "allow";
+        "file *" = "allow";
+        "find *" = "allow";
+        "grep *" = "allow";
+        "head *" = "allow";
+        "jq *" = "allow";
+        "ls *" = "allow";
+        "nproc" = "allow";
+        "pwd" = "allow";
+        "realpath *" = "allow";
+        "rg *" = "allow";
+        "sort *" = "allow";
+        "stat *" = "allow";
+        "tail *" = "allow";
+        "timeout *" = "allow";
+        "uname *" = "allow";
+        "uniq *" = "allow";
+        "wc *" = "allow";
+        "whereis *" = "allow";
+        "which *" = "allow";
+        "whoami" = "allow";
+
+        # Version control
+        "jj log*" = "allow";
+        "jj show*" = "allow";
+        "jj diff*" = "allow";
+        "git diff*" = "allow";
+        "git log*" = "allow";
+        "git show*" = "allow";
+        "git status*" = "allow";
+
+        # Nix
+        "nix *" = "allow";
+        "nix run *" = "ask";
+        "nix store *" = "ask";
+
+        # Haskell
+        "cabal build*" = "allow";
+        "cabal test*" = "allow";
+        "ghc --version*" = "allow";
+        "ghc-pkg describe*" = "allow";
+        "ghc-pkg list*" = "allow";
+        "ghci --version*" = "allow";
+        "runghc --version*" = "allow";
+
+        # Rust
+        "cargo build*" = "allow";
+        "cargo nextest*" = "allow";
+        "cargo test*" = "allow";
+        "cargo check*" = "allow";
+        "cargo clippy*" = "allow";
+
+        # Pre-commit
+        "pre-commit run*" = "allow";
+      };
       edit = "deny";
       write = "deny";
     };
