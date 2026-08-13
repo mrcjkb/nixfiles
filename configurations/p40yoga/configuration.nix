@@ -12,7 +12,7 @@
       # Configure keymap in X11
       xkb = {
         layout = "us,de";
-        variant = "altgr-intl,";
+        variant = "altgr-intl";
         options = "grp:alt_shift_toggle";
       };
     };
