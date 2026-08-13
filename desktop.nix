@@ -143,6 +143,7 @@ in {
       ffmpegthumbnailer
       gdk-pixbuf
       webp-pixbuf-loader
+      chrysalis # keyboardio GUI configurator
     ];
     sessionVariables = {
       # Workaround for cursor theme not being recognized
@@ -207,4 +208,7 @@ in {
   };
 
   xdg = import ./xdg;
+
+  # Workaround for chrysalis not being able to talk to keyboard
+  system.activationScripts.chrysalis-fix.text =  ''chmod o+rw /dev/ttyACM0'';
 }

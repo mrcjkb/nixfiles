@@ -183,7 +183,7 @@
     upower.enable = lib.mkDefault true;
     # Yubikey
     pcscd.enable = lib.mkDefault true;
-    udev.packages = [pkgs.yubikey-personalization];
+    # udev.packages = [pkgs.yubikey-personalization];
     automatic-timezoned.enable = lib.mkDefault true;
     geoclue2.enable = lib.mkDefault true;
     clamav = {
