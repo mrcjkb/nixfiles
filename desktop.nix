@@ -209,5 +209,5 @@ in {
   xdg = import ./xdg;
 
   # Workaround for chrysalis not being able to talk to keyboard
-  system.activationScripts.chrysalis-fix.text =  ''chmod o+rw /dev/ttyACM0'';
+  system.activationScripts.chrysalis-fix.text = ''chmod o+rw /dev/ttyACM0'';
 }
