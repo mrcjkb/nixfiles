@@ -336,6 +336,7 @@
       # terminal sharing: `dumbpipe connect-tcp ... & tty-share ...`
       tty-share
       dumbpipe
+      rsync # fast copying, good for lots of small files
     ];
   };
 
