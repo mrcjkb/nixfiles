@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./steam.nix
@@ -39,6 +43,10 @@
       home.stateVersion = "26.05";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    framework-tool
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
