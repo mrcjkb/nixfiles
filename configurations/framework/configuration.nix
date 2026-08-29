@@ -46,6 +46,8 @@
 
   environment.systemPackages = with pkgs; [
     framework-tool
+    framework-tool-tui
+    fw-ectool
   ];
 
   # This value determines the NixOS release from which the default
