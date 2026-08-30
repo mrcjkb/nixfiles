@@ -120,7 +120,7 @@
         enable = lib.mkDefault true;
         efiSupport = lib.mkDefault true;
         device = "nodev";
-        configurationLimit = 20;
+        configurationLimit = 4;
       };
     };
     tmp = {
