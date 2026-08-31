@@ -399,6 +399,7 @@
       fira-sans
       fira-math
       font-awesome
+      open-sans # Sa lek's CV
     ];
   };
 }
