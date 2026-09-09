@@ -108,7 +108,7 @@ in {
       librsvg # Small SVG rendering library
       brave
       simplescreenrecorder
-      inkscape-with-extensions
+      inkscape
       # shutter # Screenshots
       signal-cli
       signal-desktop
