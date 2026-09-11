@@ -222,6 +222,19 @@
         "abuild" # for alpine linux packaging
       ];
       shell = pkgs.zsh;
+      # needed for rootless podman
+      subUidRanges = [
+        {
+          startUid = 100000;
+          count = 65536;
+        }
+      ];
+      subGidRanges = [
+        {
+          startGid = 100000;
+          count = 65536;
+        }
+      ];
     };
   };
 
@@ -351,6 +364,10 @@
       enable = lib.mkDefault false;
       autoPrune.enable = lib.mkDefault true;
       enableOnBoot = lib.mkDefault true;
+    };
+    podman.enable = lib.mkDefault true;
+    containers.policy = {
+      default = [{type = "insecureAcceptAnything";}];
     };
   };
 
