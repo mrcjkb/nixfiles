@@ -241,7 +241,7 @@
         framework = mkDesktopSystem {
           extraModules = [
             ./configurations/framework/configuration.nix
-            inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+            inputs.nixos-hardware.nixosModules.framework-16-amd-ai-300-series
           ];
         };
         home-pc = mkDesktopSystem {
