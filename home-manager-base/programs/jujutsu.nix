@@ -18,12 +18,7 @@
     git = {
       private-commits = "description(glob:'wip:*') | description(glob:'private:*')";
     };
-    templates = {
-      git_push_bookmark = "\"mj/push-\" ++ change_id.short()";
-      commit_trailers = ''
-        format_signed_off_by_trailer(self)
-      '';
-    };
+    templates.git_push_bookmark = "\"mj/push-\" ++ change_id.short()";
     ui = {
       paginate = "never";
       editor = "nvim";
