@@ -1,4 +1,12 @@
 pkgs: {
+  package = pkgs.opencode.overrideAttrs (oa: {
+    patches = oa.patches or [] ++ [
+      (pkgs.fetchpatch {
+        url = "https://patch-diff.githubusercontent.com/raw/anomalyco/opencode/pull/48397.patch";
+        hash = "sha256-xklNYgVH/zQBPb4/T39PGlCLOWcXPozRpMy1HR3JqRE=";
+      })
+    ];
+  });
   enable = true;
   enableMcpIntegration = true;
   settings = {
