@@ -18,8 +18,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,14 +70,29 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jj.url = "github:jj-vcs/jj";
-    zen-browser.url = "github:mrcjkb/zen-browser-flake";
+    jj = {
+      url = "github:jj-vcs/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:mrcjkb/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     # Neovim
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    neorocks.url = "github:nvim-neorocks/neorocks";
-    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neorocks = {
+      url = "github:nvim-neorocks/neorocks";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    gen-luarc = {
+      url = "github:mrcjkb/nix-gen-luarc-json";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spell-de-dictionary = {
       url = "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.spl";
       flake = false;
@@ -147,7 +168,10 @@
       url = "github:folke/persistence.nvim";
       flake = false;
     };
-    nvim-lastplace.url = "github:mrcjkb/nvim-lastplace";
+    nvim-lastplace = {
+      url = "github:mrcjkb/nvim-lastplace";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neotest = {
       url = "github:nvim-neotest/neotest";
       flake = false;
