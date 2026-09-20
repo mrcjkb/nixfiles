@@ -10,13 +10,13 @@
       config.nixos.modules.desktop-system
       config.nixos.modules.home-manager-desktop
       inputs.nix-monitored.nixosModules.default
-      config.nixos.modules.xmonad-session
+      config.nixos.modules.xmonad
+      config.nixos.modules.neovim
       inputs.stylix.nixosModules.stylix
       inputs.nixos-generators.nixosModules.all-formats
     ];
 
     environment.systemPackages = [
-      inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}.nvim
       inputs.feedback.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.serena.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

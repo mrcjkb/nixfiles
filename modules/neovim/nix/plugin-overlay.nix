@@ -1,0 +1,66 @@
+{inputs}: final: prev: let
+  mkNvimPlugin = src: pname:
+    prev.pkgs.vimUtils.buildVimPlugin {
+      inherit pname src;
+      version = src.lastModifiedDate;
+      # nvimRequireCheck hooks fail because this overlay
+      # ignores dependencies.
+      doCheck = false;
+    };
+  # EXAMPLE:
+  # patchNvimPlugin inputs.foo [
+  #   (final.fetchpatch {
+  #     # fix(hacks): use new search state structure for neovim 0.13+
+  #     url = "https://patch-diff.githubusercontent.com/raw/folke/flash.nvim/pull/492.patch";
+  #     hash = "sha256-9Fm5eRqmv8HlUf7h0UYbJ+TB5T081ruhMpwkDEUsoYc=";
+  #   })
+  # ];
+  patchNvimPlugin = src: pname: patches:
+    (mkNvimPlugin src pname)
+      .overrideAttrs (attrs: {
+      inherit patches;
+    });
+in {
+  nvimPlugins = {
+    plenary = mkNvimPlugin inputs.plenary "plenary.nvim";
+    sqlite = mkNvimPlugin inputs.sqlite "sqlite.nvim";
+    nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
+    vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
+    nvim-highlight-colors = mkNvimPlugin inputs.nvim-highlight-colors "nvim-highlight-colors";
+    flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
+    eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
+    gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
+    surround = mkNvimPlugin inputs.surround "nvim-surround";
+    substitute = mkNvimPlugin inputs.substitute "substitute.nvim";
+    persistence = mkNvimPlugin inputs.persistence "persistence.nvim";
+    nvim-lastplace = mkNvimPlugin inputs.nvim-lastplace "nvim-lastplace";
+    crates-nvim = mkNvimPlugin inputs.crates-nvim "crates-nvim";
+    neotest = mkNvimPlugin inputs.neotest "neotest";
+    nio = mkNvimPlugin inputs.nio "nvim-nio";
+    neotest-busted = mkNvimPlugin inputs.neotest-busted "neotest-busted";
+    schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
+    jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
+    live-rename-nvim = mkNvimPlugin inputs.live-rename-nvim "live-rename.nvim";
+    fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
+    illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
+    actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
+    treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
+    vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
+    telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
+    telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
+    telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
+    telescope-zf-native = mkNvimPlugin inputs.telescope-zf-native "telescope-zf-native.nvim";
+    lualine = mkNvimPlugin inputs.lualine "lualine";
+    oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
+    harpoon = mkNvimPlugin inputs.harpoon "harpoon";
+    gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";
+    nvim-bqf = mkNvimPlugin inputs.nvim-bqf "nvim-bqf";
+    quicker-nvim = mkNvimPlugin inputs.quicker-nvim "quicker.nvim";
+    yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
+    nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
+    term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
+    other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
+    which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
+    snacks-nvim = mkNvimPlugin inputs.snacks-nvim "snacks.nvim";
+  };
+}

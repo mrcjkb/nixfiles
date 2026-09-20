@@ -1,0 +1,19 @@
+if vim.g.vim_matchup_setup_done then
+  return
+end
+
+-- enabled per buffer
+vim.g.matchup_treesitter_enabled = false
+
+vim.api.nvim_create_autocmd('FileType', {
+  once = true,
+  pattern = '*',
+  group = vim.api.nvim_create_augroup('vim_matchup-setup', {}),
+  callback = function()
+    if vim.g.vim_matchup_setup_done then
+      return
+    end
+    vim.g.vim_matchup_setup_done = true
+    vim.cmd.packadd('vim-matchup')
+  end,
+})

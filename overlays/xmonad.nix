@@ -1,1 +1,1 @@
-{...}: [(import ../xmonad/nix/overlay.nix {})]
+{...}: [(import ../modules/xmonad/nix/overlay.nix {})]

@@ -19,3 +19,8 @@ cabal.project.local
 hie.yaml
 tags
 TAGS
+
+# Neovim
+.luarc.json
+time.txt
+.pre-commit-config.yaml

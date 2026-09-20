@@ -1,40 +1,51 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  findModulesList,
+  ...
+}: {
   perSystem = {
     system,
     pkgs,
     ...
   }: let
-    xmonadOverlay = import ../xmonad/nix/overlay.nix {};
-
     pre-commit-check = inputs.git-hooks.lib.${system}.run {
       src = ../.;
       hooks = {
         alejandra = {
           enable = true;
           excludes = [
-            "xmonad/xmobar-app/default.nix"
-            "xmonad/xmonadrc/default.nix"
+            "modules/xmonad/xmobar-app/default.nix"
+            "modules/xmonad/xmonadrc/default.nix"
           ];
         };
         cabal2nix = {
           enable = true;
-          files = "^xmonad/.*\\.cabal$";
+          files = "^modules/xmonad/.*\\.cabal$";
         };
         editorconfig-checker = {
           enable = true;
-          files = "^xmonad/";
+          files = "^modules/xmonad/";
         };
         markdownlint = {
           enable = true;
-          files = "^xmonad/.*\\.md$";
+          files = "^modules/xmonad/.*\\.md$";
         };
         fourmolu = {
           enable = true;
-          files = "^xmonad/.*\\.hs$";
+          files = "^modules/xmonad/.*\\.hs$";
         };
         hlint = {
           enable = true;
-          files = "^xmonad/.*\\.hs$";
+          files = "^modules/xmonad/.*\\.hs$";
+        };
+        stylua = {
+          enable = true;
+          files = "^modules/neovim/.*\\.lua$";
+        };
+        luacheck = {
+          enable = true;
+          files = "^modules/neovim/.*\\.lua$";
         };
       };
     };
@@ -62,17 +73,21 @@
       inputsFrom = [xmonadShell];
       buildInputs = with pkgs; [
         alejandra
+        lua-language-server
+        vim-language-server
+        nil
       ];
       shellHook =
         pre-commit-check.shellHook
         + ''
-          (cd xmonad && gen-hie --cabal > hie.yaml)
+          (cd modules/xmonad && gen-hie --cabal > hie.yaml)
+          ln -fs ${pkgs.luarc-json} modules/neovim/.luarc.json
         '';
     };
   in {
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
-      overlays = [xmonadOverlay];
+      overlays = lib.flatten (map (path: import path {inherit lib inputs;}) (findModulesList ../overlays));
     };
 
     legacyPackages = pkgs;
@@ -80,6 +95,11 @@
     packages = {
       xmonadrc = pkgs.haskellPackages.xmonadrc;
       xmobar-app = pkgs.haskellPackages.xmobar-app;
+      nvim = pkgs.nvim-pkg;
+      nvim-dev = pkgs.nvim-dev;
+      nvim-profile = pkgs.nvim-profile;
+      nightly = pkgs.neovim-nightly;
+      luarc-json = pkgs.luarc-json;
     };
 
     devShells = {
