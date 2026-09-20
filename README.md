@@ -15,7 +15,9 @@ nix build .#images.rpi4
 
 ## Neovim
 
-My Neovim config (derivations and Lua) lives in [`modules/neovim`](./modules/neovim).
+My Neovim config (the derivation overlay and Lua sources) lives in
+[`overlays/neovim`](./overlays/neovim), with the NixOS module in
+[`modules/neovim.nix`](./modules/neovim.nix).
 It can be run with:
 
 ```sh
@@ -28,6 +30,7 @@ a Nix flake template for Neovim derivations.
 ## XMonad / XMobar
 
 My XMonad config (Haskell: `xmonadrc` and `xmobar-app`) lives in
+[`overlays/xmonad`](./overlays/xmonad), with the NixOS session module in
 [`modules/xmonad`](./modules/xmonad). The status bar can be run with:
 
 ```sh
