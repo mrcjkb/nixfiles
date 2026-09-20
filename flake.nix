@@ -24,10 +24,7 @@
       url = "github:mrcjkb/nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xmonad-session = {
-      url = "github:mrcjkb/.xmonad";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zen-browser.url = "github:mrcjkb/zen-browser-flake";
     feedback = {
       url = "github:NorfairKing/feedback";
       inputs.nixpkgs.follows = "nixpkgs";

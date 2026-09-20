@@ -10,7 +10,7 @@
       config.nixos.modules.desktop-system
       config.nixos.modules.home-manager-desktop
       inputs.nix-monitored.nixosModules.default
-      inputs.xmonad-session.nixosModules.default
+      config.nixos.modules.xmonad-session
       inputs.stylix.nixosModules.stylix
       inputs.nixos-generators.nixosModules.all-formats
     ];

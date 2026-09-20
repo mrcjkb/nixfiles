@@ -2,3 +2,20 @@ Session.vim
 result*
 workspace
 .direnv
+
+# Haskell build artifacts
+dist
+dist-newstyle/
+.hie/
+.htf/
+.stack-work/
+.ghc.environment.*
+cabal.project.local
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+*.hie
+hie.yaml
+tags
+TAGS

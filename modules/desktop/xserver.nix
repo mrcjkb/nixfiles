@@ -1,6 +1,8 @@
 {lib, ...}: {
   services = {
     xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
       xkb = {
         layout = lib.mkDefault "us";
         variant = lib.mkDefault "altgr-intl";

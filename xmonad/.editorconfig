@@ -1,0 +1,14 @@
+root = false
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = unset
+trim_trailing_whitespace = false
+
+[*.sh]
+indent_style = unset
+
+[*.rasi]
+indent_style = unset

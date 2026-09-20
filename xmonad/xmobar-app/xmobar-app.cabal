@@ -1,0 +1,30 @@
+name:          xmobar-app
+version:       1.0
+synopsis:      My Modified xmobar app
+author:        Marc Jakobi <mrcjkb89@outlook.com>
+maintainer:    Marc Jakobi <mrcjkb89@outlook.com>
+category:      Graphics
+build-type:    Simple
+cabal-version: >= 1.10
+    
+library xmobar-lib
+  exposed-modules:
+    Xmobar.Config
+  other-modules:
+    Xmobar.Plugin.VolumeBar
+    Xmobar.Plugin.Profile
+  hs-source-dirs: lib
+  ghc-options: -Wall -Werror -with-rtsopts=-V0 -threaded
+  build-depends: base >= 4.7
+    , xmobar
+    , process
+    , extra
+  default-language: Haskell2010
+
+executable xmobar-app
+  main-is: xmobar.hs
+  ghc-options: -Wall -Werror -rtsopts -with-rtsopts=-V0 -threaded
+  build-depends: base
+    , xmobar
+    , xmobar-lib
+  default-language: Haskell2010
