@@ -14,9 +14,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "/home/mrcjk/git/github/forks/nix/nixpkgs";
     nur.url = "github:nix-community/NUR";
-    # NOTE: nixos-hardware doesn't have a nixpkgs input
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -66,211 +64,19 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jj.url = "github:jj-vcs/jj";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    git-hooks,
-    flake-utils,
-    ...
-  }: let
-    supportedSystems = builtins.attrNames nixpkgs.legacyPackages;
-
-    searx = ./searx.nix;
-
-    mkNixosSystem = {
-      extraModules ? [],
-      defaultUser ? "mrcjk",
-      userEmail ? "marc@jakobi.dev",
-      system ? "x86_64-linux",
-      nixosSystem ? nixpkgs.lib.nixosSystem,
-    }:
-      nixosSystem {
-        inherit system;
-        specialArgs =
-          inputs
-          // {
-            inherit
-              defaultUser
-              userEmail
-              ;
-            inherit (inputs) nu-scripts;
-          };
-        modules =
-          [
-            inputs.home-manager.nixosModules.default
-            (
-              {...}: {
-                nixpkgs.overlays = with inputs; [
-                  nur.overlays.default
-                  atuin.overlays.default
-                  tmux-sessionizer.overlays.default
-                  xmonad-session.overlays.default
-                  jj.overlays.default
-                  (_: prev: let
-                    system = prev.stend.hostPlatform.system;
-                  in {
-                    jujutsu = prev.jujutsu.overrideAttrs (oa: {
-                      doCheck = false;
-                    });
-                    bash-env-nushell = inputs.bash-env-nushell.packages.${system}.default;
-                  })
-                ];
-              }
-            )
-            ./base.nix
-          ]
-          ++ extraModules;
-      };
-
-    mkDesktopSystem = {
-      extraModules ? [],
-      defaultUser ? "mrcjk",
-      userEmail ? "marc@jakobi.dev",
-      system ? "x86_64-linux",
-      nvim-pkg ? inputs.nvim.packages.${system}.nvim,
-    }:
-      mkNixosSystem {
-        inherit
-          defaultUser
-          userEmail
-          system
-          ;
-        extraModules =
-          extraModules
-          ++ [
-            inputs.nix-monitored.nixosModules.default
-            ./desktop.nix
-            inputs.xmonad-session.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-            inputs.nixos-generators.nixosModules.all-formats
-            {
-              environment.systemPackages = [
-                nvim-pkg
-                inputs.feedback.packages.${system}.default
-                inputs.serena.packages.${system}.default
-              ];
-            }
-          ];
-      };
-
-    mkInstaller = {
-      extraModules ? [],
-      userEmail ? "marc@jakobi.dev",
-      system ? "x86_64-linux",
-    }:
-      mkDesktopSystem {
-        inherit userEmail system;
-        defaultUser = "nixos";
-        nvim-pkg = inputs.nvim.packages.x86_64-linux.nvim;
-        extraModules =
-          extraModules
-          ++ [
-            ./configurations/installer/configuration.nix
-          ];
-      };
-
-    rpi4 = let
-      system = "aarch64-linux";
-    in
-      mkNixosSystem {
-        inherit system;
-        extraModules = [
-          inputs.nixos-hardware.nixosModules.raspberry-pi-4
-          ./configurations/rpi4/configuration.nix
-        ];
-      };
+  outputs = inputs: let
+    findModulesList = import ./lib/find-modules-list.nix {inherit (inputs.nixpkgs) lib;};
   in
-    flake-utils.lib.eachSystem supportedSystems (
-      system: let
-        pkgs = import nixpkgs {inherit system;};
-        pre-commit-check = git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            alejandra.enable = true;
-          };
-        };
-        shell = pkgs.mkShell {
-          name = "nixfiles-devShell";
-          inherit (pre-commit-check) shellHook;
-          buildInputs = with pkgs; [
-            alejandra
-          ];
-        };
-      in {
-        legacyPackages = pkgs;
-
-        devShells = {
-          default = shell;
-        };
-
-        checks = {
-          inherit pre-commit-check;
-        };
-
-        formatter = let
-          config = self.checks.${system}.pre-commit-check.config;
-          inherit (config) package configFile;
-          script = ''
-            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-          '';
-        in
-          pkgs.writeShellScriptBin "pre-commit-run" script;
-      }
-    )
-    // {
-      nixosConfigurations = {
-        # Framework firmware is updateable through fwupd, so it's enabled by default.
-        #
-        # To get the latest firmware, run:
-        #
-        # ```sh
-        # $ fwupdmgr refresh
-        # $ fwupdmgr update
-        # ```
-        #
-        framework = mkDesktopSystem {
-          extraModules = [
-            ./configurations/framework/configuration.nix
-            inputs.nixos-hardware.nixosModules.framework-16-amd-ai-300-series
-          ];
-        };
-        home-pc = mkDesktopSystem {
-          extraModules = [
-            ./configurations/home-pc/configuration.nix
-            searx
-          ];
-        };
-        p40yoga = mkDesktopSystem {
-          extraModules = [
-            ./configurations/p40yoga/configuration.nix
-            searx
-          ];
-        };
-        # nix build .#nixosConfigurations.installer.config.system.build.isoImage
-        # USB_PATH=/dev/change/me
-        # cp -vi result/iso/*.iso $USB_PATH
-        installer = mkInstaller {};
-      };
-
-      images = {
-        rpi4 =
-          (self.nixosConfigurations.rpi4.extendModules {
-            modules = ["${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"];
-          }).config.system.build.sdImage;
-      };
-
-      helpers = {
-        inherit mkNixosSystem mkDesktopSystem mkInstaller;
-      };
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux" "aarch64-linux"];
+      imports = builtins.concatMap findModulesList [./modules ./profiles ./hosts];
     };
 }

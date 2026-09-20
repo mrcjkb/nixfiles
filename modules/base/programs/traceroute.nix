@@ -1,0 +1,3 @@
+{...}: {
+  programs.traceroute.enable = true;
+}

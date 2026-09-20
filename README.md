@@ -4,8 +4,11 @@
 
 My NixOS system configs and dotfiles.
 
-## Raspberry Pi 4 image
+## Outputs
 
-```nix
-nix build .#nixosConfigurations.images.rpi4
+```sh
+nixos-rebuild switch --flake .#<host>
+
+nix build .#nixosConfigurations.<host>.config.system.build.toplevel
+nix build .#images.rpi4
 ```

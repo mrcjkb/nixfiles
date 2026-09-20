@@ -1,0 +1,3 @@
+{...}: {
+  programs.slock.enable = true;
+}

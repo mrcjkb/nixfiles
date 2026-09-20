@@ -1,0 +1,3 @@
+{...}: {
+  xdg = import ./value.nix;
+}
