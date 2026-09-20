@@ -11,7 +11,6 @@
       config.nixos.modules.home-manager-desktop
       inputs.nix-monitored.nixosModules.default
       config.nixos.modules.xmonad
-      config.nixos.modules.neovim
       inputs.stylix.nixosModules.stylix
       inputs.nixos-generators.nixosModules.all-formats
     ];

@@ -39,7 +39,7 @@ with final.lib; let
 
     nvimConfig = final.stdenv.mkDerivation {
       name = "nvim-config";
-      src = ../nvim;
+      src = ./nvim;
 
       buildPhase = ''
         mkdir -p $out/nvim
@@ -64,10 +64,10 @@ with final.lib; let
       */
       ''
         vim.loader.enable()
-        vim.opt.rtp:prepend('${../lib}')
+        vim.opt.rtp:prepend('${./lib}')
       ''
       + ""
-      + (builtins.readFile ../nvim/init.lua)
+      + (builtins.readFile ./nvim/init.lua)
       + ""
       + optionalString (devPlugins != []) (
         /*

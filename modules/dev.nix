@@ -15,37 +15,37 @@
         alejandra = {
           enable = true;
           excludes = [
-            "modules/xmonad/xmobar-app/default.nix"
-            "modules/xmonad/xmonadrc/default.nix"
+            "overlays/xmonad/xmobar-app/default.nix"
+            "overlays/xmonad/xmonadrc/default.nix"
           ];
         };
         cabal2nix = {
           enable = true;
-          files = "^modules/xmonad/.*\\.cabal$";
+          files = "^overlays/xmonad/.*\\.cabal$";
         };
         editorconfig-checker = {
           enable = true;
-          files = "^modules/xmonad/";
+          files = "^overlays/xmonad/";
         };
         markdownlint = {
           enable = true;
-          files = "^modules/xmonad/.*\\.md$";
+          files = "^overlays/xmonad/.*\\.md$";
         };
         fourmolu = {
           enable = true;
-          files = "^modules/xmonad/.*\\.hs$";
+          files = "^overlays/xmonad/.*\\.hs$";
         };
         hlint = {
           enable = true;
-          files = "^modules/xmonad/.*\\.hs$";
+          files = "^overlays/xmonad/.*\\.hs$";
         };
         stylua = {
           enable = true;
-          files = "^modules/neovim/.*\\.lua$";
+          files = "^overlays/neovim/.*\\.lua$";
         };
         luacheck = {
           enable = true;
-          files = "^modules/neovim/.*\\.lua$";
+          files = "^overlays/neovim/.*\\.lua$";
         };
       };
     };
@@ -80,8 +80,8 @@
       shellHook =
         pre-commit-check.shellHook
         + ''
-          (cd modules/xmonad && gen-hie --cabal > hie.yaml)
-          ln -fs ${pkgs.luarc-json} modules/neovim/.luarc.json
+          (cd overlays/xmonad && gen-hie --cabal > hie.yaml)
+          ln -fs ${pkgs.luarc-json} overlays/neovim/.luarc.json
         '';
     };
   in {

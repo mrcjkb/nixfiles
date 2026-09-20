@@ -4,9 +4,9 @@ with final.lib; let
   haskellPackages = prev.haskellPackages.override (old: {
     overrides = final.lib.composeExtensions (old.overrides or (_: _: {})) (
       self: super: let
-        xmonadrc = buildFromSdist (self.callPackage ../xmonadrc/default.nix {});
+        xmonadrc = buildFromSdist (self.callPackage ./xmonadrc/default.nix {});
         xmobar-app = buildFromSdist (
-          overrideCabal (self.callPackage ../xmobar-app/default.nix {})
+          overrideCabal (self.callPackage ./xmobar-app/default.nix {})
           (old: {
             configureFlags =
               (old.configureFlags or [])

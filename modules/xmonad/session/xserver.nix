@@ -4,7 +4,7 @@
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      config = lib.readFile ../xmonadrc/xmonad.hs;
+      config = lib.readFile ../../../overlays/xmonad/xmonadrc/xmonad.hs;
       extraPackages = hpkgs:
         with hpkgs; [
           xmonadrc
