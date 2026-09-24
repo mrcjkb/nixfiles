@@ -90,8 +90,14 @@
       };
       plugin = [
         "@dietrichgebert/ponytail"
+        "caveman-opencode-plugin"
       ];
       instructions = [
+        ''
+          RULE: NEVER write code comments.
+          Code should be self-explanatory, but not overly verbose.
+          Doc comments (e.g. haddock, rustdoc) are okay for public API, but should be kept concise, using the diataxis REFERENCE format.
+        ''
         ''
           RULE: You must NEVER use the 'edit' or 'write' tools to modify code.
           These tools are permanently denied.
