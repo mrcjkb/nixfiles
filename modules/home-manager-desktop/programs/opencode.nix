@@ -9,6 +9,19 @@
             hash = "sha256-xklNYgVH/zQBPb4/T39PGlCLOWcXPozRpMy1HR3JqRE=";
           })
         ];
+      postPatch = ''
+        ${oa.postPatch or ""}
+        substituteInPlace "packages/ui/src/i18n/en.ts" \
+          --replace-fail 'Thinking - {{topic}}' 'Clanking - {{topic}}'
+        substituteInPlace "packages/ui/src/i18n/en.ts" \
+          --replace-fail 'Thinking' 'Clanking'
+        substituteInPlace "packages/ui/src/i18n/en.ts" \
+          --replace-fail 'Choose model variant' 'Choose clanker variant'
+        substituteInPlace "packages/ui/src/i18n/en.ts" \
+          --replace-fail 'Choose model' 'Choose clanker'
+        substituteInPlace "packages/ui/src/i18n/en.ts" \
+          --replace-fail 'Type your answer...' 'Tell the clanker...'
+      '';
     });
     enable = true;
     enableMcpIntegration = true;
