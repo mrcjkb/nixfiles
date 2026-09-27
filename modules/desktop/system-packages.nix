@@ -32,7 +32,6 @@
       gh # GitHub CLI tool
       element-desktop # Matrix client
       overskride # bluetooth client UI
-      tmate # ssh terminal sharing
       perl # Needed by the zsh zplug plugin manager
       libreoffice
       zathura # Lightweight pdf/ebook viewer
