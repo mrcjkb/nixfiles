@@ -33,6 +33,7 @@
           "*" = "ask";
 
           # Basic utilities
+          "awk *" = "allow";
           "basename *" = "allow";
           "bat *" = "allow";
           "cat *" = "allow";
@@ -54,10 +55,12 @@
           "pwd" = "allow";
           "realpath *" = "allow";
           "rg *" = "allow";
+          "sed *" = "allow";
           "sort *" = "allow";
           "stat *" = "allow";
           "tail *" = "allow";
           "timeout *" = "allow";
+          "treefmt *" = "allow";
           "uname *" = "allow";
           "uniq *" = "allow";
           "wc *" = "allow";
@@ -66,13 +69,13 @@
           "whoami" = "allow";
 
           # Version control
-          "jj log*" = "allow";
-          "jj show*" = "allow";
-          "jj diff*" = "allow";
-          "git diff*" = "allow";
-          "git log*" = "allow";
-          "git show*" = "allow";
-          "git status*" = "allow";
+          "jj log *" = "allow";
+          "jj show *" = "allow";
+          "jj diff *" = "allow";
+          "git diff *" = "allow";
+          "git log *" = "allow";
+          "git show *" = "allow";
+          "git status *" = "allow";
 
           # Nix
           "nix *" = "allow";
@@ -80,23 +83,18 @@
           "nix store *" = "ask";
 
           # Haskell
-          "cabal build*" = "allow";
-          "cabal test*" = "allow";
-          "ghc --version*" = "allow";
-          "ghc-pkg describe*" = "allow";
-          "ghc-pkg list*" = "allow";
-          "ghci --version*" = "allow";
-          "runghc --version*" = "allow";
+          "cabal *" = "allow";
+          "ghc --version *" = "allow";
+          "ghc-pkg describe *" = "allow";
+          "ghc-pkg list *" = "allow";
+          "ghci --version *" = "allow";
+          "runghc --version *" = "allow";
 
           # Rust
-          "cargo build*" = "allow";
-          "cargo nextest*" = "allow";
-          "cargo test*" = "allow";
-          "cargo check*" = "allow";
-          "cargo clippy*" = "allow";
+          "cargo *" = "allow";
 
           # Pre-commit
-          "pre-commit run*" = "allow";
+          "pre-commit run *" = "allow";
         };
         edit = "deny";
         write = "deny";
