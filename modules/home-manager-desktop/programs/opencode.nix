@@ -9,19 +9,6 @@
             hash = "sha256-xklNYgVH/zQBPb4/T39PGlCLOWcXPozRpMy1HR3JqRE=";
           })
         ];
-      postPatch = ''
-        ${oa.postPatch or ""}
-        substituteInPlace "packages/ui/src/i18n/en.ts" \
-          --replace-fail 'Thinking - {{topic}}' 'Clanking - {{topic}}'
-        substituteInPlace "packages/ui/src/i18n/en.ts" \
-          --replace-fail 'Thinking' 'Clanking'
-        substituteInPlace "packages/ui/src/i18n/en.ts" \
-          --replace-fail 'Choose model variant' 'Choose clanker variant'
-        substituteInPlace "packages/ui/src/i18n/en.ts" \
-          --replace-fail 'Choose model' 'Choose clanker'
-        substituteInPlace "packages/ui/src/i18n/en.ts" \
-          --replace-fail 'Type your answer...' 'Tell the clanker...'
-      '';
     });
     enable = true;
     enableMcpIntegration = true;
@@ -104,12 +91,12 @@
         "caveman-opencode-plugin"
       ];
       instructions = [
-        ''
+        (pkgs.writeText "NO_CODE_COMMENTS.md" ''
           RULE: NEVER write code comments.
           Code should be self-explanatory, but not overly verbose.
           Doc comments (e.g. haddock, rustdoc) are okay for public API, but should be kept concise, using the diataxis REFERENCE format.
-        ''
-        ''
+        '')
+        (pkgs.writeText "USE_SERENA.md" ''
           RULE: You must NEVER use the 'edit' or 'write' tools to modify code.
           These tools are permanently denied.
           All code modifications MUST go through the Serena MCP tools (serena_replace_symbol_body, serena_insert_after_symbol, serena_insert_before_symbol, serena_replace_content, serena_rename_symbol, serena_safe_delete_symbol).
@@ -117,9 +104,10 @@
             1. First read and understand the code semantically using serena_get_symbols_overview, serena_find_symbol, serena_read_memory.
             2. Then apply changes using the appropriate Serena symbol-level tool (replace_symbol_body, insert_after_symbol, etc.).
             3. For bulk or regex-based replacements across a file, use serena_replace_content.
-            4. Never fall back to raw text editing. If a Serena tool cannot express the change cleanly, make a suggestion, but do not edit. Before writing ANY code, ALWAYS activate the `ponytail` skill.
-        ''
-        "RULE: Search for dependencies ONLY in the nix store."
+            4. Never fall back to raw text editing. If a Serena tool cannot express the change cleanly, make a suggestion, but do not edit.
+        '')
+        (pkgs.writeText "PONYTAIL.md" "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill.")
+        (pkgs.writeText "USE_NIX_STORE.md" "RULE: Search for dependencies ONLY in the nix store if the project is built with nix.")
       ];
       skills = let
         agent-skills = pkgs.fetchFromGitHub {
