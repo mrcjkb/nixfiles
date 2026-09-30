@@ -94,7 +94,7 @@
         (pkgs.writeText "NO_CODE_COMMENTS.md" ''
           RULE: NEVER write code comments.
           Code should be self-explanatory, but not overly verbose.
-          Doc comments (e.g. haddock, rustdoc) are okay for public API, but should be kept concise, using the diataxis REFERENCE format.
+          Doc comments (e.g. haddock, rustdoc) are okay for public API, but should be kept concise, using the [diataxis REFERENCE format](https://diataxis.fr/reference/).
         '')
         (pkgs.writeText "USE_SERENA.md" ''
           RULE: You must NEVER use the 'edit' or 'write' tools to modify code.
@@ -108,6 +108,7 @@
         '')
         (pkgs.writeText "PONYTAIL.md" "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill.")
         (pkgs.writeText "USE_NIX_STORE.md" "RULE: Search for dependencies ONLY in the nix store if the project is built with nix.")
+        ./HASKELL_RULES.md
       ];
       skills = let
         agent-skills = pkgs.fetchFromGitHub {
