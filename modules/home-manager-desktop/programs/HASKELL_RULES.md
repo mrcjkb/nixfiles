@@ -26,7 +26,11 @@ Example `Foo` (the top-level module) re-exports `Config`, so the type and constr
   Examples: `Effectful.FileSystem` as `FileSystem` (not `FS`), and `Effectful.FileSystem.IO.ByteString` as `FileSystem.IO`.
 - When using a module that is designed for qualified import, refer to types via
   their  scope (e.g. `Foo.Status`, `Foo.Id`), not the submodule qualifier (`Status.Status`, `Id.Id`).
-- Prefer `.` composition over `$` application over parentheses, except a single `$` application is fine (only chain with `.` when there are two or more `$`).
+- Prefer `.` composition over `$` and prefer `$` over parentheses.
+  Exception: An expression with a single `$` is fine (only chain with `.` when there are two or more `$`).
+  Examples:
+    - `someFunc (foo x)` becomes `someFunc $ foo x`.
+    - `someFunc (foo (bar x))` becomes `someFunc . foo $ bar x`
 - Always prefer `fmap` over `map`; prefer `<$>` over `fmap` unless `fmap` helps with point-free; prefer `<&>` over `<$>` when it improves readability.
 - Prefer `<&>`/`<$>` over list comprehensions for mapping; prefer `<&>` over `<$>` when it lets you drop the parentheses around a lambda.
 - Prefer `RecordWildCards` (`{..}`) over explicit field lists in patterns and construction.
