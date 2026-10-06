@@ -115,5 +115,76 @@
     in {
       diataxis = "${agent-skills}/diataxis/SKILL.md";
     };
+    agents = {
+      rules-reviewer = ''
+        ---
+        description: Reviews a code change against the context rules.
+        mode: subagent
+        temperature: 0.1
+        permission:
+          task: deny
+        ---
+
+        Review uncommitted changes against every RULE in the system context:
+        NO_CODE_COMMENTS, HASKELL_RULES (if applicable).
+
+        One line per violation: `<rule>: <file>:L<line>: <violation>. <fix>.`
+        If none, reply `Rules OK.` Do not edit files.
+      '';
+
+      ponytail-reviewer = ''
+        ---
+        description: Reviews a code change for over-engineering.
+        mode: subagent
+        temperature: 0.1
+        permission:
+          task: deny
+        ---
+
+        Activate the `ponytail-review` skill and follow its format exactly.
+
+        Review the current uncommitted change (`jj diff` or `git diff`).
+        Over-engineering and complexity only. Make no edits.
+      '';
+
+      srp-reviewer = ''
+        ---
+        description: Reviews a code change for Single Responsibility Principle violations.
+        mode: subagent
+        temperature: 0.1
+        permission:
+          task: deny
+        ---
+
+        Review uncommitted changes for Single Responsibility Principle violations only.
+
+        A function should do one thing, and a unit (function, class, module) should
+        have exactly one reason to change. Two or more concerns in one unit is a
+        violation.
+
+        Example:
+
+        Bad: (three concerns in one function):
+            load_config(raw):
+                data = parse(raw)                 # parse
+                if data.version == 1:
+                    data = migrate_from_v1(data)  # migrate
+                return deserialize(data)          # deserialize
+
+        Good: (one concern per unit, composed at the top):
+            parse(raw)        -> raw_data
+            migrate(raw_data) -> current_data
+            deserialize(data) -> config
+            load_config(raw)  -> deserialize(migrate(parse(raw)))   # orchestration only
+
+        For each changed unit with multiple concerns, report one line:
+
+        `<file>:L<line>: <the distinct concerns>. <smallest split that separates them>.`
+
+        If every changed unit has a single concern, reply `SRP OK.`
+        Ignore style, complexity, correctness, and naming. Do not edit files.
+      '';
+    };
   };
+  xdg.configFile."opencode/plugins/reviewers.js".source = ./opencode-reviewers.js;
 }
