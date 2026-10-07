@@ -286,7 +286,9 @@ with final.lib; let
       inputs.lz-n.packages.${system}.default
     ];
 
-  extraPackages = [];
+  extraPackages = with final; [
+    jj-starship
+  ];
 
   nvim-dev = mkNeovim {
     plugins = base-plugins;

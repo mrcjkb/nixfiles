@@ -77,91 +77,118 @@ catppuccin.setup {
 }
 vim.cmd.colorscheme('catppuccin')
 
-vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
-  once = true,
-  pattern = '*',
-  group = vim.api.nvim_create_augroup('catppuccin-nvim-setup', {}),
-  callback = function()
-    if vim.g.lualine_nvim_did_setup then
-      return
-    end
-    vim.g.lualine_nvim_did_setup = true
-    -- XXX: lualine needs to be setup after setting the colorscheme
+---@return string status
+local function extra_mode_status()
+  local reg_recording = vim.fn.reg_recording()
+  if reg_recording ~= '' then
+    return ' @' .. reg_recording
+  end
+  local reg_executing = vim.fn.reg_executing()
+  if reg_executing ~= '' then
+    return ' @' .. reg_executing
+  end
+  local mode = vim.api.nvim_get_mode().mode
+  if mode == 'ix' then
+    return '^X: (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)'
+  end
+  return ''
+end
 
-    ---@return string status
-    local function extra_mode_status()
-      local reg_recording = vim.fn.reg_recording()
-      if reg_recording ~= '' then
-        return ' @' .. reg_recording
-      end
-      local reg_executing = vim.fn.reg_executing()
-      if reg_executing ~= '' then
-        return ' @' .. reg_executing
-      end
-      local mode = vim.api.nvim_get_mode().mode
-      if mode == 'ix' then
-        return '^X: (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)'
-      end
-      return ''
-    end
+local function load()
+  local catppuccin_lualine = require('catppuccin.utils.lualine')(flavour)
+  local catppuccin_palette = require('catppuccin.palettes').get_palette(flavour)
 
-    local catppuccin_lualine = require('catppuccin.utils.lualine')(flavour)
-    local C = require('catppuccin.palettes').get_palette(flavour)
-    catppuccin_lualine.normal.a.bg = C.mauve
-    catppuccin_lualine.visual.a.bg = C.blue
+  local palette = {
+    error = catppuccin_palette.red,
+    success = catppuccin_palette.green,
+    warning = catppuccin_palette.yellow,
+    info = catppuccin_palette.blue,
+    accent = catppuccin_palette.mauve,
+    muted = catppuccin_palette.overlay0,
+  }
+  local jj = require('mrcjk.jj_lualine').statusline(palette)
+  catppuccin_lualine.normal.a.bg = catppuccin_palette.mauve
+  catppuccin_lualine.visual.a.bg = catppuccin_palette.blue
 
-    require('lualine').setup {
-      globalstatus = true,
-      sections = {
-        lualine_c = {},
-        lualine_z = {
-          { extra_mode_status },
+  require('lualine').setup {
+    globalstatus = true,
+    sections = {
+      lualine_b = {
+        {
+          'branch',
+          cond = function()
+            return not jj.is_in_workspace()
+          end,
+        },
+        { jj.component, cond = jj.is_in_workspace },
+        'diff',
+        'diagnostics',
+      },
+      lualine_c = {},
+      lualine_z = {
+        { extra_mode_status },
+      },
+    },
+    options = {
+      theme = catppuccin_lualine,
+    },
+    tabline = {
+      lualine_a = {
+        {
+          'tabs',
+          mode = 1,
         },
       },
-      options = {
-        theme = catppuccin_lualine,
-      },
-      tabline = {
-        lualine_a = {
-          {
-            'tabs',
-            mode = 1,
+      lualine_b = {
+        {
+          'buffers',
+          show_filename_only = true,
+          show_bufnr = true,
+          mode = 4,
+          filetype_names = {
+            TelescopePrompt = 'Telescope',
+            dashboard = 'Dashboard',
+            alpha = 'Alpha',
           },
-        },
-        lualine_b = {
-          {
-            'buffers',
-            show_filename_only = true,
-            show_bufnr = true,
-            mode = 4,
-            filetype_names = {
-              TelescopePrompt = 'Telescope',
-              dashboard = 'Dashboard',
-              alpha = 'Alpha',
-            },
-            buffers_color = {
-              -- Same values as the general color option can be used here.
-              active = 'lualine_b_normal', -- Color for active buffer.
-              inactive = 'lualine_b_inactive', -- Color for inactive buffer.
-            },
-          },
-        },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
-      winbar = {
-        lualine_z = {
-          {
-            'filename',
-            path = 1,
-            file_status = true,
-            newfile_status = true,
+          buffers_color = {
+            -- Same values as the general color option can be used here.
+            active = 'lualine_b_normal', -- Color for active buffer.
+            inactive = 'lualine_b_inactive', -- Color for inactive buffer.
           },
         },
       },
-      extensions = { 'quickfix' },
-    }
-  end,
-})
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
+    winbar = {
+      lualine_z = {
+        {
+          'filename',
+          path = 1,
+          file_status = true,
+          newfile_status = true,
+        },
+      },
+    },
+    extensions = { 'quickfix' },
+  }
+end
+
+local function attach()
+  vim.api.nvim_create_autocmd({ 'UIEnter', 'FileType', 'TermOpen' }, {
+    once = true,
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('lualine-setup', {}),
+    callback = function()
+      if vim.g.lualine_nvim_did_setup then
+        return
+      end
+      vim.g.lualine_nvim_did_setup = true
+      load()
+    end,
+  })
+end
+
+attach()
