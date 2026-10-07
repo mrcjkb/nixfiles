@@ -117,6 +117,9 @@ local function lazy_require(moduleName)
 end
 
 local builtin = lazy_require('telescope.builtin')
+local finders = lazy_require('telescope.finders')
+local make_entry = lazy_require('telescope.make_entry')
+local pickers = lazy_require('telescope.pickers')
 
 local extensions = setmetatable({}, {
   __index = function(_, key)
@@ -161,6 +164,41 @@ local project_files = function()
       builtin.find_files(opts)
     end
   end)
+end
+
+local function jj_changed_files()
+  if vim.fn.executable('jj') ~= 1 then
+    return
+  end
+  vim.system(
+    { 'jj', 'diff', '--name-only', '--no-pager' },
+    { text = true },
+    ---@param sc vim.SystemCompleted
+    vim.schedule_wrap(function(sc)
+      if sc.code ~= 0 then
+        return
+      end
+      local files = vim
+        .iter(vim.split(sc.stdout, '\n', { trimempty = true }))
+        :filter(function(path)
+          return vim.uv.fs_stat(path) ~= nil
+        end)
+        :totable()
+      local conf = require('telescope.config').values
+      local opts = {}
+      pickers
+        .new(opts, {
+          prompt_title = 'jj Changed Files',
+          finder = finders.new_table {
+            results = files,
+            entry_maker = make_entry.gen_from_file(opts),
+          },
+          previewer = conf.grep_previewer(opts),
+          sorter = conf.file_sorter(opts),
+        })
+        :find()
+    end)
+  )
 end
 
 local function grep_current_file_type(func, extra_args)
@@ -218,6 +256,7 @@ keymap.set('n', '<M-g>', live_grep_current_file_type, { desc = 'telescope: live 
 keymap.set('n', '<leader>t*', grep_string_current_file_type, { desc = '[t]elescope: grep string [*] filetype' })
 keymap.set('n', '<leader>*', builtin.grep_string, { desc = 'telescope: grep string' })
 keymap.set('n', '<leader>tg', project_files, { desc = '[t]elescope: project files [g]it' })
+keymap.set('n', '<leader>tjj', jj_changed_files, { desc = '[t]elescope: [jj] changed files' })
 keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[t]elescope: quickfix [c] list' })
 keymap.set('n', '<leader>tq', builtin.command_history, { desc = '[t]elescope: command [q] history' })
 keymap.set('n', '<leader>tl', builtin.loclist, { desc = '[t]elescope: [l]oclist' })
