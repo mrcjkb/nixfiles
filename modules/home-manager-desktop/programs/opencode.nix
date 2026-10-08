@@ -17,7 +17,6 @@ in {
     settings = {
       lsp = true;
       permission = {
-        ask = "allow";
         bash = {
           "*" = "ask";
 
@@ -85,7 +84,7 @@ in {
           # Pre-commit
           "pre-commit run *" = "allow";
         };
-        read = {
+        external_directory = {
           "/nix/store/*" = "allow";
         };
         edit = "deny";
@@ -114,6 +113,11 @@ in {
       ''
       "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill."
       "RULE: Search for dependencies ONLY in the nix store if the project is built with nix."
+      "RULE: Apply the Single Responsibility Principle:
+        A function should do one thing, and a unit (function, class, module) should
+        have exactly one reason to change. Two or more concerns in one unit is a
+        violation.
+      "
       "RULE: Always design Haskell for QUALIFIED IMPORT. See: ${qualified-import-post}."
       (builtins.readFile ./HASKELL_RULES.md)
     ];
