@@ -51,6 +51,7 @@
       flameshot # A command-line screen capture utility
       pamixer # PulseAudio volume mixer
       bat
+      zulip
     ])
     ++ (with pkgs.nur; [
       # nextcloud-client wrapper that waits for KeePass Secret Service Integration
