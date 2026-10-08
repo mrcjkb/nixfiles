@@ -118,7 +118,7 @@ in {
         have exactly one reason to change. Two or more concerns in one unit is a
         violation.
       "
-      "RULE: Always design Haskell for QUALIFIED IMPORT. See: ${qualified-import-post}."
+      "RULE: Before designing or writing any Haskell module, READ ${qualified-import-post} and apply its pattern."
       (builtins.readFile ./HASKELL_RULES.md)
     ];
     skills = let
@@ -130,6 +130,23 @@ in {
       };
     in {
       diataxis = "${agent-skills}/diataxis/SKILL.md";
+      haskell-design = ''
+        ---
+        name: haskell-design
+        description: Design Haskell modules and libraries for qualified import. Use when designing, adding, or refactoring Haskell code.
+        ---
+
+        # Designing Haskell for qualified import
+
+        - Define a type in a module whose final component equals the type name (e.g. `Flags` in `...Trace.Flags`).
+        - The components immediately before the final one form the namespace.
+        - Put smart constructors, functions on the type, and related definitions in that module; export concise, unprefixed identifiers.
+        - Dependents import twice, qualified: one exposing only the type (namespaced up to the penultimate component), one for the definitions (including the last component).
+        - Exception: import infix operators unqualified.
+        - Use `NoImplicitPrelude`.
+
+        Full rationale: ${qualified-import-post}.
+      '';
     };
     agents = {
       rules-reviewer = ''
