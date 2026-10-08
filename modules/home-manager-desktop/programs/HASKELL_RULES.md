@@ -5,14 +5,6 @@ Typically, I use these language extensions:
 - Core: `ApplicativeDo`, `BlockArguments`, `DataKinds`, `DefaultSignatures`, `DeriveAnyClass`, `DeriveGeneric`, `DerivingStrategies`, `DerivingVia`, `ExplicitNamespaces`, `ImportQualifiedPost`, `LambdaCase`, `NoImplicitPrelude`, `OverloadedLabels`, `OverloadedRecordDot`, `OverloadedStrings`, `RecordWildCards`, `RecursiveDo`, `ScopedTypeVariables`, `TypeApplications`, `TypeFamilies`, `ViewPatterns`.
 - As needed: `ConstraintKinds`, `FlexibleContexts`, `FlexibleInstances`, `GeneralisedNewtypeDeriving`, `InstanceSigs`, `MultiParamTypeClasses`, `NamedFieldPuns`, `NumericUnderscores`, `TupleSections`, `TypeOperators`.
 
-## Design for qualified import
-
-Type and function names are _unprefixed_; the module carries the context, and call sites use qualified imports. No `FooBar`, but `Foo.Bar`.
-
-Leaf types go in their own modules and are re-exported by the parent scope as _types only_.
-Constructors and functions are reached through the submodule's qualifier.
-Example `Foo` (the top-level module) re-exports `Config`, so the type and constructor are `Foo.Config`, while functions are `Foo.Config.<function>`.
-
 ## Code style
 
 - NEVER write code comments.

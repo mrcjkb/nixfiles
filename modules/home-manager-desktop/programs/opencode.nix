@@ -2,7 +2,15 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  mrcjkb-dev = pkgs.fetchFromGitHub {
+    owner = "mrcjkb";
+    repo = "mrcjkb.github.io";
+    hash = "sha256-u8oSYcB5n3d1umnpfpKEB+tBomlgK4Wf76ChjT+/qBg=";
+    rev = "ad5ca6dcb63a2ebd11f3a99d5ff917ac4e49f5fc";
+  };
+  qualified-import-post = "${mrcjkb-dev}/posts/2026-10-06-design-for-qualified-import.markdown";
+in {
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
@@ -77,6 +85,9 @@
           # Pre-commit
           "pre-commit run *" = "allow";
         };
+        read = {
+          "/nix/store/*" = "allow";
+        };
         edit = "deny";
         write = "deny";
       };
@@ -103,6 +114,7 @@
       ''
       "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill."
       "RULE: Search for dependencies ONLY in the nix store if the project is built with nix."
+      "RULE: Always design Haskell for QUALIFIED IMPORT. See: ${qualified-import-post}."
       (builtins.readFile ./HASKELL_RULES.md)
     ];
     skills = let
