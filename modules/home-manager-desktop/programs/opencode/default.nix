@@ -11,6 +11,7 @@
   };
   qualified-import-post = "${mrcjkb-dev}/posts/2026-10-06-design-for-qualified-import.markdown";
 in {
+  programs.git.package = pkgs.callPackage ./git-gud {};
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
@@ -219,5 +220,5 @@ in {
       '';
     };
   };
-  xdg.configFile."opencode/plugins/reviewers.js".source = ./opencode-reviewers.js;
+  xdg.configFile."opencode/plugins/reviewers.js".source = ./reviewers.js;
 }
