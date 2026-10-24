@@ -31,6 +31,8 @@
         command = "serena";
         args = [
           "start-mcp-server"
+          "--agent-interface"
+          "repl"
           "--context"
           "ide"
           "--project"
