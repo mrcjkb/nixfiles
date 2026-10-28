@@ -216,6 +216,11 @@ in {
             deserialize(data) -> config
             load_config(raw)  -> deserialize(migrate(parse(raw)))   # orchestration only
 
+        Before reporting, apply the `ponytail-review` lens to every finding: keep
+        only splits that remove a real second responsibility or simplify the code
+        now. Drop speculative, future-proofing, or indirection-adding splits. If
+        nothing survives, reply `SRP OK.`
+
         For each changed unit with multiple concerns, report one line:
 
         `<file>:L<line>: <the distinct concerns>. <smallest split that separates them>.`

@@ -19,6 +19,7 @@ const REVIEWERS = [
 ];
 
 const PROMPT = "Review the current uncommitted changes. Run 'jj diff' or 'git diff'.";
+const REVIEW_KEY = "review-findings";
 const isMutator = (tool) => MUTATORS.has(tool) || [...MUTATORS].some((name) => tool.endsWith("_" + name));
 
 function lastAssistantText(messages) {
@@ -39,40 +40,44 @@ export default {
   id: "reviewers",
   async setup(ctx) {
     const dirty = new Set();
-    const reviewing = new Set();
+    const pending = new Set();
     const controller = new AbortController();
 
     await ctx.tool.hook("execute.after", (event) => {
       if (isMutator(event.tool)) dirty.add(event.sessionID);
     });
 
+    const runReviewer = async (sessionID, agent, description) => {
+      const child = await ctx.session.create({ title: description, parentID: sessionID });
+      await ctx.session.switchAgent({ sessionID: child.id, agent });
+      await ctx.session.prompt({ sessionID: child.id, text: PROMPT });
+      await ctx.session.wait({ sessionID: child.id });
+      return lastAssistantText(await ctx.session.context({ sessionID: child.id }));
+    };
+
     const review = async (sessionID) => {
       const session = await ctx.session.get({ sessionID });
       if (session.parentID) return;
-      if (reviewing.has(sessionID)) {
-        reviewing.delete(sessionID);
-        dirty.delete(sessionID);
-        return;
+      if (pending.has(sessionID)) {
+        pending.delete(sessionID);
+        await ctx.session.instructions.entry.remove({ sessionID, key: REVIEW_KEY });
       }
       if (!dirty.delete(sessionID)) return;
-      reviewing.add(sessionID);
       try {
         const reports = [];
         for (const [agent, description] of REVIEWERS) {
-          const child = await ctx.session.create({ title: description, parentID: sessionID });
-          await ctx.session.switchAgent({ sessionID: child.id, agent });
-          await ctx.session.prompt({ sessionID: child.id, text: PROMPT });
-          await ctx.session.wait({ sessionID: child.id });
-          const text = lastAssistantText(await ctx.session.context({ sessionID: child.id }));
+          const text = await runReviewer(sessionID, agent, description);
           if (text) reports.push("## " + agent + "\n" + text);
         }
         if (reports.length > 0) {
-          await ctx.session.prompt({ sessionID, text: reports.join("\n\n") });
-        } else {
-          reviewing.delete(sessionID);
+          await ctx.session.instructions.entry.put({
+            sessionID,
+            key: REVIEW_KEY,
+            value: reports.join("\n\n"),
+          });
+          pending.add(sessionID);
         }
       } catch (error) {
-        reviewing.delete(sessionID);
         console.error("[reviewers] " + String(error));
       }
     };
