@@ -91,9 +91,8 @@ in {
         edit = "deny";
         write = "deny";
       };
-      plugin = [
+      plugins = [
         "@dietrichgebert/ponytail"
-        "caveman-opencode-plugin"
       ];
     };
     context = lib.concatStringsSep "\n\n" [
@@ -155,8 +154,10 @@ in {
         description: Reviews a code change against the context rules.
         mode: subagent
         temperature: 0.1
-        permission:
-          task: deny
+        permissions:
+          - action: subagent
+            resource: "*"
+            effect: deny
         ---
 
         Review uncommitted changes against every RULE in the system context:
@@ -171,8 +172,10 @@ in {
         description: Reviews a code change for over-engineering.
         mode: subagent
         temperature: 0.1
-        permission:
-          task: deny
+        permissions:
+          - action: subagent
+            resource: "*"
+            effect: deny
         ---
 
         Activate the `ponytail-review` skill and follow its format exactly.
@@ -186,8 +189,10 @@ in {
         description: Reviews a code change for Single Responsibility Principle violations.
         mode: subagent
         temperature: 0.1
-        permission:
-          task: deny
+        permissions:
+          - action: subagent
+            resource: "*"
+            effect: deny
         ---
 
         Review uncommitted changes for Single Responsibility Principle violations only.

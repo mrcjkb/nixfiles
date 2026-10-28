@@ -18,46 +18,77 @@ const REVIEWERS = [
   ["srp-reviewer", "SRP review"],
 ];
 
-const PROMPT = "Review the current uncommitted changes. Run `jj diff` or `git diff`.";
+const PROMPT = "Review the current uncommitted changes. Run 'jj diff' or 'git diff'.";
+const isMutator = (tool) => MUTATORS.has(tool) || [...MUTATORS].some((name) => tool.endsWith("_" + name));
 
-export const Reviewers = async ({ client }) => {
-  const dirty = new Set();
-  const children = new Set();
-  const reviewing = new Set();
-  const log = (level, message) =>
-    client.app.log({ body: { service: "reviewers", level, message } }).catch(() => ({}));
+function lastAssistantText(messages) {
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const message = messages[i];
+    if (message.type !== "assistant") continue;
+    const text = (message.content ?? [])
+      .filter((part) => part.type === "text")
+      .map((part) => part.text)
+      .join("\n")
+      .trim();
+    if (text) return text;
+  }
+  return "";
+}
 
-  return {
-    "tool.execute.after": async (input) => {
-      if (MUTATORS.has(input.tool)) dirty.add(input.sessionID);
-    },
-    event: async ({ event }) => {
-      if (event.type === "session.created") {
-        if (event.properties.info.parentID) children.add(event.properties.info.id);
+export default {
+  id: "reviewers",
+  async setup(ctx) {
+    const dirty = new Set();
+    const reviewing = new Set();
+    const controller = new AbortController();
+
+    await ctx.tool.hook("execute.after", (event) => {
+      if (isMutator(event.tool)) dirty.add(event.sessionID);
+    });
+
+    const review = async (sessionID) => {
+      const session = await ctx.session.get({ sessionID });
+      if (session.parentID) return;
+      if (reviewing.has(sessionID)) {
+        reviewing.delete(sessionID);
+        dirty.delete(sessionID);
         return;
       }
-      if (event.type !== "session.idle") return;
-      const id = event.properties.sessionID;
-      if (children.has(id)) return;
-      if (reviewing.has(id)) {
-        reviewing.delete(id);
-        dirty.delete(id);
-        return;
-      }
-      if (!dirty.delete(id)) return;
+      if (!dirty.delete(sessionID)) return;
+      reviewing.add(sessionID);
       try {
-        const parts = REVIEWERS.map(([agent, description]) => ({
-          type: "subtask",
-          agent,
-          description,
-          prompt: PROMPT,
-        }));
-        await client.session.promptAsync({ path: { id }, body: { parts } });
-        reviewing.add(id);
-      } catch (e) {
-        await log("error", String(e));
+        const reports = [];
+        for (const [agent, description] of REVIEWERS) {
+          const child = await ctx.session.create({ title: description, parentID: sessionID });
+          await ctx.session.switchAgent({ sessionID: child.id, agent });
+          await ctx.session.prompt({ sessionID: child.id, text: PROMPT });
+          await ctx.session.wait({ sessionID: child.id });
+          const text = lastAssistantText(await ctx.session.context({ sessionID: child.id }));
+          if (text) reports.push("## " + agent + "\n" + text);
+        }
+        if (reports.length > 0) {
+          await ctx.session.prompt({ sessionID, text: reports.join("\n\n") });
+        } else {
+          reviewing.delete(sessionID);
+        }
+      } catch (error) {
+        reviewing.delete(sessionID);
+        console.error("[reviewers] " + String(error));
       }
-    },
-  };
+    };
+
+    void (async () => {
+      try {
+        for await (const event of ctx.event.subscribe({ types: ["session.idle"], signal: controller.signal })) {
+          const sessionID = event.data?.sessionID ?? event.sessionID;
+          if (sessionID) await review(sessionID);
+        }
+      } catch (error) {
+        if (!controller.signal.aborted) console.error("[reviewers] " + String(error));
+      }
+    })();
+
+    return () => controller.abort();
+  },
 };
 
