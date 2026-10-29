@@ -37,6 +37,10 @@
           "ide"
           "--project"
           "."
+          "--enable-web-dashboard"
+          "false"
+          "--open-web-dashboard"
+          "false"
         ];
       };
     };
