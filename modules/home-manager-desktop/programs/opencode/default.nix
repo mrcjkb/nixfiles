@@ -15,6 +15,17 @@ in {
   programs.opencode = {
     enable = true;
     enableMcpIntegration = true;
+    # https://github.com/NixOS/nixpkgs/pull/582675
+    package = pkgs.opencode.overrideAttrs (old: {
+      node_modules = old.node_modules.overrideAttrs (_: {
+        outputHash =
+          if pkgs.stdenv.hostPlatform.isLinux
+          then "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA="
+          else if pkgs.stdenv.hostPlatform.isDarwin
+          then "sha256-dIveiaiPFGSItwLyeMuPDxTE9gpvvnlTCB/+nG24qCc="
+          else throw "opencode: unsupported platform";
+      });
+    });
     settings = {
       lsp = true;
       permission = {
