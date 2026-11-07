@@ -20,7 +20,17 @@ const REVIEWERS = [
 
 const PROMPT = "Review the current uncommitted changes. Run 'jj diff' or 'git diff'.";
 const REVIEW_KEY = "review-findings";
-const isMutator = (tool) => MUTATORS.has(tool) || [...MUTATORS].some((name) => tool.endsWith("_" + name));
+const EDIT_HINTS =
+  /\bs\.edit\s*\.|replace_content|replace_symbol_body|insert_after_symbol|insert_before_symbol|replace_in_files|rename_symbol|safe_delete_symbol/;
+const isMutator = (tool, input) => {
+  if (MUTATORS.has(tool)) return true;
+  if ([...MUTATORS].some((name) => tool.endsWith("_" + name))) return true;
+  if (tool.endsWith("serena_repl")) {
+    const code = typeof input?.code === "string" ? input.code : "";
+    return EDIT_HINTS.test(code);
+  }
+  return false;
+};
 
 function lastAssistantText(messages) {
   for (let i = messages.length - 1; i >= 0; i--) {
@@ -44,7 +54,7 @@ export default {
     const controller = new AbortController();
 
     await ctx.tool.hook("execute.after", (event) => {
-      if (isMutator(event.tool)) dirty.add(event.sessionID);
+      if (isMutator(event.tool, event.input)) dirty.add(event.sessionID);
     });
 
     const runReviewer = async (sessionID, agent, description) => {
