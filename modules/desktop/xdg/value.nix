@@ -1,5 +1,5 @@
 let
-  browser = "brave";
+  browser = "zen";
 in {
   mime = {
     defaultApplications = {
