@@ -41,7 +41,7 @@
 
   environment.systemPackages = with pkgs; [
     framework-tool
-    framework-tool-tui
+    # framework-tool-tui
     fw-ectool
   ];
 
