@@ -62,7 +62,8 @@
             | if ($in | default [] | any {|| $in.display | str starts-with "ERR"}) { null } else { $in }
           }
           # This completer will use carapace by default
-          let external_completer = {|spans|
+          let external_completer = {|place|
+            let spans = if ($place | describe) =~ "record" { $place.command } else { $place }
             let expanded_alias = scope aliases
             | where name == $spans.0
             | get -o 0.expansion
