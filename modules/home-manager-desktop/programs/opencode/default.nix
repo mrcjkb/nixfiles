@@ -130,6 +130,7 @@ in {
         violation.
       "
       "RULE: Before designing or writing any Haskell module, READ ${qualified-import-post} and apply its pattern."
+      "RULE: /tmp is tmpfs. Avoid deleting files and directories in /tmp with `rm`."
       (builtins.readFile ./HASKELL_RULES.md)
     ];
     skills = let
