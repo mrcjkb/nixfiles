@@ -46,14 +46,36 @@ export default {
   id: "reviewers",
   async setup(ctx) {
     const dirty = new Set();
+    const disabled = new Set();
     const controller = new AbortController();
 
     await ctx.tool.hook("execute.after", (event) => {
       if (isMutator(event.tool, event.input)) dirty.add(event.sessionID);
     });
 
+    const say = (sessionID, text) =>
+      ctx.session
+        .synthetic({ sessionID, text, description: "reviewers", resume: false })
+        .catch((error) => console.error("[reviewers] " + String(error)));
+
+    await ctx.command.transform((editor) => {
+      editor.add({
+        name: "reviewers",
+        description: "enable or disable reviewers for this session",
+        async execute(input) {
+          const arg = input.prompt.text.trim().toLowerCase();
+          const wanted = { on: true, off: false }[arg];
+          const next = wanted ?? disabled.has(input.sessionID);
+          if (next) disabled.delete(input.sessionID);
+          else disabled.add(input.sessionID);
+          await say(input.sessionID, "Reviewers " + (next ? "on" : "off") + " for this session.");
+        },
+      });
+    });
+
     const review = async (sessionID) => {
       if (!dirty.delete(sessionID)) return;
+      if (disabled.has(sessionID)) return;
       const session = await ctx.session.get({ sessionID });
       if (session.parentID) return;
       if (session.location?.directory !== ctx.location?.directory) return;
