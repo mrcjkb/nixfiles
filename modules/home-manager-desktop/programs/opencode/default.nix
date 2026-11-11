@@ -131,6 +131,11 @@ in {
       "
       "RULE: Before designing or writing any Haskell module, READ ${qualified-import-post} and apply its pattern."
       "RULE: /tmp is tmpfs. Avoid deleting files and directories in /tmp with `rm`."
+      ''
+        RULE: After review findings arrive, do NOT implement changes.
+        Present the planned change and ask the user for confirmation.
+        Wait for the answer before editing.
+      ''
       (builtins.readFile ./HASKELL_RULES.md)
     ];
     skills = let

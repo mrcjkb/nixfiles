@@ -19,7 +19,6 @@ const REVIEWERS = [
 ];
 
 const PROMPT = "Review the current uncommitted changes. Run 'jj diff' or 'git diff'.";
-const REVIEW_KEY = "review-findings";
 const EDIT_HINTS =
   /\bs\.edit\s*\.|replace_content|replace_symbol_body|insert_after_symbol|insert_before_symbol|replace_in_files|rename_symbol|safe_delete_symbol/;
 const isMutator = (tool, input) => {
@@ -32,70 +31,42 @@ const isMutator = (tool, input) => {
   return false;
 };
 
-function lastAssistantText(messages) {
-  for (let i = messages.length - 1; i >= 0; i--) {
-    const message = messages[i];
-    if (message.type !== "assistant") continue;
-    const text = (message.content ?? [])
-      .filter((part) => part.type === "text")
-      .map((part) => part.text)
-      .join("\n")
-      .trim();
-    if (text) return text;
-  }
-  return "";
-}
+const reviewers = REVIEWERS.map(
+  ([agent, description]) => "- agent `" + agent + "`, description `" + description + "`",
+).join("\n");
+
+const KICKOFF = [
+  "The change is ready for review.",
+  "Call the `subagent` tool " + REVIEWERS.length + " times in ONE message (foreground):",
+  reviewers,
+  "Prompt each with: " + PROMPT,
+].join("\n");
 
 export default {
   id: "reviewers",
   async setup(ctx) {
     const dirty = new Set();
-    const pending = new Set();
     const controller = new AbortController();
 
     await ctx.tool.hook("execute.after", (event) => {
       if (isMutator(event.tool, event.input)) dirty.add(event.sessionID);
     });
 
-    const runReviewer = async (sessionID, agent, description) => {
-      const child = await ctx.session.create({ title: description, parentID: sessionID });
-      await ctx.session.switchAgent({ sessionID: child.id, agent });
-      await ctx.session.prompt({ sessionID: child.id, text: PROMPT });
-      await ctx.session.wait({ sessionID: child.id });
-      return lastAssistantText(await ctx.session.context({ sessionID: child.id }));
-    };
-
     const review = async (sessionID) => {
+      if (!dirty.delete(sessionID)) return;
       const session = await ctx.session.get({ sessionID });
       if (session.parentID) return;
-      if (pending.has(sessionID)) {
-        pending.delete(sessionID);
-        await ctx.session.instructions.entry.remove({ sessionID, key: REVIEW_KEY });
-      }
-      if (!dirty.delete(sessionID)) return;
-      try {
-        const reports = [];
-        for (const [agent, description] of REVIEWERS) {
-          const text = await runReviewer(sessionID, agent, description);
-          if (text) reports.push("## " + agent + "\n" + text);
-        }
-        if (reports.length > 0) {
-          await ctx.session.instructions.entry.put({
-            sessionID,
-            key: REVIEW_KEY,
-            value: reports.join("\n\n"),
-          });
-          pending.add(sessionID);
-        }
-      } catch (error) {
-        console.error("[reviewers] " + String(error));
-      }
+      if (session.location?.directory !== ctx.location?.directory) return;
+      await ctx.session
+        .synthetic({ sessionID, text: KICKOFF, description: "review request" })
+        .catch((error) => console.error("[reviewers] " + String(error)));
     };
 
     void (async () => {
       try {
         for await (const event of ctx.event.subscribe({ signal: controller.signal })) {
-          if (event.type !== "session.idle" && event.type !== "session.execution.succeeded") continue;
+          const type = event.type;
+          if (type !== "session.idle" && type !== "session.execution.succeeded") continue;
           const sessionID = event.data?.sessionID ?? event.sessionID;
           if (sessionID) await review(sessionID);
         }
