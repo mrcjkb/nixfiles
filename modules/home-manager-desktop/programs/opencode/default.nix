@@ -104,6 +104,7 @@ in {
       };
       plugins = [
         "@dietrichgebert/ponytail"
+        "${./reviewers}"
       ];
     };
     context = lib.concatStringsSep "\n\n" [
@@ -177,8 +178,10 @@ in {
             effect: deny
         ---
 
-        Review uncommitted changes against every RULE in the system context:
+        Review only the output of `jj diff` (or `git diff`) against every RULE in the
+        system context:
         NO_CODE_COMMENTS, HASKELL_RULES (if applicable).
+        Do not open or search other files.
 
         One line per violation: `<rule>: <file>:L<line>: <violation>. <fix>.`
         If none, reply `Rules OK.` Do not edit files.
@@ -197,7 +200,8 @@ in {
 
         Activate the `ponytail-review` skill and follow its format exactly.
 
-        Review the current uncommitted change (`jj diff` or `git diff`).
+        Review only the output of `jj diff` (or `git diff`). Do not open or search
+        other files; if a finding needs context you do not have, skip it.
         Over-engineering and complexity only. Make no edits.
       '';
 
@@ -212,7 +216,8 @@ in {
             effect: deny
         ---
 
-        Review uncommitted changes for Single Responsibility Principle violations only.
+        Review only the output of `jj diff` (or `git diff`) for Single Responsibility
+        Principle violations only. Do not open or search other files.
 
         A function should do one thing, and a unit (function, class, module) should
         have exactly one reason to change. Two or more concerns in one unit is a
@@ -247,5 +252,4 @@ in {
       '';
     };
   };
-  xdg.configFile."opencode/plugins/reviewers.js".source = ./reviewers.js;
 }

@@ -1,3 +1,5 @@
+import { isDisabled } from "./flag.js";
+
 const MUTATORS = new Set([
   "edit",
   "write",
@@ -12,13 +14,6 @@ const MUTATORS = new Set([
   "serena_safe_delete_symbol",
 ]);
 
-const REVIEWERS = [
-  ["rules-reviewer", "rules review"],
-  ["ponytail-reviewer", "over-engineering review"],
-  ["srp-reviewer", "SRP review"],
-];
-
-const PROMPT = "Review the current uncommitted changes. Run 'jj diff' or 'git diff'.";
 const EDIT_HINTS =
   /\bs\.edit\s*\.|replace_content|replace_symbol_body|insert_after_symbol|insert_before_symbol|replace_in_files|rename_symbol|safe_delete_symbol/;
 const isMutator = (tool, input) => {
@@ -31,54 +26,33 @@ const isMutator = (tool, input) => {
   return false;
 };
 
-const reviewers = REVIEWERS.map(
-  ([agent, description]) => "- agent `" + agent + "`, description `" + description + "`",
-).join("\n");
-
-const KICKOFF = [
-  "The change is ready for review.",
-  "Call the `subagent` tool " + REVIEWERS.length + " times in ONE message (foreground):",
-  reviewers,
-  "Prompt each with: " + PROMPT,
-].join("\n");
+const KICKOFF = `The change is ready for review.
+Call the \`subagent\` tool 3 times in ONE message (foreground):
+- agent \`rules-reviewer\`, description \`rules review\`
+- agent \`ponytail-reviewer\`, description \`over-engineering review\`
+- agent \`srp-reviewer\`, description \`SRP review\`
+Prompt each with: Review the current uncommitted changes. Run 'jj diff' or 'git diff'.`;
 
 export default {
   id: "reviewers",
   async setup(ctx) {
     const dirty = new Set();
-    const disabled = new Set();
     const controller = new AbortController();
 
     await ctx.tool.hook("execute.after", (event) => {
       if (isMutator(event.tool, event.input)) dirty.add(event.sessionID);
     });
 
-    const say = (sessionID, text) =>
-      ctx.session
-        .synthetic({ sessionID, text, description: "reviewers", resume: false })
-        .catch((error) => console.error("[reviewers] " + String(error)));
-
-    await ctx.command.transform((editor) => {
-      editor.add({
-        name: "reviewers",
-        description: "enable or disable reviewers for this session",
-        async execute(input) {
-          const arg = input.prompt.text.trim().toLowerCase();
-          const wanted = { on: true, off: false }[arg];
-          const next = wanted ?? disabled.has(input.sessionID);
-          if (next) disabled.delete(input.sessionID);
-          else disabled.add(input.sessionID);
-          await say(input.sessionID, "Reviewers " + (next ? "on" : "off") + " for this session.");
-        },
-      });
-    });
+    const isReviewable = (session) => {
+      if (session.parentID) return false;
+      if (session.agent === "plan") return false;
+      return session.location?.directory === ctx.location?.directory;
+    };
 
     const review = async (sessionID) => {
-      if (!dirty.delete(sessionID)) return;
-      if (disabled.has(sessionID)) return;
+      if (isDisabled()) return;
       const session = await ctx.session.get({ sessionID });
-      if (session.parentID) return;
-      if (session.location?.directory !== ctx.location?.directory) return;
+      if (!isReviewable(session)) return;
       await ctx.session
         .synthetic({ sessionID, text: KICKOFF, description: "review request" })
         .catch((error) => console.error("[reviewers] " + String(error)));
@@ -90,7 +64,7 @@ export default {
           const type = event.type;
           if (type !== "session.idle" && type !== "session.execution.succeeded") continue;
           const sessionID = event.data?.sessionID ?? event.sessionID;
-          if (sessionID) await review(sessionID);
+          if (sessionID && dirty.delete(sessionID)) await review(sessionID);
         }
       } catch (error) {
         if (!controller.signal.aborted) console.error("[reviewers] " + String(error));
