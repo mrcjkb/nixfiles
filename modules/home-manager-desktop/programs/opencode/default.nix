@@ -199,6 +199,12 @@ in {
 
         Review the current uncommitted change (`jj diff` or `git diff`).
         Over-engineering and complexity only. Make no edits.
+
+        Work from the diff alone. Do not explore /nix/store, installed packages,
+        or unrelated files, and do not verify APIs the diff uses.
+        Use at most 3 tool calls, then reply.
+        At most 6 findings, one line each, in the skill's format. No prose.
+        If there is nothing to cut, reply "Lean already. Ship."
       '';
 
       srp-reviewer = ''
