@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('FileType', {
               return ']g'
             end
             vim.schedule(function()
-              gs.next_hunk()
+              gs.next_hunk { target = 'all' }
             end)
             return '<Ignore>'
           end, { expr = true, desc = '[g]it: next hunk' })
@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd('FileType', {
               return '[g'
             end
             vim.schedule(function()
-              gs.prev_hunk()
+              gs.prev_hunk { target = 'all' }
             end)
             return '<Ignore>'
           end, { expr = true, desc = '[g]it: previous hunk' })
