@@ -113,6 +113,13 @@ in {
       ''
       "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill."
       "RULE: Search for dependencies ONLY in the nix store if the project is built with nix."
+      ''RULE: Prefer pure tests over effectful/IO tests.
+        Prefer property tests over unit tests or example tests.
+        Tests should validate behaviour & properties, not specification.
+        A test that reimplements business logic is BAD.
+        A test that only validates specification is USELESS.
+        If you do need to test in IO, check if a lockstep test (e.g. using quickcheck-lockstep) is suitable.
+      ''
       "RULE: Apply the Single Responsibility Principle:
         A function should do one thing, and a unit (function, class, module) should
         have exactly one reason to change. Two or more concerns in one unit is a
