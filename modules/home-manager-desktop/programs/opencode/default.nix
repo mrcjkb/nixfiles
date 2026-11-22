@@ -118,6 +118,7 @@ in {
         have exactly one reason to change. Two or more concerns in one unit is a
         violation.
       "
+      "RULE: Avoid function names with suffixes like *Of, *At, ..."
       "RULE: Before designing or writing any Haskell module, READ ${qualified-import-post} and apply its pattern."
       "RULE: /tmp is tmpfs. Avoid deleting files and directories in /tmp with `rm`."
       ''
