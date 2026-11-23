@@ -3,12 +3,10 @@
 module Xmobar.Config (mkConfig) where
 
 import Xmobar
-import Xmobar.Plugin.Profile
 import Xmobar.Plugin.VolumeBar
 
 mkConfig :: IO Config
-mkConfig = do
-  (profileTemplate, profile) <- mkProfile
+mkConfig =
   pure $
     defaultConfig
       { -- appearance
@@ -25,7 +23,6 @@ mkConfig = do
       , alignSep = "}{" -- separator between left-right alignment
       , template =
           " <fc=#89b4fa>\62227</fc> \57533 <fc=#cba6f7>\59255</fc> \57533 %XMonadLog% \57533 }{ %battery%"
-            <> profileTemplate
             <> "\57533 %date% \57533 %volbar% \57533 %memory% \57533 %dynnetwork% \57533 %LSZH% "
       , -- , template =
         --     " \62227 \57533 \59255 \57533 %XMonadLog% \57533 }{ %battery%"
@@ -123,7 +120,6 @@ mkConfig = do
                 , "<fc=" <> okColour <> ">\983161</fc>"
                 ]
                 50
-          , Run profile
           , -- time and date indicator
             --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
             Run $ Date "<fc=#cdd6f4>%F (%a) %T</fc>" "date" 10
