@@ -113,7 +113,8 @@ in {
       ''
       "RULE: Before writing ANY code, ALWAYS activate the `ponytail` skill."
       "RULE: Search for dependencies ONLY in the nix store if the project is built with nix."
-      ''RULE: Prefer pure tests over effectful/IO tests.
+      ''
+        RULE: Prefer pure tests over effectful/IO tests.
         Prefer property tests over unit tests or example tests.
         Tests should validate behaviour & properties, not specification.
         A test that reimplements business logic is BAD.
