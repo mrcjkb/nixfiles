@@ -14,6 +14,11 @@ in {
   programs.git.package = pkgs.callPackage ./git-gud {};
   programs.opencode = {
     enable = true;
+    cli.theme = {
+      name = "stylix";
+      mode = "system";
+    };
+    tui = lib.mkForce {};
     enableMcpIntegration = true;
     settings = {
       lsp = true;

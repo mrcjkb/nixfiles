@@ -11,6 +11,7 @@
       ;
   in {
     enable = true;
+    loadSessionVariables = true;
 
     envFile = {
       text =
