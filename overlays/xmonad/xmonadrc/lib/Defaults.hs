@@ -49,4 +49,4 @@ myBrowser :: String
 myBrowser = "zen"
 
 myFileManager :: String
-myFileManager = "alacritty -e ranger"
+myFileManager = "alacritty -e yazi"

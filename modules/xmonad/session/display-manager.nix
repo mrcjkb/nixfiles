@@ -1,3 +1,3 @@
-{...}: {
-  services.displayManager.defaultSession = "none+xmonad";
+{lib, ...}: {
+  services.displayManager.defaultSession = lib.mkDefault "none+xmonad";
 }

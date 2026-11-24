@@ -15,17 +15,19 @@
         alejandra = {
           enable = true;
           excludes = [
+            "overlays/river-rhine/rhinebar-config/default.nix"
+            "overlays/river-rhine/river-rhine-config/default.nix"
             "overlays/xmonad/xmobar-app/default.nix"
             "overlays/xmonad/xmonadrc/default.nix"
           ];
         };
         cabal2nix = {
           enable = true;
-          files = "^overlays/xmonad/.*\\.cabal$";
+          files = "^overlays/(river-rhine|xmonad)/.*\\.cabal$";
         };
         editorconfig-checker = {
           enable = true;
-          files = "^overlays/xmonad/";
+          files = "^overlays/(river-rhine|xmonad)/";
         };
         markdownlint = {
           enable = true;
@@ -33,11 +35,11 @@
         };
         fourmolu = {
           enable = true;
-          files = "^overlays/xmonad/.*\\.hs$";
+          files = "^overlays/(river-rhine|xmonad)/.*\\.hs$";
         };
         hlint = {
           enable = true;
-          files = "^overlays/xmonad/.*\\.hs$";
+          files = "^overlays/(river-rhine|xmonad)/.*\\.hs$";
         };
         stylua = {
           enable = true;
@@ -93,6 +95,8 @@
     legacyPackages = pkgs;
 
     packages = {
+      river-rhine-config = pkgs.river-rhine-config;
+      rhinebar-config = pkgs.rhinebar-config;
       xmonadrc = pkgs.haskellPackages.xmonadrc;
       xmobar-app = pkgs.haskellPackages.xmobar-app;
       nvim = pkgs.nvim-pkg;

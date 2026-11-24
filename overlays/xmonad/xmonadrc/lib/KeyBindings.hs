@@ -24,7 +24,6 @@ myKeys conf@(XConfig{XMonad.modMask = modm}) =
   M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), safeSpawn (XMonad.terminal conf) [])
-    , ((modm .|. shiftMask, xK_w), safeSpawn "wezterm start tmux" [])
     , ((modm .|. shiftMask, xK_a), safeSpawn "alacritty -e tmux" [])
     , -- launch nautilus
       ((modm .|. shiftMask, xK_n), safeSpawn myFileManager [])

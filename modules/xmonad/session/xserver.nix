@@ -1,4 +1,6 @@
 {lib, ...}: {
+  services.picom.enable = true;
+
   services.xserver = {
     displayManager.startx.enable = true;
     windowManager.xmonad = {

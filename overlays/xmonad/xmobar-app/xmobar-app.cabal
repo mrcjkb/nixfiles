@@ -12,7 +12,6 @@ library xmobar-lib
     Xmobar.Config
   other-modules:
     Xmobar.Plugin.VolumeBar
-    Xmobar.Plugin.Profile
   hs-source-dirs: lib
   ghc-options: -Wall -Werror -with-rtsopts=-V0 -threaded
   build-depends: base >= 4.7

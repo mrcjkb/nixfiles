@@ -42,7 +42,6 @@
       webp-pixbuf-loader
       chrysalis # keyboardio GUI configurator
 
-      ranger # TUI file browser
       alacritty
       ghostty
       pavucontrol # PulseAudio volume control UI

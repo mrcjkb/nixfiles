@@ -36,3 +36,17 @@ My XMonad config (Haskell: `xmonadrc` and `xmobar-app`) lives in
 ```sh
 nix run .#xmobar-app
 ```
+
+## River-rhine / Rhinebar
+
+My River-rhine config (Haskell: `river-rhine-config` and `rhinebar-config`) lives in
+[`overlays/river-rhine`](./overlays/river-rhine), with the NixOS module in
+[`modules/river-rhine`](./modules/river-rhine). Both configs are built by Nix, so the
+window manager needs no runtime recompile step. They can be built with:
+
+```sh
+nix build .#river-rhine-config .#rhinebar-config
+```
+
+The display manager lists both `river-rhine` and `xmonad`. `river-rhine` is the default
+session.

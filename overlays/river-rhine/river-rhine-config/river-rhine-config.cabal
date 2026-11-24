@@ -1,0 +1,73 @@
+cabal-version: 3.0
+name: river-rhine-config
+version: 0.0.0
+synopsis: River-rhine configuration
+description: The river-rhine window manager configuration for this system.
+license: MIT
+author: Marc Jakobi
+maintainer: Marc Jakobi <marc@jakobi.dev>
+category: Graphics
+build-type: Simple
+
+common common
+  default-language: GHC2021
+  ghc-options:
+    -Weverything
+    -Wno-all-missed-specialisations
+    -Wno-missing-export-lists
+    -Wno-missing-import-lists
+    -Wno-missing-kind-signatures
+    -Wno-missing-role-annotations
+    -Wno-missing-safe-haskell-mode
+    -Wno-unsafe
+
+  default-extensions:
+    ApplicativeDo
+    BlockArguments
+    ConstraintKinds
+    DataKinds
+    DefaultSignatures
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    ExplicitNamespaces
+    FlexibleContexts
+    FlexibleInstances
+    GeneralisedNewtypeDeriving
+    ImportQualifiedPost
+    InstanceSigs
+    LambdaCase
+    MultiParamTypeClasses
+    NamedFieldPuns
+    NoImplicitPrelude
+    NumericUnderscores
+    OverloadedLabels
+    OverloadedRecordDot
+    OverloadedStrings
+    RecordWildCards
+    RecursiveDo
+    ScopedTypeVariables
+    TupleSections
+    TypeApplications
+    TypeFamilies
+    TypeOperators
+    ViewPatterns
+
+executable river-rhine-config
+  import: common
+  hs-source-dirs: app
+  main-is: Main.hs
+  other-modules:
+    KeyBindings
+
+  ghc-options:
+    -threaded
+    -rtsopts
+    -with-rtsopts=-V0
+
+  build-depends:
+    base >=4.16 && <5,
+    data-default >=0.8 && <0.9,
+    river-rhine,
+    text >=2.1 && <2.2,

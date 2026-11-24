@@ -10,6 +10,7 @@
       config.nixos.modules.desktop-system
       config.nixos.modules.home-manager-desktop
       inputs.nix-monitored.nixosModules.default
+      config.nixos.modules.river-rhine
       config.nixos.modules.xmonad
       inputs.stylix.nixosModules.stylix
       inputs.nixos-generators.nixosModules.all-formats

@@ -34,6 +34,10 @@
       url = "github:NorfairKing/feedback";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    river-rhine = {
+      url = "git+https://tangled.org/mrcjkb.tngl.sh/river-rhine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     atuin = {
       url = "github:atuinsh/atuin";
       inputs.nixpkgs.follows = "nixpkgs";
