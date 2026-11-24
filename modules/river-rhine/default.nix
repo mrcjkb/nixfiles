@@ -42,7 +42,11 @@
         enable = true;
         haskellPackages = pkgs.river-rhine-haskellPackages;
         package = pkgs.river-rhine-config;
-        session.extraPackages = with pkgs; [grim slurp satty wtype];
+        session.extraCommands = ''
+          export GTK_CSD=0
+          export XKB_DEFAULT_OPTIONS=caps:escape
+        '';
+        session.extraPackages = with pkgs; [grim slurp satty wtype wlr-randr wdisplays];
       };
       rhinebar = {
         enable = true;

@@ -69,5 +69,6 @@ executable river-rhine-config
   build-depends:
     base >=4.16 && <5,
     data-default >=0.8 && <0.9,
+    process >=1.6 && <1.7,
     river-rhine,
     text >=2.1 && <2.2,

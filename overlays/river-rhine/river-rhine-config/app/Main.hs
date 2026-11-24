@@ -1,5 +1,6 @@
 module Main where
 
+import Control.Monad (void)
 import Data.Default (def)
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
@@ -11,7 +12,9 @@ import River.Rhine.Config (Config (..), FloatRule (..))
 import River.Rhine.Help qualified as Help
 import River.Rhine.Layout qualified as Layout
 import River.Rhine.Layout.Transform qualified as Transform
+import River.Rhine.Libinput qualified as Libinput
 import River.Rhine.Policy qualified as Policy
+import System.Process (spawnCommand)
 import Prelude
 
 main :: IO ()
@@ -31,6 +34,12 @@ config =
     , floatingApps = [FloatRule "regisseur" $ Just pickerPlacement]
     , ppLayout = ppLayoutOverride
     , helpViewer = Just $ Help.pipe "regisseur --mode help"
+    , libinput =
+        Libinput.defaultSettings
+          { Libinput.tap = Just True
+          , Libinput.tapButtonMap = Just Libinput.TapLeftRightMiddle
+          }
+    , startup = void $ spawnCommand "nextcloud-wrapper"
     , layouts = Layout.tall :| extraLayouts
     }
   where

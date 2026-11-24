@@ -16,6 +16,8 @@ table config = Config.defaultBindings config <> custom
     custom =
       [ withDescription "Launch a program" $
           Super <+> Keybinding.kO --> [Spawn "regisseur --mode drun"]
+      , withDescription "Reload the bar" $
+          Super <+> Keybinding.kQ --> [Spawn reloadBar]
       , withDescription "Run a command" $
           Super <+> Shift <+> Keybinding.kO --> [Spawn "regisseur --mode run"]
       , withDescription "Power menu" $
@@ -75,6 +77,10 @@ table config = Config.defaultBindings config <> custom
       , withDescription "Lock the session" $
           Super <+> Shift <+> Keybinding.kL --> [Spawn "systemctl start concierge-$(id -un).service"]
       ]
+
+    reloadBar :: String
+    reloadBar =
+      "pkill -x rhinebar-config; setsid rhinebar-config >/tmp/rhinebar.log 2>&1 </dev/null &"
 
     pasteSelection :: String
     pasteSelection =
