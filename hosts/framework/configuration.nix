@@ -34,6 +34,8 @@
   };
 
   home-manager = {
+    backupFileExtension = "bak";
+
     users.mrcjk = {
       home.stateVersion = "26.05";
     };
