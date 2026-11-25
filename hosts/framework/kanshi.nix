@@ -1,18 +1,4 @@
-{
-  defaultUser,
-  lib,
-  ...
-}: let
-  dockedPorts = ["DP-5" "DP-6" "DP-7" "DP-8"];
-
-  dockedProfile = port: ''
-    profile docked-${port} {
-        output "${port}" mode "5120x2160" position 0,0
-        output "eDP-1" mode "2560x1600" position 0,2160
-    }
-
-  '';
-in {
+{defaultUser, ...}: {
   home-manager.users."${defaultUser}" = {
     services.kanshi.enable = true;
 
@@ -21,7 +7,12 @@ in {
           output "eDP-1" mode "2560x1600" position 0,0
       }
 
-      ${lib.concatMapStrings dockedProfile dockedPorts}profile docked-other {
+      profile docked {
+          output "Dell Inc. DELL U4021QW *" mode "5120x2160@60" position 0,0
+          output "eDP-1" mode "2560x1600" position 0,2160
+      }
+
+      profile docked-other {
           output "eDP-1" mode "2560x1600" position 0,2160
           output "*" mode preferred position 0,0
       }

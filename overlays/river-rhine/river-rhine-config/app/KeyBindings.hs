@@ -16,8 +16,8 @@ table config = Config.defaultBindings config <> custom
     custom =
       [ withDescription "Launch a program" $
           Super <+> Keybinding.kO --> [Spawn "regisseur --mode drun"]
-      , withDescription "Reload the bar" $
-          Super <+> Keybinding.kQ --> [Spawn reloadBar]
+      , withDescription "Reload the outputs and the bar" $
+          Super <+> Keybinding.kQ --> [Spawn reloadOutputs, Spawn reloadBar]
       , withDescription "Run a command" $
           Super <+> Shift <+> Keybinding.kO --> [Spawn "regisseur --mode run"]
       , withDescription "Power menu" $
@@ -77,6 +77,9 @@ table config = Config.defaultBindings config <> custom
       , withDescription "Lock the session" $
           Super <+> Shift <+> Keybinding.kL --> [Spawn "systemctl start concierge-$(id -un).service"]
       ]
+
+    reloadOutputs :: String
+    reloadOutputs = "kanshictl reload >/tmp/kanshictl.log 2>&1"
 
     reloadBar :: String
     reloadBar =

@@ -3244,11 +3244,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795565943,
-        "narHash": "sha256-ksi9/wZ40EwVgWAiEKiBM7NmENcSb1meaIAyQMleay0=",
+        "lastModified": 1795598981,
+        "narHash": "sha256-q3Q7NVe3OXQr2JgGCEbzxhZZ5zGA+90fJN1n4q4t0ZY=",
         "ref": "refs/heads/main",
-        "rev": "acf6c03d22c08c37785acd449737bfaa817a8d40",
-        "revCount": 129,
+        "rev": "5b6a28daa304d696f2a7d174f997f2aa858274e3",
+        "revCount": 132,
         "type": "git",
         "url": "https://tangled.org/mrcjkb.tngl.sh/river-rhine"
       },
