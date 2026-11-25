@@ -31,7 +31,7 @@ config =
     , theme = barTheme
     }
 
-mainBar :: (Source :> es) => MainBar es
+mainBar :: (Source :> es, IOE :> es) => MainBar es
 mainBar =
   MainBar
     { leading =
@@ -39,7 +39,8 @@ mainBar =
         , segment "\59255" Accent
         ]
     , separator = " \57533 "
-    , tabSeparator = " | "
+    , tabSeparator = " \57533 "
+    , tabLayouts = ["Full", "Scroll"]
     , tabMinWidth = Nothing
     , title = TitleAndTabs
     , indicators =

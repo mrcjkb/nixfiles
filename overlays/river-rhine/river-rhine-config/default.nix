@@ -1,4 +1,5 @@
-{ mkDerivation, base, data-default, lib, process, river-rhine, text
+{ mkDerivation, base, containers, data-default, lib, process
+, river-rhine, text, unix
 }:
 mkDerivation {
   pname = "river-rhine-config";
@@ -7,7 +8,7 @@ mkDerivation {
   isLibrary = false;
   isExecutable = true;
   executableHaskellDepends = [
-    base data-default process river-rhine text
+    base containers data-default process river-rhine text unix
   ];
   description = "River-rhine configuration";
   license = lib.meta.getLicenseFromSpdxId "MIT";

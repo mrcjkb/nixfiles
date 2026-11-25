@@ -1,34 +1,38 @@
-let
-  browser = "zen";
+{pkgs, ...}: let
+  handler = "focus-browser.desktop";
+  mimes = [
+    "text/html"
+    "x-scheme-handler/http"
+    "x-scheme-handler/https"
+    "x-scheme-handler/about"
+    "x-scheme-handler/unknown"
+    "x-scheme-handler/mailto"
+    "x-scheme-handler/chrome"
+    "application/x-extension-htm"
+    "application/x-extension-html"
+    "application/x-extension-shtml"
+    "application/xhtml+xml"
+    "application/x-extension-xhtml"
+    "application/x-extension-xht"
+  ];
+  focusBrowser =
+    pkgs.writers.writePython3 "focus-browser" {}
+    (builtins.readFile ./focus-browser.py);
 in {
-  mime = {
-    defaultApplications = {
-      "text/html" = "${browser}.desktop";
-      "x-scheme-handler/http" = "${browser}.desktop";
-      "x-scheme-handler/https" = "${browser}.desktop";
-      "x-scheme-handler/about" = "${browser}.desktop";
-      "x-scheme-handler/unknown" = "${browser}.desktop";
-      "x-scheme-handler/mailto" = "${browser}.desktop";
-      "x-scheme-handler/chrome" = "${browser}.desktop";
-      "application/x-extension-htm" = "${browser}.desktop";
-      "application/x-extension-html" = "${browser}.desktop";
-      "application/x-extension-shtml" = "${browser}.desktop";
-      "application/xhtml+xml" = "${browser}.desktop";
-      "application/x-extension-xhtml" = "${browser}.desktop";
-      "application/x-extension-xht" = "${browser}.desktop";
-    };
-    addedAssociations = {
-      "x-scheme-handler/http" = "${browser}.desktop;";
-      "x-scheme-handler/https" = "${browser}.desktop;";
-      "x-scheme-handler/chrome" = "${browser}.desktop;";
-      "text/html" = "${browser}.desktop;";
-      "application/x-extension-htm" = "${browser}.desktop;";
-      "application/x-extension-html" = "${browser}.desktop;";
-      "application/x-extension-shtml" = "${browser}.desktop;";
-      "application/xhtml+xml" = "${browser}.desktop;";
-      "application/x-extension-xhtml" = "${browser}.desktop;";
-      "application/x-extension-xht" = "${browser}.desktop;";
-      "application/octet-stream" = "neovide.desktop;";
-    };
+  xdg.mime = {
+    defaultApplications = pkgs.lib.genAttrs mimes (_: handler);
+    addedAssociations =
+      pkgs.lib.genAttrs mimes (_: "${handler};")
+      // {
+        "application/octet-stream" = "neovide.desktop;";
+      };
   };
+  environment.systemPackages = [
+    (pkgs.makeDesktopItem {
+      name = "focus-browser";
+      desktopName = "Focus Browser";
+      exec = "${focusBrowser} %U";
+      mimeTypes = mimes;
+    })
+  ];
 }

@@ -1,3 +1,1 @@
-{...}: {
-  xdg = import ./value.nix;
-}
+{pkgs, ...}: import ./value.nix {inherit pkgs;}

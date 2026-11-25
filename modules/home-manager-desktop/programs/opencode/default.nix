@@ -14,9 +14,19 @@ in {
   programs.git.package = pkgs.callPackage ./git-gud {};
   programs.opencode = {
     enable = true;
-    cli.theme = {
-      name = "stylix";
-      mode = "system";
+    cli = {
+      animations = true;
+      diffs.wrap = "word";
+      keybinds."prompt.paste" = ["ctrl+v" "ctrl+shift+v"];
+      session = {
+        sidebar = "auto";
+        scrollbar = false;
+        thinking = "hide";
+      };
+      theme = {
+        name = "stylix";
+        mode = "system";
+      };
     };
     tui = lib.mkForce {};
     enableMcpIntegration = true;

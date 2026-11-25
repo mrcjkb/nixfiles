@@ -37,6 +37,24 @@
   in {
     imports = [inputs.river-rhine.nixosModules.default];
 
+    environment.systemPackages = [
+      (pkgs.writeShellApplication {
+        name = "river-rhine-reload";
+        runtimeInputs = [
+          pkgs.procps
+          pkgs.socat
+          pkgs.util-linux
+          config.programs.rhinebar.package
+        ];
+        text = ''
+          socket="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/river-rhine/control.sock"
+          printf 'reload\n' | socat - UNIX-CONNECT:"$socket"
+          pkill -x rhinebar-config || true
+          setsid rhinebar-config >/tmp/rhinebar.log 2>&1 </dev/null &
+        '';
+      })
+    ];
+
     programs = {
       river-rhine = {
         enable = true;

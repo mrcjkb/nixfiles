@@ -1,6 +1,11 @@
 {lib, ...}: {
   services = {
-    pipewire.enable = lib.mkForce false; # Conflicts with pulseaudio
+    pipewire = {
+      enable = lib.mkDefault true;
+      audio.enable = lib.mkForce false;
+      pulse.enable = lib.mkForce false;
+      alsa.enable = lib.mkForce false;
+    };
     pulseaudio = {
       enable = lib.mkDefault true;
       extraConfig = "
