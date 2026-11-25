@@ -41,6 +41,10 @@
         backend = "watchman";
         watchman.register-snapshot-trigger = true;
       };
+      colors = {
+        "diff removed token" = {underline = false;};
+        "diff added token" = {underline = false;};
+      };
     };
   };
 }
