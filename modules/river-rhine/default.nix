@@ -48,7 +48,9 @@
         ];
         text = ''
           socket="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/river-rhine/control.sock"
-          printf 'reload\n' | socat - UNIX-CONNECT:"$socket"
+          if [ "''${1:-}" != "--bar" ]; then
+            printf 'reload\n' | socat - UNIX-CONNECT:"$socket"
+          fi
           pkill -x rhinebar-config || true
           setsid rhinebar-config >/tmp/rhinebar.log 2>&1 </dev/null &
         '';

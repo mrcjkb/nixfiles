@@ -16,8 +16,10 @@ table config = Config.defaultBindings config <> custom
     custom =
       [ withDescription "Launch a program" $
           Super <+> Keybinding.kO --> [Spawn "regisseur --mode drun"]
-      , withDescription "Reload the window manager, outputs and bar" $
-          Super <+> Keybinding.kQ --> [Spawn reloadOutputs, Spawn "river-rhine-reload"]
+      , withDescription "Reload the outputs and the bar" $
+          Super <+> Keybinding.kQ --> [Spawn reloadOutputs, Spawn "river-rhine-reload --bar"]
+      , withDescription "Hot-swap the window manager and bar" $
+          Super <+> Control <+> Keybinding.kQ --> [Spawn "river-rhine-reload"]
       , withDescription "Run a command" $
           Super <+> Shift <+> Keybinding.kO --> [Spawn "regisseur --mode run"]
       , withDescription "Power menu" $

@@ -1,7 +1,7 @@
 module Main where
 
 import Control.Exception (IOException, displayException, try)
-import Control.Monad (void)
+import Control.Monad (unless, void)
 import Data.Default (def)
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Map.Strict qualified as Map
@@ -52,8 +52,10 @@ config =
           , Libinput.tapButtonMap = Just Libinput.TapLeftRightMiddle
           }
     , startup = do
-        void $ spawnCommand "nextcloud-wrapper"
-        void $ spawnCommand "stylix-wallpaper"
+        reloaded <- App.reloaded
+        unless reloaded do
+          void $ spawnCommand "nextcloud-wrapper"
+          void $ spawnCommand "stylix-wallpaper"
     , layouts = defaultLayouts
     , outputLayouts =
         Map.fromList
