@@ -12,7 +12,6 @@ in {
           stylix.targets = {
             mako.enable = false;
             kde.enable = false;
-            wayprompt.enable = false;
           };
         }
       ];
