@@ -7,6 +7,7 @@
     enableZshIntegration = true;
     clearDefaultKeybinds = true;
     settings = {
+      clipboard-read = "allow";
       # Since nushell is not a POSIX shell, it cannot execute global shell rcfiles.
       # Workaround: launch via zsh.
       command = "zsh -l -c 'exec nu'";
